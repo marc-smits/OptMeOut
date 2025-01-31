@@ -1,0 +1,40 @@
+{
+  "step1": {
+    "title": "Name and Address",
+    "properties": {
+      "name": { "title": "Full Name" },
+      "address": { "title": "Address" }
+    }
+  },
+  "step2": {
+    "title": "Optout Out",
+    "properties": {
+      "primaryUse": {
+        "title": "Primary use"
+      },
+      "secondaryUse": {
+        "title": "Secondary use"
+      }
+    }
+  },
+  "step3": {
+    "title": "GP Name",
+    "properties": {
+      "gpName": { "title": "Search GP Name", "enum": ["A GP", "Another GP"]}
+    }
+  },
+  "step4": {
+    "title": "Choose amount to pay",
+    "properties": {
+      "amount": {
+        "title": "Amount (£)" 
+      }
+    }
+  },
+  "step5": {
+    "title": "Subscribe to Newsletter",
+    "properties": {
+      "subscribe": { "title": "Subscribe?"}
+    }
+  }
+}
