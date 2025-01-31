@@ -1,0 +1,63 @@
+{
+  "step1": {
+    "title": "Name and Address",
+    "type": "object",
+    "properties": {
+      "name": { "type": "string", "title": "Full Name" },
+      "address": { "type": "string", "title": "Address" }
+    },
+    "required": ["name", "address"]
+  },
+  "step2": {
+    "title": "Opt Out",
+    "type": "object",
+    "properties": {
+      "primaryUse": {
+        "type": "boolean",
+        "format": "checkbox",
+        "title": "Primary use"
+      },
+      "secondaryUse": {
+        "type": "boolean",
+        "format": "checkbox",
+        "title": "Secondary use"
+      }
+    }
+  },
+  "step3": {
+    "title": "GP Name",
+    "type": "object",
+    "properties": {
+      "gpName": { "type": "string", "title": "Search GP Name" ,
+      "enum": ["My GP", "Your GP"]}
+    },
+    "required": ["gpName"]
+  },
+  "step4": {
+    "title": "Choose Amount to Pay",
+    "type": "object",
+    "properties": {
+      "amount": {
+        "type": "string", 
+        "format": "radio",
+        "title": "Amount (€)", 
+        "enum": ["0.01", "2.00", "4.00", "10.00"] 
+      }
+    },
+    "required": ["amount"]
+  },
+  "step5": {
+    "title": "Subscribe to Newsletter",
+    "type": "object",
+    "properties": {
+      "email": {"type": "email", "title": "Email"},
+      "subscribe": { "type": "boolean", "title": "Subscribe?", "default": false, "format": "checkbox" }
+    }
+  },
+  "step6": {
+    "title": "Overview",
+    "type": "object",
+    "properties": {
+    }
+  }
+}
