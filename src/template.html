@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compose Your Letter</title>
+  <title>{{pageTitle}}</title>
   <!-- Bootstrap CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="container mt-5">
-    <h1 class="text-center">Compose Your Letter</h1>
+    <h1 class="text-center">{{pageTitle}}</h1>
     <div id="form-steps" class="mt-5">
       <!-- Step Navigation -->
       <!--ul class="nav nav-pills mb-4 justify-content-center">
@@ -59,8 +59,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
   <!-- Custom Script -->
   <script type="module">
-    const steps = {"step1": {"title": "NAW gegevens", "type": "object", "properties": {"name": {"type": "string", "title": "Volledige naam"}, "address": {"type": "string", "title": "Adres"}}, "required": ["name", "address"]}, "step2": {"title": "Optout Out", "type": "object", "properties": {"primaryUse": {"type": "boolean", "format": "checkbox", "title": "Primary use"}, "secondaryUse": {"type": "boolean", "format": "checkbox", "title": "Secondary use"}}}, "step3": {"title": "Kies je huisarts", "type": "object", "properties": {"gpName": {"type": "string", "title": "Huisarts naam", "enum": ["Mijn huisarts", "Jouw huisarts"]}}, "required": ["gpName"]}, "step4": {"title": "Hoeveel wil je betalen?", "type": "object", "properties": {"amount": {"type": "string", "format": "radio", "title": "Amount (\u00a3)", "enum": ["0.01", "2.00", "4.00", "10.00"]}}, "required": ["amount"]}, "step5": {"title": "Inschrijven voor de nieuwsbrief?", "type": "object", "properties": {"email": {"type": "email", "title": "Email"}, "subscribe": {"type": "boolean", "title": "Subscribe?", "default": false, "format": "checkbox"}}}, "step6": {"title": "Overview", "type": "object", "properties": {}}};
-    const language = {"step1": {"title": "NAW gegevens", "properties": {"name": {"title": "Volledige naam"}, "address": {"title": "Adres"}}}, "step2": {"title": "Optout Out", "properties": {"primaryUse": {"title": "Primary use"}, "secondaryUse": {"title": "Secondary use"}}}, "step3": {"title": "Kies je huisarts", "properties": {"gpName": {"title": "Huisarts naam", "enum": ["Mijn huisarts", "Jouw huisarts"]}}}, "step4": {"title": "Hoeveel wil je betalen?"}, "step5": {"title": "Inschrijven voor de nieuwsbrief?", "properties": {"subscribe": {"title": "Subscribe?"}}}};
+    const steps = {{steps}};
+    const language = {{language}};
     import form from "./index.js";
     form(steps, language)
   </script>

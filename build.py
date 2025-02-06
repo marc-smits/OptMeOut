@@ -8,9 +8,9 @@ import multiprocessing
 
 
 # Paths
-TEMPLATE_PATH = Path("template.html")
-STEPS_PATH = Path("steps.json")
-LANGUAGES_DIR = Path("languages")
+TEMPLATE_PATH = Path("src/template.html")
+STEPS_PATH = Path("src/steps.json")
+LANGUAGES_DIR = Path("src/languages")
 DIST_DIR = Path("dist")
 DIST_DIR.mkdir(exist_ok=True)
 
@@ -75,9 +75,7 @@ def generate_html():
         html = template
         html = html.replace("{{pageTitle}}", overrides.get("pageTitle", "Compose Your Letter"))
         merged = merge_schemas(steps.copy(), overrides)
-        print(json.dumps(merged, indent=2))
-        # for step_key, step_schema in steps.items():
-        #     step_title = overrides.get(step_key, {}).get("title", step_schema["title"])
+
         html = html.replace("{{steps}}", json.dumps(merged))
         html = html.replace("{{language}}", json.dumps(overrides))
 
@@ -111,11 +109,7 @@ def maybe_override(properties, overrides):
 
 def merge(v1, v2):
     if isinstance(v1, dict) and isinstance(v2, dict):
-        print("deep merge")
-        print(v1)
-        print(v2)
         m = maybe_override(v1, v2)
-        print(m)
         return m
     else:
         return v2

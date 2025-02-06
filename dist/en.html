@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compose Your Letter</title>
   <!-- Bootstrap CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -58,100 +61,8 @@
   <script type="module">
     const steps = {"step1": {"title": "Name and Address", "type": "object", "properties": {"name": {"type": "string", "title": "Full Name"}, "address": {"type": "string", "title": "Address"}}, "required": ["name", "address"]}, "step2": {"title": "Optout Out", "type": "object", "properties": {"primaryUse": {"type": "boolean", "format": "checkbox", "title": "Primary use"}, "secondaryUse": {"type": "boolean", "format": "checkbox", "title": "Secondary use"}}}, "step3": {"title": "GP Name", "type": "object", "properties": {"gpName": {"type": "string", "title": "Search GP Name", "enum": ["A GP", "Another GP"]}}, "required": ["gpName"]}, "step4": {"title": "Choose amount to pay", "type": "object", "properties": {"amount": {"type": "string", "format": "radio", "title": "Amount (\u00a3)", "enum": ["0.01", "2.00", "4.00", "10.00"]}}, "required": ["amount"]}, "step5": {"title": "Subscribe to Newsletter", "type": "object", "properties": {"email": {"type": "email", "title": "Email"}, "subscribe": {"type": "boolean", "title": "Subscribe?", "default": false, "format": "checkbox"}}}, "step6": {"title": "Overview", "type": "object", "properties": {}}};
     const language = {"step1": {"title": "Name and Address", "properties": {"name": {"title": "Full Name"}, "address": {"title": "Address"}}}, "step2": {"title": "Optout Out", "properties": {"primaryUse": {"title": "Primary use"}, "secondaryUse": {"title": "Secondary use"}}}, "step3": {"title": "GP Name", "properties": {"gpName": {"title": "Search GP Name", "enum": ["A GP", "Another GP"]}}}, "step4": {"title": "Choose amount to pay", "properties": {"amount": {"title": "Amount (\u00a3)"}}}, "step5": {"title": "Subscribe to Newsletter", "properties": {"subscribe": {"title": "Subscribe?"}}}};
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const stepLinks = document.querySelectorAll('.nav-link');
-      const prevButton = document.getElementById('prev-step');
-      const nextButton = document.getElementById('next-step');
-      let currentStep = 0;
-
-      // Apply language overrides to steps
-      const stepSchemas = Object.keys(steps).map(stepKey => {
-        const stepSchema = { ...steps[stepKey] };
-        if (language[stepKey]) {
-          stepSchema.title = language[stepKey].title || stepSchema.title;
-          if (language[stepKey].properties) {
-            Object.keys(language[stepKey].properties).forEach(propKey => {
-              if (stepSchema.properties[propKey]) {
-                stepSchema.properties[propKey] = {
-                  ...stepSchema.properties[propKey],
-                  ...language[stepKey].properties[propKey]
-                };
-              }
-            });
-          }
-        }
-        return stepSchema;
-      });
-
-      
-      const stepsContainer = document.querySelectorAll('.step-content');
-
-      // Initialize JSON Editors
-      const editors = [];
-      stepsContainer.forEach((step, index) => {
-        const editor = new JSONEditor(step.querySelector('div'), {
-          schema: Object.values(steps)[index],
-          theme: 'bootstrap5',
-          disable_edit_json: true,
-          disable_properties: true,
-          disable_collapse: true,
-        });
-        editors.push(editor);
-      });
-
-      // Navigation Logic
-      function showStep(stepIndex) {
-        stepsContainer.forEach((step, index) => {
-          step.classList.toggle('d-none', index !== stepIndex);
-        });
-        stepLinks.forEach((link, index) => {
-          link.classList.toggle('active', index === stepIndex);
-        });
-        prevButton.disabled = stepIndex === 0;
-        nextButton.textContent = stepIndex === stepsContainer.length - 1 ? 'Submit' : 'Next';
-        currentStep = stepIndex;
-      }
-
-      stepLinks.forEach((link, index) => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          showStep(index);
-        });
-      });
-
-      prevButton.addEventListener('click', () => {
-        if (currentStep > 0) showStep(currentStep - 1);
-      });
-
-      nextButton.addEventListener('click', () => {
-        if (currentStep < stepsContainer.length - 1) {
-          // Validate current step before proceeding
-          const errors = editors[currentStep].validate();
-          if (errors.length === 0) {
-            showStep(currentStep + 1);
-          } else {
-            alert('Please fix errors before proceeding.');
-          }
-        } else {
-          // Submit Form
-          const formData = editors.map(editor => editor.getValue());
-          console.log('Form Data:', formData);
-          // Send data to API (mock example)
-          alert('Je formulier wordt nu afgeleverd.')
-          fetch('https://api.example.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          }).then(response => response.json())
-            .then(data => alert('Letter submitted successfully!'))
-            .catch(error => console.error('Error:', error));
-        }
-      });
-
-      // Show First Step Initially
-      showStep(0);
-    });
+    import form from "./index.js";
+    form(steps, language)
   </script>
 </body>
 </html>
