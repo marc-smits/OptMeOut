@@ -1,6 +1,6 @@
 @startuml
 entity Server
-entity Stripe as PayP
+entity PaymentProvider as PayP
 entity PostProvider as PostP
 database Database
 
@@ -29,8 +29,4 @@ loop Run periodically
     Server -> Server: pass
   end
 end
-
-'Perhaps it is clearer to split there two UMLs?'
-
-
 @enduml
