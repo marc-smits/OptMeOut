@@ -1,0 +1,36 @@
+@startuml
+entity Server
+entity Stripe as PayP
+entity PostProvider as PostP
+database Database
+
+loop Run periodically
+  Server -> Database: Request verified payments
+  alt >1 verified payments
+    loop loop over all verified payments
+      Server -> Server: Generate PDF from the details
+      Server -> PostP: Create leter
+      alt 200 response from PostalProvider
+        PostP -> Server: 200 response
+        Server -> PostP: Send letter
+        alt 200 response from PostalProvider
+          PostP -> Server: 200 response
+          Server -> Database: Remove verified payment from database
+        else other response or timeout
+          PostP -> Server: 500 response
+          Server -> Server: pass 
+        end
+      else other response or timeout
+        PostP -> Server: 500 response
+        Server -> Server: pass
+      end
+    end
+  else 0 verified payments
+    Server -> Server: pass
+  end
+end
+
+'Perhaps it is clearer to split there two UMLs?'
+
+
+@enduml

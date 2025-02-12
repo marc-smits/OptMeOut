@@ -1,0 +1,31 @@
+@startuml
+actor User
+entity Client
+entity Server
+entity PaymentProvider as PayP
+entity PostProvider as PostP
+database Database
+
+group UserInteraction
+  User -> Client: Go to site
+  Client -> Server: Request page
+  Server -> Client: Serve index
+  Client -> User: Rendered page
+  User -> Client: Fill in details
+  Client -> Server: Send: recipient address + primary/secondary flags + chosen price
+  Server -> Server: Verify recipient
+  Server -> Server: Generate uuid
+  Server -> Database: Store uuid together with recipient and primary/secondary flags
+  Server -> PayP: Request payment link with uuid as id and chosen price as price
+  PayP -> Server: Serve payment link object
+  Server -> Client: Serve payment link
+  Client -> Client: Redirect to payment link
+  Client -> User: Rendered payment page
+  User -> PayP: pay
+  PayP -> PayP: verify payment
+  PayP -> Client: redirect to post payment page
+  Client -> User: rendered post payment page
+  PayP -> Server: call webhook to verify payment with uuid
+  Server -> Database: Store verified payment along with personal details required to generate PDF in a queue.
+end
+@enduml
