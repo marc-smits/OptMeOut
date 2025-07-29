@@ -1,0 +1,55 @@
+@import '/src/style/theme.scss';
+
+body {
+  background-color: $lightGrey;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  background-image: url("/src/assets/img/bgr.png");
+  background-color: $veryLightGreen;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+#root {
+  width: 50%;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 0px;
+  text-align: center;
+  background-color: $veryLightGrey;
+}
+
+header {
+  margin-top: 0px;
+  padding: 1em;
+  background-image: url("/src/assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position-x: center;
+  background-position: 50% 2.2em;
+  height: 6em;
+}
+
+
+/*
+* Mobile
+*/
+@media only screen and (max-width: 1000px) {
+  body {
+    background-color: $lightGrey;
+   /* background-image: none; */
+  }
+
+  #root {
+    width: 100%;
+  }
+
+  header {
+    background-size: 70%;
+    background-position: 50% 3em;
+    height: 8em;
+  }
+}

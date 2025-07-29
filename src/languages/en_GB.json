@@ -1,0 +1,93 @@
+{
+    "menu": {
+        "about": "about",
+        "locale": "EN",
+        "country": "Ireland"
+    },
+    "button": {
+        "tellmemore": "Tell me more",
+        "OptMeOut": "OptMeOut",
+        "readmore": {
+            "less": "less",
+            "more": "more"
+        }
+    },
+    "page": {
+        "fallback": {
+            "header": "This website provides EU citizens a way to provisionally \u2018opt-out\u2019 from the EHDS",
+            "intro": "Our mission is provide all EU citizens with a means to object to being registred in the European Health Data Space (EHDS). Please in by clicking <red>&quot;Select Country&quot;</red>  if it is available for your country or checkout the the <red>&quot;about&quot;</red> button  for more info. ",
+            "button": "Select country"
+        },
+        "about": {
+            "title": "About",
+            "paragraph1": {
+                "h": "I am am h1",
+                "p1": "h1 p1 text",
+                "p2": "h1 p2 text "
+            },
+            "paragraph2": {
+                "h": "I am a h2",
+                "p1": "h2 p1  text",
+                "p2": "h2 p2  text",
+                "p3": "h2 p3  text"
+            },
+            "paragraph3": {
+                "h": "I am a h3",
+                "p1": "h2 p1  text"
+            }
+        }
+    },
+    "step1": {
+        "title": "With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
+        "intro": "Your data can be used by researchers, governments, and commercial companies. You can object to this with an \u2018opt-out\u2019, for the two ways your data can be used. ",
+        "optout1": {
+            "h1": "Opt-out for primary use",
+            "p": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
+            "readmore": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
+        },
+        "optout2": {
+            "h1": "Opt-out for secondary use",
+            "p": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
+            "readmore": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
+        },
+        "disclaimer": {
+            "h1": "Please note",
+            "p": "50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
+        }
+    },
+    "splash": {
+        "countries": {
+            "h1": "Select your country",
+            "list": {
+                "1": "Austria",
+                "2": "Belgium (NL)",
+                "3": "Belgium (FR)",
+                "4": "Bulgaria",
+                "5": "Croatia",
+                "6": "Cyprus",
+                "7": "Czechia",
+                "8": "Denmark",
+                "9": "Estonia",
+                "10": "Finland",
+                "11": "France",
+                "12": "Germany",
+                "13": "Greece",
+                "14": "Hungary",
+                "15": "Ireland",
+                "16": "Italy",
+                "17": "Latvia",
+                "18": "Lithuania",
+                "19": "Luxembourg",
+                "20": "Maltha",
+                "21": "Netherlands",
+                "22": "Poland",
+                "23": "Portugal",
+                "24": "Romania",
+                "25": "Slovakia",
+                "26": "Slovenia",
+                "27": "Spain",
+                "28": "Sweden"
+            }
+        }
+    }
+}

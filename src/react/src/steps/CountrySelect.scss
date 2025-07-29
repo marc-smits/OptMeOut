@@ -1,0 +1,45 @@
+@import '/src/style/theme.scss';
+
+/*************************************************************************
+ *
+ *   Country Select
+ * 
+ **************************************************************************/
+#countrySelect ul {
+    list-style: none;
+    width: 30%;
+}
+
+#countrySelect li {
+    line-height: 0.5em;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+#countrySelect .leftColumn {
+    float: left;
+}
+
+#countrySelect .rightColumn {
+    float: right;
+}
+
+/*
+* Mobile
+*/
+
+#countrySelect .leftColumn {
+    float: left;
+}
+
+#countrySelect .rightColumn {
+    float: right;
+}
+
+@media only screen and (max-width: 1000px) {
+#countrySelect .leftColumn,
+#countrySelect .rightColumn {
+    float: none
+}
+
+}
