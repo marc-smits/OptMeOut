@@ -1,7 +1,8 @@
 
 /* Common color codes */
 
-$red: #E71E24; 
+$red: #E71E24;
+$darkRed: #CE191F;
 $black: #222222;
 $grey: #555555;
 $lightGrey: #e1e1e1;
@@ -14,3 +15,11 @@ $darkYellow: #C06900;
 $yellow: #D1AA0A;
 $lightYellow: #F9E380;
 $veryLightYellow: #FDF7DC;
+
+/* Break points */
+$bpSmall: 640px;
+$bpMedium: 768px;
+$bpLarge: 980px;
+
+/* Transition times */
+$transDef: 0.3s;

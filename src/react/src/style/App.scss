@@ -1,55 +1,109 @@
 @import '/src/style/theme.scss';
+@import '/src/style/_fonts.scss';
+@import '/src/style/_interactive.scss';
 
+/*
+*   body & Layout
+*/
 body {
   background-color: $lightGrey;
   margin: 0;
-  display: flex;
   place-items: center;
-  background-image: url("/src/assets/img/bgr.png");
+  background-image: url("/src/assets/img/bgr.svg");
   background-color: $veryLightGreen;
   background-size: 100%;
   background-repeat: no-repeat;
   min-height: 100vh;
-  font-family: sans-serif;
+  font-family: "Poppins", serif;
 }
 
 #root {
   width: 50%;
   min-height: 500px;
-  margin: 0 auto;
-  padding: 0px;
-  text-align: center;
-  background-color: $veryLightGrey;
+  margin: 25px auto;
+  padding: 0 0 30px 0;
+  width: 100%;
+  background: #fff;
+
+  @media only screen and (min-width: $bpSmall) {
+    max-width: calc(100% - 40px);
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    max-width: calc(100% - 68px);
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    max-width: 940px;
+  }
 }
 
 header {
-  margin-top: 0px;
-  padding: 1em;
-  background-image: url("/src/assets/img/logo.png");
+  margin: 0 0 50px 0;
+  padding: 25px 30px;
+  background-image: url("/src/assets/img/logoWide.svg");
   background-repeat: no-repeat;
-  background-size: 40%;
-  background-position-x: center;
-  background-position: 50% 2.2em;
-  height: 6em;
+  background-size: 300px;
+  height: 140px;
+  background-position: center bottom;
+
+  @media only screen and (min-width: $bpMedium) {
+
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    background-size: 400px;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+/*
+*   Typography
+*/
+em {
+  font-weight: bolder;
+  color: $red;
+}
+
+/*
+*   Don't know what to call these yet
+*/
+h1.headline {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 1.2em;
+    text-align: center;
+
+    margin: 0 10px 30px 10px;
+
+    @media only screen and (min-width: $bpSmall) {
+      margin: 0 30px 30px 30px;
+    }
+
+    @media only screen and (min-width: $bpMedium) {
+      margin: 0 8.5% 30px 8.5%;
+    }
 }
 
 
-/*
-* Mobile
-*/
-@media only screen and (max-width: 1000px) {
-  body {
-    background-color: $lightGrey;
-   /* background-image: none; */
+.intro {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  color: $grey;
+  text-align: center;
+  font-weight: 300;
+  margin: 0 10px 30px 10px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 30px 30px 30px;
   }
 
-  #root {
-    width: 100%;
-  }
-
-  header {
-    background-size: 70%;
-    background-position: 50% 3em;
-    height: 8em;
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 17% 30px 17%;
   }
 }

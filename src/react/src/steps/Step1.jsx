@@ -1,7 +1,7 @@
 /**
- * 
+ *
  * Step 1
- * 
+ *
  */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
@@ -47,7 +47,7 @@ function Step1(props) {
                 <div className="step" id="step1">
 
                         {/* Intro */}
-                        <h1>[[step1.title]]</h1>
+                        <h1 className="headline">[[step1.title]]</h1>
                         <p className="intro">
                                 [[step1.intro]]
                         </p>
@@ -117,11 +117,11 @@ function Step1(props) {
                         {/* Tell me more  and Opt Me Out buttons */}
                         <div className='buttonsRow'>
                                 {!tellMeMore &&
-                                        <div className="tellMeMoreButton" onClick={tellMore}>
+                                        <div className="button buttonTellMeMore" onClick={tellMore}>
                                                 [[button.tellmemore]]
                                         </div>
                                 }
-                                <div className="buttonActive"
+                                <div className="button buttonOptMeOut"
                                         onClick={(e) => props.emitChangeSection("step2", e)}
                                 >
                                         [[button.OptMeOut]]

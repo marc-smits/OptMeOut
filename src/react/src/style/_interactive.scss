@@ -1,0 +1,87 @@
+/*
+*   Interactive elements
+*/
+.buttonsRow { /* might be converted to generic row & column later */
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+    font-weight: 400;
+    padding: 12px 25px;
+    background-color: #fff;
+    color: $black;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: color $transDef, background-color $transDef;
+    font-size: 1.125rem;
+}
+
+.buttonDefault {
+  border: 1px solid $black;
+}
+
+.buttonTellMeMore {
+  background-image: url("/src/assets/img/arrowBlack.svg");
+  background-repeat: no-repeat;
+  background-position: right 25px center;
+  background-size: 1em;
+  padding-right: 60px;
+}
+
+.buttonOptMeOut {
+  color: #fff;
+  background-color: $red;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 7px 22px;
+
+  &:hover {
+    background-color: $darkRed;
+  }
+}
+
+//
+// #step1 .readMore .moreButton,
+// #step1 .readMore .lessButton {
+//     background-image: url("/src/assets/img/arrowDown.png");
+//     background-repeat: no-repeat;
+//     background-size: 10px;
+//     background-position: right 5px;
+//     padding-right: 12px;
+//     float: right;
+//     width: fit-content;
+//     margin-bottom: 1em;
+//     cursor: -webkit-grab;
+//     cursor: grab;
+// }
+//
+// #step1 .readMore .lessButton {
+//     background-image: url("/src/assets/img/arrowUp.png");
+// }
+
+/* In the menu */
+#headerLanguageSelect, #headerAbout {
+  padding: 12px 14px;
+  border: none;
+  font-weight: 600;
+}
+
+#headerAbout {
+  color: $green;
+
+  &:hover {
+    color: $darkGreen;
+  }
+}
+
+#headerLanguageSelect {
+  background-color: $green;
+  color: #fff;
+
+  &:hover {
+    background-color: $darkGreen;
+  }
+}

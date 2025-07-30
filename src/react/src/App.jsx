@@ -78,7 +78,7 @@ function App() {
           <CountrySelect
             emitChangeSection={changeSection}
             emitUpdateFormdata={updateFormdata}
-           
+
           />
         }
 
@@ -103,15 +103,15 @@ function App() {
         </div>
         }
 
-      
+
       </div>
 
 
 
-      
+
     {/* ==============   Debug data ================ */}
      <div style={{ "clear": "both"}}> </div>
-      <pre>
+      <pre style={{ "overflow": "auto" }}>
         currentSection: {currentSection} current step: {currentStep} FormData:  Country: {formData.country}
       </pre>
     </>
