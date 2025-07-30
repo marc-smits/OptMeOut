@@ -11,3 +11,4 @@
 /src/csv/import/*
 /src/csv/export/
 /src/csv/export/*
+/scripts/deploy.config
