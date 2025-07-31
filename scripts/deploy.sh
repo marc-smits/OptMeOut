@@ -46,7 +46,8 @@ installModulesAndBuild()
 
     echo "##########"
     echo "Updating index file ";
-    locale=${PWD##*/}; sed -i "s/\/assets/\/$locale\/assets/g" dist/index.html
+    locale=${PWD##*/}
+    sed -i '' "s/\/assets/\/$locale\/assets/g" dist/index.html
 }
 
 #
