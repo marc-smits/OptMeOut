@@ -57,13 +57,19 @@
 }
 
 .buttonMore {
+  &::before {
+    content: "more";
+  }
+
   &::after {
     content: "\0279E";
-    content: "\2794";
-
     transform: rotate(90deg);
     display: inline-block;
     margin-left: 10px;
+  }
+
+  &.less::before {
+    content: "more";
   }
 
   &.less::after {

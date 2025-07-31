@@ -135,3 +135,13 @@ h1.headline {
     margin: 0 17% 50px 17%;
   }
 }
+
+.readMore {
+  max-height: 0;
+  visibility: 0;
+
+  .show {
+    max-height: max-content;
+    visibility: 1;
+  }
+}
