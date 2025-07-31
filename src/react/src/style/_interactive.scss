@@ -24,11 +24,15 @@
 }
 
 .buttonTellMeMore {
-  background-image: url("/src/assets/img/arrowBlack.svg");
-  background-repeat: no-repeat;
-  background-position: right 25px center;
-  background-size: 1em;
-  padding-right: 60px;
+  &:hover {
+    color: $darkRed;
+  }
+
+  svg {
+    margin-left: 10px;
+    transform: translateY(10px);
+  }
+
 }
 
 .buttonOptMeOut {
@@ -42,6 +46,7 @@
     background-color: $darkRed;
   }
 }
+
 
 //
 // #step1 .readMore .moreButton,
