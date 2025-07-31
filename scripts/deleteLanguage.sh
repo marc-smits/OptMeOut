@@ -15,6 +15,9 @@ echo "   and configure with the correct parameters"
 echo "3) Execute this script by giving the locale to delete"
 echo "   Example : "
 echo "              ./scripts/deleteLanguage.sh fi_FI"
+echo 
+echo "4) build all of the templates by : python build.py"
+echo "5) Deploy by : ./scripts/deploy.sh"
 echo
 echo "###########################################################################" 
 read -p "Press enter to continue"
@@ -59,7 +62,7 @@ deleteLocalFiles(){
     for file in "${arr[@]}"
     do
         if test -f $file ; then
-        rm -rf dist/$file 
+        rm  $file 
         echo File $file deleted 
     fi
 done
@@ -89,7 +92,8 @@ END_SCRIPT
 ###########################################################################
 
 
-
+echo giving read and write permissions to all files
+sudo chmod -R 0777 *
 
 LOCALE=$1
 

@@ -47,7 +47,8 @@ installModulesAndBuild()
     echo "##########"
     echo "Updating index file ";
     locale=${PWD##*/}
-    sed -i '' "s/\/assets/\/$locale\/assets/g" dist/index.html
+    #for Mac: sed -i '' "s/\/assets/\/$locale\/assets/g" dist/index.html
+    sed -i  "s/\/assets/\/$locale\/assets/g" dist/index.html
 }
 
 #
@@ -67,6 +68,8 @@ deploy()
         rmdir ${FOLDER}
         mkdir ${FOLDER}
         mkdir ${FOLDER}/assets
+        put rootIndex.html
+        rename rootIndex.html index.html
 END_SCRIPT
     
     SOURCE_FOLDER=dist
@@ -128,7 +131,7 @@ for FOLDER in */  ; do
     cd $FOLDER
     installModulesAndBuild
     deploy
-exit
+
     cd .. 
 done
 cd ..
