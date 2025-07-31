@@ -12,13 +12,13 @@ import '/src/components/Header/Header.scss'
 function Header(props) {
         return (
                 <>
-                    <div class="menu">
-                        <div class="button" id="headerLanguageSelect"
+                    <div className="menu">
+                        <div className="button" id="headerLanguageSelect"
                         onClick={(e) => props.emitChangeSection("selectCountry", e)}>
                                [[menu.locale]]
                         </div>
                         <div
-                                class="button"
+                                className="button"
                                 id="headerAbout"
                                 onClick={(e) => props.emitChangeSection("about", e)}
                         >
