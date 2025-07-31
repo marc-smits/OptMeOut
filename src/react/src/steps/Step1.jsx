@@ -54,48 +54,57 @@ function Step1(props) {
 
                         {/* Tell me more */}
                         {tellMeMore &&
+
                                 <div className='tellMeMore'>
+                                  {/* Tell me more 1*/}
 
-                                        {/* Tell me more 1*/}
-                                        <div className='introHeader'>
-                                                <img src={yes} className="checkBoxSlider" />
-                                                <h1 className='intro'>[[step1.optout1.h1]]</h1>
+                                  <div className='row'>
+                                    <div className="col">
+                                        <div className='optOutToggle'>
+
+                                          {/* @Tuuria: Toggle 'checked' class in JS to switch between "yes" and "no" */}
+                                          <div id="test" className="checkBox checked">
+                                            <div className="checkBoxSlider"></div>
+                                          </div>
+                                          <h2>[[step1.optout1.h1]]</h2>
                                         </div>
-                                        <div className='clearBoth'></div>
                                         <p>[[step1.optout1.p]]</p>
-
 
                                         {/* Read more 1 */}
                                         {!readMore1 &&
-                                                <div className='readMore'>
-                                                        <div className='moreButton' onClick={changeReadMore1} >
-                                                                [[button.readmore.more]]
-                                                        </div>
-                                                </div>
+                                            <div className='readMore flex-end'>
+                                                    <div className='button buttonMore' onClick={changeReadMore1} >
+                                                      [[button.readmore.more]]
+                                                    </div>
+                                            </div>
 
                                         }
                                         {readMore1 &&
-                                                <div className='readMore'>
-                                                        <div className='lessButton' onClick={changeReadMore1} >
-                                                                [[button.readmore.less]]
-                                                        </div>
-                                                        <div className='clearBoth'></div>
-                                                        <p>[[step1.optout1.readmore]]</p>
-                                                </div>
+                                            <div className='readMore flex-end'>
+                                                    <div className='button buttonMore less' onClick={changeReadMore1} >
+                                                      [[button.readmore.less]]
+                                                    </div>
+                                                    <p className="hide">[[step1.optout1.readmore]]</p>
+                                            </div>
                                         }
+                                    </div>
+                                  </div>
 
-                                        {/* Tell me more 2*/}
-                                        <div className='introHeader'>
-                                                <img src={yes} className="checkBoxSlider" />
-                                                <h1 className='intro'>[[step1.optout2.h1]]</h1>
+                                  {/* Tell me more 2*/}
+                                  <div className='row'>
+                                    <div className="col">
+                                        <div className='optOutToggle'>
+                                          <div className="checkBox checked">
+                                            <div className="checkBoxSlider"></div>
+                                          </div>
+                                          <h2>[[step1.optout2.h1]]</h2>
                                         </div>
-                                        <div className='clearBoth'></div>
                                         <p>[[step1.optout2.p]]</p>
 
                                         {/* Read more 2 */}
                                         {!readMore2 &&
-                                                <div className='readMore'>
-                                                        <div className='moreButton' onClick={changeReadMore2} >
+                                                <div className='readMore flex-end'>
+                                                        <div className='button buttonMore' onClick={changeReadMore2} >
                                                                 [[button.readmore.more]]
                                                         </div>
                                                 </div>
@@ -106,38 +115,41 @@ function Step1(props) {
                                                         <div className='lessButton' onClick={changeReadMore2} >
                                                                 [[button.readmore.less]]
                                                         </div>
-                                                        <div className='clearBoth'></div>
-                                                        <p>[[step1.optout2.readmore]]</p>sada
+                                                        <p>[[step1.optout2.readmore]]</p>
                                                 </div>
                                         }
-
+                                    </div>{/*col*/}
+                                  </div>{/*row*/}
                                 </div>
                         }
 
-                        {/* Tell me more  and Opt Me Out buttons */}
-                        <div className='buttonsRow'>
+                        {/* Tell me more and Opt Me Out buttons */}
+                        <div className='row'>
+                          <div className="col flex-center">
                                 {!tellMeMore &&
-                                        <div className="button buttonTellMeMore" onClick={tellMore}>
-                                                [[button.tellmemore]]
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M7.875 13.6969L7.875 -4.86836e-07L10.125 -3.7865e-07L10.125 13.6969L16.425 7.39688L18 9L9 18L-3.57639e-07 9L1.575 7.39688L7.875 13.6969Z" fill="currentcolor"></path>
-                                                </svg>
-                                        </div>
+                                  <div className="button buttonTellMeMore" onClick={tellMore}>
+                                          [[button.tellmemore]]
+                                          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M7.875 13.6969L7.875 -4.86836e-07L10.125 -3.7865e-07L10.125 13.6969L16.425 7.39688L18 9L9 18L-3.57639e-07 9L1.575 7.39688L7.875 13.6969Z" fill="currentcolor"></path>
+                                          </svg>
+                                  </div>
                                 }
-                                <div className="button buttonOptMeOut"
-                                        onClick={(e) => props.emitChangeSection("step2", e)}
-                                >
-                                        [[button.OptMeOut]]
-                                </div>
-                        </div>
+                                  <div className="button buttonOptMeOut" onClick={(e) => props.emitChangeSection("step2", e)}>
+                                          [[button.OptMeOut]]
+                                  </div>
+                          </div>{/*col*/}
+                        </div>{/*row*/}
 
                         {/* Please note section */}
-                        <div className='clearBoth'></div>
                         {tellMeMore &&
-                                <p className='pleaseNote'>
-                                        <h1>[[step1.disclaimer.h1]]</h1>
+                          <div className='row'>
+                            <div className="col">
+                                <div className='pleaseNote'>
+                                        <h2>[[step1.disclaimer.h1]]</h2>
                                         <p>[[step1.disclaimer.p]]</p>
-                                </p>
+                                </div>
+                            </div>
+                          </div>
                         }
                 </div>
 

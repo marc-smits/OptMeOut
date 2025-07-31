@@ -1,6 +1,7 @@
 @import '/src/style/theme.scss';
 @import '/src/style/_fonts.scss';
 @import '/src/style/_interactive.scss';
+@import '/src/style/_typography.scss';
 
 /*
 *   body & Layout
@@ -62,12 +63,40 @@ header {
   gap: 10px;
 }
 
+.row {
+  margin: 0 10px 50px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 4.7% 50px;
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 8.5% 50px;
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    margin: 0 8.5% 50px;
+  }
+}
+
+
 /*
-*   Typography
+*   Helper classes
 */
-em {
-  font-weight: bolder;
-  color: $red;
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  clear: both;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  clear: both;
+}
+
+.hide {
+  display: none;
 }
 
 /*
@@ -90,20 +119,19 @@ h1.headline {
     }
 }
 
-
 .intro {
   font-size: 1.5rem;
   line-height: 1.5em;
   color: $grey;
   text-align: center;
   font-weight: 300;
-  margin: 0 10px 30px 10px;
+  margin: 0 10px 50px 10px;
 
   @media only screen and (min-width: $bpSmall) {
-    margin: 0 30px 30px 30px;
+    margin: 0 30px 50px 30px;
   }
 
   @media only screen and (min-width: $bpMedium) {
-    margin: 0 17% 30px 17%;
+    margin: 0 17% 50px 17%;
   }
 }

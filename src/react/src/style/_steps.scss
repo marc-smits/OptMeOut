@@ -1,0 +1,27 @@
+/*
+*   Step specific
+*/
+
+/* Step 1 */
+.step1 {
+  .optOutToggle {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+
+    h2 {
+      margin: 0;
+      flex: 0 20 auto;
+    }
+  }
+
+  .pleaseNote * {
+      color: $darkGreen !important;
+  }
+
+  .pleaseNote p {
+    font-size: 1em;
+  }
+}
