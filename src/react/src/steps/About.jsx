@@ -1,32 +1,29 @@
 /**
- * 
+ *
  * Section About
- * 
+ *
  */
 import PropTypes from 'prop-types';
 
-
-import './steps.scss'
-import './About.scss'
-
-
 function About(props) {
 
-
         return (
-                <div className="step" id="About">
+              <div class="row">
+                <div class="col">
+                    <div className="step" id="about">
                         <div
-                                className='closeButton'
+                                className='buttonClose'
                                 onClick={(e) => props.emitChangeSection("closeSection", e)}
                         >
                                 &nbsp;
                         </div>
                         <div>[[PAGE_ABOUT_PARAGRAPHS]]</div>
+                    </div>
                 </div>
+              </div>
 
         )
 }
-
 
 About.propTypes = {
         emitChangeSection: PropTypes.func,  // Change step
