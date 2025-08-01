@@ -1,4 +1,4 @@
-@import '/src/style/theme.scss';
+@import '/src/style/_theme.scss';
 @import '/src/style/_fonts.scss';
 @import '/src/style/_interactive.scss';
 @import '/src/style/_steps.scss';
@@ -84,16 +84,28 @@ header {
 /*
 *   Helper classes
 */
-.flex-end {
-  display: flex;
-  justify-content: flex-end;
-  clear: both;
-}
 
-.flex-center {
-  display: flex;
-  justify-content: center;
-  clear: both;
+.flex {
+  &-start {
+    display: flex;
+    clear: both;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  &-end {
+    display: flex;
+    clear: both;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+
+  &-center {
+    display: flex;
+    clear: both;
+    gap: 20px;
+    justify-content: center;
+  }
 }
 
 .hide {
@@ -139,10 +151,16 @@ h1.headline {
 
 .readMore {
   max-height: 0;
-  visibility: 0;
+  opacity: 0;
+  display: none;
 
-  .show {
+  &.show {
     max-height: max-content;
-    visibility: 1;
+    opacity: 1;
   }
+
+  /* temporary */
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: $black;
 }

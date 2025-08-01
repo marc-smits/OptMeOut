@@ -1,13 +1,9 @@
 /**
- * 
+ *
  * Section CountrySelect
- * 
+ *
  */
 import PropTypes from 'prop-types';
-
-
-import './steps.scss'
-import './CountrySelect.scss'
 
 
 function CountrySelect(props) {
@@ -24,57 +20,77 @@ function CountrySelect(props) {
 
 
     return (
-        <div className="step" id="countrySelect">
+      <div class="row">
+        <div class="col">
+          <div className="step" id="countrySelect">
 
-            <h1>[[splash.countries.h1]]</h1>
-            <div
-                className='closeButton'
-                onClick={(e) => props.emitChangeSection("closeSection", e)}
-            >
-                &nbsp;
-            </div>
+              <h1>[[splash.countries.h1]]</h1>
 
-            {/* left column*/}
-            <div className="navigation">
-                <ul className='leftColumn'>
-                    {Object.keys(countries).map((innerAttr, index) => {
-                        if (index <= Object.keys(countries).length / 2) {
+              {/* left column*/}
+              <div class="flex-start">
+                <div className="listCountries">
+                    <ul>
+                        {Object.keys(countries).map((innerAttr, index) => {
+                            if (index <= Object.keys(countries).length / 2) {
 
-                            return (
-                                <li className="intro"
-                                    key={"country" + index}
-                                    onClick={(e) => changeCountry(innerAttr)}
-                                >
-                                    {countries[innerAttr]}
-                                </li>
-                            )
+                                return (
+                                    <li
+                                        key={"country" + index}
+                                        onClick={(e) => changeCountry(innerAttr)}
+                                    >
+                                        {countries[innerAttr]}
+                                    </li>
+                                )
+                            }
+                        })
                         }
-                    })
-                    }
-                </ul>
-            </div>
 
-            {/* right column*/}
-            <div className="navigation">
-                <ul className='rightColumn'>
-                    {Object.keys(countries).map((innerAttr, index) => {
-                        if (index > Object.keys(countries).length / 2) {
+                        <li class="active">TEST country</li>
+                        <li>TEST country</li>
+                        <li>TEST country</li>
+                        <li>TEST country</li>
+                        <li class="active">TEST country</li>
+                        <li class="active">TEST country</li>
+                        <li>TEST country</li>
+                        <li>TEST country</li>
+                        <li class="active">TEST country</li>
 
-                            return (
-                                <li className="intro"
-                                    key={"country" + index}
-                                    onClick={(e) => changeCountry(innerAttr)}
-                                >
-                                    {countries[innerAttr]}
-                                </li>
-                            )
+                    </ul>
+                </div>
+
+                {/* right column*/}
+                <div className="listCountries">
+                    <ul>
+                    <li>TEST country</li>
+                    <li>TEST country</li>
+                    <li>TEST country</li>
+                    <li>TEST country</li>
+                    <li>TEST country</li>
+                    <li class="active">TEST country</li>
+                    <li>TEST country</li>
+                    <li>TEST country</li>
+                    <li class="active">TEST country</li>
+
+                        {Object.keys(countries).map((innerAttr, index) => {
+                            if (index > Object.keys(countries).length / 2) {
+
+                                return (
+                                    <li className="intro"
+                                        key={"country" + index}
+                                        onClick={(e) => changeCountry(innerAttr)}
+                                    >
+                                        {countries[innerAttr]}
+                                    </li>
+                                )
+                            }
+                        })
                         }
-                    })
-                    }
-                </ul>
-            </div>
+                    </ul>
+                </div>{/*.listCountries*/}
+              </div>
+            </div>{/*.col*/}
+          </div>{/*.row*/}
         </div>
-
     )
 }
 
