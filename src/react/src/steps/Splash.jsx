@@ -1,16 +1,11 @@
 /**
- * 
+ *
  * Splash
- * 
+ *
  * splash
- * 
+ *
  */
 import PropTypes from 'prop-types';
-
-
-import './steps.scss'
-import './Splash.scss'
-
 
 function Splash(props) {
 
@@ -18,7 +13,6 @@ function Splash(props) {
                 <div className="step" id="Splash">
                         <h1>[[page.fallback.header]]</h1>
                         <p1>[[page.fallback.intro]]</p1>
-                        <div className='clearBoth'></div>
 
                         {/* Buttons */}
                         <div className='buttonsRow'>
@@ -28,7 +22,7 @@ function Splash(props) {
                                 >
                                         [[menu.about]]
                                 </div>
-                                <div 
+                                <div
                                         className="buttonDefault"
                                         onClick={(e) => props.emitChangeSection("selectCountry", e)}
                                 >

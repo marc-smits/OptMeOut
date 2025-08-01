@@ -12,7 +12,7 @@
 .button {
     font-weight: 400;
     padding: 12px 25px;
-    background-color: #fff;
+    background-color: #F0F0F0;
     color: $black;
     border-radius: 2px;
     cursor: pointer;
@@ -57,9 +57,8 @@
 }
 
 .buttonMore {
-  &::before {
-    content: "more";
-  }
+  background-color: pink;
+  &::before { content: attr(data-more); }
 
   &::after {
     content: "\0279E";
@@ -68,13 +67,8 @@
     margin-left: 10px;
   }
 
-  &.less::before {
-    content: "more";
-  }
-
-  &.less::after {
-    transform: rotate(-90deg);
-  }
+  &.less::before { content: attr(data-less); }
+  &.less::after { transform: rotate(-90deg); }
 }
 
 .buttonClose {

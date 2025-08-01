@@ -6,10 +6,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import './steps.scss'
-import './step1.scss'
-
-import yes from '/src/assets/img/yes.png';
 function Step1(props) {
 
         //
@@ -63,13 +59,13 @@ function Step1(props) {
                                         <div className='optOutToggle'>
 
                                           {/* @Tuuria: Toggle 'checked' class in JS to switch between "yes" and "no" */}
-                                          <div id="test" className="checkBox checked">
+                                          <div className="checkBox checked">
                                             <div className="checkBoxSlider"></div>
                                           </div>
                                           <h2>[[step1.optout1.h1]]</h2>
                                         </div>
                                         <p>[[step1.optout1.p]]</p>
-                                        <div class="readMore">[[step1.optout1.readmore]]</div>
+                                        <div id="test" className="readMore">[[step1.optout1.readmore]]</div>
 
                                         {/* @Tuuria
                                               Please note: Some partners might need more than one paragraph in the readmore section
@@ -77,15 +73,16 @@ function Step1(props) {
                                               When buttonMore is clicked:
                                               1. toggle 'show' class in the readMore div
                                               2. toggle 'less' class in buttonMore div
-
-                                              The content "more" & "less" is handled by CSS ::before statement ;-)
                                         */}
 
                                         {/* Read more 1 */}
                                         {!readMore1 &&
                                             <div className='flex-end'>
                                                     <div className='button buttonMore' onClick={changeReadMore1} >
-                                                      [[button.readmore.more]]
+                                                       [[button.readmore.more]]
+                                                    </div>
+                                                    <div className='button buttonMore' data-more="Meer" data-less="minder" onClick={changeReadMore1} >
+                                                       [[button.readmore.more]]
                                                     </div>
                                             </div>
 
@@ -103,7 +100,7 @@ function Step1(props) {
                                           <h2>[[step1.optout2.h1]]</h2>
                                         </div>
                                         <p>[[step1.optout2.p]]</p>
-                                        <div class="readMore">[[step1.optout2.readmore]]</div>
+                                        <div className="readMore">[[step1.optout2.readmore]]</div>
 
                                         {/* Read more 2 */}
                                         {!readMore2 &&
