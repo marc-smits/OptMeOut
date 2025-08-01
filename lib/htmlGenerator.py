@@ -49,7 +49,7 @@ class HtmlGenerator:
     # Generate language folders 
     #
     def __generate_language_folders(self):
-        
+        Path(config.DIST_DIR).mkdir(exist_ok=True)
         languages = {}
         for lang_file in Path(config.LANGUAGES_DIR).glob("*.json"):
           with open(lang_file, "r") as f:
