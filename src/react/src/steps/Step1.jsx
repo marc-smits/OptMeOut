@@ -69,23 +69,26 @@ function Step1(props) {
                                           <h2>[[step1.optout1.h1]]</h2>
                                         </div>
                                         <p>[[step1.optout1.p]]</p>
+                                        <div class="readMore">[[step1.optout1.readmore]]</div>
+
+                                        {/* @Tuuria
+                                              Please note: Some partners might need more than one paragraph in the readmore section
+
+                                              When buttonMore is clicked:
+                                              1. toggle 'show' class in the readMore div
+                                              2. toggle 'less' class in buttonMore div
+
+                                              The content "more" & "less" is handled by CSS ::before statement ;-)
+                                        */}
 
                                         {/* Read more 1 */}
                                         {!readMore1 &&
-                                            <div className='readMore flex-end'>
+                                            <div className='flex-end'>
                                                     <div className='button buttonMore' onClick={changeReadMore1} >
                                                       [[button.readmore.more]]
                                                     </div>
                                             </div>
 
-                                        }
-                                        {readMore1 &&
-                                            <div className='readMore flex-end'>
-                                                    <div className='button buttonMore less' onClick={changeReadMore1} >
-                                                      [[button.readmore.less]]
-                                                    </div>
-                                                    <p className="hide">[[step1.optout1.readmore]]</p>
-                                            </div>
                                         }
                                     </div>
                                   </div>
@@ -100,23 +103,16 @@ function Step1(props) {
                                           <h2>[[step1.optout2.h1]]</h2>
                                         </div>
                                         <p>[[step1.optout2.p]]</p>
+                                        <div class="readMore">[[step1.optout2.readmore]]</div>
 
                                         {/* Read more 2 */}
                                         {!readMore2 &&
-                                                <div className='readMore flex-end'>
+                                                <div className='flex-end'>
                                                         <div className='button buttonMore' onClick={changeReadMore2} >
                                                                 [[button.readmore.more]]
                                                         </div>
                                                 </div>
 
-                                        }
-                                        {readMore2 &&
-                                                <div className='readMore'>
-                                                        <div className='lessButton' onClick={changeReadMore2} >
-                                                                [[button.readmore.less]]
-                                                        </div>
-                                                        <p>[[step1.optout2.readmore]]</p>
-                                                </div>
                                         }
                                     </div>{/*col*/}
                                   </div>{/*row*/}
