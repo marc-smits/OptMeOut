@@ -78,12 +78,11 @@ function Step1(props) {
                                         {/* Read more 1 */}
                                         {!readMore1 &&
                                             <div className='flex-end'>
-                                                    <div className='button buttonMore' onClick={changeReadMore1} >
-                                                       [[button.readmore.more]]
-                                                    </div>
-                                                    <div className='button buttonMore' data-more="Meer" data-less="minder" onClick={changeReadMore1} >
-                                                       [[button.readmore.more]]
-                                                    </div>
+                                                <div className='button buttonMore'
+                                                    data-more="[[button.readmore.more]]"
+                                                    data-less="[[button.readmore.less]]"
+                                                    onClick={changeReadMore1} >
+                                                </div>
                                             </div>
 
                                         }
@@ -104,11 +103,13 @@ function Step1(props) {
 
                                         {/* Read more 2 */}
                                         {!readMore2 &&
-                                                <div className='flex-end'>
-                                                        <div className='button buttonMore' onClick={changeReadMore2} >
-                                                                [[button.readmore.more]]
-                                                        </div>
+                                            <div className='flex-end'>
+                                                <div className='button buttonMore'
+                                                    data-more="[[button.readmore.more]]"
+                                                    data-less="[[button.readmore.less]]"
+                                                    onClick={changeReadMore2} >
                                                 </div>
+                                            </div>
 
                                         }
                                     </div>{/*col*/}
