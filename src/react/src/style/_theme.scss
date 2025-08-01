@@ -22,3 +22,29 @@ $bpLarge: 980px;
 
 /* Transition times */
 $durationDef: 0.3s;
+$durationLong: 2s;
+
+/* Animations */
+// @keyframes collapse {
+//   0%   {max-height: max-content; opacity: 1;}
+//   99%  {max-height: 0; opacity: 0;}
+//   100% {display: none;}
+// }
+//
+// @keyframes expand {
+//   0%   {display: initial; max-height: 0; opacity: 1; color: green;}
+//   80%  {opacity: 1;}
+//   100%  {max-height: 500px; opacity: 1; color: blue;}
+// }
+
+/* Mixins */
+@mixin collapse {
+  max-height: 0;
+  opacity: 0;
+}
+
+@mixin expand {
+  max-height: max-content;
+  opacity: 1;
+  transition: opacity 0.8s;
+}

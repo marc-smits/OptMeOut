@@ -150,16 +150,14 @@ h1.headline {
 }
 
 .readMore {
-  max-height: 0;
-  opacity: 0;
-  display: none;
+  overflow: hidden;
+  @include collapse;
 
   &.show {
-    max-height: max-content;
-    opacity: 1;
+    @include expand;
   }
 
-  /* temporary */
+  /* temporary until content is placed correctly */
   font-size: 1.125rem;
   font-weight: 300;
   color: $black;
