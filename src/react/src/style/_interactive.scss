@@ -56,6 +56,14 @@
   }
 }
 
+
+.buttonOptMeOut:disabled,
+.buttonOptMeOut[disabled] {
+  background-color: $lightGrey;
+  cursor: default;
+}
+
+
 .buttonMore {
   &::before { content: attr(data-more); }
 

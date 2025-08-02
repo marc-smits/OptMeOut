@@ -4,7 +4,7 @@
  *
  */
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Step1(props) {
 
@@ -16,6 +16,9 @@ function Step1(props) {
         const [readMore2, setReadMore2] = useState(false);
         const [optOut1, setOptOut1] = useState('checked');
         const [optOut2, setOptOut2] = useState('checked');
+        const [disableNextStep, setDisableNextStep ] = useState(false);
+
+        useEffect(() => { updateNextstep(); }, [optOut1, optOut2]);
 
         // Update Tell More visibility
         const toggleTellMore = (e) => {
@@ -41,11 +44,19 @@ function Step1(props) {
                 setOptOut1(status);
         };
 
-        // Update Toggle OptOut1
+        // Update Toggle OptOut2
         const toggleOptOut2 = (e) => {
                 let status = (optOut2 === '') ? 'checked' : '';
                 setOptOut2(status);
         };
+
+        //Update OptMeOut -- make unselectable if no opt-out is selected
+        const updateNextstep = (e) => {
+            let status = ([optOut1, optOut2].includes('checked'));
+            console.log('disable buttonOptMeOut? ' + !status);
+
+            setDisableNextStep(!status);
+        }
 
         return (
                 <div className="step" id="step1">
@@ -135,7 +146,7 @@ function Step1(props) {
                                           </svg>
                                   </div>
                                 }
-                                  <div className="button buttonOptMeOut" onClick={(e) => props.emitChangeSection("step2", e)}>
+                                  <div className="button buttonOptMeOut" disabled={disableNextStep} onClick={!disableNextStep ? (e) => props.emitChangeSection("step2", e) : void(0)}>
                                           [[button.OptMeOut]]
                                   </div>
                           </div>{/*col*/}
@@ -146,8 +157,8 @@ function Step1(props) {
                           <div className='row'>
                             <div className="col">
                                 <div className='pleaseNote'>
-                                        <h2>[[step1.disclaimer.h1]]</h2>
-                                        <p>[[step1.disclaimer.p]]</p>
+                                    <h2>[[step1.disclaimer.h1]]</h2>
+                                    <p>[[step1.disclaimer.p]]</p>
                                 </div>
                             </div>
                           </div>
