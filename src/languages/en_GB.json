@@ -10,6 +10,12 @@
         "readmore": {
             "less": "less",
             "more": "more"
+        },
+        "back": "back"
+    },
+    "global": {
+        "form": {
+            "error": "Please check the fields marked by red."
         }
     },
     "page": {
@@ -89,5 +95,48 @@
                 "28": "Sweden"
             }
         }
+    },
+    "step2": {
+        "title": "Select your GP",
+        "intro": "Next we will inform your GP about your choices and excersise you right to annonate your medical records. Also we will ask your GP to forward this to other healtcare institutions you may visit.",
+        "form": {
+            "field": {
+                "label": "Who is your general practitioner? *",
+                "value": "name of your GP"
+            },
+        "check": {
+            "label": "enter address manually"
+        }
+        }
+    },
+    "step3": {
+        "title": "Your details",
+        "intro": "Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy} >privacy policy</a> for more info. ",
+        "form": {
+            "field1": {
+                "label": "First name *",
+                "value": "first name"
+            },
+            "field2": {
+                "label": "Last name *",
+                "value": "last name"
+            },
+            "field3": {
+                "label": "Phone number *",
+                "value": "phone number"
+            },
+            "field4": {
+                "label": "Date of Birth *",
+                "value": "dd-mm-yyyy"
+            },
+            "field5": {
+                "label": "Last four digits of your BSN *",
+                "value": "xxx"
+            }
+        }
+    },
+    "privacy_policy": {
+        "title": "Privacy Policy",
+        "text": "<h2>Paragraph1</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt tortor id mi interdum pulvinar. In posuere sit amet quam ac iaculis. Duis vel felis id massa pharetra lobortis vel id neque. Phasellus tempus ante eget mi egestas, quis lacinia lectus placerat. Aenean libero ante, consectetur viverra elit a, interdum interdum lorem. Morbi porta in tellus sit amet hendrerit. Curabitur accumsan dui nisi, vitae ultricies orci consequat ut. Aliquam luctus risus tempor, ullamcorper sapien nec, porttitor justo. In vitae venenatis est, bibendum vulputate sapien. Mauris felis odio, laoreet in nunc sit amet, dignissim euismod lacus. Integer consequat odio nulla. Morbi placerat massa nec leo volutpat, ut aliquam erat pharetra. Cras in quam a mauris ultrices placerat eu eget lectus.</p><h2>Paragraph2</h2><p>Etiam ut erat diam. Suspendisse velit tortor, varius nec aliquet convallis, convallis vel leo. Mauris tempor neque elit, in hendrerit justo venenatis vestibulum. Donec turpis purus, feugiat eget hendrerit sit amet, tristique sed lorem. Donec dignissim, enim at facilisis pretium, elit massa imperdiet metus, quis vulputate ex magna eget nisi. Nam egestas velit convallis, convallis leo in, ultrices quam. Donec sit amet nisl in ligula scelerisque ultricies. Ut dui augue, varius finibus turpis sit amet, mollis dignissim enim. Vestibulum a ligula posuere lorem malesuada lacinia et a metus. Nullam dictum at nibh eu elementum. Maecenas fringilla tellus eget ligula porta euismod.</p><h2>Paragraph3</h2><p>Etiam tristique eu orci eget ultricies. Vivamus imperdiet nibh vel diam viverra, sed finibus leo euismod. Vivamus non consectetur mauris, at eleifend neque. Donec consequat gravida bibendum. Fusce ornare lectus vulputate turpis elementum, ut volutpat lacus fringilla. In nec libero quis nibh tristique finibus. Donec convallis lobortis purus eget tincidunt. Quisque mollis vehicula ornare. Fusce quis pharetra sem. Sed in sodales tortor, ut dapibus urna. Mauris velit metus, rhoncus a odio ut, lacinia dignissim sem. Nullam blandit accumsan libero at faucibus. Nam sit amet dolor nec massa fringilla vulputate.</p><h2>Paragraph4</h2><p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc ullamcorper, justo vel rutrum dignissim, eros lorem tempor magna, ut congue mi ante non arcu. Praesent lobortis augue urna, sit amet gravida lorem ultrices vel. Fusce ornare venenatis consectetur. Nullam rutrum, mi sit amet egestas consectetur, est tortor hendrerit dolor, vitae vulputate risus sem eu sapien. Donec massa arcu, aliquet id semper pulvinar, auctor vel neque. Etiam dignissim aliquam nulla. Vestibulum lacinia sit amet dolor quis sagittis. Duis in maximus ante, eget accumsan augue. Praesent dapibus in quam vel tristique. Vestibulum ut convallis ipsum. Nunc id sem non augue placerat hendrerit.</p><h2>Paragraph5</h2><p>Etiam non bibendum sem, at vehicula lorem. Donec in diam non velit sagittis iaculis quis non ligula. Integer quis dolor sed libero tempus ultrices euismod non ligula. Aenean eget interdum leo. Curabitur at aliquam nibh. Vivamus dignissim mauris non posuere laoreet. Nullam suscipit ac leo eu euismod. Cras imperdiet, diam quis venenatis commodo, neque odio efficitur mi, eu dictum diam risus a lorem. Mauris dapibus est eu elit ultricies, sit amet hendrerit turpis faucibus.</p>"
     }
 }
