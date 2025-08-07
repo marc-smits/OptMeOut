@@ -4,8 +4,8 @@
 
 * [Introduction](#intro-section)
 * [Install Python build](#python-section)
-
 * [Manage translated templates](#translations-section)
+
   * [Importing new languages](#import-mew-section)
   * [Modifying translations](#modify-section)
   * [Adding translations to existing languages](#add-section)
@@ -14,6 +14,7 @@
   * [About page paragraphs](#about-page-section)
 * [Folders](#folders-section)
 * [React Js](#react-section)
+
   * [Files to modify](#react-section)
   * [Update React JS code](#react-update-section)
     * [Install](#react-install-section)
@@ -23,18 +24,19 @@
 ## Introduction
 
 Here are some instruction how to make translated templates and
-modofy the HTML and CSS templates.
+modify the HTML and CSS templates.
 Most of the instructions are step by step instructions, which can be done without a deep understanding.
 
 <a name='python-section'></a>
 
 ## Install Python build
 
-In this section you enble the command ```build.py``` to make the translated templates.
+In this section you enable the command `python build.py` to make the translated templates.
 
 1) Clone this repo.
-2) Make sure that you have Python installed in your computer.
-3) Make sure that you have read and write permissions in the following
+2) It is recommended to launce command `python build.py` by executing in a docker container, by the command `./scripts/build.sh`  Alternativelt you can install  Python  in your computer ans run by the command `python build.py` .
+   See the file `docker/README.md` for instructions to install the docker image and run the command
+3) Make sure that you have read and write permissions in the following`./scripts/build.sh`
    folders
 
 ```
@@ -55,7 +57,7 @@ sudo chmod -R 0777 *
 Try by
 
 ```
-python build.py
+./scripts/build.sh
 ```
 
 You should see
@@ -87,11 +89,10 @@ In this section is presented how to manage the tranlations by excel sheets and s
 
 ### Importing new languages
 
-
 1) run the command
 
 ```
-python build.py
+./scripts/build.sh
 ```
 
 2) In the folder ```src/csv/export/``` you have all of the translation files in csv
@@ -154,7 +155,7 @@ page.about.paragraph3.h;I am a h3;I am a h3
 3) Run the build command again
 
 ```
-python build.py
+./scripts/build.sh
 ```
 
 4) Now we have a template translated in Belgium Dutch
@@ -164,7 +165,6 @@ python build.py
 
 ## Modifying translations
 
-
 In this case we do the same as in the case "Importing new languages",
 but instead of creating a new file we copy an existing file to the folder
 ```src/csv/import```, modify it and run the build command again.
@@ -173,11 +173,10 @@ but instead of creating a new file we copy an existing file to the folder
 
 ### Adding translations to existing languages
 
-
 1) Build all
 
 ```
-python build.py
+./scripts/build.sh
 ```
 
 2) Copy the file
@@ -197,7 +196,7 @@ button.tellmemore;Tell me more;Tell me more
 3) Build again
 
 ```
-python build.py
+./scripts/build.sh
 ```
 
 4) Now in the folder ```src/csv/export```
@@ -232,7 +231,6 @@ button.tellmemore;NL Tell me more;Tell me mores
 5) After the modifications, build again and
    the translations are updated.
 
-
 <a name='special-tags-section'></a>
 
 ### Translation special tags
@@ -241,12 +239,10 @@ Below some special tags to modify the format of the texts
 
 #### Red
 
-
 All of the texts which are surrounded by the tags ```<red></red>``` will be rendedered in red.
 
 Example:
 ```<red> This will be red </red>```
-
 
 Also all of the strings ```'opt-me'``` are rendered in red.
 
@@ -308,6 +304,7 @@ This will render the followoing three paragraphs.
 
 The number of Paragraphs and the <p> sections may vary.
 The generic structure for one paragraph is
+
 ```
 page.about.paragraph{d}.h; Header required; Header required
 page.about.paragraph{d}.p{d}; section N; section N
@@ -368,7 +365,7 @@ step1.properties.address.title;Address;Adres
 
 ### src/csv/import/
 
-In this folder we have the cvs files to be imported by the ```build.py``` command to the
+In this folder we have the cvs files to be imported by the ```scripts/build.sh``` command to the
 json files in the folder ```src/languages/```
 The file CSV file structure is the same.
 
@@ -504,7 +501,7 @@ Make sure you have the correct branch.
 Follow the steps below. Some commands aren give for Mac and Linux
 systems.
 
-1. Run the command ```build.py```
+1. Run the command ```scripts/build.sh```
    dist/nl_NL/src/components/LanguageSelect/LanguageSelect.jsx
 
 ```
@@ -567,7 +564,7 @@ http://localhost:5173/
 ### Update code
 
 After each time you update you need to run the command:
-```build.py```
+```./scripts/build.sh```
 
 The chages are automstically updated to the URL
 http://localhost:5173/
