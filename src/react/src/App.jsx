@@ -35,6 +35,7 @@ function App() {
   useEffect(() => {
 
     // show required section from query string if exists
+    // example: http://localhost:5173/?section=splash
     const queryParams = new URLSearchParams(window.location.search);
     if (queryParams.has('section') && !sectionFromQueryParamsSet) {
       let section = queryParams.get('section');
@@ -81,6 +82,7 @@ function App() {
       <header>
         <Header
           emitChangeSection={changeSection}
+          currentSection={currentSection}
         />
       </header>
 

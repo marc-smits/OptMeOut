@@ -12,25 +12,28 @@ import '/src/components/Header/Header.scss'
 function Header(props) {
         return (
                 <>
-                    <div className="menu">
-                        <div className="button" id="headerLanguageSelect"
-                        onClick={(e) => props.emitChangeSection("selectCountry", e)}>
-                               [[menu.locale]]
-                        </div>
-                        <div
-                                className="button"
-                                id="headerAbout"
-                                onClick={(e) => props.emitChangeSection("about", e)}
-                        >
-                                [[menu.about]]
-                        </div>
-                    </div>
+                        {props.currentSection == "splash" &&
+                                <div className="menu">
+                                        <div className="button" id="headerLanguageSelect"
+                                                onClick={(e) => props.emitChangeSection("selectCountry", e)}>
+                                                [[menu.locale]]
+                                        </div>
+                                        <div
+                                                className="button"
+                                                id="headerAbout"
+                                                onClick={(e) => props.emitChangeSection("about", e)}
+                                        >
+                                                [[menu.about]]
+                                        </div>
+                                </div>
+                        }
                 </>
 
         )
 }
 
 Header.propTypes = {
-        emitChangeSection: PropTypes.func,  // Change step
+        emitChangeSection: PropTypes.func,
+        currentSection: PropTypes.string,
 };
 export default Header
