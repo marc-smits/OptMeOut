@@ -4,8 +4,8 @@
  * 
  */
 import PropTypes from 'prop-types';
-
-
+import { PDFViewer } from '@react-pdf/renderer';
+import EmailPdf from './../components/EmailPdf.jsx';
 function Summary(props) {
 
     return (
@@ -30,14 +30,19 @@ function Summary(props) {
                     </div>
                 </div>{/*col*/}
             </div>{/*row*/}
+
+            <PDFViewer>
+                <EmailPdf formData={props.formData} />
+            </PDFViewer>
         </div>
 
     )
 }
 
-
 Summary.propTypes = {
     emitChangeSection: PropTypes.func,
+    formData: PropTypes.object
+
 };
 
 export default Summary

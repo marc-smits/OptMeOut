@@ -158,6 +158,7 @@ function App() {
         {/* Summary */}
         {currentSection == "summary" &&
           <Summary
+            formData={formData}
             emitChangeSection={changeSection}
           />
         }
