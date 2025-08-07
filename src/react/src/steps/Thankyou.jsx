@@ -4,8 +4,6 @@
  * 
  */
 
-import './steps.scss'
-
 
 function Thankyou(props) {
 

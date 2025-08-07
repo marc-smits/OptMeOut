@@ -6,7 +6,6 @@
 import PropTypes from 'prop-types';
 
 
-import './steps.scss'
 // Todo for Marc, move classes .formFieldLabelError and .formFieldError  to your place
 import './step2.scss'
 

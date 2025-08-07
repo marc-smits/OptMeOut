@@ -6,8 +6,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import '/src/components/Header/Header.scss'
-
 
 function Header(props) {
         return (

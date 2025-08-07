@@ -6,7 +6,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react'
 
-import './steps.scss'
 // Todo for Marc, move classes .formFieldLabelError and .formFieldError  to your place
 import './step2.scss'
 

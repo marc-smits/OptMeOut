@@ -10,7 +10,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-import './steps.scss'
+
 // Todo for Marc, move classes .formFieldLabelError and .formFieldError  to your place
 import './step2.scss'
 

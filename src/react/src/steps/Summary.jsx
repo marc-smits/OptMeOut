@@ -6,9 +6,6 @@
 import PropTypes from 'prop-types';
 
 
-import './steps.scss'
-
-
 function Summary(props) {
 
     return (
