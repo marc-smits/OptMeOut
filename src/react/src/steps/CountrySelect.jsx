@@ -15,81 +15,79 @@ function CountrySelect(props) {
     //
     const changeCountry = (country, e) => {
         let url = '/' + country
+        alert(url);
+        return;
         window.location.href = url
     };
 
 
+    /**
+     * Render country li
+     */
+    const CountryLi = ({ index, country, locale }) => {
+
+        let className = locale != '' ? 'active' : '';
+        if (locale != '') {
+            return (
+                <li
+                    key={"country" + index}
+                    onClick={(e) => changeCountry(locale)}
+                    class={className}
+                >
+                    {country}
+                </li>
+            );
+        } else {
+            return (
+                <li
+                    key={"country" + index}
+                    class={className}
+                >
+                    {country}
+                </li>
+            );
+        }
+    };
+
+
     return (
-      <div class="row">
-        <div class="col">
-          <div className="step" id="countrySelect">
+        <div class="row">
+            <div class="col">
+                <div className="step" id="countrySelect">
 
-              <h1>[[splash.countries.h1]]</h1>
+                    <h1>[[splash.countries.h1]]</h1>
 
-              {/* left column*/}
-              <div class="flex-start">
-                <div className="listCountries">
-                    <ul>
-                        {Object.keys(countries).map((innerAttr, index) => {
-                            if (index <= Object.keys(countries).length / 2) {
+                    {/* left column*/}
+                    <div class="flex-start">
+                        <div className="listCountries">
+                            <ul>
+                                {Object.keys(countries).map((innerAttr, index) => {
+                                    if (index <= Object.keys(countries).length / 2) {
+                                        return (
+                                            <CountryLi index={index} country={innerAttr} locale={countries[innerAttr]} />
+                                        )
+                                    }
+                                })
+                                }
+                            </ul>
+                        </div>
 
-                                return (
-                                    <li
-                                        key={"country" + index}
-                                        onClick={(e) => changeCountry(innerAttr)}
-                                    >
-                                        {countries[innerAttr]}
-                                    </li>
-                                )
-                            }
-                        })
-                        }
-
-                        <li class="active">TEST country</li>
-                        <li>TEST country</li>
-                        <li>TEST country</li>
-                        <li>TEST country</li>
-                        <li class="active">TEST country</li>
-                        <li class="active">TEST country</li>
-                        <li>TEST country</li>
-                        <li>TEST country</li>
-                        <li class="active">TEST country</li>
-
-                    </ul>
-                </div>
-
-                {/* right column*/}
-                <div className="listCountries">
-                    <ul>
-                    <li>TEST country</li>
-                    <li>TEST country</li>
-                    <li>TEST country</li>
-                    <li>TEST country</li>
-                    <li>TEST country</li>
-                    <li class="active">TEST country</li>
-                    <li>TEST country</li>
-                    <li>TEST country</li>
-                    <li class="active">TEST country</li>
-
-                        {Object.keys(countries).map((innerAttr, index) => {
-                            if (index > Object.keys(countries).length / 2) {
-
-                                return (
-                                    <li className="intro"
-                                        key={"country" + index}
-                                        onClick={(e) => changeCountry(innerAttr)}
-                                    >
-                                        {countries[innerAttr]}
-                                    </li>
-                                )
-                            }
-                        })
-                        }
-                    </ul>
-                </div>{/*.listCountries*/}
-              </div>
-            </div>{/*.col*/}
-          </div>{/*.row*/}
+                        {/* right column*/}
+                        <div className="listCountries">
+                            <ul>
+                                {Object.keys(countries).map((innerAttr, index) => {
+                                    if (index > Object.keys(countries).length / 2) {
+                                        return (
+                                            <CountryLi index={index} country={innerAttr} locale={countries[innerAttr]} />
+                                        )
+                                    }
+                                })
+                                }
+                            </ul>
+                        </div>{/*.listCountries*/}
+                    </div>
+                </div>{/*.col*/}
+            </div>{/*.row*/}
         </div>
     )
 }

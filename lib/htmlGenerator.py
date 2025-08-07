@@ -100,12 +100,12 @@ class HtmlGenerator:
                 targetFile  = self.__get_distFile(srcFile, lang)
                 with open(targetFile, "w") as f:
                     f.write(html)
-                print(f"Generated {targetFile}")
+                #print(f"Generated {targetFile}")
         except UnicodeDecodeError:
             for lang, overrides in self.languages.items():
                 targetFile  = self.__get_distFile(srcFile, lang)
                 shutil.copy(srcFile, targetFile)
-                print(f"Copied {targetFile}")
+                #print(f"Copied {targetFile}")
             pass # Found non-text data
 
     #

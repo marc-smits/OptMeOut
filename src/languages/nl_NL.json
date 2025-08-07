@@ -1,8 +1,7 @@
 {
     "menu": {
         "about": "NL about",
-        "locale": "NL",
-        "country": "Netherlands"
+        "locale": "NL"
     },
     "global": {
         "form": {

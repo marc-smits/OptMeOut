@@ -50,8 +50,17 @@ class LanguageCodes:
     #
     def __set_country_list(self,languages):
         countriesList = {}
-        for lang, overrides in languages.items():
-            countriesList[lang] = overrides['menu']['country']
+
+        activeLangues = list(languages.keys())
+        availableLanguages= languages['en_GB']['splash']['countries']['list'] 
+        for i,lang in availableLanguages.items() :
+          parts = lang.split(',')
+          country = parts[0]
+          locale = parts[1]
+          if locale not in activeLangues :
+                locale = ''
+          countriesList[country] = locale 
+
         countriesStr=   json.dumps(countriesList, sort_keys=True)    
         return countriesStr
 

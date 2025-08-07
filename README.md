@@ -109,7 +109,23 @@ Copy the file ```src/csv/export/en_GB.csv```
 to the folder ```src/csv/import``` and rename it after the new language local
 in this case nl_BE.csv
 ```src/csv/export/nl_BE.csv```
-The locale codes you can find in
+The locale codes you can find in the file ```src/languages/en_GB.json```, ```splash.countries.list```
+
+```
+ "splash": {
+        "countries": {
+            "h1": "Select your country",
+            "list": {
+                "1": "Austria,de_AT",
+                "2": "Belgium (NL),NL_BE",
+                "3": "Belgium (FR),fr_BE",
+                "4": "Bulgaria,bg_BG",
+                "5": "Croatia,hr_HR",
+                ...
+```
+
+If you need to add more languages please update alse  the in the file ```src/languages/en_GB.json```.
+You can find the locale codes in:
 ```https://saimana.com/list-of-country-locale-code/```
 All of locales should have two parts separated by '_'
 As language_country
