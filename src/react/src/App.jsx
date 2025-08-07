@@ -17,7 +17,7 @@ import Thankyou from "./steps/Thankyou.jsx";
 
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("step1")
+  const [currentSection, setCurrentSection] = useState("step2")
   const [currentStep, setCurrentStep] = useState("step1")
   const [formData, setFormData] = useState({
     nameOfGp: '',
