@@ -54,7 +54,12 @@ function CountrySelect(props) {
         <div class="row">
             <div class="col">
                 <div className="step" id="countrySelect">
-
+                    <div
+                        className='buttonClose'
+                        onClick={(e) => props.emitChangeSection("closeSection", e)}
+                    >
+                        &nbsp;
+                    </div>
                     <h1>[[splash.countries.h1]]</h1>
 
                     {/* left column*/}

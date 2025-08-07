@@ -79,12 +79,14 @@ function App() {
   return (
     <>
 
-      <header>
-        <Header
-          emitChangeSection={changeSection}
-          currentSection={currentSection}
-        />
-      </header>
+      {currentSection != "selectCountry" &&
+        <header>
+          <Header
+            emitChangeSection={changeSection}
+            currentSection={currentSection}
+          />
+        </header>
+      }
 
 
       <div id="mainContent">
