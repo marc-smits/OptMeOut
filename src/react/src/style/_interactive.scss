@@ -32,14 +32,24 @@
   }
 }
 
-.buttonTellMeMore {
+.buttonTellMeMore,
+.buttonBack {
   &:hover {
     color: $darkRed;
   }
+}
 
+.buttonTellMeMore {
   svg {
     margin-left: 10px;
     transform: translateY(3px);
+  }
+}
+
+.buttonBack {
+  svg {
+    margin-right: 10px;
+    transform: translateY(3px) rotate(90deg);
   }
 }
 
@@ -56,13 +66,11 @@
   }
 }
 
-
 .buttonOptMeOut:disabled,
 .buttonOptMeOut[disabled] {
   background-color: $lightGrey;
   cursor: default;
 }
-
 
 .buttonMore {
   &::before { content: attr(data-more); }

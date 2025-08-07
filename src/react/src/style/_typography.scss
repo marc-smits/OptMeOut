@@ -15,8 +15,9 @@ a {
     text-decoration: none;
 }
 
-a :hover {
+a:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 h1, h2, h3, h4 {
@@ -38,10 +39,10 @@ h2 {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 
-em {
-  font-weight: bolder;
+em, red {
+  font-weight: 600;
   color: $red;
 }

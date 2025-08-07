@@ -53,12 +53,13 @@
     line-height: 1.5em;
     color: #a6a6a6;
 
-    &.active {
+    .active {
       cursor: pointer;
       color: $black;
 
       &:hover {
         color: $darkRed;
+        text-decoration: underline;
       }
     }
   }

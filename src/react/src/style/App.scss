@@ -2,6 +2,7 @@
 @import '/src/style/_fonts.scss';
 @import '/src/style/_interactive.scss';
 @import '/src/style/_steps.scss';
+@import '/src/style/_forms.scss';
 @import '/src/style/_typography.scss';
 
 /*
@@ -112,6 +113,10 @@ header {
   display: none;
 }
 
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+
 /*
 *   Don't know what to call these yet
 */
@@ -132,14 +137,8 @@ h1.headline {
     }
 }
 
-.intro {
-  font-size: 1.5rem;
-  line-height: 1.5em;
-  color: $grey;
-  text-align: center;
-  font-weight: 300;
-  margin: 0 10px 50px 10px;
-
+.intro,
+.formRow {
   @media only screen and (min-width: $bpSmall) {
     margin: 0 30px 50px 30px;
   }
@@ -147,6 +146,15 @@ h1.headline {
   @media only screen and (min-width: $bpMedium) {
     margin: 0 17% 50px 17%;
   }
+}
+
+.intro {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  color: $grey;
+  text-align: center;
+  font-weight: 300;
+  margin: 0 10px 50px 10px;
 }
 
 .readMore {
@@ -161,4 +169,15 @@ h1.headline {
   font-size: 1.125rem;
   font-weight: 300;
   color: $black;
+}
+
+.progress {
+  text-align: center;
+  background-repeat: no-repeat;
+  width: 229px;
+  margin: 0 auto 30px auto;
+
+  &.bar1 { background-image: url("/src/assets/img/step1.svg"); }
+  &.bar2 { background-image: url("/src/assets/img/step2.svg"); }
+  &.bar3 { background-image: url("/src/assets/img/step3.svg"); }
 }
