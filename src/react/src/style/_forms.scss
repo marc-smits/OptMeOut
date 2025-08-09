@@ -41,6 +41,11 @@ button {
   border-radius: 2px;
   font-size: 1.125rem;
   box-sizing: border-box;
+  margin: 0 0 1.7rem 0;
+}
+
+input + input {
+  margin-top: -10px;
 }
 
 input[name="bsn"] {

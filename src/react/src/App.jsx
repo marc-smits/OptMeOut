@@ -18,16 +18,22 @@ import Thankyou from "./steps/Thankyou.jsx";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("step2")
+  /* temporarily change to step youre developing, or use
+    http://localhost:5173/?section=splash
+    http://localhost:5173/?section=step1
+  */
+
   const [currentStep, setCurrentStep] = useState("step1")
   const [formData, setFormData] = useState({
-    nameOfGp: '',
-    checkAddressOfGp: false,
-    addressOfGp: '',
-    firstName: '',
-    lastName: '',
-    telephone: '',
-    dateOfBirth: '',
-    bsn: '',
+    recipientName: '',
+    customRecipient: false,
+    recipientAddress1: '',
+    recipientAddress1: '',
+    senderFirstName: '',
+    senderLastName: '',
+    senderPhone: '',
+    senderDateOfBirth: '',
+    senderBsn: '',
   })
 
   const [sectionFromQueryParamsSet, setSectionFromQueryParamsSet] = useState(false)
@@ -64,14 +70,15 @@ function App() {
   const updateFormdata = (field, value, e) => {
 
     setFormData({
-      nameOfGp: field == 'nameOfGp' ? value : formData.nameOfGp,
-      checkAddressOfGp: field == 'checkAddressOfGp' ? value : formData.checkAddressOfGp,
-      addressOfGp: field == 'addressOfGp' ? value : formData.addressOfGp,
-      firstName: field == 'firstName' ? value : formData.firstName,
-      lastName: field == 'lastName' ? value : formData.lastName,
-      telephone: field == 'telephone' ? value : formData.telephone,
-      dateOfBirth: field == 'dateOfBirth' ? value : formData.dateOfBirth,
-      bsn: field == 'bsn' ? value : formData.bsn,
+      recipientName: field == 'recipientName' ? value : formData.recipientName,
+      customRecipient: field == 'customRecipient' ? value : formData.customRecipient,
+      recipientAddress1: field == 'recipientAddress1' ? value : formData.recipientAddress1,
+      recipientAddress2: field == 'recipientAddress2' ? value : formData.recipientAddress2,
+      senderFirstName: field == 'senderFirstName' ? value : formData.senderFirstName,
+      senderLastName: field == 'senderLastName' ? value : formData.senderLastName,
+      senderPhone: field == 'senderPhone' ? value : formData.senderPhone,
+      senderDateOfBirth: field == 'senderDateOfBirth' ? value : formData.senderDateOfBirth,
+      senderBsn: field == 'bsn' ? value : formData.senderBsn,
     });
   }
 
@@ -174,19 +181,20 @@ function App() {
 
 
     {/* ==============   Debug data ================ */}
-     <div style={{ "clear": "both"}}> </div>
-      <pre style={{ "overflow": "auto" }}>
-        currentSection: {currentSection} current step: {currentStep}  <br/>
-        FormData:  <br/> 
-        nameOfGp: {formData.nameOfGp}  &nbsp;
-        checkAddressOfGp {formData.checkAddressOfGp ? "checked" : "unchecked"} &nbsp;
-        addressOfGp {formData.addressOfGp} <br/>
-        firstName : {formData.firstName}  &nbsp;
-        lastName : {formData.lastName}  &nbsp;
-        telephone : {formData.telephone} &nbsp;
-        date of birth : {formData.dateOfBirth}&nbsp;
-        bsn : {formData.bsn} 
-      </pre>
+      <div style={{ "font-family": "monospace" }}>
+        CurrentSection: {currentSection} &nbsp;|&nbsp;
+        Current step: {currentStep} <br />
+        FormData:<br/>
+        recipientName: {formData.recipientName}  &nbsp;|&nbsp;
+        customRecipient: {formData.customRecipient ? "checked" : "unchecked"} &nbsp;|&nbsp;
+        recipientAddress1: {formData.recipientAddress1} &nbsp;|&nbsp;
+        recipientAddress2: {formData.recipientAddress2} &nbsp;|&nbsp;
+        senderFirstName: {formData.senderFirstName}  &nbsp;|&nbsp;
+        senderLastName: {formData.senderLastName}  &nbsp;|&nbsp;
+        senderPhone: {formData.senderPhone} &nbsp;|&nbsp;
+        senderDateOfBirth: {formData.senderDateOfBirth} &nbsp;|&nbsp;
+        senderBsn: {formData.senderBsn}
+      </div>
     </>
   )
 }
