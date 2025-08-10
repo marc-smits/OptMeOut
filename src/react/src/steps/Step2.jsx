@@ -22,7 +22,7 @@ import BackSvg from './partials/BackSvg.jsx';
 function Step2(props) {
 
     let propsFormData = props.formData;
-    let propsCheckRecipientAddress = props.formData.recipientAddress; //Can this be deleted?
+    // let propsCheckRecipientAddress = props.formData.recipientAddress;
     let propsCheckCustomRecipient = props.formData.customRecipient;
 
     const [styleNameField, setStyleNameField] = useState('')
@@ -55,9 +55,21 @@ function Step2(props) {
             setFormIsValid(true);
             props.emitChangeSection("step3", e);
 
-            /*
-            * TODO: check if recipientAddress & recipientCity are filled out
+            /* TODO
+            *
+            * @Tuulia
+            *
+            * (We have a recipientName and a corresponding address) ? go to next step : provide feedback ;
+            *
+            * IF (customRecipient checkbox == checked) {
+            *     IF (fields 'name', 'Address1' & city are filled) {
+            *          go to next step
+            *     } ELSE {
+            *         provide feedback
+                  }
+            *  }
             */
+
         } else {
             setStyleNameField('formFieldError');
             setStyleNameFieldLabel('formFieldLabelError');
@@ -89,31 +101,30 @@ function Step2(props) {
 
                             /*
                               TODO: search address if name is entered
-                              TODO: disable search if checkbox = checked
                             */
                         />
                     </div>
                       {(propsCheckCustomRecipient) &&
                         /* TODO: CSS fade-in onLoad */
                         <>
-                          <div disabled={(propsCheckCustomRecipient)}>
+                          <div className="fadeIn" disabled={(propsCheckCustomRecipient)}>
                             <label className={styleNameFieldLabel}>[[step2.form.recipientAddress1.label]]</label>
                             <input
                                 //value={propsFormData.recipientAddress1.value}
-                                placeholder="Address line 1"
+                                placeholder="[[step2.form.recipientAddress1.placeholder]]"
                                 name="recipientAddress1"
                                 onChange={handleChange}
                             />
                             <input
                                 //value={propsFormData.recipientAddress2.value}
-                                placeholder="Address line 2"
+                                placeholder="[[step2.form.recipientAddress2.placeholder]]"
                                 name="recipientAddress2"
                                 onChange={handleChange}
                             />
                             <label className={styleNameFieldLabel}>[[step2.form.recipientCity.label]]</label>
                             <input
                                 //value={propsFormData.recipientCity.value}
-                                placeholder="City"
+                                placeholder="[[step2.form.recipientCity.placeholder]]"
                                 name="recipientCity"
                                 onChange={handleChange}
                             />

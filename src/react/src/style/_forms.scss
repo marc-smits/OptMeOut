@@ -20,7 +20,7 @@ legend {
 
 label {
   display: block;
-  margin: 0 0 0.3em 0;
+  margin: 0.7em 0 0.3em 0;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -41,11 +41,15 @@ button {
   border-radius: 2px;
   font-size: 1.125rem;
   box-sizing: border-box;
-  margin: 0 0 1.7rem 0;
+  margin: 0 0 1em 0;
 }
 
 input + input {
   margin-top: -10px;
+}
+
+input:disabled {
+  color: green;
 }
 
 input[name="bsn"] {
@@ -96,7 +100,6 @@ button:hover {
 }
 
 /* Errors */
-
 .formError {
   color: $red;
 }

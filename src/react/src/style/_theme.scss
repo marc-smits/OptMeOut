@@ -26,12 +26,11 @@ $durationDef: 0.3s;
 $durationLong: 2s;
 
 /* Animations */
-// @keyframes collapse {
-//   0%   {max-height: max-content; opacity: 1;}
-//   99%  {max-height: 0; opacity: 0;}
-//   100% {display: none;}
-// }
-//
+@keyframes fadeIn {
+  0%   {opacity: 0;}
+  100%  {opacity: 1;}
+}
+
 // @keyframes expand {
 //   0%   {display: initial; max-height: 0; opacity: 1; color: green;}
 //   80%  {opacity: 1;}
