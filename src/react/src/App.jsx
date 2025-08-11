@@ -17,7 +17,7 @@ import Thankyou from "./steps/Thankyou.jsx";
 
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("step2")
+  const [currentSection, setCurrentSection] = useState("step3")
   /* temporarily change to step youre developing, or use
     http://localhost:5173/?section=splash
     http://localhost:5173/?section=step1
@@ -181,7 +181,7 @@ function App() {
 
 
     {/* ==============   Debug data ================ */}
-      <div style={{ "font-family": "monospace" }}>
+      <div style={{ "fontFamily": "monospace" }}>
         CurrentSection: {currentSection} &nbsp;|&nbsp;
         Current step: {currentStep} <br />
         FormData:<br/>
