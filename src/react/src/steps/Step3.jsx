@@ -36,6 +36,7 @@ function Step3(props) {
     */
     const handleChange = (e) => {
         props.emitUpdateFormdata(e.target.name, e.target.value);
+        console.log("handleChange");
     };
 
     /*
@@ -63,6 +64,9 @@ function Step3(props) {
     *
     */
     const validateForm = (e) => {
+            formIsValid = true;
+            console.log("propsFormData.firstName " + propsFormData.firstName)
+
             if (!propsFormData.firstName) {
                 setValidFirstName(false);
                 formIsValid = false;
@@ -120,7 +124,7 @@ function Step3(props) {
                       <label data-valid={validFirstName}> [[step3.form.field1.label]]</label>
                       <input
                           data-valid={validFirstName}
-                          // value={propsFormData.firstName}
+                          value={propsFormData.firstName}
                           name="firstName"
                           placeholder="[[step3.form.field1.value]]"
                           onChange={handleChange}
