@@ -100,15 +100,12 @@ button:hover {
 }
 
 /* Errors */
-.formError {
+.formError,
+label[data-valid=false] {
   color: $red;
 }
 
-.formFieldLabelError {
-  color: $red;
-}
-
-.formFieldError {
+input[data-valid=false] {
   background-color: #fde8e9;
   border: 1px solid $red;
 }
