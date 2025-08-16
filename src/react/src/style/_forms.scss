@@ -83,9 +83,8 @@ input[type="checkbox"]:checked {
   }
 }
 
-.inline {
-  display: inline-block;
-  margin-right: 1rem;
+input:focus::placeholder {
+  opacity: 0;
 }
 
 button {
@@ -100,12 +99,17 @@ button:hover {
 }
 
 /* Errors */
-.formError,
-label[data-valid=false] {
+.inputError,
+label.isInvalid {
   color: $red;
+  font-size: 0.8rem;
 }
 
-input[data-valid=false] {
+.inputError {
+  margin-bottom: 3px;
+}
+
+input.isInvalid {
   background-color: #fde8e9;
   border: 1px solid $red;
 }

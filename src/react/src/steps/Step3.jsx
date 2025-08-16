@@ -6,39 +6,30 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react'
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import BackSvg from './partials/BackSvg.jsx';
 
+// Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
+import { Input } from '../components/Input.jsx'
+import { FormProvider, useForm } from 'react-hook-form'
+import {
+  name_validation,
+  desc_validation,
+  email_validation,
+  num_validation,
+  password_validation
+} from '../utils/inputValidations'
 
-// Todo for Marc, move classes .formFieldLabelError and .formFieldError  to your place
 
 function Step3(props) {
-
-    let propsFormData = props.formData;
-
-    const [validFirstName, setValidFirstName  ] = useState(true)
-    const [validLastName, setValidLastName] = useState(true)
-    const [validPhone, setValidPhone] = useState(true)
-
-    const [dateOfBirth, setDateOfBirth] = useState(new Date());
-    const [validDateOfBirth, setValidDateOfBirth] = useState(true)
-    const [dateOfBirthIsSet, setDateOfBirthIsSet] = useState(false);
-
-    const [validBsn, setValidBsn] = useState(true)
-    // const [formIsValid, setFormIsValid] = useState(true)
-    let formIsValid = true;
-
     /*
-    *
     *  Handle change of a text field
-    *
     */
-    const handleChange = (e) => {
-        props.emitUpdateFormdata(e.target.name, e.target.value);
-        console.log("handleChange");
-    };
-
+    // const handleChange = (e) => {
+    //     props.emitUpdateFormdata(e.target.name, e.target.value);
+    //     console.log("handleChange");
+    // };
+    //
     /*
     *
     *  Change date field
@@ -58,148 +49,87 @@ function Step3(props) {
         setDateOfBirth(new Date(dateStr));
     };
 
-    /*
-    *
-    *  Validate form
-    *
-    */
-    const validateForm = (e) => {
-            formIsValid = true;
-            console.log("propsFormData.firstName " + propsFormData.firstName)
-
-            if (!propsFormData.firstName) {
-                setValidFirstName(false);
-                formIsValid = false;
-            }
-            if (!propsFormData.lastName) {
-                setValidLastName(false);
-                formIsValid = false;
-            }
-            if (!propsFormData.telephone) {
-                setValidPhone(false);
-                formIsValid = false;
-            }
-            if (!dateOfBirthIsSet && props.formData.dateOfBirth == '') {
-                setValidDateOfBirth(false);
-                formIsValid = false;
-            }
-            if (!propsFormData.bsn) {
-                setValidBsn(false);
-                formIsValid = false;
-            }
-
-            if(formIsValid) {
-              console.log("we can continue: " + formIsValid);
-              props.emitChangeSection("step4", e);
-            }
-    };
-
-    /*
-    *
+      /*
     * Open Privacy policy
-    *
     */
     const openPrivacyPolicy = (e) => {
             props.emitChangeSection("privacyPolicy", e);
     }
 
+    const methods = useForm()
+    const onSubmit = methods.handleSubmit(data => {
+      console.log(data)
+    })
+
     return (
+      <div>
+      <FormProvider {...methods}>
+        <form
+          onSubmit={e => e.preventDefault()}
+          noValidate
+          className="container"
+        >
 
-        <div className="step" id="Step3">
-
-        <div>&nbsp;</div>
-
-            {/* Intro */}
-            <h1 className="headline">[[step3.title]]</h1>
-            <div className="progress bar2" >&nbsp;</div>
-            <p className="intro">[[step3.intro]]</p>
-
-            <div className='formRow'>
-              <div className="col">
-                <fieldset>
-                    <p className="formError">
-                        {formIsValid ? "" : "[[global.form.error]]"}
-                    </p>
-                    <div>
-                      <label data-valid={validFirstName}> [[step3.form.field1.label]]</label>
-                      <input
-                          data-valid={validFirstName}
-                          value={propsFormData.firstName}
-                          name="firstName"
-                          placeholder="[[step3.form.field1.value]]"
-                          onChange={handleChange}
-                      />
-                    </div>
-                    <div>
-                      <label data-valid={validLastName}>[[step3.form.field2.label]]</label>
-                      <input
-                          data-valid={validLastName}
-                          // value={propsFormData.lastName}
-                          name="lastName"
-                          placeholder="[[step3.form.field2.value]]"
-                          onChange={handleChange}
-                      />
-                    </div>
-                    <div>
-                      <label data-valid={validPhone}>[[step3.form.field3.label]]</label>
-                      <input
-                          data-valid={validPhone}
-                          // value={propsFormData.telephone}
-                          name="telephone"
-                          placeholder="[[step3.form.field3.value]]"
-                          onChange={handleChange}
-                      />
-                    </div>
-                    <div>
-                      <label data-valid={validDateOfBirth}>[[step3.form.field4.label]]</label>
-
-                      <DatePicker
-                          name="dateOfBirth"
-                          data-valid={validDateOfBirth}
-                          dateFormat="dd/MM/YYYY"
-                          selected={dateOfBirth}
-                          showYearDropdown
-                          yearDropdownItemNumber={100}
-                          scrollableYearDropdown
-                          onChange={changeDate}
-                      />
-                    </div>
-                    <div>
-                      <label data-valid={validBsn}>[[step3.form.field5.label]]</label>
-                      <input
-                          data-valid={validBsn}
-                          value={propsFormData.bsn}
-                          name="bsn"
-                          placeholder="[[step3.form.field5.value]]"
-                          onChange={handleChange}
-                      />
-                    </div>
-
-                </fieldset>
-              </div>{/*col*/}
-            </div>{/*formRow*/}
-
-            <div className='row'>
-                <div className="col flex-center">
-
-                    <div className="button buttonBack" onClick={(e) => props.emitChangeSection("step2", e)}>
-                        <BackSvg/>
-                        [[button.back]]
-                    </div>
-
-                    <div className="button buttonOptMeOut" onClick={(e) => validateForm()}>
-                        [[button.OptMeOut]]
-                    </div>
-                </div>{/*col*/}
-            </div>{/*row*/}
+        <div className='formRow'>
+          <div className="col">
+          <Input
+            label="[[step3.form.field1.label]]"
+            type="text"
+            id="firstName"
+            placeholder="[[step3.form.field1.value]]"
+          />
+          <Input
+            label="[[step3.form.field2.label]]"
+            type="text"
+            id="lastName"
+            placeholder="[[step3.form.field2.value]]"
+          />
+          <Input
+            label="[[step3.form.field3.label]]"
+            type="number"
+            id="phone"
+            placeholder="[[step3.form.field3.value]]"
+          />
+          <Input
+            label="[[step3.form.field4.label]]"
+            type="date"
+            id="birthDate"
+            placeholder="[[step3.form.field4.value]]"
+          />
+          <Input
+            label="[[step3.form.field5.label]]"
+            type="text"
+            id="bsn"
+            placeholder="[[step3.form.field5.value]]"
+            maxlength="4"
+          />
           </div>
+        </div>
+        </form>
+        </FormProvider>
+
+        <div className='row'>
+            <div className="col flex-center">
+
+                <div className="button buttonBack" onClick={(e) => props.emitChangeSection("step2", e)}>
+                    <BackSvg/>
+                    [[button.back]]
+                </div>
+
+                <div className="button buttonOptMeOut" onClick={onSubmit}>
+                    [[button.OptMeOut]]
+                </div>
+            </div>{/*col*/}
+        </div>{/*row*/}
+      </div>
+
     )
 }
-
 
 Step3.propTypes = {
     formData: PropTypes.object,
     emitChangeSection: PropTypes.func,
     emitUpdateFormdata: PropTypes.func,
 };
+
 export default Step3
