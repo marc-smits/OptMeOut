@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 function About(props) {
 
         return (
-              <div class="row">
-                <div class="col">
+              <div className="row">
+                <div className="col">
                     <div className="step" id="about">
                         <div
                                 className='buttonClose'

@@ -6,11 +6,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-
 function Header(props) {
+
         return (
                 <>
-                        {props.currentSection == "splash" &&
+                        {(props.currentSection).slice(0,4) == "step" &&
                                 <div className="menu">
                                         <div className="button" id="headerLanguageSelect"
                                                 onClick={(e) => props.emitChangeSection("selectCountry", e)}>

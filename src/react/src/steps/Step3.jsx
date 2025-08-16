@@ -16,12 +16,12 @@ import {
   name_validation,
   desc_validation,
   email_validation,
-  num_validation,
-  password_validation
+  num_validation
 } from '../utils/inputValidations'
 
-
 function Step3(props) {
+    let propsFormData = props.formData;
+
     /*
     *  Handle change of a text field
     */
@@ -49,7 +49,7 @@ function Step3(props) {
         setDateOfBirth(new Date(dateStr));
     };
 
-      /*
+    /*
     * Open Privacy policy
     */
     const openPrivacyPolicy = (e) => {
@@ -122,7 +122,6 @@ function Step3(props) {
             </div>{/*col*/}
         </div>{/*row*/}
       </div>
-
     )
 }
 
