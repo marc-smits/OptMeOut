@@ -6,6 +6,13 @@
 |  🐸 Returns:  -
 *-------------------------------------------------------------------*/
 
+export const required_validation = {
+  required: {
+    value: true,
+    message: 'required',
+  },
+}
+
 export const name_validation = {
   name: 'name',
   label: 'name',

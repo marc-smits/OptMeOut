@@ -20,9 +20,10 @@ legend {
 
 label {
   display: block;
-  margin: 0.7em 0 0.3em 0;
+  margin: 0 0.5em 0.3em 0;
   font-size: 1rem;
   font-weight: 600;
+  flex: 0 0 auto;
 }
 
 input,
@@ -42,6 +43,7 @@ button {
   font-size: 1.125rem;
   box-sizing: border-box;
   margin: 0 0 1em 0;
+  border: 1px solid transparent;
 }
 
 input + input {
@@ -52,7 +54,7 @@ input:disabled {
   color: green;
 }
 
-input[name="bsn"] {
+input[name="senderId"] {
   width: 5em;
   text-align: center;
 }
@@ -83,8 +85,32 @@ input[type="checkbox"]:checked {
   }
 }
 
+/* Hide the spin buttons in WebKit browsers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide spin buttons in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+    color: $grey;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+  color: $grey;
+}
+
 input:focus::placeholder {
   opacity: 0;
+}
+
+input::placeholder {
+  color:#888;
 }
 
 button {
@@ -99,17 +125,26 @@ button:hover {
 }
 
 /* Errors */
-.inputError,
+.label { /* contains inputError */
+  display: flex;
+  justify-content: flex-start;
+  max-width: 460px;
+  flex-wrap: wrap;
+}
+
 label.isInvalid {
   color: $red;
-  font-size: 0.8rem;
 }
 
 .inputError {
-  margin-bottom: 3px;
+  // margin: 0 0 6px 0;
+  flex: 0 0 auto;
+  color: $red;
+  font-size: 0.8em;
+  padding: 5px 0;
 }
 
 input.isInvalid {
-  background-color: #fde8e9;
+  // background-color: #fde8e9;
   border: 1px solid $red;
 }

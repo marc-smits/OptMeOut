@@ -5,18 +5,15 @@
  */
 import PropTypes from 'prop-types';
 import React, { useState } from 'react'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import BackSvg from '../partials/BackSvg.jsx';
 
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
 import { Input } from '../components/Input.jsx'
 import { FormProvider, useForm } from 'react-hook-form'
 import {
-  name_validation,
-  desc_validation,
-  email_validation,
-  num_validation
+  required_validation,
 } from '../utils/inputValidations'
 
 function Step3(props) {
@@ -34,6 +31,7 @@ function Step3(props) {
     *
     *  Change date field
     *
+    *   @tuulia I think we can live without this, a date of birth tends to be very far in the past and a datepicker does not really help there
     */
     // const changeDate = (date) => {
     //     let day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
@@ -75,33 +73,39 @@ function Step3(props) {
           <Input
             label="[[step3.form.field1.label]]"
             type="text"
-            id="senderFirstName"
+            name="senderFirstName"
             placeholder="[[step3.form.field1.value]]"
+            validation={{...required_validation}}
           />
           <Input
             label="[[step3.form.field2.label]]"
             type="text"
-            id="senderLastName"
+            name="senderLastName"
             placeholder="[[step3.form.field2.value]]"
+            validation={{...required_validation}}
           />
           <Input
             label="[[step3.form.field3.label]]"
             type="number"
-            id="senderPhone"
+            pattern="[0-9]*"
+            name="senderPhone"
             placeholder="[[step3.form.field3.value]]"
+            validation={{...required_validation}}
           />
           <Input
             label="[[step3.form.field4.label]]"
             type="date"
-            id="senderBirthDate"
+            name="senderBirthDate"
             placeholder="[[step3.form.field4.value]]"
+            validation={{...required_validation}}
           />
           <Input
             label="[[step3.form.field5.label]]"
             type="text"
-            id="senderId"
+            name="senderId"
             placeholder="[[step3.form.field5.value]]"
             maxlength="4"
+            validation={{...required_validation}}
           />
           </div>
         </div>
