@@ -1,3 +1,11 @@
+/*-------------------------------------------------------------------
+|  Function BackSvg
+|
+|  Purpose: Put an SVG image inline in the HTML, so we can style it in CSS
+|
+|  Returns:  OBJECT
+*-------------------------------------------------------------------*/
+
 function BackSvg() {
     return (
         <>

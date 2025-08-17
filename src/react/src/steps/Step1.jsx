@@ -5,7 +5,7 @@
  */
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import MoreSvg from './partials/MoreSvg.jsx';
+import MoreSvg from '../partials/MoreSvg.jsx';
 
 function Step1(props) {
 

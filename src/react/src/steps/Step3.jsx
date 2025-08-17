@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import BackSvg from './partials/BackSvg.jsx';
+import BackSvg from '../partials/BackSvg.jsx';
 
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
 import { Input } from '../components/Input.jsx'
@@ -35,19 +35,19 @@ function Step3(props) {
     *  Change date field
     *
     */
-    const changeDate = (date) => {
-        let day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
-        let month = date.getMonth() > 8 ? (date.getMonth() + 1) : '0' + (date.getMonth() + 1);
-        let year = date.getFullYear();
-
-        let dateStr = day + '/' + month + '/' + year;
-        setDateOfBirthIsSet(true);
-        props.emitUpdateFormdata('dateOfBirth', dateStr);
-
-        // update date on the Datepicker field
-        dateStr = year + '/' + month + '/' + day;
-        setDateOfBirth(new Date(dateStr));
-    };
+    // const changeDate = (date) => {
+    //     let day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
+    //     let month = date.getMonth() > 8 ? (date.getMonth() + 1) : '0' + (date.getMonth() + 1);
+    //     let year = date.getFullYear();
+    //
+    //     let dateStr = day + '/' + month + '/' + year;
+    //     setDateOfBirthIsSet(true);
+    //     props.emitUpdateFormdata('dateOfBirth', dateStr);
+    //
+    //     // update date on the Datepicker field
+    //     dateStr = year + '/' + month + '/' + day;
+    //     setDateOfBirth(new Date(dateStr));
+    // };
 
     /*
     * Open Privacy policy
@@ -62,7 +62,7 @@ function Step3(props) {
     })
 
     return (
-      <div>
+      <>
       <FormProvider {...methods}>
         <form
           onSubmit={e => e.preventDefault()}
@@ -75,31 +75,31 @@ function Step3(props) {
           <Input
             label="[[step3.form.field1.label]]"
             type="text"
-            id="firstName"
+            id="senderFirstName"
             placeholder="[[step3.form.field1.value]]"
           />
           <Input
             label="[[step3.form.field2.label]]"
             type="text"
-            id="lastName"
+            id="senderLastName"
             placeholder="[[step3.form.field2.value]]"
           />
           <Input
             label="[[step3.form.field3.label]]"
             type="number"
-            id="phone"
+            id="senderPhone"
             placeholder="[[step3.form.field3.value]]"
           />
           <Input
             label="[[step3.form.field4.label]]"
             type="date"
-            id="birthDate"
+            id="senderBirthDate"
             placeholder="[[step3.form.field4.value]]"
           />
           <Input
             label="[[step3.form.field5.label]]"
             type="text"
-            id="bsn"
+            id="senderId"
             placeholder="[[step3.form.field5.value]]"
             maxlength="4"
           />
@@ -121,7 +121,7 @@ function Step3(props) {
                 </div>
             </div>{/*col*/}
         </div>{/*row*/}
-      </div>
+      </>
     )
 }
 

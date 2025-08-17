@@ -17,7 +17,7 @@
 
 import PropTypes from 'prop-types';
 import React, { useState } from 'react'
-import BackSvg from './partials/BackSvg.jsx';
+import BackSvg from '../partials/BackSvg.jsx';
 
 function Step2(props) {
 

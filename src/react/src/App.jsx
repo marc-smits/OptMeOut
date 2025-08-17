@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 
-
 import './style/App.scss'
-import Header from "./components/Header/Header.jsx";
-
+import Header from "./components/Header.jsx";
 import About from "./steps/About.jsx";
 import Splash from "./steps/Splash.jsx";
 import CountrySelect from "./steps/CountrySelect.jsx";
@@ -15,7 +13,6 @@ import Step4 from "./steps/Step4.jsx";
 import Summary from "./steps/Summary.jsx";
 import Thankyou from "./steps/Thankyou.jsx";
 
-
 function App() {
   const [currentSection, setCurrentSection] = useState("step3")
   /* temporarily change to step youre developing, or use
@@ -25,21 +22,25 @@ function App() {
 
   const [currentStep, setCurrentStep] = useState("step1")
   const [formData, setFormData] = useState({
+    optOut1: true,
+    optOut2: true,
     recipientName: '',
     customRecipient: false,
     recipientAddress1: '',
     recipientAddress1: '',
+    recipientCity: '',
     senderFirstName: '',
     senderLastName: '',
     senderPhone: '',
-    senderDateOfBirth: '',
-    senderBsn: '',
+    senderBirthDate: '',
+    senderId: '',
+    senderEmail: ''
+//    stayInformed: '' --> separate form? May be no need to store it.
   })
 
   const [sectionFromQueryParamsSet, setSectionFromQueryParamsSet] = useState(false)
 
   useEffect(() => {
-
     // show required section from query string if exists
     // example: http://localhost:5173/?section=splash
     const queryParams = new URLSearchParams(window.location.search);
@@ -48,8 +49,8 @@ function App() {
       changeSection(section)
       setSectionFromQueryParamsSet(true)
     }
-
   });
+
   //
   // Change visible section
   //
@@ -77,15 +78,13 @@ function App() {
       senderFirstName: field == 'senderFirstName' ? value : formData.senderFirstName,
       senderLastName: field == 'senderLastName' ? value : formData.senderLastName,
       senderPhone: field == 'senderPhone' ? value : formData.senderPhone,
-      senderDateOfBirth: field == 'senderDateOfBirth' ? value : formData.senderDateOfBirth,
-      senderBsn: field == 'bsn' ? value : formData.senderBsn,
+      senderBirthDate: field == 'senderBirthDate' ? value : formData.senderBirthDate,
+      senderId: field == 'bsn' ? value : formData.senderId,
     });
   }
 
-
   return (
     <>
-
       {currentSection != "selectCountry" &&
         <header>
           <Header
@@ -95,10 +94,7 @@ function App() {
         </header>
       }
 
-
       <div id="mainContent">
-
-
         {/* splash  */}
         {currentSection == "splash" &&
           <Splash
@@ -129,7 +125,7 @@ function App() {
           />
         }
 
-        {/* Step 2 name of general practitioner */}
+        {/* Step 2 Recipient */}
         {currentSection == "step2" &&
           <Step2
             formData={formData}
@@ -138,7 +134,7 @@ function App() {
           />
         }
 
-        {/* Step3 */}
+        {/* Step3 Sender */}
         {currentSection == "step3" &&
           <Step3
             formData={formData}
@@ -146,7 +142,6 @@ function App() {
             emitUpdateFormdata={updateFormdata}
           />
         }
-
 
         {/* Privacy policy */}
         {currentSection == "privacyPolicy" &&
@@ -178,8 +173,6 @@ function App() {
       </div>
 
 
-
-
     {/* ==============   Debug data ================ */}
       <div style={{ "fontFamily": "monospace" }}>
         CurrentSection: {currentSection} &nbsp;|&nbsp;
@@ -192,8 +185,8 @@ function App() {
         senderFirstName: {formData.senderFirstName}  &nbsp;|&nbsp;
         senderLastName: {formData.senderLastName}  &nbsp;|&nbsp;
         senderPhone: {formData.senderPhone} &nbsp;|&nbsp;
-        senderDateOfBirth: {formData.senderDateOfBirth} &nbsp;|&nbsp;
-        senderBsn: {formData.senderBsn}
+        senderBirthDate: {formData.senderDateOfBirth} &nbsp;|&nbsp;
+        senderId: {formData.senderId}
       </div>
     </>
   )

@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 // Todo for Marc, move classes .formFieldLabelError and .formFieldError  to your place
 import './step2.scss'
-import BackSvg from './partials/BackSvg.jsx';
+import BackSvg from '../partials/BackSvg.jsx';
 function Step4(props) {
 
     return (
