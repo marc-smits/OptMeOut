@@ -1,6 +1,6 @@
 /**
  *
- * Section Step2
+ * Section Step2 - Recipient
  *
  */
 
@@ -44,7 +44,7 @@ function Step2(props) {
     }
 
       return (
-        <div className="step" id="Step2">
+        <div className="step" id="step2">
             {/* Intro */}
             <h1 className="headline">[[step2.title]]</h1>
             <div className="progress bar1" >&nbsp;</div>

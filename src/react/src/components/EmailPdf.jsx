@@ -7,7 +7,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-
 function EmailPdf(props) {
 
   // Create styles
@@ -28,15 +27,31 @@ function EmailPdf(props) {
       <Page size="A4" style={styles.page}>
 
         <View style={styles.section}>
-          <Text>Name of general practitioner: {props.formData.nameOfGp} </Text>
-          {props.formData.addressOfGp != '' &&
-            <Text>Address of general practitioner: {props.formData.addressOfGp} </Text>
+          <Text>Name of general practitioner: {props.formData.recipientName} </Text>
+          {props.formData.recipientName != '' &&
+          /*
+            @Tuulia Please note:
+
+            This condition always evaluates to TRUE.
+
+            In Step 2 the Address comes from:
+              -- A search in the address list based on the name (ToDo)
+              -- A manually entered address (Done)
+          */
+            <Text>Address of general practitioner: {props.formData.recipientAddress1} </Text>
           }
-          <Text>First name: {props.formData.firstName} </Text>
-          <Text>Last name: {props.formData.lastName} </Text>
-          <Text>Telephone: {props.formData.telephone} </Text>
-          <Text>Date Of Birth: {props.formData.dateOfBirth} </Text>
-          <Text>Bsn: {props.formData.bsn} </Text>
+          /*
+          *   We have 2 addresslines:
+          *   - props.formData.recipientAddress1
+          *   - props.formData.recipientAddress1
+          *
+          */
+
+          <Text>First name: {props.formData.senderFirstName} </Text>
+          <Text>Last name: {props.formData.senderLastName} </Text>
+          <Text>Telephone: {props.formData.senderPhone} </Text>
+          <Text>Date Of Birth: {props.formData.senderBirthDate} </Text>
+          <Text>Bsn: {props.formData.senderId} </Text>
         </View>
       </Page>
     </Document>

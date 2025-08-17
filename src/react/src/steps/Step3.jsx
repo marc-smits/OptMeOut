@@ -1,6 +1,6 @@
 /**
  *
- * Section Step3
+ * Section Step3 - Your details
  *
  */
 
@@ -72,7 +72,7 @@ function Step3(props) {
     })
 
     return (
-      <div className="step" id="Step3">
+      <div className="step" id="step3">
 
         {/* Intro */}
         <h1 className="headline">[[step3.title]]</h1>

@@ -10,8 +10,8 @@ import Step2 from "./steps/Step2.jsx";
 import Step3 from "./steps/Step3.jsx";
 import PrivacyPolicy from "./steps/PrivacyPolicy.jsx";
 import Step4 from "./steps/Step4.jsx";
-import Summary from "./steps/Summary.jsx";
-import Thankyou from "./steps/Thankyou.jsx";
+import Step5 from "./steps/Step5.jsx";
+import Step6 from "./steps/Step6.jsx";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("step3")
@@ -20,7 +20,7 @@ function App() {
     http://localhost:5173/?section=step1
   */
 
-  const [currentStep, setCurrentStep] = useState("step2")
+  const [currentStep, setCurrentStep] = useState("step4")
   const [formData, setFormData] = useState({
     optOut1: true,
     optOut2: true,
@@ -125,7 +125,7 @@ function App() {
           />
         }
 
-        {/* Step 2 Recipient */}
+        {/* Step 2 -- Recipient */}
         {currentSection == "step2" &&
           <Step2
             formData={formData}
@@ -134,7 +134,7 @@ function App() {
           />
         }
 
-        {/* Step3 Sender */}
+        {/* Step3 -- Sender */}
         {currentSection == "step3" &&
           <Step3
             formData={formData}
@@ -150,24 +150,24 @@ function App() {
           />
         }
 
-        {/* Step4 */}
+        {/* Step4 -- Your Opt Out | payment */}
         {currentSection == "step4" &&
           <Step4
             emitChangeSection={changeSection}
           />
         }
 
-        {/* Summary */}
-        {currentSection == "summary" &&
-          <Summary
+        {/* Step5 -- What happens now | newsletter */}
+        {currentSection == "step5" &&
+          <Step5
             formData={formData}
             emitChangeSection={changeSection}
           />
         }
 
-        {/* Thankyou */}
-        {currentSection == "thankyou" &&
-          <Thankyou
+        {/* Step6 -- Thankyou */}
+        {currentSection == "step6" &&
+          <Step6
           />
         }
       </div>
@@ -185,7 +185,7 @@ function App() {
         senderFirstName: {formData.senderFirstName}  &nbsp;|&nbsp;
         senderLastName: {formData.senderLastName}  &nbsp;|&nbsp;
         senderPhone: {formData.senderPhone} &nbsp;|&nbsp;
-        senderBirthDate: {formData.senderDateOfBirth} &nbsp;|&nbsp;
+        senderBirthDate: {formData.senderBirthDate} &nbsp;|&nbsp;
         senderId: {formData.senderId}
       </div>
     </>
