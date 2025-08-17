@@ -20,7 +20,7 @@ function App() {
     http://localhost:5173/?section=step1
   */
 
-  const [currentStep, setCurrentStep] = useState("step1")
+  const [currentStep, setCurrentStep] = useState("step2")
   const [formData, setFormData] = useState({
     optOut1: true,
     optOut2: true,

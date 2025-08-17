@@ -3,11 +3,23 @@
  * Section Step3
  *
  */
+
+ /*
+  * Data collected:
+  *
+  * senderFirstName
+  * senderLastName
+  * senderPhone
+  * senderBirthDate
+  * senderId
+  *
+  */
+
 import PropTypes from 'prop-types';
 import React, { useState } from 'react'
+import BackSvg from '../partials/BackSvg.jsx';
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
-import BackSvg from '../partials/BackSvg.jsx';
 
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
 import { Input } from '../components/Input.jsx'
@@ -60,72 +72,75 @@ function Step3(props) {
     })
 
     return (
-      <>
-      <FormProvider {...methods}>
-        <form
-          onSubmit={e => e.preventDefault()}
-          noValidate
-          className="container"
-        >
+      <div className="step" id="Step3">
 
-        <div className='formRow'>
-          <div className="col">
-          <Input
-            label="[[step3.form.field1.label]]"
-            type="text"
-            name="senderFirstName"
-            placeholder="[[step3.form.field1.value]]"
-            validation={{...required_validation}}
-          />
-          <Input
-            label="[[step3.form.field2.label]]"
-            type="text"
-            name="senderLastName"
-            placeholder="[[step3.form.field2.value]]"
-            validation={{...required_validation}}
-          />
-          <Input
-            label="[[step3.form.field3.label]]"
-            type="number"
-            pattern="[0-9]*"
-            name="senderPhone"
-            placeholder="[[step3.form.field3.value]]"
-            validation={{...required_validation}}
-          />
-          <Input
-            label="[[step3.form.field4.label]]"
-            type="date"
-            name="senderBirthDate"
-            placeholder="[[step3.form.field4.value]]"
-            validation={{...required_validation}}
-          />
-          <Input
-            label="[[step3.form.field5.label]]"
-            type="text"
-            name="senderId"
-            placeholder="[[step3.form.field5.value]]"
-            maxlength="4"
-            validation={{...required_validation}}
-          />
-          </div>
-        </div>
-        </form>
+        {/* Intro */}
+        <h1 className="headline">[[step3.title]]</h1>
+        <div className="progress bar2" >&nbsp;</div>
+        <p className="intro">[[step3.intro]]</p>
+
+        <FormProvider {...methods}>
+          <form
+            onSubmit={e => e.preventDefault()}
+            noValidate
+            className="container"
+          >
+            <div className='formRow'>
+              <div className="col">
+                  <Input
+                    label="[[step3.form.field1.label]]"
+                    type="text"
+                    name="senderFirstName"
+                    placeholder="[[step3.form.field1.value]]"
+                    validation={{...required_validation}}
+                  />
+                  <Input
+                    label="[[step3.form.field2.label]]"
+                    type="text"
+                    name="senderLastName"
+                    placeholder="[[step3.form.field2.value]]"
+                    validation={{...required_validation}}
+                  />
+                  <Input
+                    label="[[step3.form.field3.label]]"
+                    type="number"
+                    pattern="[0-9]*"
+                    name="senderPhone"
+                    placeholder="[[step3.form.field3.value]]"
+                    validation={{...required_validation}}
+                  />
+                  <Input
+                    label="[[step3.form.field4.label]]"
+                    type="date"
+                    name="senderBirthDate"
+                    placeholder="[[step3.form.field4.value]]"
+                    validation={{...required_validation}}
+                  />
+                  <Input
+                    label="[[step3.form.field5.label]]"
+                    type="text"
+                    name="senderId"
+                    placeholder="[[step3.form.field5.value]]"
+                    maxlength="4"
+                    validation={{...required_validation}}
+                  />
+              </div>{/*col*/}
+            </div>{/*formRow*/}
+          </form>
         </FormProvider>
 
         <div className='row'>
-            <div className="col flex-center">
-
-                <div className="button buttonBack" onClick={(e) => props.emitChangeSection("step2", e)}>
-                    <BackSvg/>
-                    [[button.back]]
-                </div>
-
-                <div className="button buttonOptMeOut" onClick={onSubmit}>
-                    [[button.OptMeOut]]
-                </div>
+          <div className="col flex-center">
+            <div className="button buttonBack" onClick={(e) => props.emitChangeSection("step2", e)}>
+                <BackSvg/>
+                [[button.back]]
+            </div>
+              <div className="button buttonOptMeOut" onClick={onSubmit}>
+                [[button.OptMeOut]]
+              </div>
             </div>{/*col*/}
         </div>{/*row*/}
-      </>
+      </div>
     )
 }
 
