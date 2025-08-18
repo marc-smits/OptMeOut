@@ -46,3 +46,16 @@ em, red {
   font-weight: 600;
   color: $red;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  &:before {
+    content: "-";
+    margin-right: 10px;
+  }
+}

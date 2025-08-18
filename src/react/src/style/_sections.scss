@@ -1,0 +1,125 @@
+/*
+*   Section specific
+*/
+
+/* Step 1 */
+#step1 {
+  .optOutToggle {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+
+    h2 {
+      margin: 0;
+      flex: 0 20 auto;
+    }
+  }
+
+  .pleaseNote * {
+      color: $darkGreen !important;
+  }
+
+  .pleaseNote p {
+    font-size: 1em;
+  }
+}
+
+/* Splash screens & other pages */
+#about {
+
+}
+
+/* Country Select */
+#countrySelect {
+  .listCountries {
+    flex: 1 1 auto;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    color: #a6a6a6;
+
+    .active {
+      cursor: pointer;
+      color: $black;
+
+      &:hover {
+        color: $darkRed;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Step 6 */
+.social {
+  .social-inner {
+    margin: 0 auto;
+  }
+
+  ul {
+    margin: 20px 0;
+    display: flex;
+    clear: both;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: $bpSmall) {
+      justify-content: center;
+    }
+  }
+
+  a {
+    display: inline-block;
+
+    &:hover {
+      text-decoration: none;
+
+      .socialIcon svg {
+        transition: background-color $durationDef;
+        background: $red;
+        color: #fff;
+      }
+
+      .socialName {
+        color: $red;
+      }
+    }
+  }
+
+  li:before {
+    content: none;
+  }
+
+  .socialIcon svg {
+    display: block;
+    margin: 0 auto 10px auto;
+    background: $veryLightGrey;
+    padding: 6px 30px;
+    border-radius: 30px;
+    width: 24px;
+    height: 24px;
+    color: $black;
+  }
+
+  .socialName {
+    display: block;
+    display: block;
+    font-size: 0.9rem;
+    max-width: 100px;
+    text-align: center;
+    color: $black;
+  }
+}
