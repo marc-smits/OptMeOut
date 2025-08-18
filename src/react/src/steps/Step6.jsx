@@ -5,6 +5,7 @@
  */
 import PropTypes from 'prop-types';
 import BackSvg from '../partials/BackSvg.jsx';
+import { MuskSvg, EmailSvg, LinkSvg } from '../partials/socialSvg.jsx';
 
 function Step6(props) {
     return (
@@ -26,8 +27,8 @@ friends family or anyone who might benefit from it.</p>
                       <ul>
                         <a href="https://social.link">
                           <li>
-                            <div className="socialIcon"><BackSvg /></div>
-                            <div className="socialName">Network</div>
+                            <div className="socialIcon"><MuskSvg /></div>
+                            <div className="socialName">Musk</div>
                           </li>
                         </a>
                         <a href="https://social.link">
@@ -38,14 +39,14 @@ friends family or anyone who might benefit from it.</p>
                         </a>
                         <a href="https://social.link">
                           <li>
-                            <div className="socialIcon"><BackSvg /></div>
-                            <div className="socialName">Network</div>
+                            <div className="socialIcon"><EmailSvg /></div>
+                            <div className="socialName">e-mail</div>
                           </li>
                         </a>
                         <a href="https://social.link">
                           <li>
-                            <div className="socialIcon"><BackSvg /></div>
-                            <div className="socialName">Network lala name</div>
+                            <div className="socialIcon"><LinkSvg /></div>
+                            <div className="socialName">Copy link</div>
                           </li>
                         </a>
                       </ul>
