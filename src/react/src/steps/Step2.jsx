@@ -60,6 +60,7 @@ function Step2(props) {
                   <div className="col">
                       <Input
                         label="[[step3.form.recipientName.label]]"
+                        value={propsFormData.recipientName}
                         type="text"
                         name="recipientName"
                         placeholder="[[step3.form.recipientName.placeholder]]"
@@ -70,24 +71,25 @@ function Step2(props) {
                           <div className="fadeIn" disabled={(propsCheckCustomRecipient)}>
                             <Input
                               label="[[step3.form.recipientAddress1.label]]"
+                              value={propsFormData.recipientAddress1}
                               type="text"
                               name="recipientAddress1"
                               placeholder="[[step3.form.recipientAddress1.placeholder]]"
                               validation={{
                                 required: {
-                                  value: (!propsCheckCustomRecipient) ? true : false,
+                                  value: (propsCheckCustomRecipient) ? true : false,
                                   message: 'required',
                                 },
                               }}
                             />
                             <Input
-                              label="[[step3.form.recipientAddress2.label]]"
+                              value={propsFormData.recipientAddress2}
                               type="text"
                               name="recipientAddress2"
                               placeholder="[[step3.form.recipientAddress2.placeholder]]"
                               validation={{
                                 required: {
-                                  value: (!propsCheckCustomRecipient) ? true : false,
+                                  value: (propsCheckCustomRecipient) ? true : false,
                                   message: 'required',
                                 },
                               }}
@@ -99,7 +101,7 @@ function Step2(props) {
                               placeholder="[[step3.form.recipientCity.placeholder]]"
                               validation={{
                                 required: {
-                                  value: (!propsCheckCustomRecipient) ? true : false,
+                                  value: (propsCheckCustomRecipient) ? true : false,
                                   message: 'required',
                                 },
                               }}

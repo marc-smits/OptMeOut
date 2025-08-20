@@ -10,12 +10,12 @@ fieldset {
   border: none;
 }
 
-.formValidation {
-  color: $red;
-}
-
 legend {
   font-weight: bold;
+}
+
+.fieldset {
+  margin-bottom: 1.5em;
 }
 
 label {
@@ -42,12 +42,8 @@ button {
   border-radius: 2px;
   font-size: 1.125rem;
   box-sizing: border-box;
-  margin: 0 0 1em 0;
   border: 1px solid transparent;
-}
-
-input + input {
-  margin-top: -10px;
+  margin: 0;
 }
 
 input:disabled {
@@ -111,6 +107,11 @@ input:focus::placeholder {
 
 input::placeholder {
   color:#888;
+}
+
+input:first-child {
+  margin-top: -1.5em;
+  transform: translateY(-5px)
 }
 
 button {
