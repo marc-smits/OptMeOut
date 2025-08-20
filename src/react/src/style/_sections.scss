@@ -109,17 +109,21 @@
     background: $veryLightGrey;
     padding: 6px 30px;
     border-radius: 30px;
-    width: 24px;
+    width: auto;
     height: 24px;
     color: $black;
   }
 
   .socialName {
     display: block;
-    display: block;
     font-size: 0.9rem;
     max-width: 100px;
     text-align: center;
     color: $black;
+  }
+
+  .socialName[data-copied="true"] {
+      animation-name: fadeIn;
+      animation-duration: 0.8s;
   }
 }

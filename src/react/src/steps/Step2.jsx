@@ -16,7 +16,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import BackSvg from '../partials/BackSvg.jsx';
 
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
@@ -63,6 +63,7 @@ function Step2(props) {
                   <div className="col">
                       <Input
                         label="[[step3.form.recipientName.label]]"
+                        value={propsFormData.recipientName}
                         type="text"
                         name="recipientName"
                         value={props.formData.recipientName}
@@ -75,6 +76,7 @@ function Step2(props) {
                           <div className="fadeIn" disabled={(propsCheckCustomRecipient)}>
                             <Input
                               label="[[step3.form.recipientAddress1.label]]"
+                              value={propsFormData.recipientAddress1}
                               type="text"
                               name="recipientAddress1"
                               value={props.formData.recipientAddress1}
@@ -82,13 +84,13 @@ function Step2(props) {
                               placeholder="[[step3.form.recipientAddress1.placeholder]]"
                               validation={{
                                 required: {
-                                  value: (!propsCheckCustomRecipient) ? true : false,
+                                  value: (propsCheckCustomRecipient) ? true : false,
                                   message: 'required',
                                 },
                               }}
                             />
                             <Input
-                              label="[[step3.form.recipientAddress2.label]]"
+                              value={propsFormData.recipientAddress2}
                               type="text"
                               name="recipientAddress2"
                               value={props.formData.recipientAddress2}
@@ -96,7 +98,7 @@ function Step2(props) {
                               placeholder="[[step3.form.recipientAddress2.placeholder]]"
                               validation={{
                                 required: {
-                                  value: (!propsCheckCustomRecipient) ? true : false,
+                                  value: (propsCheckCustomRecipient) ? true : false,
                                   message: 'required',
                                 },
                               }}
@@ -110,7 +112,7 @@ function Step2(props) {
                               placeholder="[[step3.form.recipientCity.placeholder]]"
                               validation={{
                                 required: {
-                                  value: (!propsCheckCustomRecipient) ? true : false,
+                                  value: (propsCheckCustomRecipient) ? true : false,
                                   message: 'required',
                                 },
                               }}

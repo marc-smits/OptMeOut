@@ -93,6 +93,7 @@ function Step3(props) {
               <div className="col">
                   <Input
                     label="[[step3.form.field1.label]]"
+                    value={propsFormData.senderFirstName}
                     type="text"
                     name="senderFirstName"
                     value={props.formData.senderFirstName}
@@ -102,6 +103,7 @@ function Step3(props) {
                   />
                   <Input
                     label="[[step3.form.field2.label]]"
+                    value={propsFormData.senderLastName}
                     type="text"
                     name="senderLastName"
                     value={props.formData.senderLastName}
@@ -111,6 +113,7 @@ function Step3(props) {
                   />
                   <Input
                     label="[[step3.form.field3.label]]"
+                    value={propsFormData.senderPhone}
                     type="number"
                     pattern="[0-9]*"
                     name="senderPhone"
@@ -121,6 +124,7 @@ function Step3(props) {
                   />
                   <Input
                     label="[[step3.form.field4.label]]"
+                    value={propsFormData.senderBirthDate}
                     type="date"
                     name="senderBirthDate"
                     value={props.formData.senderBirthDate}
@@ -130,6 +134,7 @@ function Step3(props) {
                   />
                   <Input
                     label="[[step3.form.field5.label]]"
+                    value={propsFormData.senderId}
                     type="text"
                     name="senderId"
                     value={props.formData.senderId}

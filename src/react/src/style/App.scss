@@ -108,7 +108,7 @@ header {
   }
 
   &-wrap {
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
   }
 }
 
@@ -121,7 +121,6 @@ header {
 .mb-30 { margin-bottom: 30px; }
 
 .fadeIn {
-  // opacity: 0;
   animation-name: fadeIn;
   animation-duration: 0.8s;
 }
@@ -147,7 +146,7 @@ h1.headline {
 }
 
 .intro,
-.notification
+.notification,
 .formRow {
   margin: 0 10px 50px 10px;
 
