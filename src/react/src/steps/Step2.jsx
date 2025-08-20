@@ -16,7 +16,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import BackSvg from '../partials/BackSvg.jsx';
 
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
