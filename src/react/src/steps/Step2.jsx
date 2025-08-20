@@ -62,6 +62,7 @@ function Step2(props) {
                         label="[[step3.form.recipientName.label]]"
                         type="text"
                         name="recipientName"
+                        value={props.formData.recipientName}
                         placeholder="[[step3.form.recipientName.placeholder]]"
                         validation={{...required_validation}}
                       />
@@ -72,6 +73,7 @@ function Step2(props) {
                               label="[[step3.form.recipientAddress1.label]]"
                               type="text"
                               name="recipientAddress1"
+                              value={props.formData.recipientAddress1}
                               placeholder="[[step3.form.recipientAddress1.placeholder]]"
                               validation={{
                                 required: {
@@ -84,6 +86,7 @@ function Step2(props) {
                               label="[[step3.form.recipientAddress2.label]]"
                               type="text"
                               name="recipientAddress2"
+                              value={props.formData.recipientAddress2}
                               placeholder="[[step3.form.recipientAddress2.placeholder]]"
                               validation={{
                                 required: {
@@ -96,6 +99,7 @@ function Step2(props) {
                               label="[[step3.form.recipientCity.label]]"
                               type="text"
                               name="recipientCity"
+                              value={props.formData.recipientCity}
                               placeholder="[[step3.form.recipientCity.placeholder]]"
                               validation={{
                                 required: {
@@ -111,6 +115,7 @@ function Step2(props) {
                           type="checkbox"
                           name="customRecipient"
                           checked={propsCheckCustomRecipient}
+                           value={props.formData.customRecipient}
                           onChange={handleCheckBoxClick}
                       />
                       <span>[[step2.form.check.label]]</span>
