@@ -27,7 +27,7 @@ function App() {
     recipientName: '',
     customRecipient: false,
     recipientAddress1: '',
-    recipientAddress1: '',
+    recipientAddress2: '',
     recipientCity: '',
     senderFirstName: '',
     senderLastName: '',
@@ -75,11 +75,12 @@ function App() {
       customRecipient: field == 'customRecipient' ? value : formData.customRecipient,
       recipientAddress1: field == 'recipientAddress1' ? value : formData.recipientAddress1,
       recipientAddress2: field == 'recipientAddress2' ? value : formData.recipientAddress2,
+      recipientCity: field == 'recipientCity' ? value : formData.recipientCity,
       senderFirstName: field == 'senderFirstName' ? value : formData.senderFirstName,
       senderLastName: field == 'senderLastName' ? value : formData.senderLastName,
       senderPhone: field == 'senderPhone' ? value : formData.senderPhone,
       senderBirthDate: field == 'senderBirthDate' ? value : formData.senderBirthDate,
-      senderId: field == 'bsn' ? value : formData.senderId,
+      senderId: field == 'senderId' ? value : formData.senderId,
     });
   }
 
@@ -182,6 +183,7 @@ function App() {
         customRecipient: {formData.customRecipient ? "checked" : "unchecked"} &nbsp;|&nbsp;
         recipientAddress1: {formData.recipientAddress1} &nbsp;|&nbsp;
         recipientAddress2: {formData.recipientAddress2} &nbsp;|&nbsp;
+        recipientCity: {formData.recipientCity} &nbsp;|&nbsp;
         senderFirstName: {formData.senderFirstName}  &nbsp;|&nbsp;
         senderLastName: {formData.senderLastName}  &nbsp;|&nbsp;
         senderPhone: {formData.senderPhone} &nbsp;|&nbsp;

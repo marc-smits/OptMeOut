@@ -35,6 +35,9 @@ function Step2(props) {
 
     let propsFormData = props.formData;
     let propsCheckCustomRecipient = props.formData.customRecipient;
+    const handleChange = (e) => {
+      props.emitUpdateFormdata(e.target.name, e.target.value);
+    };
 
     /*
     *  Handle change of a check box
@@ -63,6 +66,7 @@ function Step2(props) {
                         type="text"
                         name="recipientName"
                         value={props.formData.recipientName}
+                        handleChange={(e) => handleChange(e)}
                         placeholder="[[step3.form.recipientName.placeholder]]"
                         validation={{...required_validation}}
                       />
@@ -74,6 +78,7 @@ function Step2(props) {
                               type="text"
                               name="recipientAddress1"
                               value={props.formData.recipientAddress1}
+                              handleChange={(e) => handleChange(e)}
                               placeholder="[[step3.form.recipientAddress1.placeholder]]"
                               validation={{
                                 required: {
@@ -87,6 +92,7 @@ function Step2(props) {
                               type="text"
                               name="recipientAddress2"
                               value={props.formData.recipientAddress2}
+                              handleChange={(e) => handleChange(e)}
                               placeholder="[[step3.form.recipientAddress2.placeholder]]"
                               validation={{
                                 required: {
@@ -100,6 +106,7 @@ function Step2(props) {
                               type="text"
                               name="recipientCity"
                               value={props.formData.recipientCity}
+                              handleChange={(e) => handleChange(e)}
                               placeholder="[[step3.form.recipientCity.placeholder]]"
                               validation={{
                                 required: {
@@ -115,7 +122,7 @@ function Step2(props) {
                           type="checkbox"
                           name="customRecipient"
                           checked={propsCheckCustomRecipient}
-                           value={props.formData.customRecipient}
+                          value={props.formData.customRecipient}
                           onChange={handleCheckBoxClick}
                       />
                       <span>[[step2.form.check.label]]</span>

@@ -13,7 +13,7 @@ import { useFormContext } from 'react-hook-form'
 // import { AnimatePresence, motion } from 'framer-motion'
 // import { MdError } from 'react-icons/md'
 
-export const Input = ({label, type, pattern, placeholder, maxlength, name, value, validation}) => {
+export const Input = ({label, type, pattern, placeholder, maxlength, name, handleChange, value, validation}) => {
   const {
     register,
     formState: { errors },
@@ -46,11 +46,13 @@ export const Input = ({label, type, pattern, placeholder, maxlength, name, value
             type={type}
             {...(type == "number") ? {inputMode: "numeric"} : undefined}
             pattern={pattern}
-            placeholder={placeholder}
-            {...(maxlength ? { maxLength: maxlength, size: maxlength } : {})}
-            {...register(name, validation)}
-        />
 
+        placeholder={placeholder}
+        {...(maxlength ? { maxLength: maxlength, size: maxlength } : {})}
+        {...register(name, validation)}
+        {...register(name, { onChange: (e) => { handleChange(e) }} )}
+        />
+ 
       </div>
     )
 }

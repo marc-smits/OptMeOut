@@ -66,6 +66,10 @@ function Step3(props) {
             props.emitChangeSection("privacyPolicy", e);
     }
 
+    const handleChange = (e) => {
+      props.emitUpdateFormdata(e.target.name, e.target.value);
+    };
+    
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       console.log(data)
@@ -91,6 +95,8 @@ function Step3(props) {
                     label="[[step3.form.field1.label]]"
                     type="text"
                     name="senderFirstName"
+                    value={props.formData.senderFirstName}
+                    handleChange={(e) => handleChange(e)}
                     placeholder="[[step3.form.field1.value]]"
                     validation={{...required_validation}}
                   />
@@ -98,6 +104,8 @@ function Step3(props) {
                     label="[[step3.form.field2.label]]"
                     type="text"
                     name="senderLastName"
+                    value={props.formData.senderLastName}
+                    handleChange={(e) => handleChange(e)}
                     placeholder="[[step3.form.field2.value]]"
                     validation={{...required_validation}}
                   />
@@ -106,6 +114,8 @@ function Step3(props) {
                     type="number"
                     pattern="[0-9]*"
                     name="senderPhone"
+                    value={props.formData.senderPhone}
+                    handleChange={(e) => handleChange(e)}
                     placeholder="[[step3.form.field3.value]]"
                     validation={{...required_validation}}
                   />
@@ -113,6 +123,8 @@ function Step3(props) {
                     label="[[step3.form.field4.label]]"
                     type="date"
                     name="senderBirthDate"
+                    value={props.formData.senderBirthDate}
+                    handleChange={(e) => handleChange(e)}
                     placeholder="[[step3.form.field4.value]]"
                     validation={{...required_validation}}
                   />
@@ -120,6 +132,8 @@ function Step3(props) {
                     label="[[step3.form.field5.label]]"
                     type="text"
                     name="senderId"
+                    value={props.formData.senderId}
+                    handleChange={(e) => handleChange(e)}
                     placeholder="[[step3.form.field5.value]]"
                     maxlength="4"
                     validation={{...required_validation}}
