@@ -100,6 +100,42 @@
             }
         }
     },
+    "step4": {
+        "months": {
+            "january": "NL January",
+            "february": "NL February",
+            "march": "NL March",
+            "april": "NL April",
+            "may": "NL May",
+            "june": "NL June",
+            "july": "NL July",
+            "august": "NL August",
+            "september": "NL September",
+            "october": "NL October",
+            "november": "NL Novemeber",
+            "december": "NL December"
+        },
+        "receive_a_copy": {
+            "title": "NL Receive a copy",
+            "text": "NL You will receive instructions on how to reverse your opt-out.",
+            "email_place_holder": "NL e-mail@address.com"
+        },
+        "opt_out_letter": {
+            "title": "NL Dear",
+            "saluation": "NL Dear",
+            "content": "NL Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
+        },
+        "donate": {
+            "title": "NL Donate",
+            "text": "NL We are an NGO and run non-profit. Please pay from an account that is in your name, since this is also used for identification. You can only OptYourselfOut.",
+            "payment_options": {
+                "1": "NL Feel free, if you can't afford more.",
+                "2": "NL Pay for your own.",
+                "3": "NL Pay it forward, donate a letter.",
+                "4": "NL Help us expand to expand this service."
+            }
+        }
+    },
     "privacy_policy": {
         "title": "NL Privacy Policy",
         "text": "<h2>NL Paragraph1</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt tortor id mi interdum pulvinar. In posuere sit amet quam ac iaculis. Duis vel felis id massa pharetra lobortis vel id neque. Phasellus tempus ante eget mi egestas, quis lacinia lectus placerat. Aenean libero ante, consectetur viverra elit a, interdum interdum lorem. Morbi porta in tellus sit amet hendrerit. Curabitur accumsan dui nisi, vitae ultricies orci consequat ut. Aliquam luctus risus tempor, ullamcorper sapien nec, porttitor justo. In vitae venenatis est, bibendum vulputate sapien. Mauris felis odio, laoreet in nunc sit amet, dignissim euismod lacus. Integer consequat odio nulla. Morbi placerat massa nec leo volutpat, ut aliquam erat pharetra. Cras in quam a mauris ultrices placerat eu eget lectus.</p><h2>Paragraph2</h2><p>Etiam ut erat diam. Suspendisse velit tortor, varius nec aliquet convallis, convallis vel leo. Mauris tempor neque elit, in hendrerit justo venenatis vestibulum. Donec turpis purus, feugiat eget hendrerit sit amet, tristique sed lorem. Donec dignissim, enim at facilisis pretium, elit massa imperdiet metus, quis vulputate ex magna eget nisi. Nam egestas velit convallis, convallis leo in, ultrices quam. Donec sit amet nisl in ligula scelerisque ultricies. Ut dui augue, varius finibus turpis sit amet, mollis dignissim enim. Vestibulum a ligula posuere lorem malesuada lacinia et a metus. Nullam dictum at nibh eu elementum. Maecenas fringilla tellus eget ligula porta euismod.</p><h2>Paragraph3</h2><p>Etiam tristique eu orci eget ultricies. Vivamus imperdiet nibh vel diam viverra, sed finibus leo euismod. Vivamus non consectetur mauris, at eleifend neque. Donec consequat gravida bibendum. Fusce ornare lectus vulputate turpis elementum, ut volutpat lacus fringilla. In nec libero quis nibh tristique finibus. Donec convallis lobortis purus eget tincidunt. Quisque mollis vehicula ornare. Fusce quis pharetra sem. Sed in sodales tortor, ut dapibus urna. Mauris velit metus, rhoncus a odio ut, lacinia dignissim sem. Nullam blandit accumsan libero at faucibus. Nam sit amet dolor nec massa fringilla vulputate.</p><h2>Paragraph4</h2><p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc ullamcorper, justo vel rutrum dignissim, eros lorem tempor magna, ut congue mi ante non arcu. Praesent lobortis augue urna, sit amet gravida lorem ultrices vel. Fusce ornare venenatis consectetur. Nullam rutrum, mi sit amet egestas consectetur, est tortor hendrerit dolor, vitae vulputate risus sem eu sapien. Donec massa arcu, aliquet id semper pulvinar, auctor vel neque. Etiam dignissim aliquam nulla. Vestibulum lacinia sit amet dolor quis sagittis. Duis in maximus ante, eget accumsan augue. Praesent dapibus in quam vel tristique. Vestibulum ut convallis ipsum. Nunc id sem non augue placerat hendrerit.</p><h2>Paragraph5</h2><p>Etiam non bibendum sem, at vehicula lorem. Donec in diam non velit sagittis iaculis quis non ligula. Integer quis dolor sed libero tempus ultrices euismod non ligula. Aenean eget interdum leo. Curabitur at aliquam nibh. Vivamus dignissim mauris non posuere laoreet. Nullam suscipit ac leo eu euismod. Cras imperdiet, diam quis venenatis commodo, neque odio efficitur mi, eu dictum diam risus a lorem. Mauris dapibus est eu elit ultricies, sit amet hendrerit turpis faucibus.</p>"

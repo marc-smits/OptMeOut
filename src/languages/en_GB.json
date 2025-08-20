@@ -10,7 +10,8 @@
             "less": "less",
             "more": "more"
         },
-        "back": "back"
+        "back": "back",
+        "send": "Send it"
     },
     "global": {
         "form": {
@@ -103,9 +104,9 @@
                 "label": "Who is your general practitioner? *",
                 "value": "name of your GP"
             },
-        "check": {
-            "label": "enter address manually"
-        }
+            "check": {
+                "label": "enter address manually"
+            }
         }
     },
     "step3": {
@@ -131,6 +132,42 @@
             "field5": {
                 "label": "Last four digits of your BSN *",
                 "value": "xxx"
+            }
+        }
+    },
+    "step4": {
+        "months": {
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "Novemeber",
+            "december": "December"
+        },
+        "receive_a_copy": {
+            "title": "Receive a copy",
+            "text": "You will receive instructions on how to reverse your opt-out.",
+            "email_place_holder": "e-mail@address.com"
+        },
+        "opt_out_letter": {
+            "title": "Dear",
+            "saluation": "Dear",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
+        },
+        "donate": {
+            "title": "Donate",
+            "text": "We are an NGO and run non-profit. Please pay from an account that is in your name, since this is also used for identification. You can only OptYourselfOut.",
+            "payment_options": {
+                "1": "Feel free, if you can't afford more.",
+                "2": "Pay for your own.",
+                "3": "Pay it forward, donate a letter.",
+                "4": "Help us expand to expand this service."
             }
         }
     },
