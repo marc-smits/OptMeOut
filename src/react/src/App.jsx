@@ -14,13 +14,13 @@ import Step5 from "./steps/Step5.jsx";
 import Step6 from "./steps/Step6.jsx";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("step3")
+  const [currentSection, setCurrentSection] = useState("step1")
   /* temporarily change to step youre developing, or use
     http://localhost:5173/?section=splash
     http://localhost:5173/?section=step1
   */
 
-  const [currentStep, setCurrentStep] = useState("step4")
+  const [currentStep, setCurrentStep] = useState("step1")
   const [formData, setFormData] = useState({
     optOut1: true,
     optOut2: true,
