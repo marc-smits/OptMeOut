@@ -7,7 +7,5 @@
 /dist/*
 /src/csv
 /src/csv/*
-/src/csv/import/
-/src/csv/import/*
-/src/csv/export/
-/src/csv/export/*
+# Ignore Visual Code history files
+/.history
