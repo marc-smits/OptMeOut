@@ -8,6 +8,10 @@ import { useState } from 'react';
 
 import BackSvg from '../partials/BackSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
+import LocalDate from '../partials/LocalDate.jsx';
+
+// TODO later: get this from user data
+const localeCode = 'en-IE';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -72,8 +76,8 @@ function Step4(props) {
                     </div>
                     <div className="letterMeta">
                       <p>
-                        <strong>Date </strong>August 23, 2025<br />
-                        <strong>Subject </strong>We are doing something awesome!
+                        <strong>Date: </strong><LocalDate localeCode={localeCode} /><br />
+                        <strong>Subject: </strong>We are doing something awesome!
                       </p>
                     </div>
                     <div className={readMore1 ? 'letterBody fadeIn' : 'letterBody readLess'}>
