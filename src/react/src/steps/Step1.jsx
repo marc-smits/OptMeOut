@@ -6,6 +6,7 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import MoreSvg from '../partials/MoreSvg.jsx';
+import ButtonMore from '../partials/ButtonMore.jsx';
 
 function Step1(props) {
 
@@ -13,8 +14,6 @@ function Step1(props) {
         // Variables to control the visibility of the sections
         //
         const [tellMeMore, setTellMeMore] = useState(false);
-        const [readMore1, setReadMore1] = useState(false);
-        const [readMore2, setReadMore2] = useState(false);
         const [optOut1, setOptOut1] = useState('checked');
         const [optOut2, setOptOut2] = useState('checked');
         const [disableNextStep, setDisableNextStep ] = useState(false);
@@ -27,17 +26,11 @@ function Step1(props) {
                 setTellMeMore(status);
         };
 
-        // Update Read More 1 visibility
-        const toggleReadMore1 = (e) => {
-                let status = readMore1 ? false : true;
-                setReadMore1(status);
-        };
-
-        // Update Read More 2 visibility
-        const toggleReadMore2 = (e) => {
-                let status = readMore2 ? false : true;
-                setReadMore2(status);
-        };
+        // ReadMore button(s)
+        const [readMore1, setReadMore1] = useState(false);
+        const toggleReadMore1 = () => setReadMore1(prev => !prev);
+        const [readMore2, setReadMore2] = useState(false);
+        const toggleReadMore2 = () => setReadMore1(prev => !prev);
 
         // Update Toggle OptOut1
         const toggleOptOut1 = (e) => {
@@ -62,11 +55,18 @@ function Step1(props) {
         return (
                 <div className="step" id="step1">
 
-                        {/* Intro */}
-                        <h1 className="headline">[[step1.title]]</h1>
-                        <p className="intro">
-                                [[step1.intro]]
-                        </p>
+                        {/* Headline & Intro */}
+                        <div className='row mb-30'>
+                          <div className="col col-10">
+                            <h1 className="headline">[[step1.title]]</h1>
+                          </div>
+                        </div>
+
+                        <div className='row'>
+                          <div className="col col-8">
+                            <p className="intro mb-20">[[step1.intro]]</p>
+                          </div>
+                        </div>
 
                         {/* Tell me more */}
                         {
@@ -74,10 +74,9 @@ function Step1(props) {
                                   {/* Tell me more 1*/}
 
                                   <div className='row'>
-                                    <div className="col">
+                                    <div className="col col-10">
                                         <div className='optOutToggle'>
 
-                                          {/* @Tuuria: Toggle 'checked' class in JS to switch between "yes" and "no" */}
                                           <div className={"checkBox " + (optOut1)} onClick={toggleOptOut1}>
                                             <div className="checkBoxSlider"></div>
                                           </div>
@@ -85,32 +84,15 @@ function Step1(props) {
                                         </div>
                                         <p>[[step1.optout1.p]]</p>
                                         <div className={readMore1 ? 'readMore show' : 'readMore'}>[[step1.optout1.readmore]]</div>
-
-                                        {/* @Tuuria
-                                              Please note: Some partners might need more than one paragraph in the readmore section
-
-                                              When buttonMore is clicked:
-                                              1. toggle 'show' class in the readMore div
-                                              2. toggle 'less' class in buttonMore div
-                                        */}
-
-                                        {/* Read more 1 */}
-                                        {//!readMore1 &&
                                             <div className='flex-end'>
-                                                <div className={readMore1 ? 'button buttonMore less' : 'button buttonMore'}
-                                                    data-more="[[button.readmore.more]]"
-                                                    data-less="[[button.readmore.less]]"
-                                                    onClick={toggleReadMore1} >
-                                                </div>
+                                              <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
                                             </div>
-
-                                        }
                                     </div>
                                   </div>
 
                                   {/* Tell me more 2*/}
                                   <div className='row'>
-                                    <div className="col">
+                                    <div className="col col-10">
                                         <div className='optOutToggle'>
                                           <div className={"checkBox " + (optOut2)} onClick={toggleOptOut2}>
                                             <div className="checkBoxSlider"></div>
@@ -119,18 +101,9 @@ function Step1(props) {
                                         </div>
                                         <p>[[step1.optout2.p]]</p>
                                         <div className={readMore2 ? 'readMore show' : 'readMore'}>[[step1.optout2.readmore]]</div>
-
-                                        {/* Read more 2 */}
-                                        {
-                                            <div className='flex-end'>
-                                                <div className={readMore2 ? 'button buttonMore less' : 'button buttonMore'}
-                                                    data-more="[[button.readmore.more]]"
-                                                    data-less="[[button.readmore.less]]"
-                                                    onClick={toggleReadMore2} >
-                                                </div>
-                                            </div>
-
-                                        }
+                                        <div className='flex-end'>
+                                          <ButtonMore readMore={readMore2} toggleReadMore={toggleReadMore2} />
+                                        </div>
                                     </div>{/*col*/}
                                   </div>{/*row*/}
                                 </div>
@@ -154,7 +127,7 @@ function Step1(props) {
                         {/* Please note section */}
                         {tellMeMore &&
                           <div className='row'>
-                            <div className="col">
+                            <div className="col-10">
                                 <div className='pleaseNote'>
                                     <h2>[[step1.disclaimer.h1]]</h2>
                                     <p>[[step1.disclaimer.p]]</p>

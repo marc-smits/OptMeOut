@@ -5,6 +5,10 @@
 @import '/src/style/_forms.scss';
 @import '/src/style/_typography.scss';
 
+pre {
+  overflow-x: scroll;
+}
+
 /*
 *   body & Layout
 */
@@ -18,6 +22,7 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
   font-family: "Poppins", serif;
+  overflow-x: hidden;
 }
 
 #root {
@@ -66,21 +71,44 @@ header {
 }
 
 .row {
-  margin: 0 10px 50px;
+  margin: 0 0 50px 0;
 
   @media only screen and (min-width: $bpSmall) {
-    margin: 0 4.7% 50px;
+    margin: 0 2.125% 50px 2.125%;
   }
 
   @media only screen and (min-width: $bpMedium) {
-    margin: 0 8.5% 50px;
-  }
-
-  @media only screen and (min-width: $bpLarge) {
-    margin: 0 8.5% 50px;
+    margin: 0 4.25% 50px 4.25%;
   }
 }
 
+.col-10 { /* 10 Columns */
+  margin: 0 10px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 2.125%
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 4.25%;
+  }
+}
+
+.col-8 { /* 10 Columns */
+  margin: 0 10px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 4.25%;
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 2.125%;
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    margin: 0 14%;
+  }
+}
 
 /*
 *   Helper classes
@@ -110,6 +138,10 @@ header {
   &-wrap {
     flex-wrap: wrap;
   }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
 }
 
 .hide {
@@ -122,49 +154,35 @@ header {
 
 .fadeIn {
   animation-name: fadeIn;
-  animation-duration: 0.8s;
+  animation-duration: 1s;
 }
 
 /*
-*   Don't know what to call these yet
+*   Special elements
 */
 h1.headline {
-    font-weight: 800;
-    font-size: 36px;
-    line-height: 1.2em;
-    text-align: center;
-
-    margin: 0 10px 30px 10px;
+    margin-left: 0 10px;
 
     @media only screen and (min-width: $bpSmall) {
-      margin: 0 30px 30px 30px;
+      margin: 0 4.25%;
     }
 
     @media only screen and (min-width: $bpMedium) {
-      margin: 0 8.5% 30px 8.5%;
+      margin: 0 2.125%;
     }
 }
 
-.intro,
-.notification,
-.formRow {
-  margin: 0 10px 50px 10px;
-
-  @media only screen and (min-width: $bpSmall) {
-    margin: 0 30px 50px 30px;
-  }
-
-  @media only screen and (min-width: $bpMedium) {
-    margin: 0 17% 50px 17%;
-  }
-}
-
 .intro {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   line-height: 1.5em;
   color: $grey;
   text-align: center;
   font-weight: 300;
+  margin-bottom: 50px;
+
+  @media only screen and (min-width: $bpSmall) {
+    font-size: 1.5rem;
+  }
 }
 
 .readMore {
@@ -185,7 +203,7 @@ h1.headline {
   text-align: center;
   background-repeat: no-repeat;
   width: 229px;
-  margin: 0 auto 30px auto;
+  margin: 30px auto;
 
   &.bar1 { background-image: url("/src/assets/img/step1.svg"); }
   &.bar2 { background-image: url("/src/assets/img/step2.svg"); }
@@ -198,7 +216,7 @@ h1.headline {
   background-size: 35px 35px;
   background-position: right 20px top 25px;
   background-repeat: no-repeat;
-  padding: 20px calc(35px + 3.22%) 20px 3.22%;
+  padding: 20px calc(35px + 3.22%) 1px 3.22%;
   margin-bottom: 30px;
 
   p, h2 {

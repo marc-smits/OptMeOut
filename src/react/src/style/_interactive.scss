@@ -73,17 +73,19 @@
 }
 
 .buttonMore {
-  &::before { content: attr(data-more); }
+  text-align: right;
 
-  &::after {
-    content: "\0279E";
-    transform: rotate(90deg);
+  &::before {
+    content: attr(data-more);
+    margin-right: 0.5em;
+    transform: translateY(-2px);
     display: inline-block;
-    margin-left: 10px;
   }
 
   &.less::before { content: attr(data-less); }
-  &.less::after { transform: rotate(-90deg); }
+  &.less svg {
+    transform: rotate(-180deg);
+  }
 }
 
 .buttonClose {
@@ -98,25 +100,6 @@
     margin-bottom: 1em;
     cursor: pointer;
 }
-
-//
-// #step1 .readMore .moreButton,
-// #step1 .readMore .lessButton {
-//     background-image: url("/src/assets/img/arrowDown.png");
-//     background-repeat: no-repeat;
-//     background-size: 10px;
-//     background-position: right 5px;
-//     padding-right: 12px;
-//     float: right;
-//     width: fit-content;
-//     margin-bottom: 1em;
-//     cursor: -webkit-grab;
-//     cursor: grab;
-// }
-//
-// #step1 .readMore .lessButton {
-//     background-image: url("/src/assets/img/arrowUp.png");
-// }
 
 /* In the menu */
 #headerLanguageSelect, #headerAbout {

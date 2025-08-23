@@ -66,10 +66,11 @@ function Step3(props) {
             props.emitChangeSection("privacyPolicy", e);
     }
 
+    /* Forms */
     const handleChange = (e) => {
       props.emitUpdateFormdata(e.target.name, e.target.value);
     };
-    
+
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       console.log(data)
@@ -79,9 +80,18 @@ function Step3(props) {
       <div className="step" id="step3">
 
         {/* Intro */}
-        <h1 className="headline">[[step3.title]]</h1>
-        <div className="progress bar2" >&nbsp;</div>
-        <p className="intro">[[step3.intro]]</p>
+        {/* Headline & Intro */}
+        <div className='row'>
+          <div className="col col-10">
+            <h1 className="headline">[[step3.title]]</h1>
+            <div className="progress bar2" >&nbsp;</div>
+          </div>
+        </div>
+        <div className='row'>
+          <div className="col col-8">
+            <p className="intro">[[step3.intro]]</p>
+          </div>
+        </div>
 
         <FormProvider {...methods}>
           <form
@@ -89,8 +99,8 @@ function Step3(props) {
             noValidate
             className="container"
           >
-            <div className='formRow'>
-              <div className="col">
+            <div className='row'>
+              <div className="col-8">
                   <Input
                     label="[[step3.form.field1.label]]"
                     value={propsFormData.senderFirstName}

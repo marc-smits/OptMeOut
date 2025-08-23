@@ -48,10 +48,18 @@ function Step2(props) {
 
       return (
         <div className="step" id="step2">
-            {/* Intro */}
-            <h1 className="headline">[[step2.title]]</h1>
-            <div className="progress bar1" >&nbsp;</div>
-            <p className="intro">[[step2.intro]]</p>
+            {/* Headline & Intro */}
+            <div className='row'>
+              <div className="col col-10">
+                <h1 className="headline">[[step2.title]]</h1>
+                <div className="progress bar1" >&nbsp;</div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className="col col-8">
+                <p className="intro">[[step2.intro]]</p>
+              </div>
+            </div>
 
             <FormProvider {...methods}>
               <form
@@ -59,8 +67,8 @@ function Step2(props) {
                 noValidate
                 className="container"
               >
-                <div className='formRow'>
-                  <div className="col">
+                <div className='row'>
+                  <div className="col col-8">
                       <Input
                         label="[[step3.form.recipientName.label]]"
                         value={propsFormData.recipientName}

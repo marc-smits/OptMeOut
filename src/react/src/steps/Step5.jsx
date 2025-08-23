@@ -12,7 +12,23 @@ function Step5(props) {
         <div className="step" id="step5">
 
             {/* Intro */}
-            <h1 className="headline">[[step5.title]] What happens now?</h1>
+            {/* Headline & Intro */}
+            <div className='row'>
+              <div className="col col-10">
+                <h1 className="headline">[[step5.title]]</h1>
+              </div>
+            </div>
+            <div className='row'>
+              <div className="col col-8">
+                <p className="intro">[[step5.intro]]</p>
+              </div>
+            </div>
+            
+            <div className='row'>
+              <div className="col col-8">
+                <p>newsletter signup</p>
+              </div>
+            </div>
 
             <div className='row'>
                 <div className="col flex-center">
