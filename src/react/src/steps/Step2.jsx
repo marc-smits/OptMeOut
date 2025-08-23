@@ -70,26 +70,26 @@ function Step2(props) {
                 <div className='row'>
                   <div className="col col-8">
                       <Input
-                        label="[[step3.form.recipientName.label]]"
+                        label="[[step2.form.recipientName.label]]"
                         value={propsFormData.recipientName}
                         type="text"
                         name="recipientName"
                         value={props.formData.recipientName}
                         handleChange={(e) => handleChange(e)}
-                        placeholder="[[step3.form.recipientName.placeholder]]"
+                        placeholder="[[step2.form.recipientName.placeholder]]"
                         validation={{...required_validation}}
                       />
                       {(propsCheckCustomRecipient) &&
                         <>
                           <div className="fadeIn" disabled={(propsCheckCustomRecipient)}>
                             <Input
-                              label="[[step3.form.recipientAddress1.label]]"
+                              label="[[step2.form.recipientAddress1.label]]"
                               value={propsFormData.recipientAddress1}
                               type="text"
                               name="recipientAddress1"
                               value={props.formData.recipientAddress1}
                               handleChange={(e) => handleChange(e)}
-                              placeholder="[[step3.form.recipientAddress1.placeholder]]"
+                              placeholder="[[step2.form.recipientAddress1.placeholder]]"
                               validation={{
                                 required: {
                                   value: (propsCheckCustomRecipient) ? true : false,
@@ -103,7 +103,7 @@ function Step2(props) {
                               name="recipientAddress2"
                               value={props.formData.recipientAddress2}
                               handleChange={(e) => handleChange(e)}
-                              placeholder="[[step3.form.recipientAddress2.placeholder]]"
+                              placeholder="[[step2.form.recipientAddress2.placeholder]]"
                               validation={{
                                 required: {
                                   value: (propsCheckCustomRecipient) ? true : false,
@@ -112,12 +112,12 @@ function Step2(props) {
                               }}
                             />
                             <Input
-                              label="[[step3.form.recipientCity.label]]"
+                              label="[[step2.form.recipientCity.label]]"
                               type="text"
                               name="recipientCity"
                               value={props.formData.recipientCity}
                               handleChange={(e) => handleChange(e)}
-                              placeholder="[[step3.form.recipientCity.placeholder]]"
+                              placeholder="[[step2.form.recipientCity.placeholder]]"
                               validation={{
                                 required: {
                                   value: (propsCheckCustomRecipient) ? true : false,
@@ -158,7 +158,6 @@ function Step2(props) {
 
     )
 }
-
 
 Step2.propTypes = {
     formData: PropTypes.object,

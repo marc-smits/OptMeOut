@@ -102,54 +102,54 @@ function Step3(props) {
             <div className='row'>
               <div className="col-8">
                   <Input
-                    label="[[step3.form.field1.label]]"
+                    label="[[step3.form.senderFirstName.label]]"
                     value={propsFormData.senderFirstName}
                     type="text"
                     name="senderFirstName"
                     value={props.formData.senderFirstName}
                     handleChange={(e) => handleChange(e)}
-                    placeholder="[[step3.form.field1.value]]"
+                    placeholder="[[step3.form.senderLastName.placeholder]]"
                     validation={{...required_validation}}
                   />
                   <Input
-                    label="[[step3.form.field2.label]]"
+                    label="[[step3.form.senderLastName.label]]"
                     value={propsFormData.senderLastName}
                     type="text"
                     name="senderLastName"
                     value={props.formData.senderLastName}
                     handleChange={(e) => handleChange(e)}
-                    placeholder="[[step3.form.field2.value]]"
+                    placeholder="[[step3.form.senderLastName.placeholder]]"
                     validation={{...required_validation}}
                   />
                   <Input
-                    label="[[step3.form.field3.label]]"
+                    label="[[step3.form.senderPhone.label]]"
                     value={propsFormData.senderPhone}
                     type="number"
                     pattern="[0-9]*"
                     name="senderPhone"
                     value={props.formData.senderPhone}
                     handleChange={(e) => handleChange(e)}
-                    placeholder="[[step3.form.field3.value]]"
+                    placeholder="[[step3.form.senderPhone.placeholder]]"
                     validation={{...required_validation}}
                   />
                   <Input
-                    label="[[step3.form.field4.label]]"
+                    label="[[step3.form.senderBirthDate.label]]"
                     value={propsFormData.senderBirthDate}
                     type="date"
                     name="senderBirthDate"
                     value={props.formData.senderBirthDate}
                     handleChange={(e) => handleChange(e)}
-                    placeholder="[[step3.form.field4.value]]"
+                    placeholder="[[step3.form.senderBirthDate.placeholder]]"
                     validation={{...required_validation}}
                   />
                   <Input
-                    label="[[step3.form.field5.label]]"
+                    label="[[step3.form.senderId.label]]"
                     value={propsFormData.senderId}
                     type="text"
                     name="senderId"
                     value={props.formData.senderId}
                     handleChange={(e) => handleChange(e)}
-                    placeholder="[[step3.form.field5.value]]"
+                    placeholder="[[step3.form.senderId.placeholder]]"
                     maxlength="4"
                     validation={{...required_validation}}
                   />

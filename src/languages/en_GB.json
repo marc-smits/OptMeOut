@@ -21,7 +21,7 @@
     "page": {
         "fallback": {
             "header": "This website provides EU citizens a way to provisionally \u2018opt-out\u2019 from the EHDS",
-            "intro": "Our mission is provide all EU citizens with a means to object to being registred in the European Health Data Space (EHDS). Please in by clicking <red>&quot;Select Country&quot;</red>  if it is available for your country or checkout the the <red>&quot;about&quot;</red> button  for more info. ",
+            "intro": "Our mission is provide all EU citizens with a means to object to being registred in the European Health Data Space (EHDS). Please in by clicking <red>&quot;Select Country&quot;</red>  if it is available for your country or checkout the the <red>&quot;about&quot;</red> button  for more info.",
             "button": "Select country"
         },
         "about": {
@@ -29,7 +29,7 @@
             "paragraph1": {
                 "h": "I am am h1",
                 "p1": "h1 p1 text",
-                "p2": "h1 p2 text "
+                "p2": "h1 p2 text"
             },
             "paragraph2": {
                 "h": "I am a h2",
@@ -45,7 +45,7 @@
     },
     "step1": {
         "title": "With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
-        "intro": "Your data can be used by researchers, governments, and commercial companies. You can object to this with an \u2018opt-out\u2019, for the two ways your data can be used. ",
+        "intro": "Your data can be used by researchers, governments, and commercial companies. You can object to this with an \u2018opt-out\u2019, for the two ways your data can be used.",
         "optout1": {
             "h1": "Opt-out for primary use",
             "p": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
@@ -111,7 +111,7 @@
     },
     "step3": {
         "title": "Your details",
-        "intro": "Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy} >privacy policy</a> for more info. ",
+        "intro": "Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy} >privacy policy</a> for more info.",
         "form": {
             "field1": {
                 "label": "First name *",
@@ -131,7 +131,7 @@
             },
             "field5": {
                 "label": "Last four digits of your BSN *",
-                "value": "xxx"
+                "value": "defg"
             }
         }
     },

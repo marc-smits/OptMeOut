@@ -53,23 +53,23 @@ function Step4(props) {
                     <div className="letterAddress">
                       <div className="recipient">
                         <p>
-                          Some organisation<br />
-                          Somename laladada<br />
-                          Somestreetsomewherelong 22<br />
-                          POSTAL CODE<br />
-                          City with a stupidly long name<br />
+                          Some organisation - if we know it<br />
+                          RecipientName <br />
+                          recipientAddress1<br />
+                          recipientAddress2<br />
+                          recipientCity with a stupidly long name<br />
                           Country
                         </p>
                       </div>
                       <div className="sender">
                         <p>
                           <strong>From:</strong><br />
-                          First name VeryLong Lastname
+                          senderFirstName VeryLong senderLastName
                         </p>
                         <p>
-                          Date of Birth: sender.birthdate<br />
-                          Identification (ends with): sender.Id<br />
-                          phone: 12039812038<br />
+                          Date of Birth: senderBirthdate<br />
+                          Identification (ends with): senderId<br />
+                          phone: senderPhone<br />
                           email: <br />
                         </p>
                       </div>
@@ -77,12 +77,12 @@ function Step4(props) {
                     <div className="letterMeta">
                       <p>
                         <strong>Date: </strong><LocalDate localeCode={localeCode} /><br />
-                        <strong>Subject: </strong>We are doing something awesome!
+                        <strong>Subject: </strong>[[step4.letter.subject]] We are doing something awesome!
                       </p>
                     </div>
                     <div className={readMore1 ? 'letterBody fadeIn' : 'letterBody readLess'}>
                       <p>
-                      Dear Mr, Ms, Somename,
+                      step4.letter.saluation
                       </p>
                       <p>
 Cat ipsum dolor sit amet, only use one corner of the litter box. Milk the cow sleep nap, for disappear for four days and return home with an expensive injury; bite the vet pet me pet me don't pet me for attack feet hate dogs. Make meme, make cute face chase ball of string for poop in the plant pot walk on car leaving trail of paw prints on hood and windshield. Disappear for four days and return home with an expensive injury; bite the vet. Sleep over your phone and make cute snoring noises ask to be pet then attack owners hand and lick left leg for ninety minutes, still dirty for cat fur is the new black . Meeeeouw claw drapes stare at the wall, play with food and get confused by dust and claw at curtains stretch and yawn nibble on tuna ignore human bite human hand. Grass smells good. Carrying out surveillance on the neighbour's dog caticus cuteicus. Slap kitten brother with paw i dreamt about fish yum! to pet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly. Swat turds around the house catasstrophe and pet me pet me pet me pet me, bite, scratch, why are you petting me sleep in the bathroom sink hopped up on catnip human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken! i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?!
