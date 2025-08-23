@@ -34,8 +34,10 @@ function App() {
     senderPhone: '',
     senderBirthDate: '',
     senderId: '',
-    senderEmail: ''
-//    stayInformed: '' --> separate form? May be no need to store it.
+    senderEmail: '',
+    senderId: '',
+    addToMailing: '',
+    paymentChoice: ''
   })
 
   const [sectionFromQueryParamsSet, setSectionFromQueryParamsSet] = useState(false)
@@ -81,6 +83,8 @@ function App() {
       senderPhone: field == 'senderPhone' ? value : formData.senderPhone,
       senderBirthDate: field == 'senderBirthDate' ? value : formData.senderBirthDate,
       senderId: field == 'senderId' ? value : formData.senderId,
+      addToMailing: field == 'addToMailing' ? value : formData.addToMailing,
+      paymentChoice: field == 'paymentChoice' ? value : formData.paymentChoice,
     });
   }
 
@@ -188,7 +192,11 @@ function App() {
         senderLastName: {formData.senderLastName}  &nbsp;|&nbsp;
         senderPhone: {formData.senderPhone} &nbsp;|&nbsp;
         senderBirthDate: {formData.senderBirthDate} &nbsp;|&nbsp;
-        senderId: {formData.senderId}
+        senderId: {formData.senderId} &nbsp;|&nbsp;
+        senderBankId: &nbsp;|&nbsp; <br />
+        senderEmail: {formData.senderEmail} &nbsp;|&nbsp;
+        paymentChoice: {formData.paymentChoice} &nbsp;|&nbsp;
+        addToMailing: {formData.addToMailing} &nbsp;|&nbsp;
       </div>
     </>
   )
