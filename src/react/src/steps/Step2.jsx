@@ -135,7 +135,7 @@ function Step2(props) {
                           value={props.formData.customRecipient}
                           onChange={handleCheckBoxClick}
                       />
-                      <span>[[step2.form.check.label]]</span>
+                      <span>[[step2.form.customRecipient.label]]</span>
 
                   </div>{/*col*/}
                 </div>{/*formRow*/}

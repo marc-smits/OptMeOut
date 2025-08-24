@@ -98,14 +98,25 @@
     },
     "step2": {
         "title": "Select your GP",
-        "intro": "Next we will inform your GP about your choices and excersise you right to annonate your medical records. Also we will ask your GP to forward this to other healtcare institutions you may visit.",
+        "intro": "Who is your general practitioner? *",
         "form": {
-            "field": {
-                "label": "Who is your general practitioner? *",
-                "value": "name of your GP"
+            "recipientName": {
+                "label": "What is the name of your GP?",
+                "placeholder": "name of your GP"
             },
-            "check": {
+            "customRecipient": {
                 "label": "enter address manually"
+            },
+            "recipientAddress1": {
+                "label": "Address",
+                "placeholder": "Line 1"
+            },
+            "recipientAddress2": {
+                "placeholder": "Line 2"
+            },
+            "recipientCity": {
+                "label": "City",
+                "placeholder": "City"
             }
         }
     },
@@ -113,61 +124,53 @@
         "title": "Your details",
         "intro": "Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy} >privacy policy</a> for more info.",
         "form": {
-            "field1": {
+            "senderFirstName": {
                 "label": "First name *",
-                "value": "first name"
+                "placeholder": "first name"
             },
-            "field2": {
+            "senderLastName": {
                 "label": "Last name *",
-                "value": "last name"
+                "placeholder": "last name"
             },
-            "field3": {
+            "senderPhone": {
                 "label": "Phone number *",
-                "value": "phone number"
+                "placeholder": "phone number"
             },
-            "field4": {
+            "senderBirthDate": {
                 "label": "Date of Birth *",
-                "value": "dd-mm-yyyy"
+                "placeholder": "dd-mm-yyyy"
             },
-            "field5": {
+            "senderId": {
                 "label": "Last four digits of your BSN *",
-                "value": "defg"
+                "placeholder": "xxxx"
             }
         }
     },
     "step4": {
-        "months": {
-            "january": "January",
-            "february": "February",
-            "march": "March",
-            "april": "April",
-            "may": "May",
-            "june": "June",
-            "july": "July",
-            "august": "August",
-            "september": "September",
-            "october": "October",
-            "november": "Novemeber",
-            "december": "December"
-        },
-        "receive_a_copy": {
-            "title": "Receive a copy",
-            "text": "You will receive instructions on how to reverse your opt-out.",
-            "email_place_holder": "e-mail@address.com"
-        },
-        "opt_out_letter": {
-            "title": "Dear",
-            "saluation": "Dear",
+        "title": "Your OptOut",
+        "intro": "Since there is no way to deliver this digitally (yet), we deliver by post. Proven technology. ",
+        "letter": {
+            "subject": "OptOut for the European Health DataSpace (EHDS)",
+            "saluation": "Dear Mr, Ms,",
             "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
+        },
+        "receiveACopy": {
+            "title": "Receive a copy",
+            "text": "You will receive instructions on how to reverse your opt-out."
+        },
+        "form": {
+            "senderEmail": {
+                "placeholder": "e-mail@address.com"
+            }
         },
         "donate": {
             "title": "Donate",
             "text": "We are an NGO and run non-profit. Please pay from an account that is in your name, since this is also used for identification. You can only OptYourselfOut.",
-            "payment_options": {
+            "paymentOptions": {
                 "1": "Feel free, if you can't afford more.",
                 "2": "Pay for your own.",
                 "3": "Pay it forward, donate a letter.",
-                "4": "Help us expand to expand this service."
+                "4": "Support this app. We work non-profit!"
             }
         }
     },

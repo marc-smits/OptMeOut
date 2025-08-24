@@ -36,7 +36,7 @@ function App() {
     senderId: '',
     senderEmail: '',
     senderId: '',
-    addToMailing: '',
+    stayInformed: '',
     paymentChoice: ''
   })
 
@@ -83,8 +83,8 @@ function App() {
       senderPhone: field == 'senderPhone' ? value : formData.senderPhone,
       senderBirthDate: field == 'senderBirthDate' ? value : formData.senderBirthDate,
       senderId: field == 'senderId' ? value : formData.senderId,
-      addToMailing: field == 'addToMailing' ? value : formData.addToMailing,
       paymentChoice: field == 'paymentChoice' ? value : formData.paymentChoice,
+      stayInformed: field == 'stayInformed' ? value : formData.stayInformed,
     });
   }
 
@@ -196,7 +196,7 @@ function App() {
         senderBankId: &nbsp;|&nbsp; <br />
         senderEmail: {formData.senderEmail} &nbsp;|&nbsp;
         paymentChoice: {formData.paymentChoice} &nbsp;|&nbsp;
-        addToMailing: {formData.addToMailing} &nbsp;|&nbsp;
+        stayInformed: {formData.stayInformed} &nbsp;|&nbsp;
       </div>
     </>
   )

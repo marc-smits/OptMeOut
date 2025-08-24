@@ -79,7 +79,6 @@ function Step3(props) {
     return (
       <div className="step" id="step3">
 
-        {/* Intro */}
         {/* Headline & Intro */}
         <div className='row'>
           <div className="col col-10">
