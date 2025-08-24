@@ -22,9 +22,7 @@ import BackSvg from '../partials/BackSvg.jsx';
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
 import { Input } from '../components/Input.jsx'
 import { FormProvider, useForm } from 'react-hook-form'
-import {
-  required_validation,
-} from '../utils/inputValidations'
+import { required_validation } from '../utils/inputValidations'
 
 function Step2(props) {
     const methods = useForm()
@@ -57,7 +55,7 @@ function Step2(props) {
             </div>
             <div className='row'>
               <div className="col col-8">
-                <p className="intro">[[step2.intro]]</p>
+                <p className="intro">[[step2.intro]] Object.senderName.</p>
               </div>
             </div>
 

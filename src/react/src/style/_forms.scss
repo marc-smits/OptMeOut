@@ -109,7 +109,7 @@ input::placeholder {
   color:#888;
 }
 
-input:first-child {
+input[type="text"]:first-child {
   margin-top: -1.5em;
   transform: translateY(-5px)
 }

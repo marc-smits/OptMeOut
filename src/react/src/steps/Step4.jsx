@@ -122,7 +122,7 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
             <div className='row'>
                 <div className="col-8">
                     <h3>[[step4.receiveACopy.title]]</h3>
-                    <p>[[step4.receiveACopy.text]]</p>
+                    <p class="mb-10">[[step4.receiveACopy.text]]</p>
                     <FormProvider {...methods}>
                       <form
                         onSubmit={e => e.preventDefault()}
@@ -130,6 +130,7 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
                         className="container"
                       >
                         <Input
+                          label=" "
                           placeholder="[[step4.form.senderEmail.placeholder]]"
                           // value={props.formData.senderEmail}
                           type="text"

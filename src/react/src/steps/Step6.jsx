@@ -20,14 +20,10 @@ function Step6(props) {
 
     const handleCopyLink = (e) => {
       e.preventDefault();
-      // setCopyLink((copyLink === 'Copy link') ? '...copied!' : copyLink);
       setDataCopied(true);
       setCopyLink('...copied');
 
       navigator.clipboard.writeText(baseUrl);
-      // navigator.clipboard.readText()
-      // .then((baseUrl) => console.log("Text from clipboard: ", baseUrl))
-      // .catch((error) => console.error("Failed to read text from clipboard: ", error));
 
       setTimeout(() => {
         setDataCopied(false);
@@ -51,14 +47,13 @@ function Step6(props) {
           <div className='row'>
             <div className="col-8">
               <div className="notification">
-                  <h2>[[step6.notification.h2]] Help others with their privacy too!</h2>
-                  <p>[[step6.notification.p1]] If you found this service useful, please share our website with your
-friends family or anyone who might benefit from it.</p>
+                  <h2>[[step6.notification.title]]</h2>
+                  <p>[[step6.notification.text]]</p>
               </div>
 
               <div className="social flex-center">
                 <div className="social-inner">
-                <h3>Share with:</h3>
+                <h3>[[step6.social.title]]</h3>
                   <ul>
                     <a href={`https://twitter.com/intent/tweet?url=&url=${baseUrl}&text=${encodedMessage}`}>
                       <li>
