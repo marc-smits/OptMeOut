@@ -35,12 +35,12 @@ function Step6(props) {
       <div className="step" id="step3">
           <div className='row'>
             <div className="col col-10">
-              <h1 className="headline">[[step5.title]] Thankyou page will be here</h1>
+              <h1 className="headline">[[step6.title]]</h1>
             </div>
           </div>
           <div className='row'>
             <div className="col col-8">
-              <p className="intro">[[step5.intro]] lala your opt-out and will take the necessary steps. </p>
+              <p className="intro">[[step6.intro]]</p>
             </div>
           </div>
 

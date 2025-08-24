@@ -189,6 +189,8 @@
         }
     },
     "step6": {
+        "title": "Thank you!",
+        "intro": "Your OptOut has been arranged.",
         "notification": {
             "title": "Help others with their privacy too!",
             "text": "If you found this service useful, please share our website with your friends family or anyone who might benefit from it."
