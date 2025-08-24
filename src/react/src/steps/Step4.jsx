@@ -23,8 +23,13 @@ import { PDFViewer } from '@react-pdf/renderer';
 import EmailPdf from '../components/EmailPdf.jsx';
 
 function Step4(props) {
-    const selectDonation = (e) => {
-        console.log("button");
+
+    /* Payment option */
+    const [paymentOption, setPaymentOption] = useState(3);
+
+    const selectDonation = (option, e) => {
+        setPaymentOption(option);
+        //TODO: store payment option in object
     };
 
     // ReadMore button(s)
@@ -35,6 +40,7 @@ function Step4(props) {
     const handleChange = (e) => {
       // props.emitUpdateFormdata(e.target.name, e.target.value);
     };
+
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       //(e) => props.emitChangeSection("step5", e)
@@ -43,9 +49,18 @@ function Step4(props) {
 
     return (
         <div className="step" id="step4">
-            <h1 className="headline">[[step4.title]] Your opt out</h1>
-            <div className="progress bar3" >&nbsp;</div>
-            <p className="intro">[[step4.intro]]</p>
+            {/* Headline & Intro */}
+            <div className='row'>
+              <div className="col col-10">
+                <h1 className="headline">[[step4.title]]</h1>
+                <div className="progress bar3" >&nbsp;</div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className="col col-8">
+                <p className="intro">[[step4.intro]]</p>
+              </div>
+            </div>
 
             <div className='row'>
                 <div className="col">
@@ -69,20 +84,20 @@ function Step4(props) {
                         <p>
                           Date of Birth: senderBirthdate<br />
                           Identification (ends with): senderId<br />
-                          phone: senderPhone<br />
-                          email: <br />
+                          Phone: senderPhone<br />
+                          E-mail: <br />
                         </p>
                       </div>
                     </div>
                     <div className="letterMeta">
                       <p>
                         <strong>Date: </strong><LocalDate localeCode={localeCode} /><br />
-                        <strong>Subject: </strong>[[step4.letter.subject]] We are doing something awesome!
+                        <strong>Subject: </strong>[[step4.letter.subject]]
                       </p>
                     </div>
                     <div className={readMore1 ? 'letterBody fadeIn' : 'letterBody readLess'}>
                       <p>
-                      step4.letter.saluation
+                      [[step4.letter.saluation]] Object.RecipientName,
                       </p>
                       <p>
 Cat ipsum dolor sit amet, only use one corner of the litter box. Milk the cow sleep nap, for disappear for four days and return home with an expensive injury; bite the vet pet me pet me don't pet me for attack feet hate dogs. Make meme, make cute face chase ball of string for poop in the plant pot walk on car leaving trail of paw prints on hood and windshield. Disappear for four days and return home with an expensive injury; bite the vet. Sleep over your phone and make cute snoring noises ask to be pet then attack owners hand and lick left leg for ninety minutes, still dirty for cat fur is the new black . Meeeeouw claw drapes stare at the wall, play with food and get confused by dust and claw at curtains stretch and yawn nibble on tuna ignore human bite human hand. Grass smells good. Carrying out surveillance on the neighbour's dog caticus cuteicus. Slap kitten brother with paw i dreamt about fish yum! to pet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly. Swat turds around the house catasstrophe and pet me pet me pet me pet me, bite, scratch, why are you petting me sleep in the bathroom sink hopped up on catnip human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken! i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?!
@@ -106,6 +121,8 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
 
             <div className='row'>
                 <div className="col-8">
+                    <h3>[[step4.receiveACopy.title]]</h3>
+                    <p>[[step4.receiveACopy.text]]</p>
                     <FormProvider {...methods}>
                       <form
                         onSubmit={e => e.preventDefault()}
@@ -113,8 +130,6 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
                         className="container"
                       >
                         <Input
-                          // label="[[step4.form.senderEmail.label]]"
-                          label="[[step4.receive_a_copy.title]]"
                           placeholder="[[step4.form.senderEmail.placeholder]]"
                           // value={props.formData.senderEmail}
                           type="text"
@@ -124,7 +139,7 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
                         />
                       </form>
                     </FormProvider>
-                    <p>[[step4.receive_a_copy.text]]</p>
+
                 </div>{/*col*/}
             </div>{/*row*/}
 
@@ -134,21 +149,25 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
                   <p className="mb-30">[[step4.donate.text]]</p>
 
                   <div className="donate flex-center">
-                    <div className="donateOption">
-                      <div className="button buttonDonate" onClick={selectDonation}>&euro;0,01</div>
-                      <div className="donateLabel">Feel free, if you can’t afford more</div>
+
+                    <div className="donateOption" data-selected={paymentOption === 1 ? "true" : "false"}>
+                      <div className="button buttonDonate" onClick={(e) => selectDonation(1, e)}>&euro;0.01</div>
+                      <div className="donateLabel">[[step4.donate.paymentOptions.1]]</div>
                     </div>
-                    <div className="donateOption">
-                      <div className="button buttonDonate" onClick={selectDonation}>&euro;2</div>
-                      <div className="donateLabel">Pay for your own</div>
+
+                    <div className="donateOption" data-selected={paymentOption === 2 ? "true" : "false"}>
+                      <div className="button buttonDonate" onClick={(e) => selectDonation(2, e)}>&euro;2</div>
+                      <div className="donateLabel">[[step4.donate.paymentOptions.2]]</div>
                     </div>
-                    <div className="donateOption" data-selected="true">
-                      <div className="button buttonDonate" onClick={selectDonation}>&euro;4</div>
-                      <div className="donateLabel">Pay it forward. Donate a letter</div>
+
+                    <div className="donateOption" data-selected={paymentOption === 3 ? "true" : "false"}>
+                      <div className="button buttonDonate" onClick={(e) => selectDonation(3, e)}>&euro;4</div>
+                      <div className="donateLabel">[[step4.donate.paymentOptions.3]]</div>
                     </div>
-                    <div className="donateOption">
-                      <div className="button buttonDonate" onClick={selectDonation}>&euro;10</div>
-                      <div className="donateLabel">Support this app. We work non-profit!</div>
+
+                    <div className="donateOption" data-selected={paymentOption === 4 ? "true" : "false"}>
+                      <div className="button buttonDonate" onClick={(e) => selectDonation(4, e)}>&euro;10</div>
+                      <div className="donateLabel">[[step4.donate.paymentOptions.4]]</div>
                     </div>
                   </div>
 
@@ -172,35 +191,6 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
                     </div>
                 </div>{/*col*/}
             </div>{/*row*/}
-
-            <pre>
-                            step4.months.january : [[step4.months.january]] <br/>
-                            step4.months.february : [[step4.months.february]] <br/>
-                            step4.months.march: [[step4.months.march]] <br/>
-                            step4.months.april: [[step4.months.april]] <br/>
-                            step4.months.may: [[step4.months.may]] <br/>
-                            step4.months.june: [[step4.months.june]] <br/>
-                            step4.months.july: [[step4.months.july]] <br/>
-                            step4.months.august: [[step4.months.august]] <br/>
-                            step4.months.september: [[step4.months.september]] <br/>
-                            step4.months.october: [[step4.months.october]] <br/>
-                            step4.months.november: [[step4.months.november]] <br/>
-                            step4.months.december: [[step4.months.december]] <br/>
-                            step4.receive_a_copy.title : [[step4.receive_a_copy.title]] <br/>
-                            step4.receive_a_copy.text: [[step4.receive_a_copy.text]] <br/>
-                            step4.receive_a_copy.email_place_holder: [[step4.receive_a_copy.email_place_holder]] <br/>
-                            step4.opt_out_letter.title: [[step4.opt_out_letter.title]] <br/>
-                            step4.opt_out_letter.saluation: [[step4.opt_out_letter.saluation]] <br/>
-                            step4.opt_out_letter.content: [[step4.opt_out_letter.content]] <br/>
-                            step4.donate.title: [[step4.donate.title]] <br/>
-                            step4.donate.text: [[step4.donate.text]] <br/>
-                            step4.donate.payment_options.1: [[step4.donate.payment_options.1]] <br/>
-                            step4.donate.payment_options.2: [[step4.donate.payment_options.2]] <br/>
-                            step4.donate.payment_options.3: [[step4.donate.payment_options.3]] <br/>
-                            step4.donate.payment_options.4: [[step4.donate.payment_options.4]] <br/>
-                             button.send: [[button.send]] <br/>
-            </pre>
-
 
         </div>
 
