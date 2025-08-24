@@ -2,7 +2,7 @@ import json
 import re
 from pprint import pprint
 class Translate:
-  
+
   def __init__(self):
     self.translations = ''
   #
@@ -15,28 +15,28 @@ class Translate:
     json_object = json.loads(self.translations)
     html = self.__translateSet(html, '', json_object)
     return html
-  
+
   #
-  # Translate 
+  # Translate
   #
   #
   # Translates from a json string, which might have child objects
-  # like 
+  # like
   # {
   #   'step1':
-  #     { 
+  #     {
   #       'title': 'titel',
   #       'properties':{
-  #         'name' : 'Naam', 
+  #         'name' : 'Naam',
   #         'address': 'Adres
   #     }
   # }
-  # 
-  #  This fills the replacements: 
+  #
+  #  This fills the replacements:
   #  {{step1.title}}
   #  {{step1.properties.name}}
   #  {{step1.properties.address}}
-  #  
+  #
   def __translateSet(self, html, baseKey, json_object):
     for key in json_object.keys():
         placeHolder = "[[" + baseKey + key +"]]"
@@ -52,22 +52,19 @@ class Translate:
             else:
                   subKey = key + "."
             html = self.__translateSet(html, subKey, translation)
-    html = self.__formatHtml(html)        
+    html = self.__formatHtml(html)
     return html
 
   #
   # Format html with special rules
   #
   def __formatHtml(self, html):
-    # ‘opt-out’ must be red
-    html = html.replace("‘opt-out’",'<span style={{color: "red"}}>' + "'" + 'opt-out' + "'" + '</span>' )
-
     # Text beteen <red> and  </red> to red
-    # 
-    # <red>Tell  me more</red>  => <span style={{color: "red"}}>Tell  me more</span>
     #
-    html = html.replace("<red>",'<span style={{color: "red"}}>' )
-    html = html.replace("</red>", '</span>' )
+    # <red>Opt Out</red>  => <em>Tell  me more</em>
+    #
+    html = html.replace("<red>",'<em>' )
+    html = html.replace("</red>", '</em>' )
     return html
 
   #
@@ -78,8 +75,6 @@ class Translate:
     template = template.replace('.html', '');
     template = template.replace ("src/", '');
     return template
-
-
 
   #
   # Get sub  array of the translations
@@ -100,7 +95,7 @@ class Translate:
   #              "p3": "h2 p3  text"
   #          }
   #       }
-  #  
+  #
   #  From the complete array :
   #
   #  "page": {
