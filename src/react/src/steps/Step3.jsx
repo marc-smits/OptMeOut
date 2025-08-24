@@ -32,34 +32,6 @@ function Step3(props) {
     let propsFormData = props.formData;
 
     /*
-    *  Handle change of a text field
-    */
-    // const handleChange = (e) => {
-    //     props.emitUpdateFormdata(e.target.name, e.target.value);
-    //     console.log("handleChange");
-    // };
-    //
-    /*
-    *
-    *  Change date field
-    *
-    *   @tuulia I think we can live without this, a date of birth tends to be very far in the past and a datepicker does not really help there
-    */
-    // const changeDate = (date) => {
-    //     let day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
-    //     let month = date.getMonth() > 8 ? (date.getMonth() + 1) : '0' + (date.getMonth() + 1);
-    //     let year = date.getFullYear();
-    //
-    //     let dateStr = day + '/' + month + '/' + year;
-    //     setDateOfBirthIsSet(true);
-    //     props.emitUpdateFormdata('dateOfBirth', dateStr);
-    //
-    //     // update date on the Datepicker field
-    //     dateStr = year + '/' + month + '/' + day;
-    //     setDateOfBirth(new Date(dateStr));
-    // };
-
-    /*
     * Open Privacy policy
     */
     const openPrivacyPolicy = (e) => {

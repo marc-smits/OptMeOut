@@ -30,7 +30,7 @@ function Step1(props) {
         const [readMore1, setReadMore1] = useState(false);
         const toggleReadMore1 = () => setReadMore1(prev => !prev);
         const [readMore2, setReadMore2] = useState(false);
-        const toggleReadMore2 = () => setReadMore1(prev => !prev);
+        const toggleReadMore2 = () => setReadMore2(prev => !prev);
 
         // Update Toggle OptOut1
         const toggleOptOut1 = (e) => {
@@ -47,7 +47,7 @@ function Step1(props) {
         //Update OptMeOut -- make unselectable if no opt-out is selected
         const updateNextstep = (e) => {
             let status = ([optOut1, optOut2].includes('checked'));
-            console.log('disable buttonOptMeOut? ' + !status);
+            // console.log('disable buttonOptMeOut? ' + !status);
 
             setDisableNextStep(!status);
         }
@@ -70,43 +70,42 @@ function Step1(props) {
 
                         {/* Tell me more */}
                         {
-                                <div className={tellMeMore ? 'readMore show' : 'readMore'}>
-                                  {/* Tell me more 1*/}
+                        <div className={tellMeMore ? 'readMore show' : 'readMore'}>
+                            {/* Tell me more*/}
 
-                                  <div className='row'>
-                                    <div className="col col-10">
-                                        <div className='optOutToggle'>
-
-                                          <div className={"checkBox " + (optOut1)} onClick={toggleOptOut1}>
-                                            <div className="checkBoxSlider"></div>
-                                          </div>
-                                          <h2>[[step1.optout1.h1]]</h2>
-                                        </div>
-                                        <p>[[step1.optout1.p]]</p>
-                                        <div className={readMore1 ? 'readMore show' : 'readMore'}>[[step1.optout1.readmore]]</div>
-                                            <div className='flex-end'>
-                                              <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
-                                            </div>
+                          <div className='row'>
+                              <div className="col col-10">
+                                  <div className='optOutToggle'>
+                                    <div className={"checkBox " + (optOut1)} onClick={toggleOptOut1}>
+                                      <div className="checkBoxSlider"></div>
                                     </div>
+                                    <h2>[[step1.optout1.h1]]</h2>
                                   </div>
+                                  <p>[[step1.optout1.p]]</p>
+                                  <div className={readMore1 ? 'readMore show' : 'readMore'}>[[step1.optout1.readmore]]</div>
+                                  <div className='flex-end'>
+                                    <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
+                                  </div>
+                              </div>
+                          </div>
 
-                                  {/* Tell me more 2*/}
-                                  <div className='row'>
-                                    <div className="col col-10">
-                                        <div className='optOutToggle'>
-                                          <div className={"checkBox " + (optOut2)} onClick={toggleOptOut2}>
-                                            <div className="checkBoxSlider"></div>
-                                          </div>
-                                          <h2>[[step1.optout2.h1]]</h2>
-                                        </div>
-                                        <p>[[step1.optout2.p]]</p>
-                                        <div className={readMore2 ? 'readMore show' : 'readMore'}>[[step1.optout2.readmore]]</div>
-                                        <div className='flex-end'>
-                                          <ButtonMore readMore={readMore2} toggleReadMore={toggleReadMore2} />
-                                        </div>
-                                    </div>{/*col*/}
-                                  </div>{/*row*/}
+                          {/* Tell me more 2*/}
+                          <div className='row'>
+                            <div className="col col-10">
+                                <div className='optOutToggle'>
+                                  <div className={"checkBox " + (optOut2)} onClick={toggleOptOut2}>
+                                    <div className="checkBoxSlider"></div>
+                                  </div>
+                                  <h2>[[step1.optout2.h1]]</h2>
                                 </div>
+                                <p>[[step1.optout2.p]]</p>
+                                <div className={readMore2 ? 'readMore show' : 'readMore'}>[[step1.optout2.readmore]]</div>
+                                <div className='flex-end'>
+                                  <ButtonMore readMore={readMore2} toggleReadMore={toggleReadMore2} />
+                                </div>
+                            </div>{/*col*/}
+                          </div>{/*row*/}
+                        </div>
                         }
 
                         {/* Tell me more and Opt Me Out buttons */}
