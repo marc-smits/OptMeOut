@@ -11,7 +11,7 @@ import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
 
 // TODO later: get this from user data
-const localeCode = 'en-IE';
+const localeCode = 'es-ES';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -122,7 +122,7 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
             <div className='row'>
                 <div className="col-8">
                     <h3>[[step4.receiveACopy.title]]</h3>
-                    <p class="mb-10">[[step4.receiveACopy.text]]</p>
+                    <p className="mb-10">[[step4.receiveACopy.text]]</p>
                     <FormProvider {...methods}>
                       <form
                         onSubmit={e => e.preventDefault()}

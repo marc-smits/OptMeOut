@@ -4,6 +4,11 @@
  *
  */
 
+ /* TODO 24/08
+  *  - Select recpient form-field
+  *
+ */
+
  /*
   * Data collected:
   *
@@ -35,7 +40,7 @@ function Step3(props) {
     * Open Privacy policy
     */
     const openPrivacyPolicy = (e) => {
-            props.emitChangeSection("privacyPolicy", e);
+      props.emitChangeSection("privacyPolicy", e);
     }
 
     /* Forms */
@@ -45,6 +50,7 @@ function Step3(props) {
 
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
+      // (e) => props.emitChangeSection("step1", e)
       console.log(data)
     })
 

@@ -4,6 +4,12 @@
  *
  */
 
+/* TODO 24/08
+ *  - Select recpient form-field
+ *  - Store recipient data in props
+ *
+*/
+
 /*
  * Data collected:
  *
@@ -16,7 +22,6 @@
  */
 
 import PropTypes from 'prop-types';
-// import React, { useState } from 'react'
 import BackSvg from '../partials/BackSvg.jsx';
 
 // Based on https://www.freecodecamp.org/news/how-to-validate-forms-in-react/
@@ -55,7 +60,7 @@ function Step2(props) {
             </div>
             <div className='row'>
               <div className="col col-8">
-                <p className="intro">[[step2.intro]] Object.senderName.</p>
+                <p className="intro">[[step2.intro]]</p>
               </div>
             </div>
 
