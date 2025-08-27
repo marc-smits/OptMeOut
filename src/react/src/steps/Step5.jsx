@@ -50,7 +50,10 @@ function Step5(props) {
             </div>
             <div className='row'>
               <div className="col col-8">
-                <p className="intro">[[step5.intro]] [[step4.letter.title]] ObjectRecipientName</p>
+                <p className="intro">[[step5.intro]] [[step4.letter.title]] 
+                  ObjectrecipientTitle
+                  ObjectrecipientFirstName 
+                  ObjectrecipientLastName</p>
               </div>
             </div>
 

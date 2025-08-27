@@ -27,8 +27,8 @@ function EmailPdf(props) {
       <Page size="A4" style={styles.page}>
 
         <View style={styles.section}>
-          <Text>Name of general practitioner: {props.formData.recipientName} </Text>
-          {props.formData.recipientName != '' &&
+          <Text>Name of general practitioner: {props.formData.recipientFirstName} </Text>
+          {props.formData.recipientFirstName != '' &&
           /*
             @Tuulia Please note:
 

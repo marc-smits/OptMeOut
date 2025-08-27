@@ -3,11 +3,6 @@
         "about": "NL about",
         "locale": "NL"
     },
-    "global": {
-        "form": {
-            "error": "NL Please check the fields marked by red."
-        }
-    },
     "page": {
         "fallback": {
             "header": "NL This website provides EU citizens a way to provisionally ‘opt-out’ from the EHDS",
@@ -65,13 +60,44 @@
         "title": "NL Select your GP",
         "intro": "NL Next we will inform your GP about your choices and excersise you right to annonate your medical records. Also we will ask your GP to forward this to other healtcare institutions you may visit.",
         "form": {
-            "field": {
-                "label": "NL Who is your general practitioner? *",
-                "value": "NL name of your GP"
+            "recipientOrganization": {
+                "label": "What is the name of the organization of your GP?",
+                "placeholder": "name of the organization of your GP"
             },
-            "check": {
-                "label": "NL enter address manually"
+            "recipientTitle": {
+                "label": "What is the title of your GP?",
+                "placeholder": "title of your GP"
+            },
+            "recipientFirstName": {
+                "label": "What is the first name of your GP?",
+                "placeholder": "first name of your GP"
+            },
+            "recipientLastName": {
+                "label": "What is last the name of your GP?",
+                "placeholder": "last name of your GP"
+            },
+            "customRecipient": {
+                "label": "enter address manually"
+            },
+            "recipientAddress1": {
+                "label": "Address",
+                "placeholder": "Line 1"
+            },
+            "recipientAddress2": {
+                "placeholder": "Line 2"
+            },
+            "recipientCity": {
+                "label": "City",
+                "placeholder": "City"
+            },
+            "recipientCountry": {
+                "label": "Country",
+                "placeholder": "Country"
             }
+        },
+        "recipient_search": {
+            "select": "Select",
+            "search": "Search"
         }
     },
     "step3": {
@@ -97,42 +123,6 @@
             "field5": {
                 "label": "NL Last four digits of your BSN *",
                 "value": "xxx"
-            }
-        }
-    },
-    "step4": {
-        "months": {
-            "january": "NL January",
-            "february": "NL February",
-            "march": "NL March",
-            "april": "NL April",
-            "may": "NL May",
-            "june": "NL June",
-            "july": "NL July",
-            "august": "NL August",
-            "september": "NL September",
-            "october": "NL October",
-            "november": "NL Novemeber",
-            "december": "NL December"
-        },
-        "receive_a_copy": {
-            "title": "NL Receive a copy",
-            "text": "NL You will receive instructions on how to reverse your opt-out.",
-            "email_place_holder": "NL e-mail@address.com"
-        },
-        "opt_out_letter": {
-            "title": "NL Dear",
-            "saluation": "NL Dear",
-            "content": "NL Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
-        },
-        "donate": {
-            "title": "NL Donate",
-            "text": "NL We are an NGO and run non-profit. Please pay from an account that is in your name, since this is also used for identification. You can only OptYourselfOut.",
-            "payment_options": {
-                "1": "NL Feel free, if you can't afford more.",
-                "2": "NL Pay for your own.",
-                "3": "NL Pay it forward, donate a letter.",
-                "4": "NL Help us expand to expand this service."
             }
         }
     },

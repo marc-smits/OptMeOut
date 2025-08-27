@@ -10,6 +10,7 @@ from pprint import pprint
 from pathlib import Path
 from lib.translate import Translate
 from lib.languageCodes import LanguageCodes
+from lib.addresses import Addresses
 
 class HtmlGenerator:
   
@@ -20,6 +21,7 @@ class HtmlGenerator:
     def __init__(self):
         self.languages = self.__get_configured_languages()
         self.languageCodes = LanguageCodes(self.languages)
+        self.addresses = Addresses()
         self. __generate_language_folders()
 
        
@@ -96,6 +98,10 @@ class HtmlGenerator:
                 # update countries list
                 html = html.replace('[[COUNTRIES_LIST]]', self.languageCodes.get_country_list())
                 html = html.replace('[[PAGE_ABOUT_PARAGRAPHS]]',  translateObj.page_about_paragraphs())
+
+                # update addresses list
+                html = html.replace('[[ADDRESSES_LIST]]', self.addresses.get_address_list(lang))
+
                 # write file
                 targetFile  = self.__get_distFile(srcFile, lang)
                 with open(targetFile, "w") as f:

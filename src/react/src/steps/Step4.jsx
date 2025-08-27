@@ -10,8 +10,6 @@ import BackSvg from '../partials/BackSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
 
-// TODO later: get this from user data
-const localeCode = 'es-ES';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -68,49 +66,64 @@ function Step4(props) {
                     <div className="letterAddress">
                       <div className="recipient">
                         <p>
-                          Some organisation - if we know it<br />
-                          RecipientName <br />
-                          recipientAddress1<br />
-                          recipientAddress2<br />
-                          recipientCity with a stupidly long name<br />
-                          Country
+                          {props.formData.recipientOrganization}<br />
+                          {props.formData.recipientTitle != "" &&
+                            <>{props.formData.recipientTitle} <br /></>
+                          }
+                          {props.formData.recipientFirstName != "" &&
+                            <>{props.formData.recipientFirstName} <br /></>
+                          }
+                          {props.formData.recipientLastName != "" &&
+                            <>{props.formData.recipientLastName} <br /></>
+                          }
+                          {props.formData.recipientAddress1}<br />
+                          {props.formData.recipientAddress2}<br />
+                          {props.formData.recipientCity}<br />
+                          {props.formData.recipientCountry}<br />
+
                         </p>
                       </div>
                       <div className="sender">
                         <p>
-                          <strong>From:</strong><br />
-                          senderFirstName VeryLong senderLastName
-                        </p>
+                        <strong>From:</strong><br />
+                        {props.formData.senderFirstName} {props.formData.senderLastName}<br />
+                        {props.formData.senderAddress1}<br />
+                        {props.formData.senderAddress2}<br />
+                        {props.formData.senderCity}<br />
+                        {props.formData.senderCountry}<br />
+                      </p>
                         <p>
-                          Date of Birth: senderBirthdate<br />
-                          Identification (ends with): senderId<br />
-                          Phone: senderPhone<br />
-                          E-mail: <br />
+                           [[step4.letter.senderBirthDate]] Date of Birth:  {props.formData.senderBirthDate}<br />
+                           [[step4.letter.senderId]]):  {props.formData.senderId}<br />
+                           [[step4.letter.senderPhone]]:  {props.formData.senderPhone}<br />
+                           [[step4.letter.senderEmail]]:  {props.formData.senderEmail}<br />
                         </p>
                       </div>
                     </div>
                     <div className="letterMeta">
                       <p>
-                        <strong>Date: </strong><LocalDate localeCode={localeCode} /><br />
+                        <strong>Date: </strong><LocalDate localeCode={props.formData.locale} /><br />
                         <strong>Subject: </strong>[[step4.letter.subject]]
                       </p>
                     </div>
                     <div className={readMore1 ? 'letterBody fadeIn' : 'letterBody readLess'}>
-                      <p>
-                      [[step4.letter.saluation]] Object.RecipientName,
-                      </p>
-                      <p>
-Cat ipsum dolor sit amet, only use one corner of the litter box. Milk the cow sleep nap, for disappear for four days and return home with an expensive injury; bite the vet pet me pet me don't pet me for attack feet hate dogs. Make meme, make cute face chase ball of string for poop in the plant pot walk on car leaving trail of paw prints on hood and windshield. Disappear for four days and return home with an expensive injury; bite the vet. Sleep over your phone and make cute snoring noises ask to be pet then attack owners hand and lick left leg for ninety minutes, still dirty for cat fur is the new black . Meeeeouw claw drapes stare at the wall, play with food and get confused by dust and claw at curtains stretch and yawn nibble on tuna ignore human bite human hand. Grass smells good. Carrying out surveillance on the neighbour's dog caticus cuteicus. Slap kitten brother with paw i dreamt about fish yum! to pet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly. Swat turds around the house catasstrophe and pet me pet me pet me pet me, bite, scratch, why are you petting me sleep in the bathroom sink hopped up on catnip human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken! i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?!
-                      </p>
-                      <p>
-leap into the air in greatest offense!. Hide when guests come over sugar, my siamese, stalks me (in a good way), day and night sit in a box for hours or lick arm hair, yet find a way to fit in tiny box or stand in front of the computer screen. Lay on arms while you're using the keyboard cats are fats i like to pets them they like to meow back, licks paws for grass smells good meow for food, then when human fills food dish, take a few bites of food and continue meowing mouse, or no, you can't close the door, i haven't decided whether or not i wanna go out. Jump off balcony, onto stranger's head cats secretly make all the worlds muffins yet poop on couch yet attack like a vicious monster for mark territory stare at the wall, play with food and get confused by dust attack the child. Attack the dog then pretend like nothing happened scratch at the door then walk away cry louder at reflection or kick up litter. Poop on the floor, break a planter, sprint, eat own hair, vomit hair, hiss, chirp at birds, eat a squirrel, hide from fireworks, lick toe beans, attack christmas tree cat slap dog in face so lie in the sink all day playing with balls of wool sitting in a box step on your keyboard while you're gaming and then turn in a circle . Love to play with owner's hair tie humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean burrow under covers, or chew the plant yet in the middle of the night i crawl onto your chest and purr gently to help you sleep, sitting in a box yet decide to want nothing to do with my owner today. Under the bed then cats take over the world purr for no reason yet poop on grasses hack up furballs.
-                      </p>
-                      <p>
-                      Meow Meow,
-                      </p>
-                      <p>
-                      First name VeryLong Lastname
-                      </p>
+                     
+                      {props.formData.recipientLastName != "" &&
+                        <p>
+                          [[step4.letter.saluation]]&nbsp;
+                          {props.formData.recipientTitle != "" &&
+                            <>{props.formData.recipientTitle}&nbsp;</>
+                          }
+                          {props.formData.recipientFirstName != "" &&
+                             <>{ props.formData.recipientFirstName }&nbsp;</>
+                          }
+                          {props.formData.recipientLastName}
+                        </p>
+                      }
+                     
+                      
+                      [[step4.letter.content]]
+                      {props.formData.senderFirstName} {props.formData.senderLastName}
                     </div>{/*letterbo*/}
 
                     <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
@@ -132,7 +145,7 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
                         <Input
                           label=" "
                           placeholder="[[step4.form.senderEmail.placeholder]]"
-                          // value={props.formData.senderEmail}
+                          value={props.formData.senderEmail}
                           type="text"
                           name="senderEmail"
                           handleChange={(e) => handleChange(e)}
@@ -201,6 +214,7 @@ leap into the air in greatest offense!. Hide when guests come over sugar, my sia
 
 Step4.propTypes = {
     emitChangeSection: PropTypes.func,
+    formData: PropTypes.object,
 };
 
 export default Step4

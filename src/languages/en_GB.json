@@ -96,24 +96,44 @@
         "title": "Select your GP",
         "intro": "Who is your general practitioner? *",
         "form": {
-            "recipientName": {
-                "label": "What is the name of your GP?",
-                "placeholder": "name of your GP"
+            "recipientOrganization": {
+                "label": "What is the name of the organization of your GP? *",
+                "placeholder": "name of the organization of your GP"
+            },
+            "recipientTitle": {
+                "label": "What is the title of your GP?",
+                "placeholder": "title of your GP"
+            },
+            "recipientFirstName": {
+                "label": "What is the first name of your GP?",
+                "placeholder": "first name of your GP"
+            },
+            "recipientLastName": {
+                "label": "What is last the name of your GP?",
+                "placeholder": "last name of your GP"
             },
             "customRecipient": {
                 "label": "enter address manually"
             },
             "recipientAddress1": {
-                "label": "Address",
+                "label": "Address *",
                 "placeholder": "Line 1"
             },
             "recipientAddress2": {
                 "placeholder": "Line 2"
             },
             "recipientCity": {
-                "label": "City",
+                "label": "City *",
                 "placeholder": "City"
+            },
+            "recipientCountry": {
+                "label": "Country *",
+                "placeholder": "Country"
             }
+        },
+        "recipient_search": {
+            "select": "Select",
+            "search": "Search"
         }
     },
     "step3": {
@@ -132,6 +152,10 @@
                 "label": "Phone number *",
                 "placeholder": "phone number"
             },
+            "senderEmail": {
+                "label": "Email *",
+                "placeholder": "e-mail@address.com"
+            },
             "senderBirthDate": {
                 "label": "Date of Birth *",
                 "placeholder": "dd-mm-yyyy"
@@ -139,6 +163,21 @@
             "senderId": {
                 "label": "Last four digits of your BSN *",
                 "placeholder": "xxxx"
+            },
+                 "senderAddress1": {
+                "label": "Address *",
+                "placeholder": "Line 1"
+            },
+            "senderAddress2": {
+                "placeholder": "Line 2"
+            },
+            "senderCity": {
+                "label": "City *",
+                "placeholder": "City"
+            },
+            "senderCountry": {
+                "label": "Country *",
+                "placeholder": "Country"
             }
         }
     },
@@ -149,12 +188,19 @@
             "subject": "OptOut for the European Health DataSpace (EHDS)",
             "saluation": "Dear",
             "title": "Mr, Ms,",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
+            "senderFirstName": "First name",
+            "senderEmail": "Email",
+            "senderLastName":  "Last name",
+            "senderPhone": "Phone number",
+            "senderBirthDate": "Date of Birth *",
+            "senderId": "Identification (end with)",
+            "content": " <p>Cat ipsum dolor sit amet, only use one corner of the litter box. Milk the cow sleep nap, for disappear for four days and return home with an expensive injury; bite the vet pet me pet me don't pet me for attack feet hate dogs. Make meme, make cute face chase ball of string for poop in the plant pot walk on car leaving trail of paw prints on hood and windshield. Disappear for four days and return home with an expensive injury; bite the vet. Sleep over your phone and make cute snoring noises ask to be pet then attack owners hand and lick left leg for ninety minutes, still dirty for cat fur is the new black . Meeeeouw claw drapes stare at the wall, play with food and get confused by dust and claw at curtains stretch and yawn nibble on tuna ignore human bite human hand. Grass smells good. Carrying out surveillance on the neighbour's dog caticus cuteicus. Slap kitten brother with paw i dreamt about fish yum! to pet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly. Swat turds around the house catasstrophe and pet me pet me pet me pet me, bite, scratch, why are you petting me sleep in the bathroom sink hopped up on catnip human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken! i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?!</p><p>leap into the air in greatest offense!. Hide when guests come over sugar, my siamese, stalks me (in a good way), day and night sit in a box for hours or lick arm hair, yet find a way to fit in tiny box or stand in front of the computer screen. Lay on arms while you're using the keyboard cats are fats i like to pets them they like to meow back, licks paws for grass smells good meow for food, then when human fills food dish, take a few bites of food and continue meowing mouse, or no, you can't close the door, i haven't decided whether or not i wanna go out. Jump off balcony, onto stranger's head cats secretly make all the worlds muffins yet poop on couch yet attack like a vicious monster for mark territory stare at the wall, play with food and get confused by dust attack the child. Attack the dog then pretend like nothing happened scratch at the door then walk away cry louder at reflection or kick up litter. Poop on the floor, break a planter, sprint, eat own hair, vomit hair, hiss, chirp at birds, eat a squirrel, hide from fireworks, lick toe beans, attack christmas tree cat slap dog in face so lie in the sink all day playing with balls of wool sitting in a box step on your keyboard while you're gaming and then turn in a circle . Love to play with owner's hair tie humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean burrow under covers, or chew the plant yet in the middle of the night i crawl onto your chest and purr gently to help you sleep, sitting in a box yet decide to want nothing to do with my owner today. Under the bed then cats take over the world purr for no reason yet poop on grasses hack up furballs.</p><p>Meow Meow,</p>"
         },
         "receiveACopy": {
             "title": "Receive a copy",
             "text": "You will receive instructions on how to reverse your opt-out."
         },
+        
         "form": {
             "senderEmail": {
                 "placeholder": "e-mail@address.com"
