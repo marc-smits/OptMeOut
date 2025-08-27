@@ -3,7 +3,7 @@
 /**
  * pingen API
  */
-require_once('api.php');
+require_once('vendor/autoload.php');
 
 use App\Pdf;
 use App\Pingen;
