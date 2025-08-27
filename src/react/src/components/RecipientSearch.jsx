@@ -7,12 +7,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react'
-
+import axios from 'axios';
+import AjaxSpinner from './AjaxSpinner.jsx'
 function RecipientSearch(props) {
 
   const [searchField, setSearchField] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  let addresses = [[ADDRESSES_LIST]];
+  const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
 
   /** 
    * Use Effect 
@@ -23,7 +24,7 @@ function RecipientSearch(props) {
     if (searchField == undefined || searchField != props.searchField) {
       let value = props.searchField
       if (value.length > 3) {
-        searchByOrganizationName(value);
+        searchByOrganizationName(value, props.locale);
       } else {
         setSearchResults([])
       }
@@ -35,36 +36,19 @@ function RecipientSearch(props) {
    * searchByOrganizationName
    * 
    */
-  const searchByOrganizationName = (searchTerm) => {
-    searchTerm = searchTerm.toLowerCase(searchTerm);
-    let items = [];
-
-    for (let index = 1; index < addresses.length; index++) {
-      let organization = addresses[index]['organization'];
-      organization = organization.toLowerCase(organization);
-
-      let name = addresses[index]['title'] + ' ' +
-        addresses[index]['name'] + ' ' +
-        addresses[index]['surname']
-      name = name.toLowerCase(name);
-
-
-      if (organization.includes(searchTerm) || name.includes(searchTerm)) {
-        items.push(addresses[index]);
-      }
-      if (items.length > 100) {
-        // too much search results
-        setSearchResults([]);
-        return;
-      }
-    }
-    setSearchResults(items);
+  const searchByOrganizationName = (searchTerm, locale) => {
+    locale = locale.replace('-', '_');
+    let url = '/api/search.php?term=' + searchTerm + '&locale=' + locale;
+    setShowAjaxSpinner(true);
+    axios.get(url)
+      .then(res => {
+        setSearchResults(res.data);
+        setShowAjaxSpinner(false);
+      })
   }
 
-
-
   /*
-   *  Handle select
+   *  Handle select 
    */
   const handleSelect = (address) => {
 
@@ -77,7 +61,7 @@ function RecipientSearch(props) {
       'recipientAddress2': address['postalCode'],
       'recipientCity': address['city'],
       'recipientCountry': address['country'],
-       'customRecipient' : false,
+      'customRecipient' : false,
     }
 
     let inputs = document.getElementsByTagName('input');
@@ -97,6 +81,9 @@ function RecipientSearch(props) {
 
   return (
     <>
+     {showAjaxSpinner &&
+          <AjaxSpinner/>
+       }
       <div style={{ "height": "200px", "width": "100%", "overflow": "auto" }} >
         <table>
           <tbody>
@@ -131,6 +118,7 @@ function RecipientSearch(props) {
 }
 RecipientSearch.propTypes = {
   searchField: PropTypes.string,
+  locale: PropTypes.string,
   emitHandleChange: PropTypes.func,
 };
 

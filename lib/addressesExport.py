@@ -24,7 +24,7 @@ class AddressesExport:
   #  
   def exportAll(self):
     addresses = {}
-    for addressesFile in Path(config.ADDRESSES_DIR).glob("*.json"):
+    for addressesFile in Path(config.ADDRESSES_API_DIR).glob("*.json"):
         with open(addressesFile, "r") as f:
           addresses[addressesFile.stem] = json.load(f)
     for lang, addresses in addresses.items():

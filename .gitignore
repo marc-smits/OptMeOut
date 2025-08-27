@@ -9,3 +9,4 @@
 /src/csv/*
 # Ignore Visual Code history files
 /.history
+src/react/vite.config.js

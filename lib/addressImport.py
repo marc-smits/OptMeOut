@@ -59,11 +59,12 @@ class AddressImport:
     return addressesArr
 
   #
-  # Make json file from translation json
+  # Make json files from translation json
   # 
   def __makeJsonFile(self, jsonStr):
     lang = self.currentLanguageToImport
-    jsonDir = config.ADDRESSES_DIR + '/'
+
+    jsonDir = config.ADDRESSES_API_DIR + '/'  
     jsonFileName = jsonDir  + lang + '.json'
     with open(jsonFileName, "w") as f:
       f.write(jsonStr)

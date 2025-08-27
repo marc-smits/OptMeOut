@@ -94,6 +94,7 @@ function Step2(props) {
               <RecipientSearch
                 formData={props.formData}
                 searchField={searchField}
+                locale={props.formData.locale}
                 emitHandleChange={handleChange}
               />
             </div>

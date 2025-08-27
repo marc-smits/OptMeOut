@@ -3,6 +3,7 @@
 ## Contents
 
 * [Introduction](#intro-section)
+* [Configuration](#config-section)
 * [Install Python build](#python-section)
 * [Manage translated templates](#translations-section)
 
@@ -12,6 +13,7 @@
   * [Country and location codes](#country-and-location-codes-section)
   * [Translation special tags](#special-tags-section)
   * [About page paragraphs](#about-page-section)
+* [Manage addresses](#addresses-section)
 * [Folders](#folders-section)
 * [React Js](#react-section)
 
@@ -20,12 +22,63 @@
     * [Install](#react-install-section)
     * [Update code](#react-update-section)
       <a name='intro-section'></a>
+* [phpApi](#php-section)
+
 
 ## Introduction
 
 Here are some instruction how to make translated templates and
 modify the HTML and CSS templates.
 Most of the instructions are step by step instructions, which can be done without a deep understanding.
+
+<a name='config-section'></a>
+## Configuration
+
+Here is a summary of all the configuration files
+Please note that these are correct in your environmet.
+
+### config.py
+Variables for the Python scripts. Normally no changes are requires.
+
+
+### src/react/vite.config.js
+
+You need to configure the file : `src/react/vite.config.js`
+The happens by copying one of the config files below depending of your environment.
+
+`cp src/react/vite.config.js.production_staging  src/react/vite.config.js`
+   or
+`cp src/react/vite.config.js.development  src/react/vite.config.js`
+
+Note in the development server you must check that the configured api server works
+Example
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+    server: {
+    // Translate all local /api calls to https://optmeout.tantonius.com/api
+    proxy: {
+      '/api':'https://optmeout.tantonius.com',
+    },
+  },
+})
+```
+Try that you get a good response with
+https://optmeout.tantonius.com/api/search.php?term=huis&locale=en_GB
+
+If it does not work, have a look in `phpApi/README.md`
+
+
+### phpApi/api/.env
+Copy the file
+` cp phpApi/api/.env.example phpApi/api/.env `
+
+And have modify to your environment. See more in `phpApi/README.md`
+
 
 <a name='python-section'></a>
 
@@ -40,8 +93,8 @@ In this section you enable the command `python build.py` to make the translated 
    folders
 
 ```
-src/csv/export/
-src/csv/import/
+src/csv/languages/export/
+src/csv/languages/import/
 src/languages/
 dist/
 dist/js
@@ -95,20 +148,20 @@ In this section is presented how to manage the tranlations by excel sheets and s
 ./scripts/build.sh
 ```
 
-2) In the folder ```src/csv/export/``` you have all of the translation files in csv
+2) In the folder ```src/csv/languages/export/``` you have all of the translation files in csv
    format.
 
 ```
-ls src/csv/export/
+ls src/csv/languages/export/
 en_GB.csv  
 fi_FI.csv  
 nl_NL.csv
 ```
 
-Copy the file ```src/csv/export/en_GB.csv```
-to the folder ```src/csv/import``` and rename it after the new language local
+Copy the file ```src/csv/languages/export/en_GB.csv```
+to the folder ```src/csv/languages/import``` and rename it after the new language local
 in this case nl_BE.csv
-```src/csv/export/nl_BE.csv```
+```src/csv/languages/export/nl_BE.csv```
 The locale codes you can find in the file ```src/languages/en_GB.json```, ```splash.countries.list```
 
 ```
@@ -183,7 +236,7 @@ page.about.paragraph3.h;I am a h3;I am a h3
 
 In this case we do the same as in the case "Importing new languages",
 but instead of creating a new file we copy an existing file to the folder
-```src/csv/import```, modify it and run the build command again.
+```src/csv/languages/import```, modify it and run the build command again.
 
 <a name='add-section'></a>
 
@@ -196,7 +249,7 @@ but instead of creating a new file we copy an existing file to the folder
 ```
 
 2) Copy the file
-   ```src/csv/export/en_GB.csv``` to ```src/csv/import/en_GB.csv```
+   ```src/csv/languages/export/en_GB.csv``` to ```src/csv/languages/import/en_GB.csv```
    Make sure that there are no other csv files
    Add a new translation (in the example below we have "newTranslation" on the first row)
 
@@ -215,7 +268,7 @@ button.tellmemore;Tell me more;Tell me more
 ./scripts/build.sh
 ```
 
-4) Now in the folder ```src/csv/export```
+4) Now in the folder ```src/csv/languages/export```
    We have the cvs files with a new translation as an empty field:
    Example nl_NL.csv
 
@@ -231,7 +284,7 @@ button.tellmemore;NL Tell me more;Tell me more
 
 Copy all of the files to the folder
 
-```src/csv/import/```
+```src/csv/languages/import/```
 And fill the empty fields
 Example nl_NL.csv
 
@@ -302,7 +355,7 @@ page.about.paragraph3.h; I am a h3; I am a h3
 page.about.paragraph3.p1; h2 p1  text; h2 p1  text
 ```
 
-This will render the followoing three paragraphs.
+This will render the following three paragraphs.
 
 ```
    <h>I am am h1</h>
@@ -325,6 +378,29 @@ The generic structure for one paragraph is
 page.about.paragraph{d}.h; Header required; Header required
 page.about.paragraph{d}.p{d}; section N; section N
 page.about.paragraph{d}.p{d}; section N; section N
+```
+
+<a name='addresses-section'></a>
+## Manage addresses
+
+Importing and exporting addresses work in the same was importing and exportiong
+translations.
+You execute them also by the command `./scripts/build.sh`
+
+The csv folders for importing and exporting are found in the folders
+```
+src/csv/addresses/export/
+src/csv/addresses/import/
+```
+
+The script creates the json feeds in the folder: `phpApi/api/addresses`
+
+The format of the csv files can be seen below
+```
+organization;title;name;surname;street;number;postal code;city;country
+Huisartsen Assen-West;dhr.;Daan;de Jong;Oostergracht;2;9408 MR;Assen;Nederland
+Huisartspraktijk Kastelenbuurt;;;;Brittenburg;12;1023RB;Amsterdam;Nederland
+Zuidas Huisartsen;dhr.;Liam;Jansen;Gustav Mahlerlaan;635b;1024AR;Amsterdam;Nederland
 ```
 
 <a name='folders-section'></a>
@@ -359,7 +435,13 @@ Example: en_GB.json
   
 ```
 
-### src/csv/export/
+### phpApi/api/addresses
+This folder has the a similar format with the folder
+`src/addresses` having the addresses per country in json format.
+
+
+
+### src/csv/languages/export/
 
 After each build, the existing json files in the folder
 ```src/languages/``` are exported into this folder in csv format.
@@ -379,11 +461,15 @@ step1.properties.name.title;Full Name;Voll1111edige naam
 step1.properties.address.title;Address;Adres
 ```
 
-### src/csv/import/
+### src/csv/languages/import/
 
 In this folder we have the cvs files to be imported by the ```scripts/build.sh``` command to the
 json files in the folder ```src/languages/```
 The file CSV file structure is the same.
+
+### src/csv/addresses/export/ and ### src/csv/languages/import
+These folder are used in a similar way with the addresses to import and export
+addresses
 
 ### src/react
 
@@ -501,20 +587,31 @@ In this section you get to know how to update this site on your local server.
 
 ### Install
 
-Before updatings you need to enable this code on your local host.
+Before updating you need to enable this code on your local host.
 
 #### Install npm
 
 First you  need to install npm on you computer.
 See more info for this on
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-This application has been build with the verion ```10.5.0```
-If you have problems, pleasr check the version.
+This application has been build with the version ```10.5.0```
+If you have problems, please check the version.
+
+#### Configure
+
+Have look in [Configuration](#config-section)
+
+
+
+
+
+
+
 
 #### Install server
 
 Make sure you have the correct branch.
-Follow the steps below. Some commands aren give for Mac and Linux
+Follow the steps below. Some commands are given for Mac and Linux
 systems.
 
 1. Run the command ```scripts/build.sh```
@@ -586,3 +683,8 @@ The chages are automstically updated to the URL
 http://localhost:5173/
 
 Sometimes you need to refresh the page.
+
+<a name='php-section'></a>
+# phpApi
+
+This api provides some functions for Ajax request. See more info in `phpApi/README.md`

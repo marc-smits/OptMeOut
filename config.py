@@ -2,10 +2,11 @@
 SRC_TEMPLATE_PATH ="src/react"
 # steps
 STEPS_PATH = "src/steps.json"
-# languages json files
+# languages language json files
 LANGUAGES_DIR = "src/languages"
-# addresses json files
-ADDRESSES_DIR = "src/addresses"
+# addresses address json file
+ADDRESSES_API_DIR = "phpApi/api/addresses"
+
 # generated html files
 DIST_DIR = "dist"
 
