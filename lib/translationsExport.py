@@ -64,12 +64,13 @@ class TranslationsExport:
   def __makeCsvContent(self, valuesArr):
     csv = "Key,English,Translation (" + self.currentLanguageToExport.upper() + ")\n"
     multipleParagraphs = MultipleParagraphs()
-    for key in self.englishArr:
+
+    for key in valuesArr:
       csvKey = key
       if (multipleParagraphs.isMultipleParagraph(csvKey)):
         csvKey = multipleParagraphs.convertCsvKey(csvKey)
       csv = csv +  csvKey + config.CSV_FIELD_SEPARATOR
-      csv = csv + self.englishArr[key] + config.CSV_FIELD_SEPARATOR
+      csv = csv + valuesArr[key] + config.CSV_FIELD_SEPARATOR
       value = valuesArr.get(key)
       if ( isinstance(value, str)):
         csv = csv + value + "\n"

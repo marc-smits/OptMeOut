@@ -48,30 +48,25 @@
     "step1": {
         "optout": {
             "3": {
-                "h": "I am optout 1",
-                "readmore": "I am am readmore1",
-                "p": {
-                    "0": "optout 1 text1",
-                    "1": "optout 1 text2"
-                }
+                "h": "I am optout 1"
             },
             "4": {
                 "readmore": "I am am readmore2",
-                "h": "I am optout 2",
-                "p": {
-                    "0": "optout 2 text1",
-                    "1": "optout 2 text2",
-                    "2": "optout 2 text4"
-                }
+                "0": "optout 1 text1",
+                "1": "optout 1 text2",
+                "h": "I am optout 2"
             },
             "5": {
+                "0": "optout 2 text1",
+                "1": "optout 2 text2",
+                "2": "optout 2 text4",
                 "readmore": "I am am readmore3",
-                "h": "I am optout 3",
-                "p": {
-                    "0": "optout 3 text1 bd",
-                    "1": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-                    "2": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
-                }
+                "h": "I am optout 3"
+            },
+            "6": {
+                "0": "optout 3 text1 bd",
+                "1": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
+                "2": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
             }
         },
         "title": "NL With European Health Data Space (EHDS) you will lose control over who can access your medical records.",

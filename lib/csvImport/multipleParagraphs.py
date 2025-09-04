@@ -105,5 +105,7 @@ class MultipleParagraphs:
     #
     def convertCsvKey(self, key):
         # replace .number by ''
+        #pprint(key)
         key = re.sub('[.?!][0-9]', '', key)
+        #pprint(key)
         return key
