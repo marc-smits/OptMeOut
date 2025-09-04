@@ -21,37 +21,61 @@
             "button": "Select country"
         },
         "about": {
-            "title": "About",
-            "paragraph1": {
+            "-1": {
+                "title": "About"
+            },
+            "0": {
                 "h": "I am am h1",
-                "p1": "h1 p1 text",
-                "p2": "h1 p2 text"
+                "p": {
+                    "0": "h1 p1 text",
+                    "1": "h1 p2 text"
+                }
             },
-            "paragraph2": {
+            "1": {
                 "h": "I am a h2",
-                "p1": "h2 p1  text",
-                "p2": "h2 p2  text",
-                "p3": "h2 p3  text"
+                "p": {
+                    "0": "h2 p1  text",
+                    "1": "h2 p2  text",
+                    "2": "h2 p3  text"
+                }
             },
-            "paragraph3": {
+            "2": {
                 "h": "I am a h3",
-                "p1": "h2 p1  text"
+                "p": {
+                    "0": "h2 p1  text"
+                }
             }
         }
     },
     "step1": {
+        "optout": {
+            "3": {
+                "h": "I am opt me out am h1",
+                "readmore": "I am am readmore1",
+                "p": {
+                    "0": "h1 opt me out  p1 text",
+                    "1": "h1 opt me out  p2 text"
+                }
+            },
+            "4": {
+                "h": "I am opt me out h2",
+                "readmore": "I am am readmore2",
+                "p": {
+                    "0": "h2 opt me out  p1  text",
+                    "1": "h2 opt me out p2  text",
+                    "2": "h2 opt me out p3  text"
+                }
+            },
+            "5": {
+                "h": "I am opt me out  h3",
+                "readmore": "I am am readmore3",
+                "p": {
+                    "0": "h2 opt me out   text"
+                }
+            }
+        },
         "title": "With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
         "intro": "Your data can be used by researchers, governments, and commercial companies. You can object to this with an <red>\u2018opt-out\u2019</red>, for the two ways your data can be used.",
-        "optout1": {
-            "h1": "Opt-out for primary use",
-            "p": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-            "readmore": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
-        },
-        "optout2": {
-            "h1": "Opt-out for secondary use",
-            "p": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-            "readmore": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
-        },
         "disclaimer": {
             "h1": "Please note",
             "p": "50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
@@ -96,44 +120,24 @@
         "title": "Select your GP",
         "intro": "Who is your general practitioner? *",
         "form": {
-            "recipientOrganization": {
-                "label": "What is the name of the organization of your GP? *",
-                "placeholder": "name of the organization of your GP"
-            },
-            "recipientTitle": {
-                "label": "What is the title of your GP?",
-                "placeholder": "title of your GP"
-            },
-            "recipientFirstName": {
-                "label": "What is the first name of your GP?",
-                "placeholder": "first name of your GP"
-            },
-            "recipientLastName": {
-                "label": "What is last the name of your GP?",
-                "placeholder": "last name of your GP"
+            "recipientName": {
+                "label": "What is the name of your GP?",
+                "placeholder": "name of your GP"
             },
             "customRecipient": {
                 "label": "enter address manually"
             },
             "recipientAddress1": {
-                "label": "Address *",
+                "label": "Address",
                 "placeholder": "Line 1"
             },
             "recipientAddress2": {
                 "placeholder": "Line 2"
             },
             "recipientCity": {
-                "label": "City *",
+                "label": "City",
                 "placeholder": "City"
-            },
-            "recipientCountry": {
-                "label": "Country *",
-                "placeholder": "Country"
             }
-        },
-        "recipient_search": {
-            "select": "Select",
-            "search": "Search"
         }
     },
     "step3": {
@@ -152,10 +156,6 @@
                 "label": "Phone number *",
                 "placeholder": "phone number"
             },
-            "senderEmail": {
-                "label": "Email *",
-                "placeholder": "e-mail@address.com"
-            },
             "senderBirthDate": {
                 "label": "Date of Birth *",
                 "placeholder": "dd-mm-yyyy"
@@ -163,21 +163,6 @@
             "senderId": {
                 "label": "Last four digits of your BSN *",
                 "placeholder": "xxxx"
-            },
-                 "senderAddress1": {
-                "label": "Address *",
-                "placeholder": "Line 1"
-            },
-            "senderAddress2": {
-                "placeholder": "Line 2"
-            },
-            "senderCity": {
-                "label": "City *",
-                "placeholder": "City"
-            },
-            "senderCountry": {
-                "label": "Country *",
-                "placeholder": "Country"
             }
         }
     },
@@ -188,19 +173,12 @@
             "subject": "OptOut for the European Health DataSpace (EHDS)",
             "saluation": "Dear",
             "title": "Mr, Ms,",
-            "senderFirstName": "First name",
-            "senderEmail": "Email",
-            "senderLastName":  "Last name",
-            "senderPhone": "Phone number",
-            "senderBirthDate": "Date of Birth *",
-            "senderId": "Identification (end with)",
-            "content": " <p>Cat ipsum dolor sit amet, only use one corner of the litter box. Milk the cow sleep nap, for disappear for four days and return home with an expensive injury; bite the vet pet me pet me don't pet me for attack feet hate dogs. Make meme, make cute face chase ball of string for poop in the plant pot walk on car leaving trail of paw prints on hood and windshield. Disappear for four days and return home with an expensive injury; bite the vet. Sleep over your phone and make cute snoring noises ask to be pet then attack owners hand and lick left leg for ninety minutes, still dirty for cat fur is the new black . Meeeeouw claw drapes stare at the wall, play with food and get confused by dust and claw at curtains stretch and yawn nibble on tuna ignore human bite human hand. Grass smells good. Carrying out surveillance on the neighbour's dog caticus cuteicus. Slap kitten brother with paw i dreamt about fish yum! to pet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly. Swat turds around the house catasstrophe and pet me pet me pet me pet me, bite, scratch, why are you petting me sleep in the bathroom sink hopped up on catnip human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken! i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?!</p><p>leap into the air in greatest offense!. Hide when guests come over sugar, my siamese, stalks me (in a good way), day and night sit in a box for hours or lick arm hair, yet find a way to fit in tiny box or stand in front of the computer screen. Lay on arms while you're using the keyboard cats are fats i like to pets them they like to meow back, licks paws for grass smells good meow for food, then when human fills food dish, take a few bites of food and continue meowing mouse, or no, you can't close the door, i haven't decided whether or not i wanna go out. Jump off balcony, onto stranger's head cats secretly make all the worlds muffins yet poop on couch yet attack like a vicious monster for mark territory stare at the wall, play with food and get confused by dust attack the child. Attack the dog then pretend like nothing happened scratch at the door then walk away cry louder at reflection or kick up litter. Poop on the floor, break a planter, sprint, eat own hair, vomit hair, hiss, chirp at birds, eat a squirrel, hide from fireworks, lick toe beans, attack christmas tree cat slap dog in face so lie in the sink all day playing with balls of wool sitting in a box step on your keyboard while you're gaming and then turn in a circle . Love to play with owner's hair tie humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean burrow under covers, or chew the plant yet in the middle of the night i crawl onto your chest and purr gently to help you sleep, sitting in a box yet decide to want nothing to do with my owner today. Under the bed then cats take over the world purr for no reason yet poop on grasses hack up furballs.</p><p>Meow Meow,</p>"
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
         },
         "receiveACopy": {
             "title": "Receive a copy",
             "text": "You will receive instructions on how to reverse your opt-out."
         },
-        
         "form": {
             "senderEmail": {
                 "placeholder": "e-mail@address.com"
@@ -218,8 +196,27 @@
         }
     },
     "privacy_policy": {
-        "title": "Privacy Policy",
-        "text": "<h2>Paragraph1</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt tortor id mi interdum pulvinar. In posuere sit amet quam ac iaculis. Duis vel felis id massa pharetra lobortis vel id neque. Phasellus tempus ante eget mi egestas, quis lacinia lectus placerat. Aenean libero ante, consectetur viverra elit a, interdum interdum lorem. Morbi porta in tellus sit amet hendrerit. Curabitur accumsan dui nisi, vitae ultricies orci consequat ut. Aliquam luctus risus tempor, ullamcorper sapien nec, porttitor justo. In vitae venenatis est, bibendum vulputate sapien. Mauris felis odio, laoreet in nunc sit amet, dignissim euismod lacus. Integer consequat odio nulla. Morbi placerat massa nec leo volutpat, ut aliquam erat pharetra. Cras in quam a mauris ultrices placerat eu eget lectus.</p><h2>Paragraph2</h2><p>Etiam ut erat diam. Suspendisse velit tortor, varius nec aliquet convallis, convallis vel leo. Mauris tempor neque elit, in hendrerit justo venenatis vestibulum. Donec turpis purus, feugiat eget hendrerit sit amet, tristique sed lorem. Donec dignissim, enim at facilisis pretium, elit massa imperdiet metus, quis vulputate ex magna eget nisi. Nam egestas velit convallis, convallis leo in, ultrices quam. Donec sit amet nisl in ligula scelerisque ultricies. Ut dui augue, varius finibus turpis sit amet, mollis dignissim enim. Vestibulum a ligula posuere lorem malesuada lacinia et a metus. Nullam dictum at nibh eu elementum. Maecenas fringilla tellus eget ligula porta euismod.</p><h2>Paragraph3</h2><p>Etiam tristique eu orci eget ultricies. Vivamus imperdiet nibh vel diam viverra, sed finibus leo euismod. Vivamus non consectetur mauris, at eleifend neque. Donec consequat gravida bibendum. Fusce ornare lectus vulputate turpis elementum, ut volutpat lacus fringilla. In nec libero quis nibh tristique finibus. Donec convallis lobortis purus eget tincidunt. Quisque mollis vehicula ornare. Fusce quis pharetra sem. Sed in sodales tortor, ut dapibus urna. Mauris velit metus, rhoncus a odio ut, lacinia dignissim sem. Nullam blandit accumsan libero at faucibus. Nam sit amet dolor nec massa fringilla vulputate.</p><h2>Paragraph4</h2><p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc ullamcorper, justo vel rutrum dignissim, eros lorem tempor magna, ut congue mi ante non arcu. Praesent lobortis augue urna, sit amet gravida lorem ultrices vel. Fusce ornare venenatis consectetur. Nullam rutrum, mi sit amet egestas consectetur, est tortor hendrerit dolor, vitae vulputate risus sem eu sapien. Donec massa arcu, aliquet id semper pulvinar, auctor vel neque. Etiam dignissim aliquam nulla. Vestibulum lacinia sit amet dolor quis sagittis. Duis in maximus ante, eget accumsan augue. Praesent dapibus in quam vel tristique. Vestibulum ut convallis ipsum. Nunc id sem non augue placerat hendrerit.</p><h2>Paragraph5</h2><p>Etiam non bibendum sem, at vehicula lorem. Donec in diam non velit sagittis iaculis quis non ligula. Integer quis dolor sed libero tempus ultrices euismod non ligula. Aenean eget interdum leo. Curabitur at aliquam nibh. Vivamus dignissim mauris non posuere laoreet. Nullam suscipit ac leo eu euismod. Cras imperdiet, diam quis venenatis commodo, neque odio efficitur mi, eu dictum diam risus a lorem. Mauris dapibus est eu elit ultricies, sit amet hendrerit turpis faucibus.</p>"
+        "6": {
+            "h": "I am am h1",
+            "p": {
+                "0": "h1 p1 text",
+                "1": "h1 p2 text"
+            }
+        },
+        "7": {
+            "h": "I am a h2",
+            "p": {
+                "0": "h2 p1  text",
+                "1": "h2 p2  text",
+                "2": "h2 p3  text"
+            }
+        },
+        "8": {
+            "h": "I am a h3",
+            "p": {
+                "0": "h2 p1  text"
+            }
+        }
     },
     "step5": {
         "title": "What happens now?",

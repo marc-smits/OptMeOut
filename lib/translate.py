@@ -125,24 +125,45 @@ class Translate:
     return items
 
   #
-  # Get HTML for the place holder [[PAGE_ABOUT_PARAGRAPHS]]
+  # Get HTML for the place holders [[PAGE_ABOUT_PARAGRAPHS]] and [[STEP_4_PRIVACY_POLICY]]
   #
-  def page_about_paragraphs(self):
-    items = self.get_sub_array('page.about')
+  def multiple_paragraphs(self, selector):
+    rows = self.get_sub_array(selector)
+   
     html = ''
-    for paragraphKey in items.keys():
-      if (paragraphKey.startswith('paragraph')):
-         paragraph = items[paragraphKey]
-         for paragraphKey in paragraph.keys():
-            tag = paragraphKey
-            tag = re.sub(r'[0-9]+', '', tag)
-            if tag == 'h' :
-              tag = 'h1'
-            row = '<' + tag + '>'
-            row = row + paragraph[paragraphKey]
-            row = row +'</' + tag + '>'
-            html = html + row
+    for key in rows.keys():
+      if (key.isnumeric()):
+        if ('h' in rows[key] ):
+          html = html +'<h1>' +  rows[key]['h'] + '</h1>'
+        if ('p' in rows[key] ):
+          for p in rows[key]['p'].keys():
+             html = html +'<p>' + rows[key]['p'][p] + '</p>'
     return html
+
+
+  #
+  # Get json array for  [[[STEP_1_OPT_OUTS]]
+  #
+  def step1_opt_outs(self):
+    result = []
+    rows = self.get_sub_array('step1.optout.x')
+
+    for index,row in rows.items():
+      resultRow = {}
+      paragraphs = []
+      if ('h' in row ):
+        resultRow['h'] = row["h"]
+      if ('readmore' in row ):
+        resultRow['readmore'] = row["readmore"]
+      if ('p' in row ):
+         for s,ppp in  row["p"].items():
+            paragraphs.append(ppp)
+      resultRow['p'] = paragraphs
+      result.append(resultRow)
+      
+
+    return json.dumps(result, sort_keys=True)  
+
 
   #
   # get language codes as string

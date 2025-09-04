@@ -12,7 +12,8 @@
   * [Adding translations to existing languages](#add-section)
   * [Country and location codes](#country-and-location-codes-section)
   * [Translation special tags](#special-tags-section)
-  * [About page paragraphs](#about-page-section)
+  * [About and Privacy page paragraphs](#about-page-section)
+  * [Read more paragraphs](#read-more-section)
 * [Manage addresses](#addresses-section)
 * [Folders](#folders-section)
 * [React Js](#react-section)
@@ -211,14 +212,14 @@ button.readmore.more;more;more
 page.fallback.header;This website provides EU `opt--out’ from the EHDS
 page.fallback.intro;Ourpean Health Data Space (EHDS). Please in by clicking <red>"Select Country"</red> 
 page.about.title;About;About
-page.about.paragraph1.h;I am am h1;I am am h1
-page.about.paragraph1.p1;h1 p1 text;h1 p1 text
-page.about.paragraph1.p2;h1 p2 text ;h1 p2 text 
-page.about.paragraph2.h;I am a h2;I am a h2
-page.about.paragraph2.p1;h2 p1  text;h2 p1  text
-page.about.paragraph2.p2;h2 p2  text;h2 p2  text
-page.about.paragraph2.p3;h2 p3  text;h2 p3  text
-page.about.paragraph3.h;I am a h3;I am a h3
+page.about.h;I am am h1;I am am h1
+page.about.p;h1 p1 text;h1 p1 text
+page.about.p;h1 p2 text;h1 p2 text
+page.about.h;I am a h2;I am a h2
+page.about.p;h2 p1  text;h2 p1  text
+page.about.p;h2 p2  text;h2 p2  text
+page.about.p;h2 p3  text;h2 p3  text
+page.about.h;I am a h3;I am a h3
 ```
 
 3) Run the build command again
@@ -317,42 +318,25 @@ Also all of the strings ```'opt-me'``` are rendered in red.
 
 <a name='about-page-section'></a>
 
-### About page paragraphs
+### About and Privacy page paragraphs
 
-On the page 'about' (src/react/src/steps/About.jsx) we have a place holder  [[PAGE_ABOUT_PARAGRAPHS]] for the  paragraphs.
-
-```
-function About(props) {
+On the page 'about' (src/react/src/steps/About.jsx) we have a place holders  [[PAGE_ABOUT_PARAGRAPHS]] and [[STEP_4_PRIVACY_POLICY]] for the  paragraphs.
+See  src/react/src/steps/About.jsx and src/react/src/steps/PrivacyPolicy.jsx
 
 
-        return (
-                <div className="step" id="About">
-                        <div
-                                className='closeButton'
-                                onClick={(e) => props.emitChangeSection("closeSection", e)}
-                        >
-                                 
-                        </div>
-                        <div>[[PAGE_ABOUT_PARAGRAPHS]]</div>
-                </div>
-
-        )
-}
-```
 
 The number of the can vary.
 The paragraphs are defined in the Excel as following:
 
 ```
-page.about.paragraph1.h; I am am h1; I am am h1
-page.about.paragraph1.p1; h1 p1 text; h1 p1 text
-page.about.paragraph1.p2; h1 p2 text ; h1 p2 text 
-page.about.paragraph2.h; I am a h2; I am a h2
-page.about.paragraph2.p1; h2 p1  text; h2 p1  text
-page.about.paragraph2.p2; h2 p2  text; h2 p2  text
-page.about.paragraph2.p3; h2 p3  text; h2 p3  text
-page.about.paragraph3.h; I am a h3; I am a h3
-page.about.paragraph3.p1; h2 p1  text; h2 p1  text
+page.about.h;I am am h1;I am am h1
+page.about.p;h1 p1 text;h1 p1 text
+page.about.p;h1 p2 text;h1 p2 text
+page.about.h;I am a h2;I am a h2
+page.about.p;h2 p1  text;h2 p1  text
+page.about.p;h2 p2  text;h2 p2  text
+page.about.p;h2 p3  text;h2 p3  text
+page.about.h;I am a h3;I am a h3
 ```
 
 This will render the following three paragraphs.
@@ -374,11 +358,25 @@ This will render the following three paragraphs.
 The number of Paragraphs and the <p> sections may vary.
 The generic structure for one paragraph is
 
+<a name='read-more-section'></a>
+### Read more paragraphs
+
+In a similar as we do with the paragraphs on the pages  About.jsx and PrivacyPolicy.jsx
+(See the prevoius paragraph) We can render a random number of paragraphs with a header.
+Additionally we also have a 'read more' section, which we import in the csv as following:
+
 ```
-page.about.paragraph{d}.h; Header required; Header required
-page.about.paragraph{d}.p{d}; section N; section N
-page.about.paragraph{d}.p{d}; section N; section N
+step1.optout.h;I am optout 1;I am optout 1
+step1.optout.readmore;I am am readmore1;I am am readmore1
+step1.optout.p;optout 1 text1;optout 1 text1
+step1.optout.p;optout 1 text2;optout 1 text2
+step1.optout.readmore;I am am readmore2;I am am readmore2
+step1.optout.h;I am optout 2;I am optout 2
+step1.optout.p;optout 2 text1;optout 2 text1
+step1.optout.p;optout 2 text2;optout 2 text2
+step1.optout.p;optout 2 text4;optout 2 text4
 ```
+
 
 <a name='addresses-section'></a>
 ## Manage addresses

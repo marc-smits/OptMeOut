@@ -1,133 +1,245 @@
 {
     "menu": {
-        "about": "NL about",
-        "locale": "NL"
-    },
-    "page": {
-        "fallback": {
-            "header": "NL This website provides EU citizens a way to provisionally ‘opt-out’ from the EHDS",
-            "intro": "NL Our mission is provide all EU citizens with a means to object to being registred in the European Health Data Space (EHDS). Please in by clicking &quot;Select Country&quot;  if it is available for your country or checkout the the &quot;about&quot; button  for more info. ",
-            "button": "NL Select country"
-        },
-        "about": {
-            "title": "NL About",
-            "paragraph1": {
-                "h": "NL I am am h1",
-                "p1": "NL h1 p1 text",
-                "p2": "NL h1 p2 text ",
-                "p3": "NL h1 p3 text "
-            },
-            "paragraph2": {
-                "h": "NL I am a h2",
-                "p1": "NL h2 p1  text",
-                "p2": "NL h2 p2  text"
-            }
-        }
+        "about": "about",
+        "locale": "EN"
     },
     "button": {
         "tellmemore": "NL Tell me more",
-        "OptMeOut": "NL OptMeOut",
+        "OptMeOut": "OptMeOut",
         "readmore": {
             "less": "NL less",
             "more": "NL more"
         },
-        "back": "NL back"
+        "back": "NL back",
+        "send": "NL Send it",
+        "finish": "NL Finish"
+    },
+    "page": {
+        "fallback": {
+            "header": "This website provides EU citizens a way to provisionally \u2018opt-out\u2019 from the EHDS",
+            "intro": "Our mission is provide all EU citizens with a means to object to being registred in the European Health Data Space (EHDS). Please in by clicking <red>&quot;Select Country&quot;</red>  if it is available for your country or checkout the the <red>&quot;about&quot;</red> button  for more info.",
+            "button": "NL Select country"
+        },
+        "about": {
+            "-1": {
+                "title": "NL About"
+            },
+            "0": {
+                "h": "NL I am am h1",
+                "p": {
+                    "0": "NL h1 p1 text",
+                    "1": "NL h1 p2 text"
+                }
+            },
+            "1": {
+                "h": "I am a h2",
+                "p": {
+                    "0": "NL h2 p1  text",
+                    "1": "NL h2 p2  text",
+                    "2": "NL h2 p3  text"
+                }
+            },
+            "2": {
+                "h": "I NL am a h3",
+                "p": {
+                    "0": "NL h2 p1  text"
+                }
+            }
+        }
     },
     "step1": {
-        "title": "NL With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
-        "intro": "NL Your data can be used by researchers, governments, and commercial companies. You can object to this with an ‘opt-out’, for the two ways your data can be used. ",
-        "optout1": {
-            "h1": "NL Opt-out for primary use",
-            "p": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-            "readmore": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
+        "optout": {
+            "3": {
+                "h": "NL I am opt me out am h1",
+                "p": {
+                    "0": "NL h1 opt me out  p1 text",
+                    "1": "NL h1 opt me out  p2 text"
+                },
+                "readmore": "NL I am am readmore1"
+            },
+            "4": {
+                "h": "NL I am opt me out h2",
+                "p": {
+                    "0": "NL h2 opt me out  p1  text",
+                    "1": "NL h2 opt me out p2  text",
+                    "2": "NL h2 opt me out p3  text"
+                },
+                "readmore": "NL I am am readmore2"
+            },
+            "5": {
+                "h": "NL I am opt me out  h3",
+                "p": {
+                    "0": "NL h2 opt me out   text"
+                },
+                "readmore": "NL I am am readmore3"
+            }
         },
-        "optout2": {
-            "h1": "NL Opt-out for secondary use",
-            "p": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-            "readmore": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
-        },
+        "title": "With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
+        "intro": "Your data can be used by researchers, governments, and commercial companies. You can object to this with an <red>\u2018opt-out\u2019</red>, for the two ways your data can be used.",
         "disclaimer": {
-            "h1": "NL Please note",
-            "p": "NL 50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
+            "h1": "Please note",
+            "p": "50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
         }
     },
     "splash": {
         "countries": {
-            "h1": "Select your country"
+            "h1": "Select your country",
+            "list": {
+                "1": "Austria,de_AT",
+                "2": "Belgium (NL),NL_BE",
+                "3": "Belgium (FR),fr_BE",
+                "4": "Bulgaria,bg_BG",
+                "5": "Croatia,hr_HR",
+                "6": "Cyprus,el_CY",
+                "7": "Czechia,cs_CZ",
+                "8": "Denmark,da_DK",
+                "9": "Estonia,et_EE",
+                "10": "Finland,fi_FI",
+                "11": "France,fr_FR",
+                "12": "Germany,de_DE",
+                "13": "Greece,el_GR",
+                "14": "Hungary,hu_HU",
+                "15": "Ireland,en_GB",
+                "16": "Italy,it_IT",
+                "17": "Latvia,lv_LV",
+                "18": "Lithuania,lt_LT",
+                "19": "Luxembourg,lb_LU",
+                "20": "Maltha,mt_MT",
+                "21": "Netherlands,nl_NL",
+                "22": "Poland,pl_PL",
+                "23": "Portugal,pt_PT",
+                "24": "Romania,ro_RO",
+                "25": "Slovakia,sk_SK",
+                "26": "Slovenia,sl_SI",
+                "27": "Spain,es_ES",
+                "28": "Sweden,sv_SE"
+            }
         }
     },
     "step2": {
         "title": "NL Select your GP",
-        "intro": "NL Next we will inform your GP about your choices and excersise you right to annonate your medical records. Also we will ask your GP to forward this to other healtcare institutions you may visit.",
+        "intro": "NL Who is your general practitioner? *",
         "form": {
-            "recipientOrganization": {
-                "label": "What is the name of the organization of your GP?",
-                "placeholder": "name of the organization of your GP"
-            },
-            "recipientTitle": {
-                "label": "What is the title of your GP?",
-                "placeholder": "title of your GP"
-            },
-            "recipientFirstName": {
-                "label": "What is the first name of your GP?",
-                "placeholder": "first name of your GP"
-            },
-            "recipientLastName": {
-                "label": "What is last the name of your GP?",
-                "placeholder": "last name of your GP"
+            "recipientName": {
+                "label": "NL What is the name of your GP?",
+                "placeholder": "NL name of your GP"
             },
             "customRecipient": {
-                "label": "enter address manually"
+                "label": "NL enter address manually"
             },
             "recipientAddress1": {
-                "label": "Address",
-                "placeholder": "Line 1"
+                "label": "NL Address",
+                "placeholder": "NL Line 1"
             },
             "recipientAddress2": {
-                "placeholder": "Line 2"
+                "placeholder": "NL Line 2"
             },
             "recipientCity": {
-                "label": "City",
-                "placeholder": "City"
-            },
-            "recipientCountry": {
-                "label": "Country",
-                "placeholder": "Country"
+                "label": "NL City",
+                "placeholder": "NL City"
             }
-        },
-        "recipient_search": {
-            "select": "Select",
-            "search": "Search"
         }
     },
     "step3": {
         "title": "NL Your details",
-        "intro": "NL Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy}>privacy policy</a> for more info. ",
+        "intro": "Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy} >privacy policy</a> for more info.",
         "form": {
-            "field1": {
-                "label": "NL First name *",
-                "value": "NL first name"
+            "senderFirstName": {
+                "label": "First name *",
+                "placeholder": "first name"
             },
-            "field2": {
-                "label": "NL Last name *",
-                "value": "NL last name"
+            "senderLastName": {
+                "label": "Last name *",
+                "placeholder": "last name"
             },
-            "field3": {
-                "label": "NL Phone number *",
-                "value": "NL phone number"
+            "senderPhone": {
+                "label": "Phone number *",
+                "placeholder": "phone number"
             },
-            "field4": {
-                "label": "NL Date of Birth *",
-                "value": "dd-mm-yyyy"
+            "senderBirthDate": {
+                "label": "Date of Birth *",
+                "placeholder": "dd-mm-yyyy"
             },
-            "field5": {
-                "label": "NL Last four digits of your BSN *",
-                "value": "xxx"
+            "senderId": {
+                "label": "Last four digits of your BSN *",
+                "placeholder": "xxxx"
+            }
+        }
+    },
+    "step4": {
+        "title": "Your OptOut",
+        "intro": "Since there is no way to deliver this digitally (yet), we deliver by post. Proven technology.",
+        "letter": {
+            "subject": "OptOut for the European Health DataSpace (EHDS)",
+            "saluation": "Dear",
+            "title": "Mr, Ms,",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
+        },
+        "receiveACopy": {
+            "title": "Receive a copy",
+            "text": "You will receive instructions on how to reverse your opt-out."
+        },
+        "form": {
+            "senderEmail": {
+                "placeholder": "e-mail@address.com"
+            }
+        },
+        "donate": {
+            "title": "Donate",
+            "text": "We are an NGO and run non-profit. Please pay from an account that is in your name, since this is also used for identification. You can only OptYourselfOut.",
+            "paymentOptions": {
+                "1": "Feel free, if you can't afford more.",
+                "2": "Pay for your own.",
+                "3": "Pay it forward, donate a letter.",
+                "4": "Support this app. We work non-profit!"
             }
         }
     },
     "privacy_policy": {
-        "title": "NL Privacy Policy",
-        "text": "<h2>NL Paragraph1</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt tortor id mi interdum pulvinar. In posuere sit amet quam ac iaculis. Duis vel felis id massa pharetra lobortis vel id neque. Phasellus tempus ante eget mi egestas, quis lacinia lectus placerat. Aenean libero ante, consectetur viverra elit a, interdum interdum lorem. Morbi porta in tellus sit amet hendrerit. Curabitur accumsan dui nisi, vitae ultricies orci consequat ut. Aliquam luctus risus tempor, ullamcorper sapien nec, porttitor justo. In vitae venenatis est, bibendum vulputate sapien. Mauris felis odio, laoreet in nunc sit amet, dignissim euismod lacus. Integer consequat odio nulla. Morbi placerat massa nec leo volutpat, ut aliquam erat pharetra. Cras in quam a mauris ultrices placerat eu eget lectus.</p><h2>Paragraph2</h2><p>Etiam ut erat diam. Suspendisse velit tortor, varius nec aliquet convallis, convallis vel leo. Mauris tempor neque elit, in hendrerit justo venenatis vestibulum. Donec turpis purus, feugiat eget hendrerit sit amet, tristique sed lorem. Donec dignissim, enim at facilisis pretium, elit massa imperdiet metus, quis vulputate ex magna eget nisi. Nam egestas velit convallis, convallis leo in, ultrices quam. Donec sit amet nisl in ligula scelerisque ultricies. Ut dui augue, varius finibus turpis sit amet, mollis dignissim enim. Vestibulum a ligula posuere lorem malesuada lacinia et a metus. Nullam dictum at nibh eu elementum. Maecenas fringilla tellus eget ligula porta euismod.</p><h2>Paragraph3</h2><p>Etiam tristique eu orci eget ultricies. Vivamus imperdiet nibh vel diam viverra, sed finibus leo euismod. Vivamus non consectetur mauris, at eleifend neque. Donec consequat gravida bibendum. Fusce ornare lectus vulputate turpis elementum, ut volutpat lacus fringilla. In nec libero quis nibh tristique finibus. Donec convallis lobortis purus eget tincidunt. Quisque mollis vehicula ornare. Fusce quis pharetra sem. Sed in sodales tortor, ut dapibus urna. Mauris velit metus, rhoncus a odio ut, lacinia dignissim sem. Nullam blandit accumsan libero at faucibus. Nam sit amet dolor nec massa fringilla vulputate.</p><h2>Paragraph4</h2><p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc ullamcorper, justo vel rutrum dignissim, eros lorem tempor magna, ut congue mi ante non arcu. Praesent lobortis augue urna, sit amet gravida lorem ultrices vel. Fusce ornare venenatis consectetur. Nullam rutrum, mi sit amet egestas consectetur, est tortor hendrerit dolor, vitae vulputate risus sem eu sapien. Donec massa arcu, aliquet id semper pulvinar, auctor vel neque. Etiam dignissim aliquam nulla. Vestibulum lacinia sit amet dolor quis sagittis. Duis in maximus ante, eget accumsan augue. Praesent dapibus in quam vel tristique. Vestibulum ut convallis ipsum. Nunc id sem non augue placerat hendrerit.</p><h2>Paragraph5</h2><p>Etiam non bibendum sem, at vehicula lorem. Donec in diam non velit sagittis iaculis quis non ligula. Integer quis dolor sed libero tempus ultrices euismod non ligula. Aenean eget interdum leo. Curabitur at aliquam nibh. Vivamus dignissim mauris non posuere laoreet. Nullam suscipit ac leo eu euismod. Cras imperdiet, diam quis venenatis commodo, neque odio efficitur mi, eu dictum diam risus a lorem. Mauris dapibus est eu elit ultricies, sit amet hendrerit turpis faucibus.</p>"
+        "6": {
+            "h": "I am am h1",
+            "p": {
+                "0": "h1 p1 text",
+                "1": "h1 p2 text"
+            }
+        },
+        "7": {
+            "h": "I am a h2",
+            "p": {
+                "0": "h2 p1  text",
+                "1": "h2 p2  text",
+                "2": "h2 p3  text"
+            }
+        },
+        "8": {
+            "h": "I am a h3",
+            "p": {
+                "0": "h2 p1  text"
+            }
+        }
+    },
+    "step5": {
+        "title": "What happens now?",
+        "intro": "Your letter is processed by the Dutch company <red>Pingen</red>. They will deliver it to",
+        "stayInformed": {
+            "title": "Stay informed",
+            "text": "Stay informed (English) of legislative changes that might affect your opt-out."
+        },
+        "form": {
+            "stayInformed": {
+                "label": "Yes, please"
+            }
+        }
+    },
+    "step6": {
+        "title": "Thank you!",
+        "intro": "Your OptOut has been arranged.",
+        "notification": {
+            "title": "Help others with their privacy too!",
+            "text": "If you found this service useful, please share our website with your friends family or anyone who might benefit from it."
+        },
+        "social": {
+            "title": "Share with:"
+        }
     }
 }
