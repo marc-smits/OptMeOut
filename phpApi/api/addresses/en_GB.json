@@ -312,10 +312,10 @@
         "title": "",
         "name": "",
         "surname": "",
-        "street": "",
-        "number": "Van Karnebeekstraat",
-        "postalCode": "27",
-        "city": "8011 JB",
-        "country": "Zwolle"
+        "street": "Van Karnebeekstraat",
+        "number": "27",
+        "postalCode": "8011 JB",
+        "city": "Zwolle",
+        "country": "Nederland"
     }
 }
