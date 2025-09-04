@@ -67,9 +67,7 @@ class TranslationsExport:
     for key in self.englishArr:
       csvKey = key
       if (multipleParagraphs.isMultipleParagraph(csvKey)):
-        pprint(csvKey)
         csvKey = multipleParagraphs.convertCsvKey(csvKey)
-        pprint(csvKey)
       csv = csv +  csvKey + config.CSV_FIELD_SEPARATOR
       csv = csv + self.englishArr[key] + config.CSV_FIELD_SEPARATOR
       value = valuesArr.get(key)

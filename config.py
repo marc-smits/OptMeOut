@@ -34,7 +34,10 @@ CSV_FIELD_SEPARATOR = ";"
 
 # csv blogs with multiple paragraphs
 # see more in lib/csvImport/multipleParagraphs.py
-CSV_BLOGS_WITH_MULTIPLE_PARAGRAPHS="page.about,xxx.yy"
+CSV_BLOGS_WITH_MULTIPLE_PARAGRAPHS="page.about,step1.optout"
+
+
+
 
 # default language
 DEFAULT_LANGUAGE="en_GB"

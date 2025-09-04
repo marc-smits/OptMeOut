@@ -79,16 +79,31 @@ class MultipleParagraphs:
     #
     def convertKey(self, key):
         base = self.__getBaseKey(key)
+        
+        # define the last part from the dot separated key
+        # aaa.bbb.ccc => ccc
+        parts = key.split('.')
+        length = len(parts) 
+        lastPart = parts[len(parts)-1]
 
-        if (key.endswith('.h')):   
-            key =  base + '.' + str(self.headersIndex) + '.h'
-            self.headersIndex = self.headersIndex + 1 
-            self.paragraphsIndex = 0
-        if (key.endswith('.p')):
-            key = base + '.' + str(self.headersIndex -1) + '.p.' + str(self.paragraphsIndex)                  
-            self.paragraphsIndex = self.paragraphsIndex + 1
+        match lastPart :
+            case 'h':
+                key =  base + '.' + str(self.headersIndex) + '.h'
+                self.headersIndex = self.headersIndex + 1 
+                self.paragraphsIndex = 0
+            case 'p':
+                key = base + '.' + str(self.headersIndex -1) + '.p.' + str(self.paragraphsIndex)                  
+                self.paragraphsIndex = self.paragraphsIndex + 1
+            case _:
+                key =  base + '.' + str(self.headersIndex) + '.' + lastPart
+        
         return key
 
+
+    #
+    # Convert json key to csv
+    #
     def convertCsvKey(self, key):
-        key = re.sub('.[0-9]', '', key)
+        # replace .number by ''
+        key = re.sub('[.?!][0-9]', '', key)
         return key
