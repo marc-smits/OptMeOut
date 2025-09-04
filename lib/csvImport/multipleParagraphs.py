@@ -94,8 +94,9 @@ class MultipleParagraphs:
             case 'p':
                 key = base + '.' + str(self.headersIndex -1) + '.p.' + str(self.paragraphsIndex)                  
                 self.paragraphsIndex = self.paragraphsIndex + 1
-            case _:
-                key =  base + '.' + str(self.headersIndex -1) + '.' + lastPart
+            case 'readmore':
+                key =  base + '.' + str(self.headersIndex -1) + '.' + lastPart     
+            
         
         return key
 

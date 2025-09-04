@@ -21,9 +21,7 @@
             "button": "NL Select country"
         },
         "about": {
-            "-1": {
-                "title": "NL About"
-            },
+            "title": "NL About",
             "0": {
                 "h": "NL I am am h1",
                 "p": {
