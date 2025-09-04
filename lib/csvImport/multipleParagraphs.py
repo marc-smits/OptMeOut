@@ -6,6 +6,7 @@
 import json
 from pprint import pprint
 import config
+import re
 class MultipleParagraphs:
 
     #
@@ -86,4 +87,8 @@ class MultipleParagraphs:
         if (key.endswith('.p')):
             key = base + '.' + str(self.headersIndex -1) + '.p.' + str(self.paragraphsIndex)                  
             self.paragraphsIndex = self.paragraphsIndex + 1
+        return key
+
+    def convertCsvKey(self, key):
+        key = re.sub('.[0-9]', '', key)
         return key

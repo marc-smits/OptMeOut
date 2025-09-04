@@ -9,6 +9,7 @@ import config
 from pprint import pprint
 from pathlib import Path
 from lib.csvFormate import CsvFormate
+from lib.csvImport.multipleParagraphs import MultipleParagraphs
 
 
 class TranslationsExport:
@@ -56,15 +57,20 @@ class TranslationsExport:
     
     csvStr = self.__makeCsvContent(valuesArr)
     self.__makeCsvFile(csvStr)
-    self.__makeJsFile(valuesArr)
     
   #
   # Make csv content from translation arrays
   # 
   def __makeCsvContent(self, valuesArr):
     csv = "Key,English,Translation (" + self.currentLanguageToExport.upper() + ")\n"
+    multipleParagraphs = MultipleParagraphs()
     for key in self.englishArr:
-      csv = csv +  key + config.CSV_FIELD_SEPARATOR
+      csvKey = key
+      if (multipleParagraphs.isMultipleParagraph(csvKey)):
+        pprint(csvKey)
+        csvKey = multipleParagraphs.convertCsvKey(csvKey)
+        pprint(csvKey)
+      csv = csv +  csvKey + config.CSV_FIELD_SEPARATOR
       csv = csv + self.englishArr[key] + config.CSV_FIELD_SEPARATOR
       value = valuesArr.get(key)
       if ( isinstance(value, str)):
@@ -86,25 +92,6 @@ class TranslationsExport:
     with open(csvFileName, "w") as f:
       f.write(csvStr)
   
-  #
-  # Make javascript file from translation arrays
-  # 
-  # Example:
-  # let translationsJson='{"pageTitle": "Compose Your Letter", "previous": "Previous", "next": "Next", "step1.pertires.address.title": "Address"}'; 
-  # let  globalTranslationsObj = JSON.parse(translationsJson); 
-  # function _trns(translation){return(globalTranslationsObj[translation]);}
-  # 
-  def __makeJsFile(self, translationsArr):
-    return
-    jsonStr = json.dumps(translationsArr)
-    lang = self.currentLanguageToExport
-    script =  "let translationsJson='" + jsonStr + "';"
-    script = script + " let  globalTranslationsObj = JSON.parse(translationsJson);"
-    script = script + " function _trns(translation){return(globalTranslationsObj[translation]);}"
-    jsDir = config.JS_DIR + '/'
-    jsFileName = jsDir + lang + '.js'
-    with open(jsFileName, "w") as f:
-      f.write(script)
 
    
   #
