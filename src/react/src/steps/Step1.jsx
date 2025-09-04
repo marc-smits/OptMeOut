@@ -10,7 +10,7 @@
  *
 */
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, prevState } from 'react';
 import MoreSvg from '../partials/MoreSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
 
@@ -24,10 +24,11 @@ function Step1(props) {
         const [tellMeMore, setTellMeMore] = useState(false);
         const [optOut1, setOptOut1] = useState('checked');
         const [optOut2, setOptOut2] = useState('checked');
-         const [optOut, setOptOut] = useState({});
+        const [optOut, setOptOut] = useState({'selected' : {}});
         const [disableNextStep, setDisableNextStep ] = useState(false);
+        const [initialized, setInitialized] = useState(false);
 
-        useEffect(() => { updateNextstep(); }, [optOut1, optOut2]);
+        useEffect(() => { initialize(); }, [optOut1, optOut2]);
 
         // Update Tell More visibility
         const toggleTellMore = (e) => {
@@ -41,34 +42,58 @@ function Step1(props) {
         const [readMore2, setReadMore2] = useState(false);
         const toggleReadMore2 = () => setReadMore2(prev => !prev);
 
-        // Update Toggle OptOut1
+        // Update Toggle OptOut
         const toggleOptOut = (e) => {
-              alert(e)
-                let status = (optOut1 === '') ? 'checked' : '';
-                setOptOut1(status);
+         updateNextstep(true);
+          setOptOut(prevState => {
+            let selected = Object.assign({});  
+            Object.keys(optOut.selected).forEach(function (key, index) {
+              selected[key] = optOut['selected'][key]
+            });
+            if (selected[e] == undefined) {
+                 selected[e] = 'checked'  
+            } else {
+              delete  selected[e];
+             updateNextstep(false);
+            }
+            return { selected };                           
+          })
         };
 
-       
+
+      //
+      // initialize the slider to status checked
+      //
+      const initialize = (e) => {
+        if (initialized) {
+          return
+        }
+        setInitialized(true)
+        updateNextstep(true);
+        setOptOut(prevState => {
+          let selected = Object.assign({});
+          Object.keys(optOuts).map((innerAttr, key) => {
+            selected[key] = 'checked'
+          });
+          return { selected };
+        })
+      }
 
         //Update OptMeOut -- make unselectable if no opt-out is selected
         const updateNextstep = (e) => {
-            let status = ([optOut1, optOut2].includes('checked'));
-            // console.log('disable buttonOptMeOut? ' + !status);
-
-            setDisableNextStep(!status);
+            setDisableNextStep( !e);
         }
 
       /**
        * Read more
        */
       const Readmore = (data) => {
-
         return (
           <>
             <div className='row'>
               <div className="col col-10">
                 <div className='optOutToggle'>
-                  <div className={"checkBox " + (optOut1)} onClick={() => { toggleOptOut(data.index) }}>
+                  <div className={"checkBox " + (optOut.selected[data.index])} onClick={() => { toggleOptOut(data.index) }}>
                     <div className="checkBoxSlider"></div>
                   </div>
                   <h2>{data.data.h}</h2>
