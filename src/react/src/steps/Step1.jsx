@@ -18,31 +18,46 @@ function Step1(props) {
 
         let optOuts = [[STEP_1_OPT_OUTS]];
 
+
+        const [initialized, setInitialized] = useState(false);
+        
         //
         // Variables to control the visibility of the sections
         //
         const [tellMeMore, setTellMeMore] = useState(false);
-        const [optOut1, setOptOut1] = useState('checked');
-        const [optOut2, setOptOut2] = useState('checked');
         const [optOut, setOptOut] = useState({'selected' : {}});
         const [disableNextStep, setDisableNextStep ] = useState(false);
-        const [initialized, setInitialized] = useState(false);
-
-        useEffect(() => { initialize(); }, [optOut1, optOut2]);
-
-        // Update Tell More visibility
-        const toggleTellMore = (e) => {
-                let status = tellMeMore ? false : true;
-                setTellMeMore(status);
-        };
-
+      
         // ReadMore button(s)
-        const [readMore1, setReadMore1] = useState(false);
-        const toggleReadMore1 = () => setReadMore1(prev => !prev);
-        const [readMore2, setReadMore2] = useState(false);
-        const toggleReadMore2 = () => setReadMore2(prev => !prev);
+         const [readMore, setReadMore] = useState({'selected' : {}});
+        useEffect(() => { initialize(); });
 
+      // Update Tell More visibility
+      const toggleTellMore = (e) => {
+        let status = tellMeMore ? false : true;
+        setTellMeMore(status);
+      };
+
+        //
+        // Update Read More visibility
+        //
+        const toggleReadMore = (e) => {
+           console.log(e);
+            let tellMeMore= (readMore['selected'][e])
+            let status = tellMeMore ? false : true;
+               setReadMore(prevState => {
+          let selected = Object.assign({});
+          Object.keys(readMore.selected).forEach(function (key, index) {
+            selected[key] = readMore['selected'][key]
+          });
+            selected[e] = status
+          return { selected };
+        })
+        };
+     
+        //
         // Update Toggle OptOut
+        //
         const toggleOptOut = (e) => {
          updateNextstep(true);
           setOptOut(prevState => {
@@ -77,6 +92,14 @@ function Step1(props) {
           });
           return { selected };
         })
+
+        setReadMore(prevState => {
+          let selected = Object.assign({});
+          Object.keys(optOuts).map((innerAttr, key) => {
+            selected[key] = false
+          });
+          return { selected };
+        })
       }
 
         //Update OptMeOut -- make unselectable if no opt-out is selected
@@ -106,9 +129,11 @@ function Step1(props) {
                   })
                 }
 
-                <div className={readMore1 ? 'readMore show' : 'readMore'}>{data.data.readmore}</div>
+                <div className={readMore['selected'][data.index] ? 'readMore show' : 'readMore'}>
+                  {data.data.readmore}
+                </div>
                 <div className='flex-end'>
-                  <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
+                  <ButtonMore readMore={readMore['selected'][data.index]} toggleReadMore ={() => { toggleReadMore(data.index) }} />
                 </div>
               </div>
             </div>
@@ -135,16 +160,17 @@ function Step1(props) {
 
                         {/* Tell me more */}
                         {
-                          <div className={tellMeMore ? 'readMore show' : 'readMore'}>
-                            {/* Tell me more*/}
+                        <div className={tellMeMore ? 'readMore show' : 'readMore'}>
+                          {/* Tell me more*/}
 
-                            {Object.keys(optOuts).map((innerAttr, index) => {
+                          {Object.keys(optOuts).map((innerAttr, index) => {
+                           
                               return (
-                                <Readmore data={optOuts[innerAttr]} index={index}  />
+                                <Readmore data={optOuts[innerAttr]} index={index} />
                               )
-                            })
-                            }
-                          </div>
+                          })
+                          }
+                        </div>
                         }
 
                         {/* Tell me more and Opt Me Out buttons */}

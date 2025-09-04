@@ -49,14 +49,16 @@
         "optout": {
             "3": {
                 "h": "I am opt me out am h1",
+                 "readmore": "I am am readmore1",
                 "p": {
                     "0": "h1 opt me out  p1 text",
                     "1": "h1 opt me out  p2 text"
                 }
             },
             "4": {
-                "readmore": "I am am readmore1",
+               
                 "h": "I am opt me out h2",
+                 "readmore": "I am am readmore2",
                 "p": {
                     "0": "h2 opt me out  p1  text",
                     "1": "h2 opt me out p2  text",
@@ -64,14 +66,11 @@
                 }
             },
             "5": {
-                "readmore": "I am am readmore2",
                 "h": "I am opt me out  h3",
+                "readmore": "I am am readmore3",
                 "p": {
                     "0": "h2 opt me out   text"
                 }
-            },
-            "6": {
-                "readmore": "I am am readmore3"
             }
         },
         "title": "With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
