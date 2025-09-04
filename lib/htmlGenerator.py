@@ -99,6 +99,8 @@ class HtmlGenerator:
                 html = html.replace('[[COUNTRIES_LIST]]', self.languageCodes.get_country_list())
                 html = html.replace('[[PAGE_ABOUT_PARAGRAPHS]]',  translateObj.page_about_paragraphs())
 
+                html = html.replace('[[STEP_1_OPT_OUTS]]',   translateObj.step1_opt_outs())
+
                 # update addresses list
                 html = html.replace('[[ADDRESSES_LIST]]', self.addresses.get_address_list(lang))
 

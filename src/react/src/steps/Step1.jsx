@@ -16,6 +16,8 @@ import ButtonMore from '../partials/ButtonMore.jsx';
 
 function Step1(props) {
 
+        let optOuts = [[STEP_1_OPT_OUTS]];
+
         //
         // Variables to control the visibility of the sections
         //

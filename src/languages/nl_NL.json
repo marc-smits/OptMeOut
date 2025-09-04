@@ -21,8 +21,8 @@
             "button": "NL Select country"
         },
         "about": {
-            "title": "NL About",
             "0": {
+                "title": "",
                 "h": "I am am h1",
                 "p": {
                     "0": "h1 p1 text",
@@ -33,31 +33,49 @@
                 "h": "I am a h2",
                 "p": {
                     "0": "h2 p1  text",
-                    "1": "h2 p2  text"
+                    "1": "h2 p2  text",
+                    "2": ""
                 }
             },
             "2": {
                 "h": "I am a h3",
                 "p": {
-                    "0": "h2 p1  text",
-                    "1": "h2 p2  text"
+                    "0": "h2 p1  text"
                 }
             }
         }
     },
     "step1": {
+        "optout": {
+            "3": {
+                "h": "I am optout 1",
+                "readmore": "I am am readmore1",
+                "p": {
+                    "0": "optout 1 text1",
+                    "1": "optout 1 text2"
+                }
+            },
+            "4": {
+                "readmore": "I am am readmore2",
+                "h": "I am optout 2",
+                "p": {
+                    "0": "optout 2 text1",
+                    "1": "optout 2 text2",
+                    "2":    "optout 2 text4"
+                }
+            },
+            "5": {
+                "readmore": "I am am readmore3",
+                "h": "I am optout 3",
+                "p": {
+                    "0": "optout 3 text1 bd",
+                    "1": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
+                    "2": "O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
+                }
+            }
+        },  
         "title": "NL With European Health Data Space (EHDS) you will lose control over who can access your medical records.",
         "intro": "NL Your data can be used by researchers, governments, and commercial companies. You can object to this with an \u2018opt-out\u2019, for the two ways your data can be used. ",
-        "optout1": {
-            "h1": "NL Opt-out for primary use",
-            "p": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-            "readmore": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
-        },
-        "optout2": {
-            "h1": "NL Opt-out for secondary use",
-            "p": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula.",
-            "readmore": "NL O50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."
-        },
         "disclaimer": {
             "h1": "NL Please note",
             "p": "NL 50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."

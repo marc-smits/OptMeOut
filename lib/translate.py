@@ -139,6 +139,31 @@ class Translate:
              html = html +'<p>' + rows[key]['p'][p] + '</p>'
     return html
 
+
+  #
+  # Get json array for  [[[STEP_1_OPT_OUTS]]
+  #
+  def step1_opt_outs(self):
+    result = []
+    rows = self.get_sub_array('step1.optout.x')
+
+    for index,row in rows.items():
+      resultRow = {}
+      paragraphs = []
+      if ('h' in row ):
+        resultRow['h'] = row["h"]
+      if ('readmore' in row ):
+        resultRow['readmore'] = row["readmore"]
+      if ('p' in row ):
+         for s,ppp in  row["p"].items():
+            paragraphs.append(ppp)
+      resultRow['p'] = paragraphs
+      result.append(resultRow)
+      
+
+    return json.dumps(result, sort_keys=True)  
+
+
   #
   # get language codes as string
   #
