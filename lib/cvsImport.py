@@ -9,7 +9,7 @@ import config
 from pprint import pprint
 from pathlib import Path
 from lib.csvFormate import CsvFormate
-from lib.csvImport.multipleParagraphs import * 
+from lib.csvImport.multipleParagraphs import MultipleParagraphs
 class CvsImport:
   
   #
@@ -24,6 +24,7 @@ class CvsImport:
   def importAll(self):
     languages = {}
     for langFile in Path(config.CSV_DIR+ '/import').glob("*.csv"):
+        multipleParagraphs = MultipleParagraphs()
         translationsArr = {}
         with open(langFile, newline='') as csvFile:
           reader = csv.reader(csvFile, delimiter= config.CSV_FIELD_SEPARATOR, quotechar='|')

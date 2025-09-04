@@ -1,28 +1,31 @@
 ########################################################################
 #
-# A class 
+# A class to handle blogs with multiple paragraphs
 #
 ########################################################################
 import json
 from pprint import pprint
 import config
-class multipleParagraphs:
+class MultipleParagraphs:
 
-    headersIndex = 0
-    paragraphsIndex = 0
+    #
+    # Constructor
+    # 
+    def __init__(self):
+        self.headersIndex = 0
+        self.paragraphsIndex = 0
 
     #
     # Is multi paragraph blog
     #
-    @classmethod
-    def isMultipleParagraph(cls,key):
-        return (cls.__getBaseKey(key) != '') 
+    def isMultipleParagraph(self,key):
+        return (self.__getBaseKey(key) != '') 
 
 
     #
     # Get multi paragraph blog base key 
     #
-    def __getBaseKey(key):
+    def __getBaseKey(self,key):
         multiParagraphBlogKeys =  config.CSV_BLOGS_WITH_MULTIPLE_PARAGRAPHS.split(',')
         for multiParagraphKey in multiParagraphBlogKeys:
             if (key.startswith(multiParagraphKey)):
@@ -73,15 +76,14 @@ class multipleParagraphs:
     #            }
     #        }
     #
-    @classmethod
-    def convertKey(cls, key):
-        base = cls.__getBaseKey(key)
+    def convertKey(self, key):
+        base = self.__getBaseKey(key)
 
         if (key.endswith('.h')):   
-            key =  base + '.' + str(cls.headersIndex) + '.h'
-            cls.headersIndex = cls.headersIndex + 1 
-            cls.paragraphsIndex = 0
+            key =  base + '.' + str(self.headersIndex) + '.h'
+            self.headersIndex = self.headersIndex + 1 
+            self.paragraphsIndex = 0
         if (key.endswith('.p')):
-            key = base + '.' + str(cls.headersIndex -1) + '.p.' + str(cls.paragraphsIndex)                  
-            cls.paragraphsIndex = cls.paragraphsIndex + 1
+            key = base + '.' + str(self.headersIndex -1) + '.p.' + str(self.paragraphsIndex)                  
+            self.paragraphsIndex = self.paragraphsIndex + 1
         return key
