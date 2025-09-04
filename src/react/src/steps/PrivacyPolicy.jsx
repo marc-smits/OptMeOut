@@ -17,8 +17,7 @@ function PrivacyPolicy(props) {
                                         >
                                                 &nbsp;
                                         </div>
-                                        <h1>[[privacy_policy.title]]</h1>
-                                        <div>[[privacy_policy.text]]</div>
+                                       [[STEP_4_PRIVACY_POLICY]]
                                 </div>
                         </div>
                 </div>

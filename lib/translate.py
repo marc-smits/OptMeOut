@@ -125,10 +125,11 @@ class Translate:
     return items
 
   #
-  # Get HTML for the place holder [[PAGE_ABOUT_PARAGRAPHS]]
+  # Get HTML for the place holders [[PAGE_ABOUT_PARAGRAPHS]] and [[STEP_4_PRIVACY_POLICY]]
   #
-  def page_about_paragraphs(self):
-    rows = self.get_sub_array('page.about')
+  def multiple_paragraphs(self, selector):
+    rows = self.get_sub_array(selector)
+   
     html = ''
     for key in rows.keys():
       if (key.isnumeric()):

@@ -24,6 +24,7 @@ function Step1(props) {
         const [tellMeMore, setTellMeMore] = useState(false);
         const [optOut1, setOptOut1] = useState('checked');
         const [optOut2, setOptOut2] = useState('checked');
+         const [optOut, setOptOut] = useState({});
         const [disableNextStep, setDisableNextStep ] = useState(false);
 
         useEffect(() => { updateNextstep(); }, [optOut1, optOut2]);
@@ -41,16 +42,13 @@ function Step1(props) {
         const toggleReadMore2 = () => setReadMore2(prev => !prev);
 
         // Update Toggle OptOut1
-        const toggleOptOut1 = (e) => {
+        const toggleOptOut = (e) => {
+              alert(e)
                 let status = (optOut1 === '') ? 'checked' : '';
                 setOptOut1(status);
         };
 
-        // Update Toggle OptOut2
-        const toggleOptOut2 = (e) => {
-                let status = (optOut2 === '') ? 'checked' : '';
-                setOptOut2(status);
-        };
+       
 
         //Update OptMeOut -- make unselectable if no opt-out is selected
         const updateNextstep = (e) => {
@@ -59,6 +57,40 @@ function Step1(props) {
 
             setDisableNextStep(!status);
         }
+
+      /**
+       * Read more
+       */
+      const Readmore = (data) => {
+
+        return (
+          <>
+            <div className='row'>
+              <div className="col col-10">
+                <div className='optOutToggle'>
+                  <div className={"checkBox " + (optOut1)} onClick={() => { toggleOptOut(data.index) }}>
+                    <div className="checkBoxSlider"></div>
+                  </div>
+                  <h2>{data.data.h}</h2>
+                </div>
+
+                {Object.keys(data.data.p).map((innerAttr, index) => {
+                  return (
+                    <p>{data.data.p[innerAttr]}</p>
+                  )
+                  })
+                }
+
+                <div className={readMore1 ? 'readMore show' : 'readMore'}>{data.data.readmore}</div>
+                <div className='flex-end'>
+                  <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      };
+
 
         return (
                 <div className="step" id="step1">
@@ -78,42 +110,16 @@ function Step1(props) {
 
                         {/* Tell me more */}
                         {
-                        <div className={tellMeMore ? 'readMore show' : 'readMore'}>
+                          <div className={tellMeMore ? 'readMore show' : 'readMore'}>
                             {/* Tell me more*/}
 
-                          <div className='row'>
-                              <div className="col col-10">
-                                  <div className='optOutToggle'>
-                                    <div className={"checkBox " + (optOut1)} onClick={toggleOptOut1}>
-                                      <div className="checkBoxSlider"></div>
-                                    </div>
-                                    <h2>[[step1.optout1.h1]]</h2>
-                                  </div>
-                                  <p>[[step1.optout1.p]]</p>
-                                  <div className={readMore1 ? 'readMore show' : 'readMore'}>[[step1.optout1.readmore]]</div>
-                                  <div className='flex-end'>
-                                    <ButtonMore readMore={readMore1} toggleReadMore={toggleReadMore1} />
-                                  </div>
-                              </div>
+                            {Object.keys(optOuts).map((innerAttr, index) => {
+                              return (
+                                <Readmore data={optOuts[innerAttr]} index={index}  />
+                              )
+                            })
+                            }
                           </div>
-
-                          {/* Tell me more 2*/}
-                          <div className='row'>
-                            <div className="col col-10">
-                                <div className='optOutToggle'>
-                                  <div className={"checkBox " + (optOut2)} onClick={toggleOptOut2}>
-                                    <div className="checkBoxSlider"></div>
-                                  </div>
-                                  <h2>[[step1.optout2.h1]]</h2>
-                                </div>
-                                <p>[[step1.optout2.p]]</p>
-                                <div className={readMore2 ? 'readMore show' : 'readMore'}>[[step1.optout2.readmore]]</div>
-                                <div className='flex-end'>
-                                  <ButtonMore readMore={readMore2} toggleReadMore={toggleReadMore2} />
-                                </div>
-                            </div>{/*col*/}
-                          </div>{/*row*/}
-                        </div>
                         }
 
                         {/* Tell me more and Opt Me Out buttons */}
@@ -142,6 +148,7 @@ function Step1(props) {
                             </div>
                           </div>
                         }
+                        setOptOut :{setOptOut}
                 </div>
 
         )
