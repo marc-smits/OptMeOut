@@ -32,5 +32,9 @@ ADDRESSES_CSV_DIR = "src/csv/addresses/"
 # character to separate csv columns
 CSV_FIELD_SEPARATOR = ";"
 
+# csv blogs with multiple paragraphs
+# see more in lib/csvImport/multipleParagraphs.py
+CSV_BLOGS_WITH_MULTIPLE_PARAGRAPHS="page.about,xxx.yy"
+
 # default language
 DEFAULT_LANGUAGE="en_GB"
