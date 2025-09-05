@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './style/App.scss'
 import Header from "./components/Header.jsx";
 import About from "./steps/About.jsx";
+import Error from "./steps/Error.jsx";
 import Splash from "./steps/Splash.jsx";
 import CountrySelect from "./steps/CountrySelect.jsx";
 import Step1 from "./steps/Step1.jsx";
@@ -67,6 +68,7 @@ function App() {
     senderId: '',
     stayInformed: '',
     paymentChoice: '',
+    hasPaid: false,
     locale: setLocaleFromUrl()
   })
 
@@ -224,6 +226,14 @@ function App() {
           <Step6
           />
         }
+
+         {/* Error section */}
+        {currentSection == "error" &&
+          <Error
+            formData={formData}
+            emitChangeSection={changeSection}
+          />
+        }
       </div>
 
 
@@ -256,6 +266,7 @@ function App() {
         paymentChoice: {formData.paymentChoice} &nbsp;|&nbsp;
         stayInformed: {formData.stayInformed} &nbsp;|&nbsp;
         locale: {formData.locale} &nbsp;|&nbsp;
+        hasPaid:{formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp;
          
       </div>
     </>

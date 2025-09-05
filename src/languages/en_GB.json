@@ -239,5 +239,10 @@
         "social": {
             "title": "Share with:"
         }
+    },
+    "error": {
+        "message": " An error has happened",
+        "contact1": "We will contact your soon to the following e-mail address",
+        "contact2": "You can contact us with the e-mail mail@mail.com"
     }
 }
