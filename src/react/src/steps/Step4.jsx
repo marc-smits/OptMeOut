@@ -91,7 +91,7 @@ function Step4(props) {
                       </p>
                         <p>
                            [[step4.letter.senderBirthDate]] Date of Birth:  {props.formData.senderBirthDate}<br />
-                           [[step4.letter.senderId]]):  {props.formData.senderId}<br />
+                           [[step4.letter.senderId]]:  {props.formData.senderId}<br />
                            [[step4.letter.senderPhone]]:  {props.formData.senderPhone}<br />
                            [[step4.letter.senderEmail]]:  {props.formData.senderEmail}<br />
                         </p>
@@ -120,6 +120,7 @@ function Step4(props) {
                      
                       
                       [[step4.letter.content]]
+                      <br/>  <br/>
                       {props.formData.senderFirstName} {props.formData.senderLastName}
                     </div>{/*letterbo*/}
 
