@@ -118,24 +118,44 @@
         "title": "Select your GP",
         "intro": "Who is your general practitioner? *",
         "form": {
-            "recipientName": {
+            "recipientFirstName": {
                 "label": "What is the name of your GP?",
-                "placeholder": "name of your GP"
+                "placeholder": "last name of your GP"
+            },
+            "recipientLastName": {
+                "placeholder": "last name",
+                "label": "Last name "
+            },
+            "recipientCountry": {
+                "placeholder": "country",
+                "label": "Country"
+            },
+            "recipientTitle": {
+                "label": "Title",
+                "placeholder": "title"
             },
             "customRecipient": {
                 "label": "enter address manually"
             },
             "recipientAddress1": {
                 "label": "Address",
-                "placeholder": "Line 1"
+                "placeholder": "line 1"
             },
             "recipientAddress2": {
-                "placeholder": "Line 2"
+                "placeholder": "line 2"
             },
             "recipientCity": {
                 "label": "City",
-                "placeholder": "City"
+                "placeholder": "city"
+            },
+            "recipientOrganization": {
+                "label": "name of organization",
+                "placeholder": "name of organization"
             }
+        },
+        "recipient_search": {
+            "select": "select",
+            "search": "Search"
         }
     },
     "step3": {
@@ -147,8 +167,27 @@
                 "placeholder": "first name"
             },
             "senderLastName": {
-                "label": "Last name *",
+                "label": "First name *",
                 "placeholder": "last name"
+            },
+            "senderAddress1": {
+                "label": "Address",
+                "placeholder": "line1"
+            },
+            "senderAddress2": {
+                "placeholder": "line1"
+            },
+            "senderCity": {
+                "label": "City",
+                "placeholder": "city"
+            },
+            "senderCountry": {
+                "label": "Country",
+                "placeholder": "country"
+            },
+            "senderEmail": {
+                "label": "Email",
+                "placeholder": "email@mail.com"
             },
             "senderPhone": {
                 "label": "Phone number *",
