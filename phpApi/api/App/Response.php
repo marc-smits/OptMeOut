@@ -55,7 +55,11 @@ class Response
     public static function send(array $response, int  $status = 201): void
     {
         if ($status > 299) {
-            mail(getenv('ERROR_MESSAGES_EMAIL'), 'opt-me-out API error', json_encode($response, JSON_PRETTY_PRINT));
+            $mails = explode(',',getenv('ERROR_MESSAGES_EMAILS'));
+            foreach($mails as $mail) {
+                var_dump( json_encode($response, JSON_PRETTY_PRINT)); die;
+                mail($mail, 'opt-me-out API error', json_encode($response, JSON_PRETTY_PRINT));
+            }
         }
         http_response_code($status);
         header("Content-type: application/json; charset=utf-8");
