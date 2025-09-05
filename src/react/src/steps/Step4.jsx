@@ -16,9 +16,6 @@ import { Input } from '../components/Input.jsx'
 import { FormProvider, useForm } from 'react-hook-form'
 import { email_validation } from '../utils/inputValidations'
 
-/* PDF viewer */
-import { PDFViewer } from '@react-pdf/renderer';
-import EmailPdf from '../components/EmailPdf.jsx';
 
 function Step4(props) {
 

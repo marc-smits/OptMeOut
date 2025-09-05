@@ -3,14 +3,6 @@
  * Section Step5 - What happens now? (newsletter signup)
  *
  */
-
-/* TODO 24/08
- *  - handleChange() does not work. props.emitUpdateFormdata needs to be loaded from somewhere
- *  - state of checkbox is stored in temp variable, needs to be in props.formData
- *  - check if validation works when handleChange()
- *  - Do we rund handleChange() from handleCheckBoxClick()?
- * 
- */
 import PropTypes from 'prop-types';
 import {useState} from 'react'
 
