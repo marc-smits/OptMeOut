@@ -117,111 +117,21 @@ function App() {
   //      }
   // )
   //
-  //
-  //
-  // This is an ugly function, can't make it dynamic
-  //
   const updateFormdata = (field, value, e) => {
 
-    let values = {}
+    let values = Object.assign({});
+    Object.keys(formData).map((innerAttr, key) => {
+      values[innerAttr] = formData[innerAttr]
+    });
+
     if (field == '_OBJECT_') {
-      values = {
-        recipientOrganization: value.recipientOrganization != undefined
-          ? value.recipientOrganization : formData.recipientOrganization,
-
-        recipientTitle: value.recipientTitle != undefined
-          ? value.recipientTitle : formData.recipientTitle,
-
-        recipientFirstName: value.recipientFirstName != undefined
-          ? value.recipientFirstName : formData.recipientFirstName,
-
-        recipientLastName: value.recipientLastName != undefined
-          ? value.recipientLastName : formData.recipientLastName,
-
-        customRecipient: value.customRecipient != undefined
-          ? value.customRecipient : formData.customRecipient,
-
-        recipientAddress1: value.recipientAddress1 != undefined
-          ? value.recipientAddress1 : formData.recipientAddress1,
-
-        recipientAddress2: value.recipientAddress2 != undefined
-          ? value.recipientAddress2 : formData.recipientAddress2,
-
-        recipientCity: value.recipientCity != undefined
-          ? value.recipientCity : formData.recipientCity,
-
-        recipientCountry: value.recipientCountry != undefined
-          ? value.recipientCountry : formData.recipientCountry,
-
-        senderFirstName: value.senderFirstName != undefined
-          ? value.senderFirstName : formData.senderFirstName,
-
-        senderLastName: value.senderLastName != undefined
-          ? value.senderLastName : formData.senderLastName,
-
-        senderAddress1: value.senderAddress1 != undefined
-          ? value.senderAddress1 : formData.senderAddress1,
-
-        senderAddress2: value.senderAddress2 != undefined
-          ? value.senderAddress2 : formData.senderAddress2,
-
-        senderCity: value.senderCity != undefined
-          ? value.senderCity : formData.senderCity,
-
-        senderCountry: value.senderCountry != undefined
-          ? value.senderCountry : formData.senderCountry,
-
-        senderPhone: value.senderPhone != undefined
-          ? value.senderPhone : formData.senderPhone,
-
-          senderEmail: value.senderEmail != undefined
-          ? value.senderEmail : formData.senderEmail,
-
-        senderBirthDate: value.senderBirthDate != undefined
-          ? value.senderBirthDate : formData.senderBirthDate,
-
-        senderId: value.senderId != undefined
-          ? value.senderId : formData.senderId,
-
-        paymentChoice: value.paymentChoice != undefined
-          ? value.paymentChoice : formData.paymentChoice,
-
-        stayInformed: value.senderId != undefined
-          ? value.stayInformed : formData.stayInformed,
-
-           locale: value.locale != undefined
-          ? value.locale : formData.locale,
-      }
-
+      Object.keys(value).map((innerAttr, key) => {
+        values[innerAttr] = value[innerAttr]
+      });
     } else {
-      values = {
-        recipientOrganization: field == 'recipientOrganization' ? value : formData.recipientOrganization,
-        recipientTitle: field == 'recipientTitle' ? value : formData.recipientTitle,
-        recipientFirstName: field == 'recipientFirstName' ? value : formData.recipientFirstName,
-        recipientLastName: field == 'recipientLastName' ? value : formData.recipientLastName,
-        customRecipient: field == 'customRecipient' ? value : formData.customRecipient,
-        recipientAddress1: field == 'recipientAddress1' ? value : formData.recipientAddress1,
-        recipientAddress2: field == 'recipientAddress2' ? value : formData.recipientAddress2,
-        recipientCity: field == 'recipientCity' ? value : formData.recipientCity,
-        recipientCountry: field == 'recipientCountry' ? value : formData.recipientCountry,
-        senderFirstName: field == 'senderFirstName' ? value : formData.senderFirstName,
-        senderLastName: field == 'senderLastName' ? value : formData.senderLastName,
-        senderAddress1: field == 'senderAddress1' ? value : formData.senderAddress1,
-        senderAddress2: field == 'senderAddress2' ? value : formData.senderAddress2,
-        senderCity: field == 'senderCity' ? value : formData.senderCity,
-        senderCountry: field == 'senderCountry' ? value : formData.senderCountry,
-        senderPhone: field == 'senderPhone' ? value : formData.senderPhone,
-        senderEmail: field == 'senderEmail' ? value : formData.senderEmail,
-        senderBirthDate: field == 'senderBirthDate' ? value : formData.senderBirthDate,
-        senderId: field == 'senderId' ? value : formData.senderId,
-        paymentChoice: field == 'paymentChoice' ? value : formData.paymentChoice,
-        stayInformed: field == 'stayInformed' ? value : formData.stayInformed,
-        locale: field == 'stayInformed' ? value : formData.locale,
-      }
+      values[field] = value;
     }
-
     setFormData(values);
-
   }
 
   

@@ -42,17 +42,16 @@ function Step1(props) {
         // Update Read More visibility
         //
         const toggleReadMore = (e) => {
-           console.log(e);
-            let tellMeMore= (readMore['selected'][e])
-            let status = tellMeMore ? false : true;
-               setReadMore(prevState => {
-          let selected = Object.assign({});
-          Object.keys(readMore.selected).forEach(function (key, index) {
-            selected[key] = readMore['selected'][key]
-          });
+          let tellMeMore = (readMore['selected'][e])
+          let status = tellMeMore ? false : true;
+          setReadMore(prevState => {
+            let selected = Object.assign({});
+            Object.keys(readMore.selected).forEach(function (key, index) {
+              selected[key] = readMore['selected'][key]
+            });
             selected[e] = status
-          return { selected };
-        })
+            return { selected };
+          })
         };
      
         //
