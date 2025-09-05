@@ -4,11 +4,13 @@
  *
  */
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import {useState } from 'react'
 
 import BackSvg from '../partials/BackSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
+import axios from 'axios';
+import AjaxSpinner from '../components/AjaxSpinner.jsx'
 
 
 /* Forms */
@@ -18,6 +20,7 @@ import { email_validation } from '../utils/inputValidations'
 
 
 function Step4(props) {
+  const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
 
     /* Payment option */
     const [paymentOption, setPaymentOption] = useState(3);
@@ -39,11 +42,61 @@ function Step4(props) {
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       //(e) => props.emitChangeSection("step5", e)
-      console.log(data)
+      pingen();
+     
     })
 
+      const pingen = (e) => {
+        //alert(props.formData.senderFirstName);
+        let post = {
+          'receiver_org': 'Test Orgation',
+          'receiver_first_name': 'Roel',
+          'receiver_surname': 'van Leeuwen',
+          'receiver_street': 'Ariënshof ',
+          'receiver_number': '23 A 2',
+          'receiver_postal_code': '1234AB',
+          'receiver_city': 'Almelo',
+          'sender_first_name': 'Lotte',
+          'sender_last_name': 'De Jongë',
+          'birthdate': '12/04/1995',
+          'id': '2233',
+          'sender_email': 'tuulia@live.nl',
+          'sender_phone': '0612345678',
+          'mail_body': '0612345678',
+          'mail_subject': '0612345678',
+          'content': 'sss'
+        }
+        setShowAjaxSpinner(true);
+        let url = '/api/pingen.php';
+        axios.post(
+          url,
+          post,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+        )
+          .then(res => {
+            alert('ok')
+            setShowAjaxSpinner(false);
+            props.emitChangeSection("step5")
+          }
+
+          )
+          .catch(function (error) {
+            setShowAjaxSpinner(false);
+            props.emitChangeSection("error")
+
+          });
+
+          
+    };
     return (
         <div className="step" id="step4">
+            {showAjaxSpinner &&
+              <AjaxSpinner />
+            }
             {/* Headline & Intro */}
             <div className='row'>
               <div className="col col-10">
@@ -147,9 +200,9 @@ function Step4(props) {
                           type="text"
                           name="senderEmail"
                           handleChange={(e) => handleChange(e)}
-                          validation={{...email_validation}}
+                         
                         />
-                      </form>
+                      </form>TODO: validation= ...email_validation 
                     </FormProvider>
 
                 </div>{/*col*/}

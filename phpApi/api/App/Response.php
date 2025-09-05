@@ -56,8 +56,7 @@ class Response
     {
         if ($status > 299) {
             $mails = explode(',',getenv('ERROR_MESSAGES_EMAILS'));
-            foreach($mails as $mail) {
-                var_dump( json_encode($response, JSON_PRETTY_PRINT)); die;
+            foreach($mails as $mail) 
                 mail($mail, 'opt-me-out API error', json_encode($response, JSON_PRETTY_PRINT));
             }
         }
