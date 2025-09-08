@@ -65,6 +65,7 @@ function App() {
     senderBirthDate: '',
     senderId: '',
     senderEmail: '',
+    senderReverseEmail: '',
     senderId: '',
     stayInformed: '',
     paymentChoice: '',
@@ -209,6 +210,7 @@ function App() {
         {currentSection == "step4" &&
           <Step4
             emitChangeSection={changeSection}
+            emitUpdateFormdata={updateFormdata}
             formData={formData}
           />
         }
@@ -263,6 +265,7 @@ function App() {
         senderId: {formData.senderId} &nbsp;|&nbsp;
         senderBankId: &nbsp;|&nbsp; <br />
         senderEmail: {formData.senderEmail} &nbsp;|&nbsp;
+        senderReverseEmail: {formData.senderReverseEmail} &nbsp;|&nbsp;
         paymentChoice: {formData.paymentChoice} &nbsp;|&nbsp;
         stayInformed: {formData.stayInformed} &nbsp;|&nbsp;
         locale: {formData.locale} &nbsp;|&nbsp;

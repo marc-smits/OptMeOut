@@ -4,7 +4,7 @@
  *
  */
 import PropTypes from 'prop-types';
-import {useState } from 'react'
+import {useEffect,useState } from 'react'
 
 import BackSvg from '../partials/BackSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
@@ -20,6 +20,13 @@ import { email_validation } from '../utils/inputValidations'
 
 
 function Step4(props) {
+
+  useEffect(() => {
+    if (props.formData.senderReverseEmail == '') {
+      props.formData.senderReverseEmail = props.formData.senderEmail;
+    }
+  });
+
   const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
 
     /* Payment option */
@@ -36,7 +43,7 @@ function Step4(props) {
 
     //Forms
     const handleChange = (e) => {
-      // props.emitUpdateFormdata(e.target.name, e.target.value);
+       props.emitUpdateFormdata(e.target.name, e.target.value);
     };
 
     const methods = useForm()
@@ -193,9 +200,9 @@ function Step4(props) {
                         <Input
                           label=" "
                           placeholder="[[step4.form.senderEmail.placeholder]]"
-                          value={props.formData.senderEmail}
+                          value={props.formData.senderReverseEmail}
                           type="text"
-                          name="senderEmail"
+                          name="senderReverseEmail"
                           handleChange={(e) => handleChange(e)}
                          
                         />
@@ -256,6 +263,7 @@ function Step4(props) {
 
 
 Step4.propTypes = {
+    emitUpdateFormdata: PropTypes.func,
     emitChangeSection: PropTypes.func,
     formData: PropTypes.object,
 };
