@@ -56,7 +56,7 @@ if (!empty($_POST)) {
 if (getenv('PINGEN_ENVIRONMENT') != 'staging') {
   die;
 }
-
+$translations = '{"opt-me-out-letter":{"letter-subject":"OptOut for the European Health DataSpace (EHDS)","saluation":"Dear","title":"Mr, Ms,","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium.","senderBirthDate":"Date of Birth","senderId":"ID","senderPhone":"Phone","senderEmail":"Email","date":"Date","subject":"Subject","from":"From","confirmationMail":{"subject":"Your op-me-out letter has been sent","body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."}}}';
 ?>
 
 <form method="post">
@@ -73,18 +73,11 @@ if (getenv('PINGEN_ENVIRONMENT') != 'staging') {
   id <input name='id' value='2233' /><br>
   sender_email <input name='sender_email' value='lottedejong@test.nl' /><br>
   sender_phone <input name='sender_phone' value='0612345678' /><br>
-  <input type='hidden' name='content' value='30 woorden ipsum dolor sit amet/><br> consectetur adipiscing elit. Morbi condimentum bibendum cursus. Praesent et volutpat felis. Ut varius posuere nisl/><br> nec auctor quam molestie ultrices. Maecenas ac ligula est Lorem.
+  
+  <input type="text" name="translations" value='<?php echo $translations ?>'>
 
-80 woorden Aliquam at nisi metus/><br> id ullamcorper urna. Vivamus sit amet varius mi. Donec venenatis mollis tortor sit amet aliquet. Vestibulum sagittis congue tortor eget imperdiet. Praesent turpis enim/><br> malesuada ut sodales et/><br> hendrerit condimentum mauris. Morbi commodo justo turpis. Praesent at ipsum vel ligula fringilla volutpat. Praesent facilisis faucibus orci sed varius. Integer dapibus quam quis ligula fringilla a lobortis ipsum condimentum. Etiam nulla ante/><br> porttitor eget aliquam sed/><br> congue non ipsum. Aenean vitae magna velit/><br> in ultricies tellus. Donec.
-
-80 woorden Aliquam at nisi metus/><br> id ullamcorper urna. Vivamus sit amet varius mi. Donec venenatis mollis tortor sit amet aliquet. Vestibulum sagittis congue tortor eget imperdiet. Praesent turpis enim/><br> malesuada ut sodales et/><br> hendrerit condimentum mauris. Morbi commodo justo turpis. Praesent at ipsum vel ligula fringilla volutpat. Praesent facilisis faucibus orci sed varius. Integer dapibus quam quis ligula fringilla a lobortis ipsum condimentum. Etiam nulla ante/><br> porttitor eget aliquam sed/><br> congue non ipsum. Aenean vitae magna velit/><br> in ultricies tellus. Donec.
-
-30 woorden ipsum dolor sit amet/><br> consectetur adipiscing elit. Morbi condimentum bibendum cursus. Praesent et volutpat felis. Ut varius posuere nisl/><br> nec auctor quam molestie ultrices. Maecenas ac ligula est Lorem.'
-    ] />
-  <input type="hidden" name="mail_subject" value="test">
-  <input type="hidden" name="mail_body" value="test">
-
+  
 
 
   <input type="submit" value="send" /><br>
-</form>
+</form><?php echo $translations ?>
