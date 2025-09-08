@@ -173,3 +173,11 @@ class Translate:
       for lang, overrides in languages.items():
         codes = codes + '"' + lang + '",'
       return codes
+
+  #
+  # get translations as json string which can be rendered as Javascript variable
+  #
+  def asJsonStr(self, overrides):
+    overridesStr =  json.dumps(overrides)
+    overridesStr = overridesStr.replace("'", "&quot")
+    return overridesStr

@@ -206,16 +206,6 @@
     "step4": {
         "title": "Your OptOut",
         "intro": "Since there is no way to deliver this digitally (yet), we deliver by post. Proven technology.",
-        "letter": {
-            "subject": "OptOut for the European Health DataSpace (EHDS)",
-            "saluation": "Dear",
-            "title": "Mr, Ms,",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium.",
-            "senderBirthDate": "Date of Birth",
-            "senderId": "ID",
-            "senderPhone": "Phone",
-            "senderEmail": "Email"
-        },
         "receiveACopy": {
             "title": "Receive a copy",
             "text": "You will receive instructions on how to reverse your opt-out."
@@ -287,5 +277,22 @@
         "message": " An error has happened",
         "contact1": "We will contact your soon to the following e-mail address",
         "contact2": "You can contact us with the e-mail mail@mail.com"
+    },
+    "opt-me-out-letter": {
+        "letter-subject": "OptOut for the European Health DataSpace (EHDS)",
+        "saluation": "Dear",
+        "title": "Mr, Ms,",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium.",
+        "senderBirthDate": "Date of Birth",
+        "senderId": "ID",
+        "senderPhone": "Phone",
+        "senderEmail": "Email",
+        "date": "Date",
+        "subject": "Subject",
+        "from": "From",
+        "confirmationMail": {
+            "subject": "Your op-me-out letter has been sent",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
+        }
     }
 }

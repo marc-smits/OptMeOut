@@ -9,7 +9,7 @@ use App\Pdf;
 use App\Pingen;
 use App\Mail;
 use App\Response;
-
+use App\Translations;
 
 
 
@@ -23,6 +23,8 @@ if (!empty($_POST)) {
       // die('Access denied');
    // }
  // }
+
+ Translations::initialize($_POST['translations']);
 
 
   try {

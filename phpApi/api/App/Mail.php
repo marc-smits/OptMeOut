@@ -5,7 +5,7 @@ namespace App;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
+use App\Translations;
 class Mail
 {
 
@@ -39,9 +39,10 @@ class Mail
 
       //Content
       $mail->isHTML(true);
-      $mail->Subject = $data['mail_subject'];
-      $mail->Body    = $data['mail_body'];
-      $mail->AltBody = strip_tags($data['mail_body']);
+      $mail->Subject = Translations::translate('opt-me-out-letter.confirmationMail.subject');
+      $body = Translations::translate('opt-me-out-letter.confirmationMail.body');
+      $mail->Body    = $body;
+      $mail->AltBody = strip_tags($body);
 
       $mail->send();
     } catch (Exception $e) {

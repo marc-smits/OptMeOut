@@ -106,6 +106,9 @@ class HtmlGenerator:
                 # update addresses list
                 html = html.replace('[[ADDRESSES_LIST]]', self.addresses.get_address_list(lang))
 
+                # all translations as json string
+                html = html.replace('[[TRANSLATIONS_JSON_STR]]', translateObj.asJsonStr(overrides))
+
                 # write file
                 targetFile  = self.__get_distFile(srcFile, lang)
                 with open(targetFile, "w") as f:

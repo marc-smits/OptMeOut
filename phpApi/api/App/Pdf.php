@@ -3,6 +3,8 @@
 namespace App;
 
 use Fpdf\Fpdf;
+use App\Translations;
+
 
 class Pdf
 {
@@ -24,10 +26,15 @@ class Pdf
         self::$pdf->AddPage();
         self::setNormalFont();
         self::$pdf->SetFillColor(255, 255, 255);
+     
         self::addressLabel();
-        self::fromLabel();
+      
+        self::fromLabel();    
         self::header();
+       
         self::content();
+        
+
         self::signature();
 
         self::$fileName = self::pdfName();
@@ -77,11 +84,26 @@ class Pdf
         self::$pdf->SetXY(130, 59.5);
         self::setNormalFont();
 
-        $row1 = self::iconv(self::$data['sender_first_name'] . ' ' . self::$data['sender_last_name']);
-        $row2 = self::iconv('Date of Birth: ' . self::$data['birthdate']);
-        $row3 = self::iconv('Identificatin (ends with): ' . self::$data['id']);
-        $row4 = self::iconv('e-mail: ' . self::$data['sender_email']);
-        $row5 = self::iconv('Phone: ' . self::$data['sender_phone']);
+        $row1 = self::iconv(
+                self::$data['sender_first_name'] . ' ' . 
+                self::$data['sender_last_name']
+        );
+        $row2 = self::iconv(
+            Translations::translate('opt-me-out-letter.senderBirthDate') . ': ' . 
+            self::$data['birthdate']
+        );
+        $row3 = self::iconv(
+            Translations::translate('opt-me-out-letter.senderId') . ': ' . 
+            self::$data['id']
+        );
+        $row4 = self::iconv(
+                Translations::translate('opt-me-out-letter.senderEmail') . ': ' . 
+                self::$data['sender_email']
+        );
+        $row5 = self::iconv(
+                Translations::translate('opt-me-out-letter.senderPhone') . ': ' .  
+                self::$data['sender_phone']
+        );
         $content = "$row1\n\n$row2\n$row3\n$row4\n$row5";
         self::multiCell(85.5, 4, $content, 0, 0, 'L', 1);
     }
@@ -91,22 +113,25 @@ class Pdf
      */
     private static function header(): void
     {
+        $date = Translations::translate('opt-me-out-letter.date');
         self::$pdf->SetXY(22, 100);
         self::setBoldFont();
-        self::multiCell(85.5, 4, 'Date:', 0, 0, 'L', 1);
+        self::multiCell(85.5, 4, $date . ':', 0, 0, 'L', 1);
 
         self::$pdf->SetXY(32, 100);
         self::setNormalFont();
         $today = date("j F Y ");
         self::multiCell(185.5, 4, $today, 0, 0, 'L', 1);
 
+        $subject = Translations::translate('opt-me-out-letter.subject');
         self::$pdf->SetXY(22, 105);
         self::setBoldFont();
-        self::multiCell(85.5, 4, 'Subject:', 0, 0, 'L', 1);
+        self::multiCell(85.5, 4, $subject . ':', 0, 0, 'L', 1);
 
+        $optOutSubject =  Translations::translate('opt-me-out-letter.letter-subject');
         self::$pdf->SetXY(38, 105);
         self::setNormalFont();
-        $subject = self::iconv('opt-out fort he European Health Data Space (EHDS)');
+        $subject = self::iconv($optOutSubject);
         self::multiCell(185.5, 4, $subject, 0, 0, 'L', 1);
     }
 
@@ -117,7 +142,7 @@ class Pdf
     {
         self::$pdf->SetXY(22, 120);
         self::setNormalFont();
-        $content = self::iconv(self::$data['content']);
+        $content = self::iconv(Translations::translate('opt-me-out-letter.content'));
         self::multiCell(170, 4, $content, 0, 0, 'L', 1);
     }
 

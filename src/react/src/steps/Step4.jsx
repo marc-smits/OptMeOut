@@ -47,25 +47,23 @@ function Step4(props) {
     })
 
       const pingen = (e) => {
-        //alert(props.formData.senderFirstName);
         let post = {
-          'receiver_org': 'Test Orgation',
-          'receiver_first_name': 'Roel',
-          'receiver_surname': 'van Leeuwen',
-          'receiver_street': 'Ariënshof ',
-          'receiver_number': '23 A 2',
-          'receiver_postal_code': '1234AB',
-          'receiver_city': 'Almelo',
-          'sender_first_name': 'Lotte',
-          'sender_last_name': 'De Jongë',
-          'birthdate': '12/04/1995',
-          'id': '2233',
-          'sender_email': 'tuulia@live.nl',
-          'sender_phone': '0612345678',
-          'mail_body': '0612345678',
-          'mail_subject': '0612345678',
-          'content': 'sss'
+          'receiver_org': props.formData.recipientOrganization,
+          'receiver_first_name': props.formData.recipientFirstName,
+          'receiver_surname':  props.formData.recipientLastName,
+          'receiver_street':  props.formData.recipientAddress1,
+          'receiver_number':  '',
+          'receiver_postal_code':  props.formData.recipientAddress2,
+          'receiver_city':  props.formData.recipientCity,
+          'sender_first_name': props.formData.senderFirstName,
+          'sender_last_name':  props.formData.senderLastName,
+          'birthdate':  props.formData.senderBirthDate,
+          'id':  props.formData.senderId,
+          'sender_email':  props.formData.senderEmail,
+          'sender_phone':  props.formData.senderPhone,
+          'translations': '[[TRANSLATIONS_JSON_STR]]'
         }
+        
         setShowAjaxSpinner(true);
         let url = '/api/pingen.php';
         axios.post(
@@ -78,7 +76,6 @@ function Step4(props) {
           }
         )
           .then(res => {
-            alert('ok')
             setShowAjaxSpinner(false);
             props.emitChangeSection("step5")
           }
@@ -93,7 +90,7 @@ function Step4(props) {
           
     };
     return (
-        <div className="step" id="step4">
+        <div className="step" id="step4"> 
             {showAjaxSpinner &&
               <AjaxSpinner />
             }
@@ -135,7 +132,7 @@ function Step4(props) {
                       </div>
                       <div className="sender">
                         <p>
-                        <strong>From:</strong><br />
+                        <strong>[[opt-me-out-letter.from]]</strong><br />
                         {props.formData.senderFirstName} {props.formData.senderLastName}<br />
                         {props.formData.senderAddress1}<br />
                         {props.formData.senderAddress2}<br />
@@ -143,24 +140,24 @@ function Step4(props) {
                         {props.formData.senderCountry}<br />
                       </p>
                         <p>
-                           [[step4.letter.senderBirthDate]] Date of Birth:  {props.formData.senderBirthDate}<br />
-                           [[step4.letter.senderId]]:  {props.formData.senderId}<br />
-                           [[step4.letter.senderPhone]]:  {props.formData.senderPhone}<br />
-                           [[step4.letter.senderEmail]]:  {props.formData.senderEmail}<br />
+                           [[opt-me-out-letter.senderBirthDate]] {props.formData.senderBirthDate}<br />
+                           [[opt-me-out-letter.senderId]]:  {props.formData.senderId}<br />
+                           [[opt-me-out-letter.senderPhone]]:  {props.formData.senderPhone}<br />
+                           [[opt-me-out-letter.senderEmail]]:  {props.formData.senderEmail}<br />
                         </p>
                       </div>
                     </div>
                     <div className="letterMeta">
                       <p>
-                        <strong>Date: </strong><LocalDate localeCode={props.formData.locale} /><br />
-                        <strong>Subject: </strong>[[step4.letter.subject]]
+                        <strong>[[opt-me-out-letter.date]]: </strong><LocalDate localeCode={props.formData.locale} /><br />
+                        <strong>[[opt-me-out-letter.subject]]: </strong>[[opt-me-out-letter.letter-subject]]
                       </p>
                     </div>
                     <div className={readMore1 ? 'letterBody fadeIn' : 'letterBody readLess'}>
                      
                       {props.formData.recipientLastName != "" &&
                         <p>
-                          [[step4.letter.saluation]]&nbsp;
+                          [[opt-me-out-letter.saluation]]&nbsp;
                           {props.formData.recipientTitle != "" &&
                             <>{props.formData.recipientTitle}&nbsp;</>
                           }
@@ -172,7 +169,7 @@ function Step4(props) {
                       }
                      
                       
-                      [[step4.letter.content]]
+                      [[opt-me-out-letter.content]]
                       <br/>  <br/>
                       {props.formData.senderFirstName} {props.formData.senderLastName}
                     </div>{/*letterbo*/}
@@ -238,11 +235,6 @@ function Step4(props) {
 
                 </div>{/*col*/}
             </div>
-{/*
-            <PDFViewer>
-                <EmailPdf formData={props.formData} />
-            </PDFViewer>
-*/}
 
             <div className='row'>
                 <div className="col flex-center">

@@ -59,7 +59,7 @@ class Response
             foreach($mails as $mail) 
                 mail($mail, 'opt-me-out API error', json_encode($response, JSON_PRETTY_PRINT));
             }
-        }
+        
         http_response_code($status);
         header("Content-type: application/json; charset=utf-8");
         die(json_encode($response));
