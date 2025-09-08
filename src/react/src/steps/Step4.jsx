@@ -204,9 +204,9 @@ function Step4(props) {
                           type="text"
                           name="senderReverseEmail"
                           handleChange={(e) => handleChange(e)}
-                         
+                          validation={{ ...email_validation }}
                         />
-                      </form>TODO: validation= ...email_validation 
+                      </form>
                     </FormProvider>
 
                 </div>{/*col*/}
