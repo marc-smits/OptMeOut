@@ -14,6 +14,7 @@ function RecipientSearch(props) {
   const [searchField, setSearchField] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
+  const [typeDelay, setTypeDelay]= useState(undefined);
 
   /** 
    * Use Effect 
@@ -21,16 +22,25 @@ function RecipientSearch(props) {
    *  Do search if search field is updated
    * */
   useEffect(() => {
+    
     if (searchField == undefined || searchField != props.searchField) {
-      let value = props.searchField
-      if (value.length > 3) {
-        searchByOrganizationName(value, props.locale);
-      } else {
-        setSearchResults([])
-      }
+      // wait for 2s after the last keypress before searching
+      setTypeDelay(clearTimeout(typeDelay));
+      setTypeDelay(setTimeout(searchByField, 2000));
       setSearchField(props.searchField);
     }
   });
+
+  const searchByField = (e) => {
+     let value = props.searchField
+      if (value.length > 3) {
+        searchByOrganizationName(value, props.locale);
+        
+      } else {
+        setSearchResults([])
+      }
+  }
+
 
   /**
    * searchByOrganizationName
