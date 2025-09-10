@@ -8,9 +8,11 @@ class Translations
 {
     private static array $translations;
 
-    public static function initialize(string $translations): void
+    public static function initialize(string $locale): void
     {
-        self::$translations =  json_decode($translations, true);
+        $locale = str_replace('-', '_', $locale);
+        $json = file_get_contents(__DIR__ . '/../languages/' . $locale . '.json');
+        self::$translations =  json_decode($json, true);
     }
 
     public static function translate(string $key, string $baseKey = '', array $translations= [] ) {

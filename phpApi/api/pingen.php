@@ -24,11 +24,21 @@ if (!empty($_POST)) {
    // }
  // }
 
- Translations::initialize($_POST['translations']);
 
+  
+ // convert form json to array items
+  if (isset($_POST['form'])) {
+    $_POST = array_merge(
+      $_POST,
+      json_decode($_POST['form'], true)
+    );
+  }
+
+ Translations::initialize($_POST['locale']);
 
   try {
     $file = Pdf::make($_POST);
+  
     Pingen::send($file, $_POST);
     Mail::send($_POST, $file);
   } catch (Exception $e) {
@@ -56,28 +66,26 @@ if (!empty($_POST)) {
 if (getenv('PINGEN_ENVIRONMENT') != 'staging') {
   die;
 }
-$translations = '{"opt-me-out-letter":{"letter-subject":"OptOut for the European Health DataSpace (EHDS)","saluation":"Dear","title":"Mr, Ms,","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium.","senderBirthDate":"Date of Birth","senderId":"ID","senderPhone":"Phone","senderEmail":"Email","date":"Date","subject":"Subject","from":"From","confirmationMail":{"subject":"Your op-me-out letter has been sent","body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."}}}';
 ?>
 
 <form method="post">
-  receiver_org <input name='receiver_org' value='Test Organization' /><br>
-  receiver_first_name <input name='receiver_first_name' value='Roel' /><br>
-  receiver_surname <input name='receiver_surname' value='van Leeuwen' /><br>
-  receiver_street <input name='receiver_street' value='Ariënshof ' /><br>
+  recipientOrganization <input name='recipientOrganization' value='Test Organization' /><br>
+  recipientFirstName <input name='recipientFirstName' value='Roel' /><br>
+  recipientLastName <input name='recipientLastName' value='van Leeuwen' /><br>
+  recipientAddress1 <input name='recipientAddress1' value='Ariënshof ' /><br>
   receiver_number <input name='receiver_number' value='23 A 2' /><br>
-  receiver_postal_code <input name='receiver_postal_code' value='1234AB' /><br>
-  receiver_city <input name='receiver_city' value='Almelo' /><br>
-  sender_first_name <input name='sender_first_name' value='Lotte' /><br>
-  sender_last_name <input name='sender_last_name' value='De Jongë' /><br>
+  recipientAddress2 <input name='recipientAddress2' value='1234AB' /><br>
+  recipientCity <input name='recipientCity' value='Almelo' /><br>
+  senderFirstName <input name='senderFirstName' value='Lotte' /><br>
+  senderLastName <input name='senderLastName' value='De Jongë' /><br>
   birthdate <input name='birthdate' value='12/04/1995' /><br>
   id <input name='id' value='2233' /><br>
-  sender_email <input name='sender_email' value='lottedejong@test.nl' /><br>
-  sender_phone <input name='sender_phone' value='0612345678' /><br>
-  
-  <input type="text" name="translations" value='<?php echo $translations ?>'>
+  senderEmail <input name='senderEmail' value='lottedejong@test.nl' /><br>
+  senderPhone <input name='senderPhone' value='0612345678' /><br>  
+  <input type="hidden" name="locale" value='en-GB'>
 
-  
+
 
 
   <input type="submit" value="send" /><br>
-</form><?php echo $translations ?>
+</form>

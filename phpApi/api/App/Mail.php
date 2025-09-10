@@ -30,7 +30,7 @@ class Mail
 
       //Recipients
       $mail->setFrom(getenv('MAIL_FROM_EMAIL'), getenv('MAIL_FROM_NAME'));
-      $mail->addAddress($data['sender_email'], $data['sender_first_name'] . ' ' . $data['sender_last_name']);
+      $mail->addAddress($data['senderEmail'], $data['senderFirstName'] . ' ' . $data['senderLastName']);
       $mail->addReplyTo(getenv('MAIL_REPLY_EMAIL'), getenv('MAIL_REPLY_NAME'));
 
 

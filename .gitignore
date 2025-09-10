@@ -12,3 +12,5 @@ lib/csvImport/__pycache__/*
 # Ignore Visual Code history files
 /.history
 src/react/vite.config.js
+/phpApi/api/languages/
+/phpApi/api/languages/*

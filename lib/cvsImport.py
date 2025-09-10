@@ -69,10 +69,12 @@ class CvsImport:
   # 
   def __makeJsonFile(self, jsonStr):
     lang = self.currentLanguageToImport
-    jsonDir = config.LANGUAGES_DIR + '/'
-    jsonFileName = jsonDir  + lang + '.json'
-    with open(jsonFileName, "w") as f:
-      f.write(jsonStr)
+    languageDirs = [config.LANGUAGES_DIR ,config.PHP_API_LANGUAGES_DIR ]
+    for languageDir in languageDirs:
+      jsonDir = languageDir + '/'
+      jsonFileName = jsonDir  + lang + '.json'
+      with open(jsonFileName, "w") as f:
+        f.write(jsonStr)
 
   #
   # set language by reading it from the CVS file name

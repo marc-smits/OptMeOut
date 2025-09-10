@@ -64,10 +64,10 @@ class Pdf
     private static function addressLabel(): void
     {
         self::$pdf->SetXY(22, 65);
-        $row1 = self::iconv(self::$data['receiver_org']);
-        $row2 = self::iconv(self::$data['receiver_first_name'] . ' ' . self::$data['receiver_surname']);
-        $row3 = self::iconv(self::$data['receiver_street'] . ' ' . self::$data['receiver_number']);
-        $row4 = self::iconv(self::$data['receiver_postal_code'] . ' ' . self::$data['receiver_city']);
+        $row1 = self::iconv(self::$data['recipientOrganization']);
+        $row2 = self::iconv(self::$data['recipientFirstName'] . ' ' . self::$data['recipientLastName']);
+        $row3 = self::iconv(self::$data['recipientAddress1']) ; // ' ' . self::$data['receiver_number']);
+        $row4 = self::iconv(self::$data['recipientAddress2'] . ' ' . self::$data['recipientCity']);
         $content = "$row1\n$row2\n$row3\n$row4";
         self::multiCell(85.5, 4, $content, 0, 0, 'L', 1);
     }
@@ -85,8 +85,8 @@ class Pdf
         self::setNormalFont();
 
         $row1 = self::iconv(
-                self::$data['sender_first_name'] . ' ' . 
-                self::$data['sender_last_name']
+                self::$data['senderFirstName'] . ' ' . 
+                self::$data['senderLastName']
         );
         $row2 = self::iconv(
             Translations::translate('opt-me-out-letter.senderBirthDate') . ': ' . 
@@ -94,15 +94,15 @@ class Pdf
         );
         $row3 = self::iconv(
             Translations::translate('opt-me-out-letter.senderId') . ': ' . 
-            self::$data['id']
+            self::$data['senderId']
         );
         $row4 = self::iconv(
                 Translations::translate('opt-me-out-letter.senderEmail') . ': ' . 
-                self::$data['sender_email']
+                self::$data['senderEmail']
         );
         $row5 = self::iconv(
                 Translations::translate('opt-me-out-letter.senderPhone') . ': ' .  
-                self::$data['sender_phone']
+                self::$data['senderPhone']
         );
         $content = "$row1\n\n$row2\n$row3\n$row4\n$row5";
         self::multiCell(85.5, 4, $content, 0, 0, 'L', 1);
@@ -154,7 +154,7 @@ class Pdf
         self::$pdf->SetXY(22,  self::$pdf->GetY() + 10);
         self::setNormalFont();
         $signature = self::iconv(
-            self::$data['sender_first_name'] . ' ' . self::$data['sender_last_name']
+            self::$data['senderFirstName'] . ' ' . self::$data['senderLastName']
         );
         self::multiCell(170, 4, $signature, 0, 0, 'L', 1);
     }
@@ -202,7 +202,7 @@ class Pdf
      */
     private static function pdfName(): string
     {
-        $fullName =  self::$data['sender_first_name'] . '_' .  self::$data['sender_last_name'];
+        $fullName =  self::$data['senderFirstName'] . '_' .  self::$data['senderLastName'];
         $fullName = str_replace(' ', '_', $fullName);
         return iconv('UTF-8', 'ASCII//TRANSLIT', $fullName) . '-' . date("d-m-Y-h-i-s") .  '.pdf';
     }

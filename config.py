@@ -4,6 +4,7 @@ SRC_TEMPLATE_PATH ="src/react"
 STEPS_PATH = "src/steps.json"
 # languages language json files
 LANGUAGES_DIR = "src/languages"
+PHP_API_LANGUAGES_DIR = "phpApi/api/languages"
 # addresses address json file
 ADDRESSES_API_DIR = "phpApi/api/addresses"
 

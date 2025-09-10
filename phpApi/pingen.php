@@ -1,29 +1,30 @@
 <?php
+
 /**
  * 
  * This file is only used by the Docker command: php pingen.php
  * It send a test POST request to the pingen.php of the real API
  */
 if (php_sapi_name() == 'cli') {
-$_POST = array_merge($_POST,
-[
-        'receiver_org' => 'Test Organization',
-        'receiver_first_name' => 'Roel',
-        'receiver_surname' => 'van Leeuwen',
-        'receiver_street' => 'Ariënshof ',
-        'receiver_number' => '23 A 2',
-        'receiver_postal_code' => '1234AB',
-        'receiver_city' => 'Almelo',
-        'sender_first_name' => 'Lotte',
-        'sender_last_name' => 'De Jongë',
-        'birthdate' => '12/04/1995',
-        'id' => '2233',
-        'sender_email' => 'tuulia@live.nl',
-        'sender_phone' => '0612345678',
-        'translations' => '{"menu": {"about": "about", "locale": "EN"}, "button": {"tellmemore": "Tell me more", "OptMeOut": "OptMeOut", "readmore": {"less": "less", "more": "more"}, "back": "back", "send": "Send it", "finish": "Finish"}, "page": {"fallback": {"header": "This website provides EU citizens a way to provisionally ‘opt-out’ from the EHDS", "intro": "Our mission is provide all EU citizens with a means to object to being registred in the European Health Data Space (EHDS). Please in by clicking <red>&quot;Select Country&quot;</red>  if it is available for your country or checkout the the <red>&quot;about&quot;</red> button  for more info.", "button": "Select country"}, "about": {"title": "About", "0": {"h": "I am am h1", "p": {"0": "h1 p1 text", "1": "h1 p2 text"}}, "1": {"h": "I am a h2", "p": {"0": "h2 p1  text", "1": "h2 p2  text", "2": "h2 p3  text"}}, "2": {"h": "I am a h3", "p": {"0": "h2 p1  text"}}}}, "step1": {"optout": {"3": {"h": "I am opt me out am h1", "readmore": "I am am readmore1", "p": {"0": "h1 opt me out  p1 text", "1": "h1 opt me out  p2 text"}}, "4": {"h": "I am opt me out h2", "readmore": "I am am readmore2", "p": {"0": "h2 opt me out  p1  text", "1": "h2 opt me out p2  text", "2": "h2 opt me out p3  text"}}, "5": {"h": "I am opt me out  h3", "readmore": "I am am readmore3", "p": {"0": "h2 opt me out   text"}}}, "title": "With European Health Data Space (EHDS) you will lose control over who can access your medical records.", "intro": "Your data can be used by researchers, governments, and commercial companies. You can object to this with an <red>‘opt-out’</red>, for the two ways your data can be used.", "disclaimer": {"h1": "Please note", "p": "50 words Curabitur malesuada purus vel erat pharetra a placerat nibh facilisis. Phasellus gravida libero vitae nisi aliquam pharetra. Quisque dignissim justo sit amet odio consequat laoreet. Morbi blandit, nisi sit amet egestas ullamcorper, enim leo placerat sapien, eu egestas enim neque at mauris. Nulla facilisi. In non ligula. Nulla facilisi ligula."}}, "splash": {"countries": {"h1": "Select your country", "list": {"1": "Austria,de_AT", "2": "Belgium (NL),NL_BE", "3": "Belgium (FR),fr_BE", "4": "Bulgaria,bg_BG", "5": "Croatia,hr_HR", "6": "Cyprus,el_CY", "7": "Czechia,cs_CZ", "8": "Denmark,da_DK", "9": "Estonia,et_EE", "10": "Finland,fi_FI", "11": "France,fr_FR", "12": "Germany,de_DE", "13": "Greece,el_GR", "14": "Hungary,hu_HU", "15": "Ireland,en_GB", "16": "Italy,it_IT", "17": "Latvia,lv_LV", "18": "Lithuania,lt_LT", "19": "Luxembourg,lb_LU", "20": "Maltha,mt_MT", "21": "Netherlands,nl_NL", "22": "Poland,pl_PL", "23": "Portugal,pt_PT", "24": "Romania,ro_RO", "25": "Slovakia,sk_SK", "26": "Slovenia,sl_SI", "27": "Spain,es_ES", "28": "Sweden,sv_SE"}}}, "step2": {"title": "Select your GP", "intro": "Who is your general practitioner? *", "form": {"recipientFirstName": {"label": "What is the name of your GP?", "placeholder": "last name of your GP"}, "recipientLastName": {"placeholder": "last name", "label": "Last name "}, "recipientCountry": {"placeholder": "country", "label": "Country"}, "recipientTitle": {"label": "Title", "placeholder": "title"}, "customRecipient": {"label": "enter address manually"}, "recipientAddress1": {"label": "Address", "placeholder": "line 1"}, "recipientAddress2": {"placeholder": "line 2"}, "recipientCity": {"label": "City", "placeholder": "city"}, "recipientOrganization": {"label": "name of organization", "placeholder": "name of organization"}}, "recipient_search": {"select": "select", "search": "Search"}}, "step3": {"title": "Your details", "intro": "Your data is used for this process only stored only temporarily. See our <a onClick={openPrivacyPolicy} >privacy policy</a> for more info.", "form": {"senderFirstName": {"label": "First name *", "placeholder": "first name"}, "senderLastName": {"label": "First name *", "placeholder": "last name"}, "senderAddress1": {"label": "Address", "placeholder": "line1"}, "senderAddress2": {"placeholder": "line1"}, "senderCity": {"label": "City", "placeholder": "city"}, "senderCountry": {"label": "Country", "placeholder": "country"}, "senderEmail": {"label": "Email", "placeholder": "email@mail.com"}, "senderPhone": {"label": "Phone number *", "placeholder": "phone number"}, "senderBirthDate": {"label": "Date of Birth *", "placeholder": "dd-mm-yyyy"}, "senderId": {"label": "Last four digits of your BSN *", "placeholder": "xxxx"}}}, "step4": {"title": "Your OptOut", "intro": "Since there is no way to deliver this digitally (yet), we deliver by post. Proven technology.", "receiveACopy": {"title": "Receive a copy", "text": "You will receive instructions on how to reverse your opt-out."}, "form": {"senderEmail": {"placeholder": "e-mail@address.com"}}, "donate": {"title": "Donate", "text": "We are an NGO and run non-profit. Please pay from an account that is in your name, since this is also used for identification. You can only OptYourselfOut.", "paymentOptions": {"1": "Feel free, if you can&quott afford more.", "2": "Pay for your own.", "3": "Pay it forward, donate a letter.", "4": "Support this app. We work non-profit!"}}}, "privacy_policy": {"6": {"h": "I am am h1", "p": {"0": "h1 p1 text", "1": "h1 p2 text"}}, "7": {"h": "I am a h2", "p": {"0": "h2 p1  text", "1": "h2 p2  text", "2": "h2 p3  text"}}, "8": {"h": "I am a h3", "p": {"0": "h2 p1  text"}}}, "step5": {"title": "What happens now?", "intro": "Your letter is processed by the Dutch company <red>Pingen</red>. They will deliver it to", "stayInformed": {"title": "Stay informed", "text": "Stay informed (English) of legislative changes that might affect your opt-out."}, "form": {"stayInformed": {"label": "Yes, please"}}}, "step6": {"title": "Thank you!", "intro": "Your OptOut has been arranged.", "notification": {"title": "Help others with their privacy too!", "text": "If you found this service useful, please share our website with your friends family or anyone who might benefit from it."}, "social": {"title": "Share with:"}}, "error": {"message": " An error has happened", "contact1": "We will contact your soon to the following e-mail address", "contact2": "You can contact us with the e-mail mail@mail.com"}, "opt-me-out-letter": {"letter-subject": "OptOut for the European Health DataSpace (EHDS)", "saluation": "Dear", "title": "Mr, Ms,", "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium.", "senderBirthDate": "Date of Birth", "senderId": "ID", "senderPhone": "Phone", "senderEmail": "Email", "date": "Date", "subject": "Subject", "from": "From", "confirmationMail": {"subject": "Your op-me-out letter has been sent", "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."}}}',
-
-]
-);
+        $_POST = array_merge(
+                $_POST,
+                [
+                        'recipientOrganization' => 'Test Organization',
+                        'recipientFirstName' => 'Roel',
+                        'recipientLastName' => 'van Leeuwen',
+                        'recipientAddress1' => 'Ariënshof ',
+                        'receiver_number' => '23 A 2',
+                        'recipientAddress2' => '1234AB',
+                        'recipientCity' => 'Almelo',
+                        'senderFirstName' => 'Lotte',
+                        'senderLastName' => 'De Jongë',
+                        'birthdate' => '12/04/1995',
+                        'senderId' => '2233',
+                        'senderEmail' => 'tuulia@live.nl',
+                        'senderPhone' => '0612345678',
+                        'locale' => 'en-GB',
+                ]
+        );
 }
 
 

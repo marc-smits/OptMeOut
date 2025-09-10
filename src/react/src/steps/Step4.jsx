@@ -54,21 +54,9 @@ function Step4(props) {
     })
 
       const pingen = (e) => {
+    
         let post = {
-          'receiver_org': props.formData.recipientOrganization,
-          'receiver_first_name': props.formData.recipientFirstName,
-          'receiver_surname':  props.formData.recipientLastName,
-          'receiver_street':  props.formData.recipientAddress1,
-          'receiver_number':  '',
-          'receiver_postal_code':  props.formData.recipientAddress2,
-          'receiver_city':  props.formData.recipientCity,
-          'sender_first_name': props.formData.senderFirstName,
-          'sender_last_name':  props.formData.senderLastName,
-          'birthdate':  props.formData.senderBirthDate,
-          'id':  props.formData.senderId,
-          'sender_email':  props.formData.senderEmail,
-          'sender_phone':  props.formData.senderPhone,
-          'translations': '[[TRANSLATIONS_JSON_STR]]'
+          'form' : JSON.stringify(props.formData)
         }
         
         setShowAjaxSpinner(true);
