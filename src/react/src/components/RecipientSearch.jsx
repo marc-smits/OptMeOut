@@ -26,7 +26,7 @@ function RecipientSearch(props) {
     if (searchField == undefined || searchField != props.searchField) {
       // wait for 2s after the last keypress before searching
       setTypeDelay(clearTimeout(typeDelay));
-      setTypeDelay(setTimeout(searchByField, 2000));
+      setTypeDelay(setTimeout(searchByField, 1000));
       setSearchField(props.searchField);
     }
   });
