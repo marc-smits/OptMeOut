@@ -220,6 +220,7 @@ function App() {
           <Step5
             formData={formData}
             emitChangeSection={changeSection}
+            emitUpdateFormdata={updateFormdata}
           />
         }
 

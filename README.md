@@ -25,7 +25,6 @@
       <a name='intro-section'></a>
 * [phpApi](#php-section)
 
-
 ## Introduction
 
 Here are some instruction how to make translated templates and
@@ -33,14 +32,15 @@ modify the HTML and CSS templates.
 Most of the instructions are step by step instructions, which can be done without a deep understanding.
 
 <a name='config-section'></a>
+
 ## Configuration
 
 Here is a summary of all the configuration files
 Please note that these are correct in your environmet.
 
 ### config.py
-Variables for the Python scripts. Normally no changes are requires.
 
+Variables for the Python scripts. Normally no changes are requires.
 
 ### src/react/vite.config.js
 
@@ -48,11 +48,12 @@ You need to configure the file : `src/react/vite.config.js`
 The happens by copying one of the config files below depending of your environment.
 
 `cp src/react/vite.config.js.production_staging  src/react/vite.config.js`
-   or
+or
 `cp src/react/vite.config.js.development  src/react/vite.config.js`
 
 Note in the development server you must check that the configured api server works
 Example
+
 ```
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -68,18 +69,18 @@ export default defineConfig({
   },
 })
 ```
+
 Try that you get a good response with
 https://optmeout.tantonius.com/api/search.php?term=huis&locale=en_GB
 
 If it does not work, have a look in `phpApi/README.md`
 
-
 ### phpApi/api/.env
+
 Copy the file
-` cp phpApi/api/.env.example phpApi/api/.env `
+`cp phpApi/api/.env.example phpApi/api/.env`
 
 And have modify to your environment. See more in `phpApi/README.md`
-
 
 <a name='python-section'></a>
 
@@ -323,8 +324,6 @@ Also all of the strings ```'opt-me'``` are rendered in red.
 On the page 'about' (src/react/src/steps/About.jsx) we have a place holders  [[PAGE_ABOUT_PARAGRAPHS]] and [[STEP_4_PRIVACY_POLICY]] for the  paragraphs.
 See  src/react/src/steps/About.jsx and src/react/src/steps/PrivacyPolicy.jsx
 
-
-
 The number of the can vary.
 The paragraphs are defined in the Excel as following:
 
@@ -359,6 +358,7 @@ The number of Paragraphs and the <p> sections may vary.
 The generic structure for one paragraph is
 
 <a name='read-more-section'></a>
+
 ### Read more paragraphs
 
 In a similar as we do with the paragraphs on the pages  About.jsx and PrivacyPolicy.jsx
@@ -377,8 +377,8 @@ step1.optout.p;optout 2 text2;optout 2 text2
 step1.optout.p;optout 2 text4;optout 2 text4
 ```
 
-
 <a name='addresses-section'></a>
+
 ## Manage addresses
 
 Importing and exporting addresses work in the same was importing and exportiong
@@ -386,6 +386,7 @@ translations.
 You execute them also by the command `./scripts/build.sh`
 
 The csv folders for importing and exporting are found in the folders
+
 ```
 src/csv/addresses/export/
 src/csv/addresses/import/
@@ -394,6 +395,7 @@ src/csv/addresses/import/
 The script creates the json feeds in the folder: `phpApi/api/addresses`
 
 The format of the csv files can be seen below
+
 ```
 organization;title;name;surname;street;number;postal code;city;country
 Huisartsen Assen-West;dhr.;Daan;de Jong;Oostergracht;2;9408 MR;Assen;Nederland
@@ -434,10 +436,9 @@ Example: en_GB.json
 ```
 
 ### phpApi/api/addresses
+
 This folder has the a similar format with the folder
 `src/addresses` having the addresses per country in json format.
-
-
 
 ### src/csv/languages/export/
 
@@ -466,6 +467,7 @@ json files in the folder ```src/languages/```
 The file CSV file structure is the same.
 
 ### src/csv/addresses/export/ and ### src/csv/languages/import
+
 These folder are used in a similar way with the addresses to import and export
 addresses
 
@@ -599,13 +601,6 @@ If you have problems, please check the version.
 
 Have look in [Configuration](#config-section)
 
-
-
-
-
-
-
-
 #### Install server
 
 Make sure you have the correct branch.
@@ -683,6 +678,13 @@ http://localhost:5173/
 Sometimes you need to refresh the page.
 
 <a name='php-section'></a>
+
 # phpApi
 
-This api provides some functions for Ajax request. See more info in `phpApi/README.md`
+This api provides some functions for Ajax requests.
+
+* Genrate op-me-out letter as pdf and send to Pingen
+* Search addresses by a search term
+* Add emails to mailing list
+
+ See more info in `phpApi/README.md`

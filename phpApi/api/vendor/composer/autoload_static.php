@@ -22,7 +22,13 @@ class ComposerStaticInitd734010cf6d68ae2e2545042cb91e97b
         ),
         'P' => 
         array (
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
             'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'L' => 
+        array (
+            'LapostaApi\\' => 11,
         ),
         'F' => 
         array (
@@ -48,9 +54,22 @@ class ComposerStaticInitd734010cf6d68ae2e2545042cb91e97b
         array (
             0 => __DIR__ . '/..' . '/respect/relational/library/Respect',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'LapostaApi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laposta/laposta-api-php/src',
         ),
         'Fpdf\\' => 
         array (
