@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
-
+/**
+ * Source: https://github.com/laposta/laposta-api-php/blob/main/examples/member/create.php
+ */
 use Exception;
 use LapostaApi\Exception\ApiException;
 use LapostaApi\Exception\ClientException;

@@ -58,7 +58,22 @@ You can also test by the test form by opening
 
 # Testing Laposta
 
-TODO
+[https://optmeout.com/api/laposta.php?email=MyUniqueEmail@mail.com](https://optmeout.com/api/laposta.php?email=MyUniqueEmail@mail.com)
+You should see the laposta results
+You can also test by the test form by opening
+[https://optmeout.com/api/laposta.php](https://optmeout.com/api/laposta.php)
+
+
+## More info
+https://api.laposta.nl/doc/index.nl.php
+
+
+Get members of mailing list
+
+curl 'https://api.laposta.nl/v2/member?list_id=LAPOSTA_LIST_ID' \
+  -u LAPOSTA_API_KEY: 
+
+
 
 
 ## Docker Installation
