@@ -784,7 +784,7 @@ Transfer the vendor folder with its contents to
 
 Please follow this steps if you want to deploy updates by running the command  `./scripts/deploy.sh` the existing live server.
 
-1) Follow the steps 1-5 of the previous paragraph `Initialize the server`
+1) Follow the steps 1-4 of the previous paragraph `Initialize the server`
 2) Make sure the script `scripts/deploy.sh` is executable
 `chmod a+x scripts/deploy.sh`
 
