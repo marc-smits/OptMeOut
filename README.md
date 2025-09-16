@@ -24,6 +24,7 @@
     * [Update code](#react-update-section)
       <a name='intro-section'></a>
 * [phpApi](#php-section)
+* [Deploy](#deploy-section)
 
 ## Introduction
 
@@ -688,3 +689,78 @@ This api provides some functions for Ajax requests.
 * Add emails to mailing list
 
  See more info in `phpApi/README.md`
+
+<a name='deploy-section'></a>
+# Deploy
+
+
+## Process
+For the deployment we have a script 
+scripts/deploy.sh
+
+Which does the following
+
+
+In the deploy process we do the following
+1) Execute the command `scripts/build.sh to` to rebuild all templates and to import
+all translations and addresses. 
+2) Copy all live server files to the repo `deploy_opt_me_out`
+ We have a separate repo `deploy_opt_me_out` for the code to be published on the live
+server. This includes both the front end (racJs) and the back end code (php).
+From this repo we will update the changes files to the live server.
+
+Before you can use it please follow the steps below.
+
+
+### Initialize the server
+
+You need to do this only once when establishing the live server.
+
+1) Create ssh keys for the repo  `deploy_opt_me_out` by following the link
+https://www.warp.dev/terminus/git-clone-ssh
+2) Make sure you have `git ftp` installe by
+`sudo apt-get install git-ftp`
+3) Clone the repo  `deploy_opt_me_out` to the root directory of this project by
+```git clone git@github.com:cptuulia/deploy_opt_me_out.git```
+4) Configure the git ftp by
+```
+git config git-ftp.user FTP_URL
+git config git-ftp.url FTP_USER
+git config git-ftp.password FTP_PASSWORD
+```
+
+You can check by `git config --list`
+
+5) Make sure the root folder of the live server is empty
+
+6) Deploy the initial version
+`git ftp init`
+
+7) Configuration for the phoApi
+open `phpApi/api/.env.example`
+copy it to `.env`
+
+Configure with the correct parameters and transfer manually to the live server to
+`/api/.env`
+
+8) Transfer vendor files
+The vendor files are excluded from the git repo and must be transferred manually
+(also after changes in the vendor files)
+
+Transfer the vendor folder with its contents to 
+
+`/api`
+
+
+
+### Configure you local computer
+
+Please follow this steps if you want to deploy updates by running the command  `./scripts/deploy.sh` the existing live server.
+
+1) Follow the steps 1-4 of the previous paragraph `Initialize the server`
+2) Make sure the script `scripts/deploy.sh` is executable
+`chmod a+x scripts/deploy.sh`
+
+3) Deploy by
+`./scripts/deploy.sh`
+
