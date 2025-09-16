@@ -16,3 +16,4 @@ src/react/vite.config.js
 /phpApi/api/languages/*
 /deploy_opt_me_out
 /deploy_opt_me_out/*
+/scripts/deploy.config
