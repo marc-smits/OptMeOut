@@ -8,12 +8,8 @@
 
 echo "###########################################################################" 
 echo
-echo Usage
 echo 
-echo "1) Copy the file scripts/deploy.config_sample to scripts/deploy.config_sample"
-echo "   and configure with the correct parameters"
-echo "2) Make the translation by : python build.py"
-echo "3) Execute this script"
+echo "This script will commit and deploy all changes to the live server"
 echo
 echo "###########################################################################" 
 read -p "Press enter to continue"
@@ -29,10 +25,16 @@ DEPLOY_REPO_PATH="${PWD/}/deploy_opt_me_out"
 #
 ###########################################################################
 
+build()
+{
+    ./scripts/build.sh
+}
 
+###########################################################################
 #
 # Install npm modules and build
 #
+###########################################################################
 installModulesAndBuild()
 {
     echo "##########"
@@ -52,10 +54,12 @@ installModulesAndBuild()
     sed -i  "s/\/assets/\/$locale\/assets/g" dist/index.html
 }
 
+###########################################################################
 #
 # Deploy
 #
-deploy()
+###########################################################################
+deployFront()
 {
     
     locale=${PWD##*/}
@@ -63,13 +67,18 @@ deploy()
     ls $DEPLOY_REPO_PATH
     DEPLOY_FOLDER="$DEPLOY_REPO_PATH/$locale"
     echo $DEPLOY_FOLDER
-    if [! -d "$DEPLOY_FOLDER" ]; then
+    if [ ! -d "$DEPLOY_FOLDER" ]; then
         mkdir $DEPLOY_FOLDER
     fi 
-    mkdir $DEPLOY_FOLDER
     cp -r dist/* $DEPLOY_FOLDER
+    cp rootIndex.html $DEPLOY_FOLDER/../index.html
 }
 
+###########################################################################
+#
+#
+#
+###########################################################################
 deployApi()
 {
     cd phpApi/api
@@ -83,14 +92,33 @@ deployApi()
     
     cd ../..
 }
+
+###########################################################################
+#
+# Push to git
+#
+###########################################################################
+pushtoGit()
+{
+    cd $DEPLOY_REPO_PATH
+    git pull
+    git add .
+    d=$( date '+%F_%H:%M:%S' )
+    git commit -m $d
+    git push origin
+    git ftp push 
+}
+
 #
 ###########################################################################
 #
 #   Main script
 #
 ###########################################################################
-
- 
+echo "###########################################################################" 
+echo Building templates
+echo "###########################################################################" 
+build
 
 cd dist
 echo giving read and write permissions to all files
@@ -103,11 +131,11 @@ for FOLDER in */  ; do
     echo 
     cd $FOLDER
     #installModulesAndBuild
-   #deploy
+    deployFront
 
     cd .. 
 done
 cd ..
-deployApi
-
+#deployApi
+pushtoGit
 ##cd ..
