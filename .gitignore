@@ -14,3 +14,5 @@ lib/csvImport/__pycache__/*
 src/react/vite.config.js
 /phpApi/api/languages/
 /phpApi/api/languages/*
+/deploy_opt_me_out
+/deploy_opt_me_out/*
