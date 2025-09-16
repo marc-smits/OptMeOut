@@ -130,12 +130,12 @@ for FOLDER in */  ; do
     echo "###########################################################################" 
     echo 
     cd $FOLDER
-    #installModulesAndBuild
+    installModulesAndBuild
     deployFront
 
     cd .. 
 done
 cd ..
-#deployApi
+deployApi
 pushtoGit
 ##cd ..
