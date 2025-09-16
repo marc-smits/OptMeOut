@@ -67,7 +67,7 @@ function App() {
     senderEmail: '',
     senderReverseEmail: '',
     senderId: '',
-    stayInformed: '',
+    stayInformed: false,
     paymentChoice: '',
     hasPaid: false,
     locale: setLocaleFromUrl()
@@ -268,7 +268,7 @@ function App() {
         senderEmail: {formData.senderEmail} &nbsp;|&nbsp;
         senderReverseEmail: {formData.senderReverseEmail} &nbsp;|&nbsp;
         paymentChoice: {formData.paymentChoice} &nbsp;|&nbsp;
-        stayInformed: {formData.stayInformed} &nbsp;|&nbsp;
+        stayInformed:  {formData.stayInformed ? "checked" : "unchecked"} &nbsp;|&nbsp;
         locale: {formData.locale} &nbsp;|&nbsp;
         hasPaid:{formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp;
          

@@ -4,8 +4,7 @@
  *
  */
 import PropTypes from 'prop-types';
-import {useState} from 'react'
-
+import {useEffect,useState } from 'react'
 /* Forms */
 import { Input } from '../components/Input.jsx'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -14,13 +13,19 @@ import axios from 'axios';
 import AjaxSpinner from '../components/AjaxSpinner.jsx'
 
 function Step5(props) {
-    let propsFormData = props.formData;
+    const [stayInformed, setStayInformed] = useState('');
+    const [isOnMailingList, setIsOnMailingList,] = useState(false);
+
+    useEffect(() => {
+        let checkedStatus = (!props.formData.stayInformed ) ? '' : 'checked'
+        setStayInformed(checkedStatus)
+    });
 
     const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
 
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
-      if( props.formData.stayInformed != '') {
+      if( props.formData.stayInformed ) {
         addToMailingList();
       }
       console.log(data)
@@ -31,12 +36,9 @@ function Step5(props) {
     };
 
     /* Handle change of a check box */
-    //TODO store status in props object
-    const [tempCheck, setTempCheck ] = useState(false);
-    const handleCheckBoxClick = (e) => {
-      props.formData.stayInformed = (props.formData.stayInformed == 'checked') ? ' ' : 'checked'
+    const handleCheckBoxClick = (e) => { 
+      props.formData.stayInformed = (!props.formData.stayInformed ) 
       props.emitUpdateFormdata('stayInformed', props.formData.stayInformed);
-      setTempCheck(!tempCheck);
     }
 
   const addToMailingList = (e) => {
@@ -46,11 +48,17 @@ function Step5(props) {
     axios.get(url)
       .then(res => {
         setShowAjaxSpinner(false);;
-        //(e) => props.emitChangeSection("Step6", e)
       })
-       .catch(function (error) {
-            setShowAjaxSpinner(false);
-          });
+
+      .catch((error) => {
+        setShowAjaxSpinner(false);
+        let errorMsg = error.response.data.error
+        if (errorMsg.includes('Email address exists')) {
+          setIsOnMailingList(true);
+        } else {
+          //(e) => props.emitChangeSection("Step6", e)
+        }
+      });
   }
 
     return (
@@ -92,21 +100,22 @@ function Step5(props) {
                       name="senderEmail"
                       handleChange={(e) => handleChange(e)}
                       validation={{
-                          ...(tempCheck ? required_validation : {}),
-                          ...email_validation
+                          ...(stayInformed == 'checked' ? email_validation : {})
                         }}
                     />
 
                     <input
                       type="checkbox"
                       name="stayInformed"
-                      checked={props.formData.stayInformed}
+                      checked={stayInformed}
                       onChange={handleCheckBoxClick}
                     />
                     <span>[[step5.form.stayInformed.label]]</span>
                   </form>
                 </FormProvider>
-
+                 {isOnMailingList &&
+                  <div>[[step5.form.stayInformed.email_already_in_mailing_list]]</div>
+                 }
               </div>
             </div>
 

@@ -258,7 +258,8 @@
         },
         "form": {
             "stayInformed": {
-                "label": "Yes, please"
+                "label": "Yes, please",
+                "email_already_in_mailing_list": "This email is already on the list."
             }
         }
     },
