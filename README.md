@@ -745,34 +745,32 @@ and find the correct values.
 
 5) Configure the git ftp  in the folder `deploy_opt_me_out` the commands below
 you find the variables in  `/scripts/deploy.config`
+
+Make sure the root folder of the  servers are empty
 ```
 git checkout GIT_LIVE_DEPLOY_BRANCH
 git config git-ftp.user FTP_LIVE_SERVER
 git config git-ftp.url FTP_LIVE_USER
 git config git-ftp.password FTP_LIVE_PASSWORD
-
+git ftp init
 git checkout GIT_STAGING_DEPLOY_BRANCH
 git config git-ftp.user FTP_STAGING_SERVER
 git config git-ftp.url FTP_STAGING_USER
 git config git-ftp.password FTP_STAGING_PASSWORD
+git ftp init
 
 ```
 
-You can check by `git config --list`
 
-6) Make sure the root folder of the live server is empty
-
-8) Deploy the initial version
-`git ftp init`
-
-9) Configuration for the phoApi
+6) Configuration for the phpApi
 open `phpApi/api/.env.example`
 copy it to `.env`
+and check the parameters
 
 Configure with the correct parameters and transfer manually to the live server to
 `/api/.env`
 
-10) Transfer vendor files
+7) Transfer vendor files
 The vendor files are excluded from the git repo and must be transferred manually
 (also after changes in the vendor files)
 
