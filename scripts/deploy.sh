@@ -6,18 +6,48 @@
 #
 ####################################################################################
 
+
+
+SERVER=$1
+
+if [ "$SERVER" != "live"  ] &&  [ "$SERVER" != "staging"  ]; then
+    echo "Usage:  ./scripts/deploy.sh SERVER  (SERVER live or staging)"
+    echo
+    exit 0
+fi
+
 echo "###########################################################################" 
 echo
+echo Deploying to $SERVER server
 echo 
-echo "This script will commit and deploy all changes to the live server"
-echo
+echo 
 echo "###########################################################################" 
 read -p "Press enter to continue"
 
 # Read config variables 
-#. scripts/deploy.config
+. scripts/deploy.config
 
 DEPLOY_REPO_PATH="${PWD/}/deploy_opt_me_out"
+GIT_SOURCE_CODE_BRANCH=$GIT_STAGING_SOURCE_CODE_BRANCH
+
+
+GIT_BRANCH=$GIT_STAGING_DEPLOY_BRANCH
+FTP_SERVER=$FTP_STAGING_SERVER
+FTP_USER=$FTP_STAGING_USER
+FTP_PASSWORD=$FTP_STAGING_PASSWORD
+
+if [ "$SERVER" = "live"  ]; then
+    GIT_BRANCH=$GIT_LIVE_DEPLOY_BRANCH
+    GIT_SOURCE_CODE_BRANCH=$GIT_STAGING_LIVE_CODE_BRANCH
+    FTP_SERVER=$FTP_LIVE_SERVER
+    FTP_USER=$FTP_LIVE_USER
+    FTP_PASSWORD=$FTP_LIVE_PASSWORD
+fi
+
+
+
+
+
 
 ###########################################################################
 #
@@ -61,7 +91,6 @@ installModulesAndBuild()
 ###########################################################################
 deployFront()
 {
-    
     locale=${PWD##*/}
     echo $DEPLOY_REPO_PATH $locale
     ls $DEPLOY_REPO_PATH
@@ -100,12 +129,18 @@ deployApi()
 ###########################################################################
 pushtoGit()
 {
-    cd $DEPLOY_REPO_PATH
+   
+    cd $DEPLOY_REPO_PATH 
+    git checkout $GIT_BRANCH
+    git config git-ftp.user $FTP_USER
+    git config git-ftp.url $FTP_SERVER
+    git config git-ftp.password "$FTP_PASSWORD"
     git pull
+
     git add .
     d=$( date '+%F_%H:%M:%S' )
     git commit -m $d
-    git push origin
+    git push origin $GIT_BRANCH
     git ftp push 
 }
 
@@ -118,6 +153,9 @@ pushtoGit()
 echo "###########################################################################" 
 echo Building templates
 echo "###########################################################################" 
+
+git checkout $GIT_STAGING_LIVE_CODE_BRANCH
+
 build
 
 cd dist
@@ -136,6 +174,6 @@ for FOLDER in */  ; do
     cd .. 
 done
 cd ..
-deployApi
+#deployApi
 pushtoGit
 ##cd ..

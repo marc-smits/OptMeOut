@@ -4,9 +4,9 @@
 
 * [Introduction](#intro-section)
 * [Configuration](#config-section)
+* [Git repos](#git-section)
 * [Install Python build](#python-section)
 * [Manage translated templates](#translations-section)
-
   * [Importing new languages](#import-mew-section)
   * [Modifying translations](#modify-section)
   * [Adding translations to existing languages](#add-section)
@@ -83,9 +83,24 @@ Copy the file
 
 And have modify to your environment. See more in `phpApi/README.md`
 
+
+<a name='git-section'></a>
+# Git repos
+
+We have two Git repos
+OptMeOut
+(https://github.com/marc-smits/OptMeOut)
+
+This repo is the source code repo, which includes all of the
+files needed for the development/
+
+(https://github.com/marc-smits/deploy_opt_me_out)
+This repo incudes only the files needed on the live server.
+
+
 <a name='python-section'></a>
 
-## Install Python build
+# Install Python build
 
 In this section you enable the command `python build.py` to make the translated templates.
 
@@ -716,34 +731,48 @@ Before you can use it please follow the steps below.
 
 You need to do this only once when establishing the live server.
 
+
+
 1) Create ssh keys for the repo  `deploy_opt_me_out` by following the link
 https://www.warp.dev/terminus/git-clone-ssh
-2) Make sure you have `git ftp` installe by
+2) Make sure you have `git ftp` installed by
 `sudo apt-get install git-ftp`
 3) Clone the repo  `deploy_opt_me_out` to the root directory of this project by
-```git clone git@github.com:cptuulia/deploy_opt_me_out.git```
-4) Configure the git ftp by
+```git clone git@github.com:marc-smits/deploy_opt_me_out.git```
+4) Condigure the deploy script by
+```cp scripts/deploy.config.sample  scripts/deploy.config```
+and find the correct values.
+
+5) Configure the git ftp  in the folder `deploy_opt_me_out` the commands below
+you find the variables in  `/scripts/deploy.config`
 ```
-git config git-ftp.user FTP_URL
-git config git-ftp.url FTP_USER
-git config git-ftp.password FTP_PASSWORD
+git checkout GIT_LIVE_DEPLOY_BRANCH
+git config git-ftp.user FTP_LIVE_SERVER
+git config git-ftp.url FTP_LIVE_USER
+git config git-ftp.password FTP_LIVE_PASSWORD
+
+git checkout GIT_STAGING_DEPLOY_BRANCH
+git config git-ftp.user FTP_STAGING_SERVER
+git config git-ftp.url FTP_STAGING_USER
+git config git-ftp.password FTP_STAGING_PASSWORD
+
 ```
 
 You can check by `git config --list`
 
-5) Make sure the root folder of the live server is empty
+6) Make sure the root folder of the live server is empty
 
-6) Deploy the initial version
+8) Deploy the initial version
 `git ftp init`
 
-7) Configuration for the phoApi
+9) Configuration for the phoApi
 open `phpApi/api/.env.example`
 copy it to `.env`
 
 Configure with the correct parameters and transfer manually to the live server to
 `/api/.env`
 
-8) Transfer vendor files
+10) Transfer vendor files
 The vendor files are excluded from the git repo and must be transferred manually
 (also after changes in the vendor files)
 
@@ -757,10 +786,11 @@ Transfer the vendor folder with its contents to
 
 Please follow this steps if you want to deploy updates by running the command  `./scripts/deploy.sh` the existing live server.
 
-1) Follow the steps 1-4 of the previous paragraph `Initialize the server`
+1) Follow the steps 1-5 of the previous paragraph `Initialize the server`
 2) Make sure the script `scripts/deploy.sh` is executable
 `chmod a+x scripts/deploy.sh`
 
 3) Deploy by
-`./scripts/deploy.sh`
-
+`./scripts/deploy.sh staging`
+or 
+`./scripts/deploy.sh live`
