@@ -26,6 +26,14 @@ class ComposerStaticInitd734010cf6d68ae2e2545042cb91e97b
             'Psr\\Http\\Client\\' => 16,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
+        'N' => 
+        array (
+            'Nyholm\\Psr7\\' => 12,
+        ),
+        'M' => 
+        array (
+            'Mollie\\Api\\' => 11,
+        ),
         'L' => 
         array (
             'LapostaApi\\' => 11,
@@ -38,6 +46,10 @@ class ComposerStaticInitd734010cf6d68ae2e2545042cb91e97b
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
+        ),
+        'C' => 
+        array (
+            'Composer\\CaBundle\\' => 18,
         ),
         'A' => 
         array (
@@ -67,6 +79,14 @@ class ComposerStaticInitd734010cf6d68ae2e2545042cb91e97b
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
+        'Nyholm\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nyholm/psr7/src',
+        ),
+        'Mollie\\Api\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mollie/mollie-api-php/src',
+        ),
         'LapostaApi\\' => 
         array (
             0 => __DIR__ . '/..' . '/laposta/laposta-api-php/src',
@@ -82,6 +102,10 @@ class ComposerStaticInitd734010cf6d68ae2e2545042cb91e97b
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Composer\\CaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
         'App\\' => 
         array (
