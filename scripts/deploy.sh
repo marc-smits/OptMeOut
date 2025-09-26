@@ -174,6 +174,6 @@ for FOLDER in */  ; do
     cd .. 
 done
 cd ..
-#deployApi
+deployApi
 pushtoGit
 ##cd ..
