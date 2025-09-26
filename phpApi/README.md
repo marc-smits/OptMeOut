@@ -29,8 +29,23 @@ https://optmeout.com/api/laposta.php?email=test@test.nl
 Copy the file `phpApi/api/.env.example` to `phpApi/api/.env` and modify it after the instructions
 
 
-# Testing Pay
-todo
+# Testing Payments
+Once you open the  https://optmeout.com/api/payment.php with the .env variable `PINGEN_ENVIRONMENT=staging`.
+
+You should see a test form with some prefilled values. After a successful submit you should see a response like
+`{"message":"Payment link generated ","link":"https:\/\/www.mollie.com\/checkout\/credit-card\/embedded\/siJBTnpBQnqEuXDQeJjEJ"}`
+ 
+You can test it by replacing '\/' by '/'
+
+## More info
+
+https://github.com/mollie/mollie-api-php
+https://docs.mollie.com/docs/psd2-api
+
+Apikeys
+https://my.mollie.com/dashboard/YOUR_ORG_NRO/developers/api-keys
+Define payment methods
+https://my.mollie.com/dashboard/YOUR_ORG_NROsettings/payment-methods
 
 
 
