@@ -38,6 +38,8 @@ function Step4(props) {
   const [readMore1, setReadMore1] = useState(false);
   const toggleReadMore1 = () => setReadMore1(prev => !prev);
 
+   // next is enabled when paid
+   const [disableNextStep, setDisableNextStep ] = useState(true);
 
   /**
   * read Payment Token From Url
@@ -48,6 +50,7 @@ function Step4(props) {
     if (queryParams.has('paymenttoken') && props.formData.paymentToken == '') {
     
        props.emitUpdateFormdata('paymentToken' , queryParams.get('paymenttoken'))    
+       setDisableNextStep(false)
     }
   };
 
@@ -211,7 +214,7 @@ function Step4(props) {
                   <h3>[[step4.donate.title]]</h3>
                   <p className="mb-30">[[step4.donate.text]]</p>
 
- {props.formData.paymentChoice == "" &&
+                  {props.formData.paymentChoice == "" &&
                   <div className="donate flex-center">
 
                     <div className="donateOption" data-selected={paymentOption === 1 ? "true" : "false"}>
@@ -246,7 +249,7 @@ function Step4(props) {
                       [[button.back]]
                     </div>
 
-                    <div className="button buttonOptMeOut" onClick={onSubmit}>
+                    <div className="button buttonOptMeOut"   disabled={disableNextStep} onClick={!disableNextStep ? (e) => onSubmit(): void(0)}>
                         [[button.send]]
                     </div>
                 </div>{/*col*/}
