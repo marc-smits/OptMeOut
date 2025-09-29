@@ -11,7 +11,8 @@ import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
 import axios from 'axios';
 import AjaxSpinner from '../components/AjaxSpinner.jsx'
-import Invoice from '../lib/Invoice.jsx';
+import Invoice from '../components/Invoice.jsx'
+import InvoiceNumber from '../lib/Invoice.jsx';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -32,21 +33,30 @@ function Step4(props) {
     /* Payment option */
     const [paymentOption, setPaymentOption] = useState(3);
 
+     // ReadMore button(s)
+    const [readMore1, setReadMore1] = useState(false);
+    const toggleReadMore1 = () => setReadMore1(prev => !prev);
+
+  /**
+  * Select donation
+  *  
+  */
   const selectDonation = (option, e) => {
     props.emitUpdateFormdata('_OBJECT_',
       {
-        'invoiceNumber': Invoice.createNumber(),
+        'invoiceNumber': InvoiceNumber.createNumber(),
         'paymentChoice': option
       }
     );
     setPaymentOption(option);
   };
 
-    // ReadMore button(s)
-    const [readMore1, setReadMore1] = useState(false);
-    const toggleReadMore1 = () => setReadMore1(prev => !prev);
+   
 
-    //Forms
+    /**
+    * Forms
+    *  
+    */
     const handleChange = (e) => {
        props.emitUpdateFormdata(e.target.name, e.target.value);
     };
@@ -58,39 +68,46 @@ function Step4(props) {
      
     })
 
-      const pingen = (e) => {
-    
-        let post = {
-          'form' : JSON.stringify(props.formData)
+  /**
+   * Create opt-me-out pds and send to pingen and email to client
+   *  
+   */
+  const pingen = (e) => {
+
+    let post = {
+      'form': JSON.stringify(props.formData)
+    }
+
+    setShowAjaxSpinner(true);
+    let url = '/api/pingen.php';
+    axios.post(
+      url,
+      post,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
         }
-        
-        setShowAjaxSpinner(true);
-        let url = '/api/pingen.php';
-        axios.post(
-          url,
-          post,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          }
-        )
-          .then(res => {
-            setShowAjaxSpinner(false);
-            props.emitChangeSection("step5")
-          }
+      }
+    )
+      .then(res => {
+        setShowAjaxSpinner(false);
+        props.emitChangeSection("step5")
+      }
 
-          )
-          .catch(function (error) {
-            setShowAjaxSpinner(false);
-            props.emitChangeSection("error")
+      )
+      .catch(function (error) {
+        setShowAjaxSpinner(false);
+        props.emitChangeSection("error")
 
-          });
-
-          
-    };
+      });
+  };
+  
     return (
         <div className="step" id="step4"> 
+        <Invoice 
+          formData = {props.formData}
+          emitChangeSection={props.emitChangeSection}
+        />
             {showAjaxSpinner &&
               <AjaxSpinner />
             }
