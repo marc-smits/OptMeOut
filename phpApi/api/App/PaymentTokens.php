@@ -27,7 +27,7 @@ class PaymentTokens
     }
 
 
-    public function isValidToken(string $token) : bool
+    public  static function isValidToken(string $token) : bool
     {
         self::getTokens();
         if (isset(self::$tokens[$token])) {

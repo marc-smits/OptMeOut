@@ -10,19 +10,10 @@ use App\Pingen;
 use App\Mail;
 use App\Response;
 use App\Translations;
-
+use App\PaymentTokens;
 
 
 if (!empty($_POST)) {
-
-  // Only requests from the same domain are allowed
- // if (php_sapi_name() != 'cli') {
-   // $host = $_SERVER["HTTP_HOST"];
-   // $requestHost = str_replace(['https://', 'http://'], '', $_SERVER["HTTP_ORIGIN"]);
-   // if ($host != $requestHost) {
-      // die('Access denied');
-   // }
- // }
 
 
   
@@ -35,8 +26,25 @@ if (!empty($_POST)) {
   }
 
  Translations::initialize($_POST['locale']);
+ try {
 
+     $token = isset($_POST['paymentToken']) ? $_POST['paymentToken'] : '';
+    if(!PaymentTokens::isValidToken($token)) {
+      $responseData = [
+          'error' => 'Invalid paymentToken', 
+          'FORM' => $_POST, 
+      ];
+       throw new Exception(json_encode($responseData));
+    }
+    
+  } catch (Exception $e) {
+    Response::send(
+      ['error' => $e->getMessage()],
+      Response::HTTP_BAD_REQUEST
+    );
+  }
   try {
+
     $file = Pdf::make($_POST);
   
     Pingen::send($file, $_POST);
