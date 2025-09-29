@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import InvoiceLib from './lib/Invoice.jsx';
 import './style/App.scss'
 import Header from "./components/Header.jsx";
 import About from "./steps/About.jsx";
@@ -136,6 +136,7 @@ function App() {
       values[field] = value;
     }
     setFormData(values);
+    InvoiceLib.saveInvoiceDataToCookies(formData);
   }
 
   

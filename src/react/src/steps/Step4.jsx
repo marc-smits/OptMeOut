@@ -11,7 +11,7 @@ import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
 import Invoice from '../components/Invoice.jsx'
 import Pingen from '../components/Pingen.jsx'
-import InvoiceNumber from '../lib/Invoice.jsx';
+import InvoiceLib from '../lib/Invoice.jsx';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -43,7 +43,7 @@ function Step4(props) {
   const selectDonation = (option, e) => {
     props.emitUpdateFormdata('_OBJECT_',
       {
-        'invoiceNumber': InvoiceNumber.createNumber(),
+        'invoiceNumber': InvoiceLib.createNumber(),
         'paymentChoice': option
       }
     );

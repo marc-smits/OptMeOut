@@ -7,7 +7,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import PropTypes from 'prop-types';
-
 import AjaxSpinner from '../components/AjaxSpinner.jsx'
 function Invoice(props) {
   const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
