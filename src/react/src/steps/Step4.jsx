@@ -11,7 +11,7 @@ import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
 import axios from 'axios';
 import AjaxSpinner from '../components/AjaxSpinner.jsx'
-
+import Invoice from '../lib/Invoice.jsx';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -32,10 +32,15 @@ function Step4(props) {
     /* Payment option */
     const [paymentOption, setPaymentOption] = useState(3);
 
-    const selectDonation = (option, e) => {
-        setPaymentOption(option);
-        //TODO: store payment option in object
-    };
+  const selectDonation = (option, e) => {
+    props.emitUpdateFormdata('_OBJECT_',
+      {
+        'invoiceNumber': Invoice.createNumber(),
+        'paymentChoice': option
+      }
+    );
+    setPaymentOption(option);
+  };
 
     // ReadMore button(s)
     const [readMore1, setReadMore1] = useState(false);
@@ -205,6 +210,7 @@ function Step4(props) {
                   <h3>[[step4.donate.title]]</h3>
                   <p className="mb-30">[[step4.donate.text]]</p>
 
+ {props.formData.paymentChoice == "" &&
                   <div className="donate flex-center">
 
                     <div className="donateOption" data-selected={paymentOption === 1 ? "true" : "false"}>
@@ -227,6 +233,7 @@ function Step4(props) {
                       <div className="donateLabel">[[step4.donate.paymentOptions.4]]</div>
                     </div>
                   </div>
+}
 
                 </div>{/*col*/}
             </div>
