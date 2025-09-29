@@ -1,5 +1,8 @@
 <?php
 
+use App\PaymentTokens;
+
+require_once(('api/App/PaymentTokens.php'));
 /**
  * 
  * This file is only used by the Docker command: php pingen.php
@@ -23,6 +26,7 @@ if (php_sapi_name() == 'cli') {
                         'senderEmail' => 'tuulia@live.nl',
                         'senderPhone' => '0612345678',
                         'locale' => 'en-GB',
+                        'paymentToken' => PaymentTokens::create()
                 ]
         );
 }
