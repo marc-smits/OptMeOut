@@ -25,16 +25,34 @@ function Step4(props) {
     if (props.formData.senderReverseEmail == '') {
       props.formData.senderReverseEmail = props.formData.senderEmail;
     }
+    readPaymentTokenFromUrl()
   });
 
+  // flag to set pingen possible (after the payment is done)  
   const [pingen, setPingen] = useState(false);
 
-    /* Payment option */
-    const [paymentOption, setPaymentOption] = useState(3);
+  /* Payment option */
+  const [paymentOption, setPaymentOption] = useState(3);
 
-     // ReadMore button(s)
-    const [readMore1, setReadMore1] = useState(false);
-    const toggleReadMore1 = () => setReadMore1(prev => !prev);
+  // ReadMore button(s)
+  const [readMore1, setReadMore1] = useState(false);
+  const toggleReadMore1 = () => setReadMore1(prev => !prev);
+
+
+  /**
+  * read Payment Token From Url
+  *  
+  */
+  const readPaymentTokenFromUrl = (e) => {
+     const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.has('paymenttoken') && props.formData.paymentToken == '') {
+    
+       props.emitUpdateFormdata('paymentToken' , queryParams.get('paymenttoken'))    
+    }
+  };
+
+
+
 
   /**
   * Select donation

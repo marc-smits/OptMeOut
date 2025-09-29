@@ -295,7 +295,7 @@ function App() {
         stayInformed:  {formData.stayInformed ? "checked" : "unchecked"} &nbsp;|&nbsp;
         locale: {formData.locale} &nbsp;|&nbsp;
         hasPaid:{formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp;
-         paymentToken: {formData.paymentToken}
+        paymentToken: {formData.paymentToken}
       </div>
     </>
   )

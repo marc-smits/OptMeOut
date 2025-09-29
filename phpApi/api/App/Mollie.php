@@ -22,7 +22,7 @@ class Mollie
         $mollie = new \Mollie\Api\MollieApiClient();
         $mollie->setApiKey($apiKey);
 
-        $redirectUrl = getenv('MOLLIE_REDIRECT_URL') . '?token=' . PaymentTokens::create();
+        $redirectUrl = getenv('MOLLIE_REDIRECT_URL') . '&paymenttoken=' . PaymentTokens::create();
 
         /** @var Mollie\Api\Resources\CreatePaymentRequest $payment */
         $createPaymentRequest = new CreatePaymentRequest(
