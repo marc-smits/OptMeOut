@@ -1,14 +1,18 @@
 <?php
-
+/**
+ * Get a payment link from Mollie
+ */
 namespace App;
-
 use Mollie\Api\Http\Data\Money;
 use Mollie\Api\Http\Requests\CreatePaymentRequest;
+use App\PaymentTokens;
+use Mollie\Api\Resources\PaymentLink;
 
 class Mollie
 {
     public static function Pay(array $data)
     {
+        $token = PaymentTokens::create();
         $amount = number_format((float)$data['paymentChoice'], 2, '.', '');
         $description = $data["senderFirstName"] . ' ' .
             $data["senderLastName"] .
@@ -18,6 +22,7 @@ class Mollie
         $mollie = new \Mollie\Api\MollieApiClient();
         $mollie->setApiKey($apiKey);
 
+        $redirectUrl = getenv('MOLLIE_REDIRECT_URL') . '?token=' . PaymentTokens::create();
 
         /** @var Mollie\Api\Resources\CreatePaymentRequest $payment */
         $createPaymentRequest = new CreatePaymentRequest(
