@@ -27,8 +27,17 @@ class Invoice {
     }
 
     static getInvoiceDataFromCookies(formData) {
-        let cookiefFormData = Cookie.getArrayCookie(this.#cookieName);
-        alert(cookiefFormData);
+        let cookieFormData = Cookie.getArrayCookie(this.#cookieName);
+        
+        //  reset the payment values
+        if (typeof(cookieFormData) == 'object') {
+            cookieFormData.invoiceNumber = '';
+            cookieFormData.hasPaid = false;
+            cookieFormData.paymentToken ='';
+
+        }
+        Cookie.eraseCookie(this.#cookieName);
+        return cookieFormData;
 
     }
 }

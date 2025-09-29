@@ -71,10 +71,12 @@ function App() {
     paymentChoice: '',
     invoiceNumber: '',
     hasPaid: false,
+    paymentToken: '',
     locale: setLocaleFromUrl()
   })
 
   const [sectionFromQueryParamsSet, setSectionFromQueryParamsSet] = useState(false)
+  const [cookiesRead, setCookiesRead] = useState(false)
 
   useEffect(() => {
     // show required section from query string if exists
@@ -83,9 +85,12 @@ function App() {
     if (queryParams.has('section') && !sectionFromQueryParamsSet) {
       let section = queryParams.get('section');
       changeSection(section)
-      setSectionFromQueryParamsSet(true)
+      setSectionFromQueryParamsSet(true);
     }
+    readCookies();
   });
+
+  
 
   //
   // Change visible section
@@ -136,9 +141,25 @@ function App() {
       values[field] = value;
     }
     setFormData(values);
-    InvoiceLib.saveInvoiceDataToCookies(formData);
+    InvoiceLib.saveInvoiceDataToCookies(values);
   }
 
+
+  //
+  // Read cookies
+  //
+  const readCookies = (e) => {
+
+    if (!cookiesRead) {
+      setCookiesRead(true);
+      let data = InvoiceLib.getInvoiceDataFromCookies();
+      if (data) {
+        updateFormdata('_OBJECT_', data);
+      }
+    }
+  }
+
+  
   
   return (
     
@@ -274,7 +295,7 @@ function App() {
         stayInformed:  {formData.stayInformed ? "checked" : "unchecked"} &nbsp;|&nbsp;
         locale: {formData.locale} &nbsp;|&nbsp;
         hasPaid:{formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp;
-         
+         paymentToken: {formData.paymentToken}
       </div>
     </>
   )
