@@ -9,9 +9,8 @@ import {useEffect,useState } from 'react'
 import BackSvg from '../partials/BackSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
-import axios from 'axios';
-import AjaxSpinner from '../components/AjaxSpinner.jsx'
 import Invoice from '../components/Invoice.jsx'
+import Pingen from '../components/Pingen.jsx'
 import InvoiceNumber from '../lib/Invoice.jsx';
 
 /* Forms */
@@ -28,7 +27,7 @@ function Step4(props) {
     }
   });
 
-  const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
+  const [pingen, setPingen] = useState(false);
 
     /* Payment option */
     const [paymentOption, setPaymentOption] = useState(3);
@@ -52,7 +51,6 @@ function Step4(props) {
   };
 
    
-
     /**
     * Forms
     *  
@@ -64,43 +62,9 @@ function Step4(props) {
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       //(e) => props.emitChangeSection("step5", e)
-      pingen();
-     
+      setPingen(true);
     })
 
-  /**
-   * Create opt-me-out pds and send to pingen and email to client
-   *  
-   */
-  const pingen = (e) => {
-
-    let post = {
-      'form': JSON.stringify(props.formData)
-    }
-
-    setShowAjaxSpinner(true);
-    let url = '/api/pingen.php';
-    axios.post(
-      url,
-      post,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
-    )
-      .then(res => {
-        setShowAjaxSpinner(false);
-        props.emitChangeSection("step5")
-      }
-
-      )
-      .catch(function (error) {
-        setShowAjaxSpinner(false);
-        props.emitChangeSection("error")
-
-      });
-  };
   
     return (
         <div className="step" id="step4"> 
@@ -108,9 +72,11 @@ function Step4(props) {
           formData = {props.formData}
           emitChangeSection={props.emitChangeSection}
         />
-            {showAjaxSpinner &&
-              <AjaxSpinner />
-            }
+        <Pingen
+          formData={props.formData}
+          pingen = {pingen}
+          emitChangeSection={props.emitChangeSection}
+        />
             {/* Headline & Intro */}
             <div className='row'>
               <div className="col col-10">
