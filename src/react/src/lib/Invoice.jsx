@@ -34,6 +34,7 @@ class Invoice {
             cookieFormData.invoiceNumber = '';
             cookieFormData.hasPaid = false;
             cookieFormData.paymentToken ='';
+            cookieFormData.paymentChoice = '';
 
         }
         Cookie.eraseCookie(this.#cookieName);
