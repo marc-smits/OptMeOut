@@ -28,8 +28,8 @@ function Step4(props) {
     readPaymentTokenFromUrl()
   });
 
-  // flag to set pingen possible (after the payment is done)  
-  const [pingen, setPingen] = useState(false);
+  // Flag to indicate the the letter is posted to Pingen
+  const [canPingen, setPingen] = useState(false);
 
   /* Payment option */
   const [paymentOption, setPaymentOption] = useState(3);
@@ -38,27 +38,30 @@ function Step4(props) {
   const [readMore1, setReadMore1] = useState(false);
   const toggleReadMore1 = () => setReadMore1(prev => !prev);
 
-   // next is enabled when paid
+   // next is enabled when payment selection is done
    const [disableNextStep, setDisableNextStep ] = useState(true);
 
   /**
   * read Payment Token From Url
+  * 
+  * After a payment is done Mollie redirects back to our site with a query string:
+  * 
+  *     ?section=step4&paymenttoken=xxxxxxx
+  * 
+  * This unique `paymenttoken` is used in the backend API that the payment is done
+  * and we can post the letter to Pingen
   *  
   */
   const readPaymentTokenFromUrl = (e) => {
      const queryParams = new URLSearchParams(window.location.search);
     if (queryParams.has('paymenttoken') && props.formData.paymentToken == '') {
-    
-       props.emitUpdateFormdata('paymentToken' , queryParams.get('paymenttoken'))    
-       setDisableNextStep(false)
+       props.emitUpdateFormdata('paymentToken', queryParams.get('paymenttoken'))    
     }
   };
 
 
-
-
   /**
-  * Select donation
+  * Select donation amount after clicking a donation button
   *  
   */
   const selectDonation = (option, e) => {
@@ -69,13 +72,20 @@ function Step4(props) {
       }
     );
     setPaymentOption(option);
-  };
+    setDisableNextStep( parseInt(option) == 0 )
+    }
+  
 
    
     /**
     * Forms
-    *  
+    * 
     */
+
+    /**
+     * Update a form change formData
+     * @param {*} e 
+     */
     const handleChange = (e) => {
        props.emitUpdateFormdata(e.target.name, e.target.value);
     };
@@ -83,7 +93,7 @@ function Step4(props) {
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       //(e) => props.emitChangeSection("step5", e)
-      setPingen(true);
+     // setPingen(true);
     })
 
   
@@ -95,7 +105,7 @@ function Step4(props) {
         />
         <Pingen
           formData={props.formData}
-          pingen = {pingen}
+          canPingen = {canPingen}
           emitChangeSection={props.emitChangeSection}
         />
             {/* Headline & Intro */}
@@ -214,7 +224,6 @@ function Step4(props) {
                   <h3>[[step4.donate.title]]</h3>
                   <p className="mb-30">[[step4.donate.text]]</p>
 
-                  {props.formData.paymentChoice == "" &&
                   <div className="donate flex-center">
 
                     <div className="donateOption" data-selected={paymentOption === 1 ? "true" : "false"}>
@@ -237,7 +246,6 @@ function Step4(props) {
                       <div className="donateLabel">[[step4.donate.paymentOptions.4]]</div>
                     </div>
                   </div>
-}
 
                 </div>{/*col*/}
             </div>

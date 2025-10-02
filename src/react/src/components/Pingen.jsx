@@ -11,11 +11,11 @@ import PropTypes from 'prop-types';
 import AjaxSpinner from './AjaxSpinner.jsx'
 function Pingen(props) {
   const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
+  // Flag to indicate the the letter is posted to Pingen
   const [isPinged, setIsPinged] = useState(false);
 
   useEffect(() => {
-
-    if (props.pingen == true && isPinged == false) {
+    if (props.canPingen == true && isPinged == false) {
       pingen()
     }
   });
@@ -64,7 +64,7 @@ function Pingen(props) {
 }
 Pingen.propTypes = {
   emitChangeSection: PropTypes.func,
-  pingen: PropTypes.bool,
+  canPingen: PropTypes.bool,
   formData: PropTypes.object,
 };
 

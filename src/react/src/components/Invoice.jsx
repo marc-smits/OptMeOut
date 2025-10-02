@@ -10,13 +10,14 @@ import PropTypes from 'prop-types';
 import AjaxSpinner from '../components/AjaxSpinner.jsx'
 function Invoice(props) {
   const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
-  const [hasLink, setHasLink] = useState(false);
+  // prevent to recreate the payment link
+  const [hasPaymentLink, setHasPaymentLink] = useState(false);
 
 
   useEffect(() => {
 
-    if (props.formData.invoiceNumber != '' && hasLink == false) {
-      getPaymentLink();
+    if (props.formData.invoiceNumber != '' && hasPaymentLink == false) {
+   //   getPaymentLink();
     }
   });
 
@@ -32,7 +33,7 @@ function Invoice(props) {
     }
 
     setShowAjaxSpinner(true);
-    setHasLink(true)
+    setHasPaymentLink(true)
     let url = '/api/payment.php';
     axios.post(
       url,
