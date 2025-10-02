@@ -21,12 +21,18 @@ if (php_sapi_name() == 'cli') {
                         'recipientCity' => 'Almelo',
                         'senderFirstName' => 'Lotte',
                         'senderLastName' => 'De Jongë',
+                        'senderAddress1' => 'Oranjelaan 1 ',
+                        'senderAddress2' => '4578CE',
+                        'senderCity' => 'Almelo',
+                        'senderCountry' => 'Nederland',
                         'birthdate' => '12/04/1995',
                         'senderId' => '2233',
                         'senderEmail' => 'tuulia@live.nl',
                         'senderPhone' => '0612345678',
                         'locale' => 'en-GB',
-                        'paymentToken' => PaymentTokens::create()
+                        'paymentToken' => PaymentTokens::create(),
+                        'invoiceNro' =>  uniqid(),
+                        'paymentChoice' => '12'
                 ]
         );
 }
