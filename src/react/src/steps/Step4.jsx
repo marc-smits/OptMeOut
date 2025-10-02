@@ -29,7 +29,7 @@ function Step4(props) {
   });
 
   // Flag to indicate the the letter is posted to Pingen
-  const [canPingen, setPingen] = useState(false);
+  const [canPingen, setCanPingen] = useState(false);
 
   /* Payment option */
   const [paymentOption, setPaymentOption] = useState(3);
@@ -38,7 +38,7 @@ function Step4(props) {
   const [readMore1, setReadMore1] = useState(false);
   const toggleReadMore1 = () => setReadMore1(prev => !prev);
 
-   // next is enabled when payment selection is done
+   // next is enabled when payment option selection is done
    const [disableNextStep, setDisableNextStep ] = useState(true);
 
   /**
@@ -55,7 +55,9 @@ function Step4(props) {
   const readPaymentTokenFromUrl = (e) => {
      const queryParams = new URLSearchParams(window.location.search);
     if (queryParams.has('paymenttoken') && props.formData.paymentToken == '') {
-       props.emitUpdateFormdata('paymentToken', queryParams.get('paymenttoken'))    
+       props.emitUpdateFormdata('paymentToken', queryParams.get('paymenttoken'));
+       // trigger posting by Pingen
+       setCanPingen(true);  
     }
   };
 
@@ -65,12 +67,7 @@ function Step4(props) {
   *  
   */
   const selectDonation = (option, e) => {
-    props.emitUpdateFormdata('_OBJECT_',
-      {
-        'invoiceNumber': InvoiceLib.createNumber(),
-        'paymentChoice': option
-      }
-    );
+     props.emitUpdateFormdata('paymentChoice', option);
     setPaymentOption(option);
     setDisableNextStep( parseInt(option) == 0 )
     }
@@ -92,8 +89,8 @@ function Step4(props) {
 
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
-      //(e) => props.emitChangeSection("step5", e)
-     // setPingen(true);
+      // create invoice number, which indicates that we can pay
+      props.emitUpdateFormdata('invoiceNumber', InvoiceLib.createNumber());
     })
 
   
