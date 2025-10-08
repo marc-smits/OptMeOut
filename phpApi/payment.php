@@ -28,7 +28,7 @@ if (php_sapi_name() == 'cli') {
                                         'senderCountry' => 'The Netherlands',
                                         'locale' => 'en-GB',
                                         'paymentChoice' => '12',
-                                        'invoiceNro' =>  uniqid(),
+                                        'orderNro' =>  uniqid(),
         ];
         $_POST = ["form" => json_encode($data)];
 }

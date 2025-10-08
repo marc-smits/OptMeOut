@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import InvoiceLib from './lib/Invoice.jsx';
+import Order from './lib/Order.jsx';
 import './style/App.scss'
 import Header from "./components/Header.jsx";
 import About from "./steps/About.jsx";
@@ -69,7 +69,7 @@ function App() {
     senderId: '',
     stayInformed: false,
     paymentChoice: '',
-    invoiceNumber: '',
+    orderNumber: '',
     hasPaid: false,
     paymentToken: '',
     locale: setLocaleFromUrl()
@@ -141,7 +141,7 @@ function App() {
       values[field] = value;
     }
     setFormData(values);
-    InvoiceLib.saveInvoiceDataToCookies(values);
+    Order.saveFormDataToCookies(values);
   }
 
 
@@ -152,7 +152,7 @@ function App() {
 
     if (!cookiesRead) {
       setCookiesRead(true);
-      let data = InvoiceLib.getInvoiceDataFromCookies();
+      let data = Order.getFormDataFromCookies();
       if (data) {
         updateFormdata('_OBJECT_', data);
       }
@@ -291,7 +291,7 @@ function App() {
         senderEmail: {formData.senderEmail} &nbsp;|&nbsp;
         senderReverseEmail: {formData.senderReverseEmail} &nbsp;|&nbsp;
         paymentChoice: {formData.paymentChoice} &nbsp;|&nbsp;
-        invoiceNumber: {formData.invoiceNumber} &nbsp;|&nbsp;
+        orderNumber: {formData.orderNumber} &nbsp;|&nbsp;
         stayInformed:  {formData.stayInformed ? "checked" : "unchecked"} &nbsp;|&nbsp;
         locale: {formData.locale} &nbsp;|&nbsp;
         hasPaid:{formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp;

@@ -15,7 +15,7 @@ function Invoice(props) {
 
 
   useEffect(() => {
-    if (props.formData.invoiceNumber != '' && hasPaymentLink == false) {
+    if (props.formData.orderNumber != '' && hasPaymentLink == false) {
       getPaymentLink();
     }
   });

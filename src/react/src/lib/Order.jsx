@@ -3,7 +3,7 @@
  */
 
 import Cookie from "./Cookie.jsx";
-class Invoice {
+class Order {
 
     /**
      * Cookie name fpr this application
@@ -22,16 +22,16 @@ class Invoice {
     }
 
 
-    static saveInvoiceDataToCookies(formData) {
+    static saveFormDataToCookies(formData) {
         Cookie.setArrayCookie(this.#cookieName, formData);
     }
 
-    static getInvoiceDataFromCookies(formData) {
+    static getFormDataFromCookies(formData) {
         let cookieFormData = Cookie.getArrayCookie(this.#cookieName);
         
         //  reset the payment values
         if (typeof(cookieFormData) == 'object') {
-            cookieFormData.invoiceNumber = '';
+            cookieFormData.orderNumber = '';
             cookieFormData.hasPaid = false;
             cookieFormData.paymentToken ='';
             cookieFormData.paymentChoice = '';
@@ -42,4 +42,4 @@ class Invoice {
 
     }
 }
-export default Invoice;
+export default Order;
