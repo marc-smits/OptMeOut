@@ -5,7 +5,6 @@
  */
 require_once('api.php');
 
-use App\Invoice;
 use App\Pdf;
 use App\Pingen;
 use App\Mail;
@@ -46,14 +45,12 @@ if (!empty($_POST)) {
   }
   try {
 
-    $invoice = Invoice::make($_POST);
     $file = Pdf::make($_POST);
   
     Pingen::send($file, $_POST);
     Mail::send($_POST, $file);
   } catch (Exception $e) {
     Pdf::delete();
-    Invoice::delete();
     Response::send(
       ['error' => $e->getMessage()],
       Response::HTTP_BAD_REQUEST
@@ -61,7 +58,6 @@ if (!empty($_POST)) {
   }
 
   Pdf::delete();
-Invoice::delete();
   $response = [
     'message' => 'Pdf sent in the file ' . $file['file'],
     'content' => $_POST
