@@ -15,8 +15,6 @@ function CountrySelect(props) {
     //
     const changeCountry = (country, e) => {
         let url = '/' + country
-        alert(url);
-        return;
         window.location.href = url
     };
 
@@ -52,6 +50,7 @@ function CountrySelect(props) {
 
     return (
         <div class="row">
+           
             <div class="col">
                 <div className="step" id="countrySelect">
                     <div
