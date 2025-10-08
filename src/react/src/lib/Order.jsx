@@ -41,5 +41,9 @@ class Order {
         return cookieFormData;
 
     }
+
+    static deleteFormDataCookies(){
+          Cookie.eraseCookie(this.#cookieName);
+    }
 }
 export default Order;

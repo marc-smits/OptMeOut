@@ -11,12 +11,14 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { email_validation, required_validation } from '../utils/inputValidations'
 import axios from 'axios';
 import AjaxSpinner from '../components/AjaxSpinner.jsx'
+import Order from '../lib/Order.jsx';
 
 function Step5(props) {
     const [stayInformed, setStayInformed] = useState('');
     const [isOnMailingList, setIsOnMailingList,] = useState(false);
 
     useEffect(() => {
+        Order.deleteFormDataCookies();
         let checkedStatus = (!props.formData.stayInformed ) ? '' : 'checked'
         setStayInformed(checkedStatus)
     });
