@@ -11,7 +11,7 @@ import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
 import Invoice from '../components/Invoice.jsx'
 import Pingen from '../components/Pingen.jsx'
-import InvoiceLib from '../lib/Invoice.jsx';
+import Order from '../lib/Order.jsx';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -90,7 +90,8 @@ function Step4(props) {
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
       // create invoice number, which indicates that we can pay
-      props.emitUpdateFormdata('invoiceNumber', InvoiceLib.createNumber());
+      let orderNumber = Order.createNumber();
+      props.emitUpdateFormdata('orderNumber', orderNumber);
     })
 
   
