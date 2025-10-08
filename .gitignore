@@ -17,3 +17,4 @@ src/react/vite.config.js
 /deploy_opt_me_out
 /deploy_opt_me_out/*
 /scripts/deploy.config
+/phpApi/paymentTokens.json

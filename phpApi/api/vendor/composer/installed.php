@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-laposta',
-        'version' => 'dev-laposta',
-        'reference' => 'ec74cd6cdd96611e4a748a339d5e0befa6921466',
+        'pretty_version' => 'dev-mollie',
+        'version' => 'dev-mollie',
+        'reference' => '9098a066e208199d404b60ea6a10bed08e9c8cb3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,11 +11,20 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-laposta',
-            'version' => 'dev-laposta',
-            'reference' => 'ec74cd6cdd96611e4a748a339d5e0befa6921466',
+            'pretty_version' => 'dev-mollie',
+            'version' => 'dev-mollie',
+            'reference' => '9098a066e208199d404b60ea6a10bed08e9c8cb3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'composer/ca-bundle' => array(
+            'pretty_version' => '1.5.8',
+            'version' => '1.5.8.0',
+            'reference' => '719026bb30813accb68271fee7e39552a58e9f65',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/./ca-bundle',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -46,6 +55,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'mollie/mollie-api-php' => array(
+            'pretty_version' => 'v3.4.0',
+            'version' => '3.4.0.0',
+            'reference' => '674ddbb22dd2985c66ca504d4a8d6ecdc089236f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mollie/mollie-api-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'myclabs/deep-copy' => array(
             'pretty_version' => '1.13.4',
             'version' => '1.13.4.0',
@@ -54,6 +72,15 @@
             'install_path' => __DIR__ . '/../myclabs/deep-copy',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'nyholm/psr7' => array(
+            'pretty_version' => '1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nyholm/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(
             'pretty_version' => '2.0.4',
@@ -72,6 +99,12 @@
             'install_path' => __DIR__ . '/../phar-io/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'php-http/message-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
         ),
         'phpmailer/phpmailer' => array(
             'pretty_version' => 'v6.10.0',
@@ -163,6 +196,12 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'psr/http-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
         'psr/http-message' => array(
             'pretty_version' => '2.0',
             'version' => '2.0.0.0',
@@ -171,6 +210,12 @@
             'install_path' => __DIR__ . '/../psr/http-message',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'psr/http-message-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
         ),
         'respect/data' => array(
             'pretty_version' => '0.2.2',

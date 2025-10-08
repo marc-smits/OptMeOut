@@ -9,9 +9,9 @@ import {useEffect,useState } from 'react'
 import BackSvg from '../partials/BackSvg.jsx';
 import ButtonMore from '../partials/ButtonMore.jsx';
 import LocalDate from '../partials/LocalDate.jsx';
-import axios from 'axios';
-import AjaxSpinner from '../components/AjaxSpinner.jsx'
-
+import Invoice from '../components/Invoice.jsx'
+import Pingen from '../components/Pingen.jsx'
+import InvoiceLib from '../lib/Invoice.jsx';
 
 /* Forms */
 import { Input } from '../components/Input.jsx'
@@ -25,70 +25,86 @@ function Step4(props) {
     if (props.formData.senderReverseEmail == '') {
       props.formData.senderReverseEmail = props.formData.senderEmail;
     }
+    readPaymentTokenFromUrl()
   });
 
-  const [showAjaxSpinner, setShowAjaxSpinner] = useState(false);
+  // Flag to indicate the the letter is posted to Pingen
+  const [canPingen, setCanPingen] = useState(false);
 
-    /* Payment option */
-    const [paymentOption, setPaymentOption] = useState(3);
+  /* Payment option */
+  const [paymentOption, setPaymentOption] = useState(3);
 
-    const selectDonation = (option, e) => {
-        setPaymentOption(option);
-        //TODO: store payment option in object
-    };
+  // ReadMore button(s)
+  const [readMore1, setReadMore1] = useState(false);
+  const toggleReadMore1 = () => setReadMore1(prev => !prev);
 
-    // ReadMore button(s)
-    const [readMore1, setReadMore1] = useState(false);
-    const toggleReadMore1 = () => setReadMore1(prev => !prev);
+   // next is enabled when payment option selection is done
+   const [disableNextStep, setDisableNextStep ] = useState(true);
 
-    //Forms
+  /**
+  * read Payment Token From Url
+  * 
+  * After a payment is done Mollie redirects back to our site with a query string:
+  * 
+  *     ?section=step4&paymenttoken=xxxxxxx
+  * 
+  * This unique `paymenttoken` is used in the backend API that the payment is done
+  * and we can post the letter to Pingen
+  *  
+  */
+  const readPaymentTokenFromUrl = (e) => {
+     const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.has('paymenttoken') && props.formData.paymentToken == '') {
+       props.emitUpdateFormdata('paymentToken', queryParams.get('paymenttoken'));
+       // trigger posting by Pingen
+       setCanPingen(true);  
+    }
+  };
+
+
+  /**
+  * Select donation amount after clicking a donation button
+  *  
+  */
+  const selectDonation = (option, e) => {
+     props.emitUpdateFormdata('paymentChoice', option);
+    setPaymentOption(option);
+    setDisableNextStep( parseInt(option) == 0 )
+    }
+  
+
+   
+    /**
+    * Forms
+    * 
+    */
+
+    /**
+     * Update a form change formData
+     * @param {*} e 
+     */
     const handleChange = (e) => {
        props.emitUpdateFormdata(e.target.name, e.target.value);
     };
 
     const methods = useForm()
     const onSubmit = methods.handleSubmit(data => {
-      //(e) => props.emitChangeSection("step5", e)
-      pingen();
-     
+      // create invoice number, which indicates that we can pay
+      props.emitUpdateFormdata('invoiceNumber', InvoiceLib.createNumber());
     })
 
-      const pingen = (e) => {
-    
-        let post = {
-          'form' : JSON.stringify(props.formData)
-        }
-        
-        setShowAjaxSpinner(true);
-        let url = '/api/pingen.php';
-        axios.post(
-          url,
-          post,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          }
-        )
-          .then(res => {
-            setShowAjaxSpinner(false);
-            props.emitChangeSection("step5")
-          }
-
-          )
-          .catch(function (error) {
-            setShowAjaxSpinner(false);
-            props.emitChangeSection("error")
-
-          });
-
-          
-    };
+  
     return (
         <div className="step" id="step4"> 
-            {showAjaxSpinner &&
-              <AjaxSpinner />
-            }
+        <Invoice 
+          formData = {props.formData}
+          emitChangeSection={props.emitChangeSection}
+        />
+        <Pingen
+          formData={props.formData}
+          canPingen = {canPingen}
+          emitChangeSection={props.emitChangeSection}
+        />
             {/* Headline & Intro */}
             <div className='row'>
               <div className="col col-10">
@@ -238,7 +254,7 @@ function Step4(props) {
                       [[button.back]]
                     </div>
 
-                    <div className="button buttonOptMeOut" onClick={onSubmit}>
+                    <div className="button buttonOptMeOut"   disabled={disableNextStep} onClick={!disableNextStep ? (e) => onSubmit(): void(0)}>
                         [[button.send]]
                     </div>
                 </div>{/*col*/}

@@ -295,5 +295,8 @@
             "subject": "Your op-me-out letter has been sent",
             "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem ex. Curabitur finibus augue purus, eget pharetra turpis convallis ac. Pellentesque efficitur elementum bibendum. Cras pretium risus eu rutrum dictum. Nam tristique sapien nulla, eu euismod enim vehicula in. Sed tempus dui finibus urna porttitor tempor. Proin nunc risus, aliquam in libero quis, accumsan feugiat arcu. Nam ut semper leo. Nulla facilisi. Maecenas commodo varius mauris, dignissim ullamcorper purus pellentesque quis. Etiam sit amet mi sit amet purus feugiat pretium."
         }
+    },
+    "opt-me-out-invoice": {
+        "invoice": "Invoice"
     }
 }

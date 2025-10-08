@@ -4,9 +4,10 @@
 
 This folder contains
 
-1) the API to make Pdf documents and send them to pingen.com.
-2) The API to search addresses
-3) Send members to email list on Laposta
+1) Create [ayment link for Mollie
+2) the API to make Pdf documents and send them to pingen.com.
+3) The API to search addresses
+4) Send members to email list on Laposta
 
 In this readme are explained how to install this on a server and how to develop and test
 on a local computer.
@@ -18,6 +19,7 @@ This folder contains the files to execute the php file index.php by a php comman
 ### Files
 
 Copy the folder 'api' to the of the opt-me-out server so that the api/index can be reached for example on
+https://optmeout.com/api/payment.php
 https://optmeout.com/api/pingen.php
 https://optmeout.com/api/search.php?term=test
 https://optmeout.com/api/laposta.php?email=test@test.nl
@@ -25,6 +27,27 @@ https://optmeout.com/api/laposta.php?email=test@test.nl
 ### Configuration
 
 Copy the file `phpApi/api/.env.example` to `phpApi/api/.env` and modify it after the instructions
+
+
+# Testing Payments
+Once you open the  https://optmeout.com/api/payment.php with the .env variable `PINGEN_ENVIRONMENT=staging`.
+
+You should see a test form with some prefilled values. After a successful submit you should see a response like
+`{"message":"Payment link generated ","link":"https:\/\/www.mollie.com\/checkout\/credit-card\/embedded\/siJBTnpBQnqEuXDQeJjEJ"}`
+ 
+You can test it by replacing '\/' by '/'
+
+## More info
+
+https://github.com/mollie/mollie-api-php
+https://docs.mollie.com/docs/psd2-api
+
+Apikeys
+https://my.mollie.com/dashboard/YOUR_ORG_NRO/developers/api-keys
+Define payment methods
+https://my.mollie.com/dashboard/YOUR_ORG_NROsettings/payment-methods
+
+
 
 # Testing Pingen
 
@@ -82,6 +105,24 @@ curl 'https://api.laposta.nl/v2/member?list_id=LAPOSTA_LIST_ID' \
 
 #### Delete existing images
 
+##### img_opt_me_out_payment_api
+
+First you need to check if you already have image by the command below.
+
+` docker images | grep 'img_opt_me_out_payment_api' `
+
+If you see the results below you need to delete the existing image. Other you can skip the paragraph Create image
+
+```
+img_opt_me_out_payment_api   latest      015677c2100f   6 weeks ago    1.02GB
+```
+
+Delete the by the command image below by adding the id of the image. (in this case see above it is 015677c2100f)
+
+`docker rmi -f IMAGE_ID`
+
+
+
 ##### img_opt_me_out_pingen_api
 
 First you need to check if you already have image by the command below.
@@ -127,7 +168,7 @@ img_opt_me_out_laposta_api   latest      015677c2100f   6 weeks ago    1.02GB
 #### Create images
 
 Build image by runnic the command below in this folde.
-
+` docker image build -t img_opt_me_out_payment_api   -f   .docker/php/DockerfilePayment  . `
 ` docker image build -t img_opt_me_out_pingen_api   -f .docker/php/DockerfilePingen . `
 ` docker image build -t img_opt_me_out_search_api   -f .docker/php/DockerfileSearch . `
 ` docker image build -t img_opt_me_out_laposta_api   -f .docker/php/DockerfileLaposta . `
