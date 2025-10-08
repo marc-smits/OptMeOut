@@ -32,7 +32,7 @@ function Step4(props) {
   const [canPingen, setCanPingen] = useState(false);
 
   /* Payment option */
-  const [paymentOption, setPaymentOption] = useState(3);
+  const [paymentOption, setPaymentOption] = useState(0);
 
   // ReadMore button(s)
   const [readMore1, setReadMore1] = useState(false);
