@@ -65,7 +65,6 @@ class Mollie
     private static function getDescription(array $data): string
     {
         return   $data["senderFirstName"] . ' ' .
-            $data["senderLastName"] .
-            ',  Invoice nro: ' . $data['invoiceNro'];
+            $data["senderLastName"] ;
     }
 }

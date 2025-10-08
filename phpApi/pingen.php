@@ -31,7 +31,7 @@ if (php_sapi_name() == 'cli') {
                         'senderPhone' => '0612345678',
                         'locale' => 'en-GB',
                         'paymentToken' => PaymentTokens::create(),
-                        'invoiceNro' =>  uniqid(),
+                        'orderNro' =>  uniqid(),
                         'paymentChoice' => '12'
                 ]
         );
