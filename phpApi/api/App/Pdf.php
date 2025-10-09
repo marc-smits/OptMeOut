@@ -32,6 +32,7 @@ class Pdf
         self::fromLabel();    
         self::header();
        
+        self::saluation();
         self::content();
         
 
@@ -136,11 +137,29 @@ class Pdf
     }
 
     /**
+     * saluation
+     */
+    private static function saluation(): void
+    {
+        if (self::$data['recipientLastName']) {
+            $content = Translations::translate('opt-me-out-letter.saluation') . ' ';
+            $content .= self::$data['recipientLastTitle'] ? self::$data['recipientLastTitle']  . ' ' : '';
+            $content .= self::$data['recipientFirstName'] ? self::$data['recipientFirstName'] . ' ' : '';
+            $content .= self::$data['recipientLastName'] ? self::$data['recipientLastName'] : '';
+
+            self::$pdf->SetXY(22, 115);
+            self::setNormalFont();
+
+            self::multiCell(170, 4, $content, 0, 0, 'L', 1);
+        }
+    }
+
+    /**
      * content
      */
     private static function content(): void
     {
-        self::$pdf->SetXY(22, 120);
+        self::$pdf->SetXY(22, 125);
         self::setNormalFont();
         $content = self::iconv(Translations::translate('opt-me-out-letter.content'));
         self::multiCell(170, 4, $content, 0, 0, 'L', 1);
@@ -202,6 +221,7 @@ class Pdf
      */
     private static function pdfName(): string
     {
+        return 'test.pdf';
         $fullName =  self::$data['senderFirstName'] . '_' .  self::$data['senderLastName'];
         $fullName = str_replace(' ', '_', $fullName);
         return iconv('UTF-8', 'ASCII//TRANSLIT', $fullName) . '-' . date("d-m-Y-h-i-s") .  '.pdf';
