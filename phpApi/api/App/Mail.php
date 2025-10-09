@@ -26,7 +26,7 @@ class Mail
       $mail->Username   = getenv('MAIL_USER');                    //SMTP username
       $mail->Password   = getenv('MAIL_PWD');                     //SMTP password
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-      $mail->Port       = 587;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+      $mail->Port       =  getenv('MAIL_PORT');                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
       //Recipients
       $mail->setFrom(getenv('MAIL_FROM_EMAIL'), getenv('MAIL_FROM_NAME'));
@@ -35,7 +35,7 @@ class Mail
 
 
       //Attachments
-      //$mail->addAttachment(self::attachment($file));         //Add attachments
+      $mail->addAttachment(self::attachment($file));         //Add attachments
 
       //Content
       $mail->isHTML(true);

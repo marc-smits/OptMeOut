@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-mollie',
-        'version' => 'dev-mollie',
-        'reference' => '9098a066e208199d404b60ea6a10bed08e9c8cb3',
+        'pretty_version' => 'dev-OPME-76-pingen-confirmation-mail',
+        'version' => 'dev-OPME-76-pingen-confirmation-mail',
+        'reference' => '45bb549179e9f815ba0506d80f0aa135ef12a439',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-mollie',
-            'version' => 'dev-mollie',
-            'reference' => '9098a066e208199d404b60ea6a10bed08e9c8cb3',
+            'pretty_version' => 'dev-OPME-76-pingen-confirmation-mail',
+            'version' => 'dev-OPME-76-pingen-confirmation-mail',
+            'reference' => '45bb549179e9f815ba0506d80f0aa135ef12a439',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -107,9 +107,9 @@
             ),
         ),
         'phpmailer/phpmailer' => array(
-            'pretty_version' => 'v6.10.0',
-            'version' => '6.10.0.0',
-            'reference' => 'bf74d75a1fde6beaa34a0ddae2ec5fce0f72a144',
+            'pretty_version' => 'v6.11.1',
+            'version' => '6.11.1.0',
+            'reference' => 'd9e3b36b47f04b497a0164c5a20f92acb4593284',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(),
