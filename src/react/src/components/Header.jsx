@@ -10,7 +10,7 @@ function Header(props) {
 
   return (
     <>
-        {(props.currentSection).slice(0,4) == "step" &&
+        {(props.currentSection).slice(0,5) == "step1" &&
             <div className="menu">
                 <div className="button" id="headerLanguageSelect"
                     onClick={(e) => props.emitChangeSection("selectCountry", e)}>
