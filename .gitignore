@@ -8,6 +8,7 @@ lib/csvImport/__pycache__/*
 
 /dist
 /dist/*
+/dist_html
 
 /src/csv
 /src/csv/*
@@ -17,7 +18,6 @@ lib/csvImport/__pycache__/*
 
 /src/react/vite.config.js
 /src/react/dist
-/src/react/dist/*
 /src/react/node_modules
 
 /phpApi/api/languages/

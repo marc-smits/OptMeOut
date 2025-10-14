@@ -6,8 +6,8 @@
 #
 ###########################################################################
 
-# Reset existing HTML output
-rm -rf /html/*
+# Remove existing HTML output
+rm -rf dist_html/*
 
 # Loop through each locale in dist and build
 cd dist
@@ -32,21 +32,20 @@ for DIR in */; do
     rm -rf dist
     npm run build -- --debug
 
-    # echo "##########"
-    # echo "Updating index file with correct asset path";
-    # sed -i "s/\/assets/\/${LOCALE}\/assets/g" dist/index.html
-
-    echo "##########"
-    echo "Copying output HTML to html/$LOCALE";
-    mkdir -p /html/$LOCALE
-    cp -R dist/* /html/$LOCALE
-    cp rootIndex.html /html/index.html
-
     echo "##########"
     echo "Unlinking cached node_modules";
     unlink node_modules
 
     cd ..
+
+    echo "##########"
+    echo "Copying output HTML to dist_html/$LOCALE";
+    mkdir -p ../dist_html/$LOCALE
+    cp -R $LOCALE/dist/* ../dist_html/$LOCALE
+
+    echo "##########"
+    echo "Copying root index file to dist_html";
+    cp index.html ../dist_html
 done
 
 # Allow access outside this container

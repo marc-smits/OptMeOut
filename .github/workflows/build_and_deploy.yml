@@ -1,0 +1,29 @@
+# .github/workflows/build-and-deploy.yml
+name: Build with Docker Compose & Deploy via FTP
+
+on:
+  push:
+    branches: [build_pipeline]
+
+concurrency:
+  group: build-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build with Docker Compose
+        run: cd docker && ./build.sh
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.SITE_SERVER }}
+          username: ${{ secrets.SITE_USERNAME }}
+          password: ${{ secrets.SITE_PASSWORD }}
+          local-dir: dist_html/
+          server-dir: /domains/dev.optmeout.me/DEFAULT
+          protocol: ftps
