@@ -1,5 +1,5 @@
 # templates source
-SRC_TEMPLATE_PATH ="src/react"
+SRC_TEMPLATE_PATH = "src/react"
 # steps
 STEPS_PATH = "src/steps.json"
 # languages language json files
@@ -14,7 +14,7 @@ DIST_DIR = "dist"
 # folder to import and export csv files
 # this will have two sub directories
 #
-#  src/csv/languages/import     The Csv files found in this will be 
+#  src/csv/languages/import     The Csv files found in this will be
 #                               imported to the json files
 #  src/csv/languages/export     All of the existing json files
 #                               Are exported to this folder

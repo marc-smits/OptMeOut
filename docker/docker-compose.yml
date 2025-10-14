@@ -1,0 +1,73 @@
+services:
+  generate:
+    image: python:latest
+    working_dir: /build
+    command: sh -c "python build.py"
+    volumes:
+      - ..:/build:delegated
+
+  install:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm ci"
+    volumes:
+      - ../src/react:/app
+      - node_modules:/app/node_modules
+
+  build:
+    image: node:20-alpine
+    working_dir: /build
+    command: sh -c "docker/buildall.sh"
+    volumes:
+      - ..:/build:delegated
+      - node_modules:/node_modules
+      - html:/html
+    depends_on:
+      generate:
+        condition: service_completed_successfully
+      install:
+        condition: service_completed_successfully
+
+  phpApi:
+    image: php:8.4-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ../phpApi:/var/www/html:cached
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/api/api.php"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 3s
+
+  react:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0 --port 5173"
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../src/react:/app
+      - node_modules:/app/node_modules
+    depends_on:
+      phpApi:
+        condition: service_healthy
+      install:
+        condition: service_completed_successfully
+
+  web:
+    image: nginx:1.28-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - html:/usr/share/nginx/html:ro
+    depends_on:
+      phpApi:
+        condition: service_healthy
+      build:
+        condition: service_completed_successfully
+
+volumes:
+  node_modules:
+  html:

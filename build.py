@@ -1,13 +1,12 @@
 import json
-import config
-
 from pathlib import Path
-from lib.cvsImport import CvsImport
-from lib.addressImport import AddressImport
-from lib.translationsExport import TranslationsExport
-from lib.addressesExport import AddressesExport
-from lib.htmlGenerator import HtmlGenerator
 
+import config
+from lib.addressesExport import AddressesExport
+from lib.addressImport import AddressImport
+from lib.cvsImport import CvsImport
+from lib.htmlGenerator import HtmlGenerator
+from lib.translationsExport import TranslationsExport
 
 if __name__ == "__main__":
     addressImport = AddressImport()
@@ -20,6 +19,3 @@ if __name__ == "__main__":
     translationsExport.exportAll()
     addressesExport = AddressesExport()
     addressesExport.exportAll()
-
-   
-  

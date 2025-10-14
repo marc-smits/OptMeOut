@@ -7,6 +7,7 @@
 lib/csvImport/__pycache__/*
 /dist
 /dist/*
+/html
 /src/csv
 /src/csv/*
 # Ignore Visual Code history files

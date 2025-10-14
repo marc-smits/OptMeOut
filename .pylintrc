@@ -1,0 +1,7 @@
+[MESSAGES CONTROL]
+disable = C0103, C0114, C0115, C0116
+
+[FORMAT]
+max-line-length = 120
+indent-string = '    '
+intent-size = 4

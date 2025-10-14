@@ -16,15 +16,15 @@ if [ "$SERVER" != "live"  ] &&  [ "$SERVER" != "staging"  ]; then
     exit 0
 fi
 
-echo "###########################################################################" 
+echo "###########################################################################"
 echo
 echo Deploying to $SERVER server
-echo 
-echo 
-echo "###########################################################################" 
+echo
+echo
+echo "###########################################################################"
 read -p "Press enter to continue"
 
-# Read config variables 
+# Read config variables
 . scripts/deploy.config
 
 DEPLOY_REPO_PATH="${PWD/}/deploy_opt_me_out"
@@ -98,7 +98,7 @@ deployFront()
     echo $DEPLOY_FOLDER
     if [ ! -d "$DEPLOY_FOLDER" ]; then
         mkdir $DEPLOY_FOLDER
-    fi 
+    fi
     cp -r dist/* $DEPLOY_FOLDER
     cp rootIndex.html $DEPLOY_FOLDER/../index.html
 }
@@ -113,12 +113,12 @@ deployApi()
     cd phpApi/api
     #ls -al
     DEPLOY_FOLDER="$DEPLOY_REPO_PATH/api"
-    
+
       if [ ! -d "$DEPLOY_FOLDER" ]; then
         mkdir $DEPLOY_FOLDER
     fi
     cp -r * $DEPLOY_FOLDER
-    
+
     cd ../..
 }
 
@@ -129,8 +129,8 @@ deployApi()
 ###########################################################################
 pushtoGit()
 {
-   
-    cd $DEPLOY_REPO_PATH 
+
+    cd $DEPLOY_REPO_PATH
     git checkout $GIT_BRANCH
     git config git-ftp.user $FTP_USER
     git config git-ftp.url $FTP_SERVER
@@ -141,7 +141,7 @@ pushtoGit()
     d=$( date '+%F_%H:%M:%S' )
     git commit -m $d
     git push origin $GIT_BRANCH
-    git ftp push 
+    git ftp push
 }
 
 #
@@ -150,9 +150,9 @@ pushtoGit()
 #   Main script
 #
 ###########################################################################
-echo "###########################################################################" 
+echo "###########################################################################"
 echo Building templates
-echo "###########################################################################" 
+echo "###########################################################################"
 
 git checkout $GIT_STAGING_LIVE_CODE_BRANCH
 
@@ -163,15 +163,15 @@ echo giving read and write permissions to all files
 sudo chmod -R 0777 *
 
 for FOLDER in */  ; do
-    echo "###########################################################################" 
+    echo "###########################################################################"
     echo "Deploying $FOLDER .";
-    echo "###########################################################################" 
-    echo 
+    echo "###########################################################################"
+    echo
     cd $FOLDER
     installModulesAndBuild
     deployFront
 
-    cd .. 
+    cd ..
 done
 cd ..
 deployApi
