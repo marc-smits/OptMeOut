@@ -1,5 +1,5 @@
 # .github/workflows/build-and-deploy.yml
-name: Build with Docker Compose & Deploy via FTP
+name: Build with Docker Compose & Deploy via SFTP
 
 on:
   push:
@@ -16,15 +16,12 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v4
 
+      - name: Install LFTP
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
       - name: Build with Docker Compose
         run: cd docker && chmod +x build.sh buildall.sh && ./build.sh
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.SITE_SERVER }}
-          username: ${{ secrets.SITE_USERNAME }}
-          password: ${{ secrets.SITE_PASSWORD }}
-          local-dir: dist_html/
-          server-dir: /domains/dev.optmeout.me/DEFAULT/
-          protocol: ftp
+      - name: Deploy via SFTP
+        run: export LFTP_PASSWORD="${{ secrets.SITE_PASSWORD }}" && \
+          lftp --env-password sftp://${{ secrets.SITE_USERNAME }}@${{ secrets.SITE_SERVER }} -e "put dist_html/*; bye"
