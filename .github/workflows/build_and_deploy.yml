@@ -22,11 +22,8 @@ jobs:
       - name: Install LFTP
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Test LFTP installation
-        run: lftp --version && which lftp
-
       - name: Build with Docker Compose
         run: cd docker && chmod +x build.sh buildall.sh && ./build.sh && cd ..
 
       - name: Deploy via SFTP
-        run: LFTP_PASSWORD="${{ secrets.SITE_PASSWORD }}" lftp --env-password sftp://${{ secrets.SITE_USERNAME }}@${{ secrets.SITE_SERVER }} -e "lcd dist_html; mirror -R . .; bye"
+        run: LFTP_PASSWORD="${{ secrets.SITE_PASSWORD }}" lftp --env-password sftp://${{ secrets.SITE_USERNAME }}@${{ secrets.SITE_SERVER }} -e "set sftp:auto-confirm yes; lcd dist_html; mirror -R . .; bye"
