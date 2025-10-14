@@ -47,6 +47,7 @@ for DIR in */; do
     echo "Copying root index file to dist_html";
     cp index.html ../dist_html
 done
+cd ..
 
 # Allow access outside this container
 chmod -R 0777 *
