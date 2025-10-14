@@ -27,4 +27,4 @@ jobs:
           password: ${{ secrets.SITE_PASSWORD }}
           local-dir: dist_html/
           server-dir: /domains/dev.optmeout.me/DEFAULT/
-          protocol: ftps
+          protocol: ftp
