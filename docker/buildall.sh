@@ -30,7 +30,7 @@ for DIR in */; do
     echo "##########"
     echo "Building";
     rm -rf dist
-    npm run build
+    npm run build -- --debug
 
     # echo "##########"
     # echo "Updating index file with correct asset path";
@@ -42,5 +42,12 @@ for DIR in */; do
     cp -R dist/* /html/$LOCALE
     cp rootIndex.html /html/index.html
 
+    echo "##########"
+    echo "Unlinking cached node_modules";
+    unlink node_modules
+
     cd ..
 done
+
+# Allow access outside this container
+chmod -R 0777 *
