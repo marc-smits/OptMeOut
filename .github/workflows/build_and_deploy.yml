@@ -30,4 +30,4 @@ jobs:
           HOST: ${{ secrets.SITE_SERVER }}
           USER: ${{ secrets.SITE_USERNAME }}
           LFTP_PASSWORD: ${{ secrets.SITE_PASSWORD }}
-        run: lftp --env-password sftp://${USER}@${HOST} -e "set sftp:auto-confirm yes; lcd dist_html; mirror -R . .; bye"
+        run: lftp --env-password sftp://${USER}@${HOST} -e "set sftp:auto-confirm yes; lcd dist_html; mirror -R . dev; bye"
