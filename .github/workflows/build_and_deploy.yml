@@ -19,7 +19,10 @@ jobs:
       - name: Build with Docker Compose
         run: cd docker && chmod +x build.sh buildall.sh && ./build.sh && cd ..
 
-      - name: Disable man_db updates (it slows down the build)
+      - name: Combine FE with BE API (just copy for now)
+        run: cp -rf phpApi/api dist_html/api
+
+      - name: Disable man_db updates (slows apt-get install)
         run: echo "set man-db/auto-update false" | sudo debconf-communicate && sudo dpkg-reconfigure man-db
 
       - name: Install LFTP client
@@ -30,8 +33,6 @@ jobs:
           HOST: ${{ secrets.SITE_SERVER }}
           USER: ${{ secrets.SITE_USERNAME }}
           LFTP_PASSWORD: ${{ secrets.SITE_PASSWORD }}
-          SOURCE_FE: dist_html
-          TARGET_FE: optmeout.me/dev
-          SOURCE_BE: phpApi/api
-          TARGET_BE: optmeout.me/dev/api
-        run: lftp --env-password sftp://${USER}@${HOST} -e "set sftp:auto-confirm yes; mirror -R ${SOURCE_FE} ${TARGET_FE}; mirror -R ${SOURCE_BE} ${TARGET_BE}; bye"
+          SOURCE: dist_html
+          TARGET: optmeout.me/dev
+        run: lftp --env-password sftp://${USER}@${HOST} -e "set sftp:auto-confirm yes; mirror -R ${SOURCE_FE} ${TARGET_FE}; bye"
