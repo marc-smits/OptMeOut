@@ -6,6 +6,12 @@
 #
 ###########################################################################
 
+# Get the environment variable from first argument, or default to local
+ENVIRONMENT="${1}"
+case "$ENVIRONMENT" in local|development|staging|production) : ;;
+  *) ENVIRONMENT=local ;;
+esac
+
 # Remove existing HTML output
 rm -rf dist_html/*
 
@@ -18,7 +24,7 @@ for DIR in */; do
 
     echo
     echo "###########################################################################"
-    echo "Building locale $LOCALE"
+    echo "Building locale $LOCALE for environment $ENVIRONMENT";
     echo "###########################################################################"
     echo
 
@@ -26,6 +32,10 @@ for DIR in */; do
     echo "Linking cached node_modules";
     rm -rf node_modules
     ln -s /node_nodules node_modules
+
+    echo "##########"
+    echo "Configuring build $ENVIRONMENT";
+    cp -f vite.config.$ENVIRONMENT.js vite.config.js
 
     echo "##########"
     echo "Building";
