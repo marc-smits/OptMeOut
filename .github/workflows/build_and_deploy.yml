@@ -12,11 +12,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: ${{
-      github.ref == 'refs/heads/release' && 'production' ||
-      github.ref == 'refs/heads/main' && 'staging' ||
-      'development'
-    }}
+    environment: ${{ github.ref == 'refs/heads/release' && 'production' || github.ref == 'refs/heads/main' && 'staging' || 'development' }}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
