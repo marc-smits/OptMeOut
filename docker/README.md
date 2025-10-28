@@ -25,3 +25,5 @@ The build step will be executed by GitHub Actions. There is configuration for th
 - **development** - Pushing to `development` branch deploys to: https://dev.optmeout.me/en_GB
 - **staging** - Pushing to `main` branch deploys to: https://staging.optmeout.me/en_GB
 - **production** - Pushing to `release` branch deploys to: https://www.optmeout.me/en_GB
+
+Wanneer je een andere branch ook naar development wilt builden kun je deze toevoegen aan `github\workflows\build_and_deploy.yml`, onder `on > push > branches`

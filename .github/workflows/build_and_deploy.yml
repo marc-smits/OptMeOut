@@ -3,7 +3,7 @@ name: Build with Docker Compose & Deploy via SFTP
 
 on:
   push:
-    branches: [build_pipeline, development, main, release]
+    branches: [development, main, release]
 
 concurrency:
   group: build-deploy-${{ github.ref }}
