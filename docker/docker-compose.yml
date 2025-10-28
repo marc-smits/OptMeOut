@@ -19,7 +19,7 @@ services:
   build:
     image: node:20-alpine
     working_dir: /build
-    command: sh -c "docker/buildall.sh"
+    command: sh -c "docker/node-build-all-locales.sh"
     restart: "no"
     volumes:
       - ..:/build:delegated

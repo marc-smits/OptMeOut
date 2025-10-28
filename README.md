@@ -17,7 +17,6 @@
 * [Manage addresses](#addresses-section)
 * [Folders](#folders-section)
 * [React Js](#react-section)
-
   * [Files to modify](#react-section)
   * [Update React JS code](#react-update-section)
     * [Install](#react-install-section)
@@ -171,8 +170,8 @@ In this section is presented how to manage the tranlations by excel sheets and s
 
 ```
 ls src/csv/languages/export/
-en_GB.csv  
-fi_FI.csv  
+en_GB.csv
+fi_FI.csv
 nl_NL.csv
 ```
 
@@ -203,7 +202,7 @@ As language_country
 Examples:
 
 ```
-nl_NL => Ducth, Netherlands, 
+nl_NL => Ducth, Netherlands,
 nl_BE => Ducth, Belgium
 ```
 
@@ -227,7 +226,7 @@ button.OptMeOut;OptMeOut;OptMeOut
 button.readmore.less;less;less
 button.readmore.more;more;more
 page.fallback.header;This website provides EU `opt--out’ from the EHDS
-page.fallback.intro;Ourpean Health Data Space (EHDS). Please in by clicking <red>"Select Country"</red> 
+page.fallback.intro;Ourpean Health Data Space (EHDS). Please in by clicking <red>"Select Country"</red>
 page.about.title;About;About
 page.about.h;I am am h1;I am am h1
 page.about.p;h1 p1 text;h1 p1 text
@@ -360,12 +359,12 @@ This will render the following three paragraphs.
    <h>I am am h1</h>
    <p>h1 p1 text</p>
    <p>h1 p2 text </p>
-   
+
    <h>I am a h2</h>
    <p>h2 p1  text</p>
    <p>h2 p2  text</p>
    <p>h2 p3  text</p>
-   
+
    <h>I am a h3</h>
    <p>h2 p1  text</p>
 ```
@@ -448,7 +447,7 @@ Example: en_GB.json
             }
         }
     }
-  
+
 ```
 
 ### phpApi/api/addresses
@@ -501,7 +500,7 @@ Each language has its own sub folder and index file like
 dist/en_GB
     index.html
  dist/nl_NL
-    index.html   
+    index.html
 ```
 
 See more about the file structure in the section "Update React JS code"
@@ -513,8 +512,8 @@ which can be used in the Javascript code by function _trns
 Example:
 
 ```
-let translationsJson='{"pageTitle": "Compose Your Letter", "previous": "Previous", "next": "Next", "step1.pertires.address.title": "Address"}'; 
-let  globalTranslationsObj = JSON.parse(translationsJson); 
+let translationsJson='{"pageTitle": "Compose Your Letter", "previous": "Previous", "next": "Next", "step1.pertires.address.title": "Address"}';
+let  globalTranslationsObj = JSON.parse(translationsJson);
 function _trns(translation){return(globalTranslationsObj[translation]);}
 ```
 
@@ -710,7 +709,7 @@ This api provides some functions for Ajax requests.
 
 
 ## Process
-For the deployment we have a script 
+For the deployment we have a script
 scripts/deploy.sh
 
 Which does the following
@@ -718,7 +717,7 @@ Which does the following
 
 In the deploy process we do the following
 1) Execute the command `scripts/build.sh to` to rebuild all templates and to import
-all translations and addresses. 
+all translations and addresses.
 2) Copy all live server files to the repo `deploy_opt_me_out`
  We have a separate repo `deploy_opt_me_out` for the code to be published on the live
 server. This includes both the front end (racJs) and the back end code (php).
@@ -774,7 +773,7 @@ Configure with the correct parameters and transfer manually to the live server t
 The vendor files are excluded from the git repo and must be transferred manually
 (also after changes in the vendor files)
 
-Transfer the vendor folder with its contents to 
+Transfer the vendor folder with its contents to
 
 `/api`
 
@@ -790,5 +789,10 @@ Please follow this steps if you want to deploy updates by running the command  `
 
 3) Deploy by
 `./scripts/deploy.sh staging`
-or 
+or
 `./scripts/deploy.sh live`
+
+
+### Geautomatiseerde deployment
+
+Zie: [docker/README.md](docker/README.md)
