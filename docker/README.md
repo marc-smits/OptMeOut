@@ -1,33 +1,23 @@
 # Info
-
-
 This folder contains the files to execute the pyhton file build.py by a python command in a docker container.
 
-# Installation
-
-## Create image
-
-### Delete existing image
-
-First you need to check if you already have image by the command below.
+# Delete the existing image
+First check if you already have image by the command below.
 
 `docker images | grep 'img_opt_me_out_template_builder`
 
 If you see the results below you need to delete the existing image. Other you can skip the paragraph Create image
 
-```
-img_opt_me_out_template_builder   latest      015677c2100f   6 weeks ago    1.02GB
-```
+```img_opt_me_out_template_builder   latest      015677c2100f   6 weeks ago    1.02GB```
 
 Delete the by the command image below by adding the id of the image. (in this case see above it is 015677c2100f)
 
 `docker rmi -f IMAGE_ID`
 
-### Create image
-
+# Create the image
 Build image by runnic the command below in this folde.
 
-`docker image build -t img_opt_me_out_template_builder   -f DockerfileBuild .`
+`docker image build -t img_opt_me_out_template_builder -f DockerfileBuild .`
 
 You should see a log like below:
 ```
@@ -65,10 +55,7 @@ DockerfileBuild .
  => => naming to docker.io/library/img_opt_me_out_template_builder                                                       0.0s
 
 ``` 
-
 # Run
-
-
 In the folder scripts we have a `scripts`  a script `build.sh` to run the command to build the templates.
 
 First you need to make the script executable by the command
