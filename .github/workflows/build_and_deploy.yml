@@ -44,11 +44,11 @@ jobs:
           set net:max-retries 3
           set net:reconnect-interval-base 3
           set net:socket-buffer 1048576
-          set mirror:use-pget-n 10
+          set mirror:use-pget-n 16
           mirror -R ${SOURCE} ${TARGET} \
             --reverse \
-            --parallel=10 \
-            --use-pget-n=10 \
+            --parallel=16 \
+            --use-pget-n=16 \
             --only-newer \
             --continue \
             --delete \
