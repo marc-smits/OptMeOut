@@ -1,37 +1,19 @@
 <html>
-<!--- This file should be renamed to index.html and moved to the real server root-->
-<script type="text/javascript">
+	<head>
+		<title>OptMeOut - Redirecting...</title>
+		<script type="text/javascript">
 
-	let locales = [ [[LANGUAGE_CODES]] ];
-
-	function isAllowed() {
-		let gatesttoken = '';
-		let token = '22wef34dd2f';
-		const queryParams = new URLSearchParams(window.location.search);
-
-		if ((queryParams.has('gatesttoken'))) {
-			gatesttoken = queryParams.get('gatesttoken');
-			if (gatesttoken == token) {
-				return true
+			let locales = [ [[LANGUAGE_CODES]] ];
+			let locale = navigator.language;
+			locale = locale.replace("-", "_")
+			if (!locales.includes(locale)) {
+				locale = '/en_GB/?section=splash'
 			}
-		}
+			window.location.href = locale;
 
-		return false;
-	}
-
-
-
-	if (isAllowed()) {
-		let locale = navigator.language;
-		locale = locale.replace("-", "_")
-		if (!locales.includes(locale)) {
-			locale = 'en_GB?section=splash'
-		}
-		window.location.href = locale;
-	} else {
-		alert('Acces denied');
-	}
-
-</script>
-
+		</script>
+	</head>
+<body>
+	Redirecting to your locale... When not redirected, please visit the <a href="/en_GB/?section=splash">English website</a>.
+</body>
 </html>
