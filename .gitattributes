@@ -1,2 +1,4 @@
-# Linux end of line for shell scripts
+# Linux end of line for shell scripts + config files
 *.sh text eol=lf
+*.conf text eol=lf
+*.yml text eol=lf
