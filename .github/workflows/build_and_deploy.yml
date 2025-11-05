@@ -13,6 +13,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: ${{ github.ref == 'refs/heads/release' && 'production' || github.ref == 'refs/heads/main' && 'staging' || 'development' }}
+    env:
+      ENVIRONMENT: ${{ job.environment }}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4

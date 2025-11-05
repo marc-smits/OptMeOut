@@ -19,7 +19,13 @@ services:
   install_be:
     image: composer:latest
     working_dir: /build
-    command: sh -c "composer install --no-progress -o && chmod -R 0777 *"
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT:-local}
+    command: >
+      sh -c "case \"$ENVIRONMENT\" in
+        production|staging|development) composer install --no-progress -o --no-dev ;;
+        *) composer install ;;
+      esac && chmod -R 0777 *"
     restart: "no"
     volumes:
       - ../phpApi/api:/build:delegated
