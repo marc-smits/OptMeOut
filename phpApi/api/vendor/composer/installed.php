@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-OPME-76-pingen-confirmation-mail',
-        'version' => 'dev-OPME-76-pingen-confirmation-mail',
-        'reference' => '45bb549179e9f815ba0506d80f0aa135ef12a439',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-OPME-76-pingen-confirmation-mail',
-            'version' => 'dev-OPME-76-pingen-confirmation-mail',
-            'reference' => '45bb549179e9f815ba0506d80f0aa135ef12a439',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
