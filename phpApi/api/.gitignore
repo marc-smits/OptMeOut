@@ -5,6 +5,3 @@
 .env.testing
 .phpunit.result.cache
 paymentTokens.json
-
-# Exclude the vendor packages, it is installed with Composer during Docker build
-api/vendor/*
