@@ -3,8 +3,6 @@
 ## Contents
 
 * [Introduction](#intro-section)
-* [Configuration](#config-section)
-* [Git repos](#git-section)
 * [Install Python build](#python-section)
 * [Manage translated templates](#translations-section)
   * [Importing new languages](#import-mew-section)
@@ -19,11 +17,11 @@
 * [React Js](#react-section)
   * [Files to modify](#react-section)
   * [Update React JS code](#react-update-section)
-    * [Install](#react-install-section)
     * [Update code](#react-update-section)
       <a name='intro-section'></a>
 * [phpApi](#php-section)
 * [Deploy](#deploy-section)
+
 
 ## Introduction
 
@@ -31,70 +29,6 @@ Here are some instruction how to make translated templates and
 modify the HTML and CSS templates.
 Most of the instructions are step by step instructions, which can be done without a deep understanding.
 
-<a name='config-section'></a>
-
-## Configuration
-
-Here is a summary of all the configuration files
-Please note that these are correct in your environmet.
-
-### config.py
-
-Variables for the Python scripts. Normally no changes are requires.
-
-### src/react/vite.config.js
-
-You need to configure the file : `src/react/vite.config.js`
-The happens by copying one of the config files below depending of your environment.
-
-`cp src/react/vite.config.js.production_staging  src/react/vite.config.js`
-or
-`cp src/react/vite.config.js.development  src/react/vite.config.js`
-
-Note in the development server you must check that the configured api server works
-Example
-
-```
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-    server: {
-    // Translate all local /api calls to https://optmeout.tantonius.com/api
-    proxy: {
-      '/api':'https://optmeout.tantonius.com',
-    },
-  },
-})
-```
-
-Try that you get a good response with
-https://optmeout.tantonius.com/api/search.php?term=huis&locale=en_GB
-
-If it does not work, have a look in `phpApi/README.md`
-
-### phpApi/api/.env
-
-Copy the file
-`cp phpApi/api/.env.example phpApi/api/.env`
-
-And have modify to your environment. See more in `phpApi/README.md`
-
-
-<a name='git-section'></a>
-# Git repos
-
-We have two Git repos
-OptMeOut
-(https://github.com/marc-smits/OptMeOut)
-
-This repo is the source code repo, which includes all of the
-files needed for the development/
-
-(https://github.com/marc-smits/deploy_opt_me_out)
-This repo incudes only the files needed on the live server.
 
 
 <a name='python-section'></a>
@@ -604,81 +538,6 @@ In this section you get to know how to update this site on your local server.
 
 Before updating you need to enable this code on your local host.
 
-#### Install npm
-
-First you  need to install npm on you computer.
-See more info for this on
-https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-This application has been build with the version ```10.5.0```
-If you have problems, please check the version.
-
-#### Configure
-
-Have look in [Configuration](#config-section)
-
-#### Install server
-
-Make sure you have the correct branch.
-Follow the steps below. Some commands are given for Mac and Linux
-systems.
-
-1. Run the command ```scripts/build.sh```
-   dist/nl_NL/src/components/LanguageSelect/LanguageSelect.jsx
-
-```
-2. Each language has now its own sub folder in the folder ```dist```
-
-3. In this example we use the sub folder ```en_GB``` as example, all of the folders work
-in the same way. Note: on the local server you cannot use the language switch.
-Basically you just need to follow the instructions.
-
-4. Move to the folder dist and make sure, that all of files have read and write permissions
-```  cd dist
-     sudo chmod -R 0777 * ; # Mac and Linux only
-```
-
-6. Move to the folder ```en_GB``` and install node modules
-
-```cd
-     # Delete current modules, if exists
-     rm -rf node_modules  ; # Mac and Linux only
-     # install
-     npm install
-
-     # You should see something like:
-     #
-     # npm WARN EBADENGINE Unsupported engine {
-     # npm WARN EBADENGINE   package: 'vite@7.0.4',
-     # npm WARN EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
-     # npm WARN EBADENGINE   current: { node: 'v21.7.2', npm: '10.5.0' }
-     # npm WARN EBADENGINE }
-     #
-     # added 169 packages, and audited 170 packages in 6s
-     #
-     # 34 packages are looking for funding
-     #  run `npm fund` for details
-     #
-     # found 0 vulnerabilities
-```
-
-7. Now you can start the server
-
-   ```
-     npm run dev
-
-     # Dont worry about the warnings:
-     #
-     # Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
-     #
-     # More info and automated migrator: https://sass-lang.com/d/import
-     #
-     #  ╷
-     #1 │ @import '/src/style/theme.scss';
-     #  │         ^^^^^^^^^^^^^^^^^^^^^^^
-   ```
-8. Now you can see the code:
-
-http://localhost:5173/
 
 <a name='react-update-section'></a>
 
@@ -698,101 +557,11 @@ Sometimes you need to refresh the page.
 
 This api provides some functions for Ajax requests.
 
-* Genrate op-me-out letter as pdf and send to Pingen
-* Search addresses by a search term
-* Add emails to mailing list
+*
 
  See more info in `phpApi/README.md`
 
+
 <a name='deploy-section'></a>
 # Deploy
-
-
-## Process
-For the deployment we have a script
-scripts/deploy.sh
-
-Which does the following
-
-
-In the deploy process we do the following
-1) Execute the command `scripts/build.sh to` to rebuild all templates and to import
-all translations and addresses.
-2) Copy all live server files to the repo `deploy_opt_me_out`
- We have a separate repo `deploy_opt_me_out` for the code to be published on the live
-server. This includes both the front end (racJs) and the back end code (php).
-From this repo we will update the changes files to the live server.
-
-Before you can use it please follow the steps below.
-
-
-### Initialize the server
-
-You need to do this only once when establishing the live server.
-
-
-
-1) Create ssh keys for the repo  `deploy_opt_me_out` by following the link
-https://www.warp.dev/terminus/git-clone-ssh
-2) Make sure you have `git ftp` installed by
-`sudo apt-get install git-ftp`
-3) Clone the repo  `deploy_opt_me_out` to the root directory of this project by
-```git clone git@github.com:marc-smits/deploy_opt_me_out.git```
-4) Condigure the deploy script by
-```cp scripts/deploy.config.sample  scripts/deploy.config```
-and find the correct values.
-
-5) Configure the git ftp  in the folder `deploy_opt_me_out` the commands below
-you find the variables in  `/scripts/deploy.config`
-
-Make sure the root folder of the  servers are empty
-```
-git checkout GIT_LIVE_DEPLOY_BRANCH
-git config git-ftp.user FTP_LIVE_SERVER
-git config git-ftp.url FTP_LIVE_USER
-git config git-ftp.password FTP_LIVE_PASSWORD
-git ftp init
-git checkout GIT_STAGING_DEPLOY_BRANCH
-git config git-ftp.user FTP_STAGING_SERVER
-git config git-ftp.url FTP_STAGING_USER
-git config git-ftp.password FTP_STAGING_PASSWORD
-git ftp init
-
-```
-
-
-6) Configuration for the phpApi
-open `phpApi/api/.env.example`
-copy it to `.env`
-and check the parameters
-
-Configure with the correct parameters and transfer manually to the live server to
-`/api/.env`
-
-7) Transfer vendor files
-The vendor files are excluded from the git repo and must be transferred manually
-(also after changes in the vendor files)
-
-Transfer the vendor folder with its contents to
-
-`/api`
-
-
-
-### Configure you local computer
-
-Please follow this steps if you want to deploy updates by running the command  `./scripts/deploy.sh` the existing live server.
-
-1) Follow the steps 1-4 of the previous paragraph `Initialize the server`
-2) Make sure the script `scripts/deploy.sh` is executable
-`chmod a+x scripts/deploy.sh`
-
-3) Deploy by
-`./scripts/deploy.sh staging`
-or
-`./scripts/deploy.sh live`
-
-
-### Geautomatiseerde deployment
-
 Zie: [docker/README.md](docker/README.md)
