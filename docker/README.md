@@ -6,6 +6,8 @@ Execute `docker/build` (either `build.sh` for Linux / `build.cmd` for Windows).
 
 This will build the application with the following steps:
 - **generate** -  Run the `build.py` that generate the locales in folder `dist`
+   See more in /README.md#install-python-build
+
 - **install_fe** - Install the `node_modules` FE dependencies with npm
 - **install_be** - Install the `vendor` BE dependencies with composer
 - **build** - Build the FE for all locales and put in folder `dist_html`
