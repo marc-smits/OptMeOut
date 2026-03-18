@@ -1,6 +1,9 @@
+@use '/src/style/_theme.scss' as *;
+
 /*
 *   Typography
 */
+
 p {
   font-weight: 300;
   font-size: 1.125rem;

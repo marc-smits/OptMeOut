@@ -6,25 +6,29 @@
 /lib/csvImport/__pycache__
 lib/csvImport/__pycache__/*
 
+# Ignore Visual Code history files
+/.history
+
+# Ignore local test data
+/.test
+
+# Ignore dist build
 /dist
 /dist/*
 /dist_html
 
-/src/csv
-/src/csv/*
-
-# Ignore Visual Code history files
-/.history
-
+# Ignore the react build
 /src/react/vite.config.js
 /src/react/dist
 /src/react/node_modules
 
+# Do not commit the test CSV data (yet?)
+/src/csv
+/src/csv/*
+
+# Do not commit the language data (yet?)
 /phpApi/api/languages/
 /phpApi/api/languages/*
 
-/deploy_opt_me_out
-/deploy_opt_me_out/*
-
-/scripts/deploy.config
+# Never commit the payment tokens (secret)!
 /phpApi/paymentTokens.json

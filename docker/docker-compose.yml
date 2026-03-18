@@ -8,7 +8,7 @@ services:
       - ..:/build:delegated
 
   install_fe:
-    image: node:20-alpine
+    image: node:24-alpine
     working_dir: /build
     command: sh -c "npm ci && chmod -R 0777 *"
     restart: "no"
@@ -31,7 +31,7 @@ services:
       - ../phpApi/api:/build:delegated
 
   build:
-    image: node:20-alpine
+    image: node:24-alpine
     working_dir: /build
     command: sh -c "chmod +x docker/node-build-all-locales.sh && docker/node-build-all-locales.sh"
     restart: "no"
@@ -63,7 +63,7 @@ services:
         condition: service_completed_successfully
 
   react:
-    image: node:20-alpine
+    image: node:24-alpine
     working_dir: /app
     command: sh -c "npm ci && npm run dev -- --host 0.0.0.0 --port 5173 --debug"
     ports:
@@ -81,7 +81,7 @@ services:
         condition: service_completed_successfully
 
   web:
-    image: nginx:1.28-alpine
+    image: nginx:1.29-alpine
     ports:
       - "80:80"
     volumes:

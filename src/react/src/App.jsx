@@ -66,7 +66,6 @@ function App() {
     senderId: '',
     senderEmail: '',
     senderReverseEmail: '',
-    senderId: '',
     stayInformed: false,
     paymentChoice: '',
     orderNumber: '',

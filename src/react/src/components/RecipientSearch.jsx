@@ -61,7 +61,6 @@ function RecipientSearch(props) {
    *  Handle select 
    */
   const handleSelect = (address) => {
-
     let values = {
       'recipientOrganization': address['organization'],
       'recipientTitle': address['title'],
@@ -86,7 +85,6 @@ function RecipientSearch(props) {
         }
       }
     );
-
   };
 
   return (

@@ -1,17 +1,14 @@
-@import '/src/style/_theme.scss';
-@import '/src/style/_fonts.scss';
-@import '/src/style/_interactive.scss';
-@import '/src/style/_sections.scss';
-@import '/src/style/_forms.scss';
-@import '/src/style/_typography.scss';
-
-pre {
-  overflow-x: scroll;
-}
+@use '/src/style/_theme.scss' as *;
+@use '/src/style/_fonts.scss';
+@use '/src/style/_interactive.scss';
+@use '/src/style/_sections.scss';
+@use '/src/style/_forms.scss';
+@use '/src/style/_typography.scss';
 
 /*
 *   body & Layout
 */
+
 body {
   background-color: $lightGrey;
   margin: 0;
@@ -225,7 +222,10 @@ h1.headline {
   }
 }
 
-
 .listCountries .active {
   color:black !important;
+}
+
+pre {
+  overflow-x: scroll;
 }
