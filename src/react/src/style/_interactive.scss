@@ -1,10 +1,11 @@
-@use '/src/style/_theme.scss' as *;
+@use "/src/style/_theme.scss" as *;
 
 /*
 *   Interactive elements
 */
 
-.buttonsRow { /* might be converted to generic row & column later */
+.buttonsRow {
+  /* might be converted to generic row & column later */
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -13,18 +14,20 @@
 }
 
 .button {
-    font-weight: 400;
-    padding: 12px 25px;
-    background-color: #F0F0F0;
-    color: $black;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: color $durationDef, background-color $durationDef;
-    font-size: 1.125rem;
+  font-weight: 400;
+  padding: 12px 25px;
+  background-color: #f0f0f0;
+  color: $black;
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    color $durationDef,
+    background-color $durationDef;
+  font-size: 1.125rem;
 
-    &:hover {
-      color: $darkRed;
-    }
+  &:hover {
+    color: $darkRed;
+  }
 }
 
 .buttonDefault {
@@ -85,27 +88,30 @@
     display: inline-block;
   }
 
-  &.less::before { content: attr(data-less); }
+  &.less::before {
+    content: attr(data-less);
+  }
   &.less svg {
     transform: rotate(-180deg);
   }
 }
 
 .buttonClose {
-    background-color: yellow;
-    background-image: url("/src/assets/img/close.png");
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: right 0px;
-    padding-right: 20px;
-    padding-top: 0px;
-    margin-right: 1em;
-    margin-bottom: 1em;
-    cursor: pointer;
+  background-color: yellow;
+  background-image: url("/src/assets/img/close.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right 0px;
+  padding-right: 20px;
+  padding-top: 0px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  cursor: pointer;
 }
 
 /* In the menu */
-#headerLanguageSelect, #headerAbout {
+#headerLanguageSelect,
+#headerAbout {
   padding: 12px 14px;
   border: none;
   font-weight: 600;

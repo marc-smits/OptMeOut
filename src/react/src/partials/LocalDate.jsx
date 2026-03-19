@@ -15,11 +15,11 @@ import { useState, useEffect } from 'react';
 // Map browser locales to date-fns locales
 const localeMap = {
   'en-IE': () => import('date-fns/locale/en-IE'),
-  'fr-FR': () => import('date-fns/locale/fr'),
-  'de-DE': () => import('date-fns/locale/de'),
-  'es-ES': () => import('date-fns/locale/es'),
+  // 'fr-FR': () => import('date-fns/locale/fr'),
+  // 'de-DE': () => import('date-fns/locale/de'),
+  // 'es-ES': () => import('date-fns/locale/es'),
   'nl-NL': () => import('date-fns/locale/nl'),
-  //Add more if needed
+  // Add more if needed
 };
 
 // const LocalDate = ({localeCode}) => {

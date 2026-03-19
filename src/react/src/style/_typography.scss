@@ -1,4 +1,4 @@
-@use '/src/style/_theme.scss' as *;
+@use "/src/style/_theme.scss" as *;
 
 /*
 *   Typography
@@ -14,16 +14,19 @@ p {
 }
 
 a {
-    color: $red;
-    text-decoration: none;
+  color: $red;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 600;
   margin: 0 0 0.3em 0;
 }

@@ -12,7 +12,7 @@
 			if (locale === 'en_US') locale = 'en_GB';
 
 			// load UK English splash page if locale not found
-			if (!locales.includes(locale)) locale = '/en_GB/?section=splash';
+			if (!locales.includes(locale)) locale = '/en_GB/';
 
 			// Redirect to the localized page
 			window.location.href = locale;
@@ -20,6 +20,6 @@
 		</script>
 	</head>
 <body>
-	Redirecting to your local language... When not redirected, please visit the <a href="/en_GB/?section=splash">English language website</a> to select your country / language.
+	Redirecting to your local language... When not redirected, please visit the <a href="/en_GB/">English language website</a> to select your country / language.
 </body>
 </html>

@@ -1,20 +1,20 @@
 /* Common color codes */
 
-$red: #E71E24;
-$darkRed: #CE191F;
+$red: #e71e24;
+$darkRed: #ce191f;
 $black: #222222;
 $grey: #555555;
 // $mediumGrey: #CCCCCC;
 $lightGrey: #ccc;
 $veryLightGrey: #f7f7f7;
-$darkGreen: #65673C;
-$green: #B3B681;
-$lightGreen: #D3D5B7;
+$darkGreen: #65673c;
+$green: #b3b681;
+$lightGreen: #d3d5b7;
 $veryLightGreen: #ecede0;
-$darkYellow: #C09600;
-$yellow: #D1AA0A;
-$lightYellow: #F9E380;
-$veryLightYellow: #FDF7DC;
+$darkYellow: #c09600;
+$yellow: #d1aa0a;
+$lightYellow: #f9e380;
+$veryLightYellow: #fdf7dc;
 
 /* Break points */
 $bpSmall: 640px;
@@ -27,8 +27,12 @@ $durationLong: 2s;
 
 /* Animations */
 @keyframes fadeIn {
-  0%   {opacity: 0;}
-  100%  {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 // @keyframes expand {
