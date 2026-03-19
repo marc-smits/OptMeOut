@@ -1,17 +1,17 @@
 {
     "menu": {
-        "about": "about",
-        "locale": "EN"
+        "about": "Achtergrond",
+        "locale": "NL"
     },
     "button": {
-        "tellmemore": "NL Tell me more",
+        "tellmemore": "Vertel me meer",
         "OptMeOut": "OptMeOut",
         "readmore": {
-            "less": "NL less",
-            "more": "NL more"
+            "less": "minder",
+            "more": "meer"
         },
-        "back": "NL back",
-        "send": "NL Send it",
+        "back": "terug",
+        "send": "Verstuur",
         "finish": "NL Finish"
     },
     "page": {
@@ -21,7 +21,7 @@
             "button": "NL Select country"
         },
         "about": {
-            "title": "NL About",
+            "title": "Achtergrond",
             "0": {
                 "h": "NL I am am h1",
                 "p": {
