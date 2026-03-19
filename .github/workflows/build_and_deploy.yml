@@ -3,7 +3,7 @@ name: Build with Docker Compose & Deploy via SFTP
 
 on:
   push:
-    branches: [development, main, release]
+    branches: [development, main, live]
 
 concurrency:
   group: build-deploy-${{ github.ref }}
@@ -12,9 +12,9 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref == 'refs/heads/release' && 'production' || github.ref == 'refs/heads/main' && 'staging' || 'development' }}
+    environment: ${{ github.ref == 'refs/heads/live' && 'live' || github.ref == 'refs/heads/main' && 'staging' || 'development' }}
     env:
-      ENVIRONMENT: ${{ github.ref == 'refs/heads/release' && 'production' || github.ref == 'refs/heads/main' && 'staging' || 'development' }}
+      ENVIRONMENT: ${{ github.ref == 'refs/heads/live' && 'live' || github.ref == 'refs/heads/main' && 'staging' || 'development' }}
     steps:
       - name: Determine environment
         run: echo "Deploying to ${{ env.ENVIRONMENT }}"
@@ -51,7 +51,7 @@ jobs:
           USER: ${{ secrets.SITE_USERNAME }}
           PASS: ${{ secrets.SITE_PASSWORD }}
           SOURCE: dist_html
-          TARGET: optmeout.me/dev
+          TARGET: optmeout.me/${{ vars.SITE_FOLDER }}
         run: |
           lftp -u ${USER},${PASS} sftp://${HOST} <<EOF
           set sftp:connect-program "ssh -C -a -x -p 22"
