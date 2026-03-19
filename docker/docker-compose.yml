@@ -23,7 +23,7 @@ services:
       - ENVIRONMENT=${ENVIRONMENT:-local}
     command: >
       sh -c "case \"$ENVIRONMENT\" in
-        production|staging|development) composer install --no-progress -o --no-dev ;;
+        live|staging|development) composer install --no-progress -o --no-dev ;;
         *) composer install ;;
       esac && chmod -R 0777 *"
     restart: "no"
@@ -33,8 +33,10 @@ services:
   build:
     image: node:24-alpine
     working_dir: /build
-    command: sh -c "chmod +x docker/node-build-all-locales.sh && docker/node-build-all-locales.sh"
+    command: sh -c "chmod +x docker/node-build-all-locales.sh && docker/node-build-all-locales.sh ${ENVIRONMENT}"
     restart: "no"
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT:-local}
     volumes:
       - ..:/build:delegated
       - node_modules:/node_modules

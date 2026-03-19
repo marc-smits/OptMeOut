@@ -30,7 +30,7 @@ You can test that the API is installed by the following link http://localhost:80
 The build step will be executed by GitHub Actions. There is configuration for the following targets:
 - **local** - Not used by GitHub Actions, only for local development
 - **development** - Pushing to `development` branch deploys to: https://dev.optmeout.me/
-- **TODO: staging** - Pushing to `main` branch deploys to: https://staging.optmeout.me/
-- **TODO: production** - Pushing to `live` branch deploys to: https://www.optmeout.me/
+- **TODO: staging** - Pushing to `staging` branch deploys to: https://staging.optmeout.me/
+- **TODO: live** - Pushing to `live` branch deploys to: https://www.optmeout.me/
 
 Wanneer je een andere branch ook naar development wilt builden kun je deze toevoegen aan `github\workflows\build_and_deploy.yml`, onder `on > push > branches`

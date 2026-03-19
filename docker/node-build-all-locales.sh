@@ -8,7 +8,7 @@
 
 # Get the environment variable from first argument, or default to local
 ENVIRONMENT="${1}"
-case "$ENVIRONMENT" in local|development|staging|production) : ;;
+case "$ENVIRONMENT" in local|development|staging|live) : ;;
   *) ENVIRONMENT=local ;;
 esac
 
@@ -40,7 +40,13 @@ for DIR in */; do
     echo "##########"
     echo "Building";
     rm -rf dist
-    npm run build -- --debug
+    if [[ "$ENVIRONMENT" == "live" ]]; then
+      npm run build -- --mode production
+    elif [[ "$ENVIRONMENT" == "staging" ]]; then 
+      npm run build -- --mode staging
+    else
+      npm run build -- --mode development --debug
+    fi
 
     echo "##########"
     echo "Unlinking cached node_modules";

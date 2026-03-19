@@ -232,38 +232,41 @@ function App() {
       </div>
 
       {/* ==============   Debug data ================ */}
-      <div style={{ fontFamily: "monospace" }}>
-        CurrentSection: {currentSection} &nbsp;|&nbsp; Current step:{" "}
-        {currentStep} <br />
-        FormData:
-        <br />
-        recipientOrganization: {formData.recipientOrganization} &nbsp;|&nbsp;
-        recipientTitle: {formData.recipientTitle} &nbsp;|&nbsp;
-        recipientFirstName: {formData.recipientFirstName} &nbsp;|&nbsp;
-        recipientLastName: {formData.recipientLastName} &nbsp;|&nbsp;
-        customRecipient: {formData.customRecipient ? "checked" : "unchecked"}{" "}
-        &nbsp;|&nbsp; recipientAddress1: {formData.recipientAddress1}{" "}
-        &nbsp;|&nbsp; recipientAddress2: {formData.recipientAddress2}{" "}
-        &nbsp;|&nbsp; recipientCity: {formData.recipientCity} &nbsp;|&nbsp;
-        recipientCountry: {formData.recipientCountry} &nbsp;|&nbsp;
-        senderFirstName: {formData.senderFirstName} &nbsp;|&nbsp;
-        senderLastName: {formData.senderLastName} &nbsp;|&nbsp; senderAddress1:{" "}
-        {formData.senderAddress1} &nbsp;|&nbsp; senderAddress2:{" "}
-        {formData.senderAddress2} &nbsp;|&nbsp; senderCity:{" "}
-        {formData.senderCity} &nbsp;|&nbsp; senderCountry:{" "}
-        {formData.senderCountry} &nbsp;|&nbsp; senderPhone:{" "}
-        {formData.senderPhone} &nbsp;|&nbsp; senderBirthDate:{" "}
-        {formData.senderBirthDate} &nbsp;|&nbsp; senderId: {formData.senderId}{" "}
-        &nbsp;|&nbsp; senderBankId: &nbsp;|&nbsp; <br />
-        senderEmail: {formData.senderEmail} &nbsp;|&nbsp; senderReverseEmail:{" "}
-        {formData.senderReverseEmail} &nbsp;|&nbsp; paymentChoice:{" "}
-        {formData.paymentChoice} &nbsp;|&nbsp; orderNumber:{" "}
-        {formData.orderNumber} &nbsp;|&nbsp; stayInformed:{" "}
-        {formData.stayInformed ? "checked" : "unchecked"} &nbsp;|&nbsp; locale:{" "}
-        {formData.locale} &nbsp;|&nbsp; hasPaid:
-        {formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp; paymentToken:{" "}
-        {formData.paymentToken}
-      </div>
+      {__DEBUG__ && (
+        <div style={{ fontFamily: "monospace" }}>
+          CurrentSection: {currentSection} &nbsp;|&nbsp; Current step:{" "}
+          {currentStep} <br />
+          FormData:
+          <br />
+          recipientOrganization: {formData.recipientOrganization} &nbsp;|&nbsp;
+          recipientTitle: {formData.recipientTitle} &nbsp;|&nbsp;
+          recipientFirstName: {formData.recipientFirstName} &nbsp;|&nbsp;
+          recipientLastName: {formData.recipientLastName} &nbsp;|&nbsp;
+          customRecipient: {formData.customRecipient ? "checked" : "unchecked"}{" "}
+          &nbsp;|&nbsp; recipientAddress1: {formData.recipientAddress1}{" "}
+          &nbsp;|&nbsp; recipientAddress2: {formData.recipientAddress2}{" "}
+          &nbsp;|&nbsp; recipientCity: {formData.recipientCity} &nbsp;|&nbsp;
+          recipientCountry: {formData.recipientCountry} &nbsp;|&nbsp;
+          senderFirstName: {formData.senderFirstName} &nbsp;|&nbsp;
+          senderLastName: {formData.senderLastName} &nbsp;|&nbsp; senderAddress1:{" "}
+          {formData.senderAddress1} &nbsp;|&nbsp; senderAddress2:{" "}
+          {formData.senderAddress2} &nbsp;|&nbsp; senderCity:{" "}
+          {formData.senderCity} &nbsp;|&nbsp; senderCountry:{" "}
+          {formData.senderCountry} &nbsp;|&nbsp; senderPhone:{" "}
+          {formData.senderPhone} &nbsp;|&nbsp; senderBirthDate:{" "}
+          {formData.senderBirthDate} &nbsp;|&nbsp; senderId: {formData.senderId}{" "}
+          &nbsp;|&nbsp; senderBankId: &nbsp;|&nbsp; <br />
+          senderEmail: {formData.senderEmail} &nbsp;|&nbsp; senderReverseEmail:{" "}
+          {formData.senderReverseEmail} &nbsp;|&nbsp; paymentChoice:{" "}
+          {formData.paymentChoice} &nbsp;|&nbsp; orderNumber:{" "}
+          {formData.orderNumber} &nbsp;|&nbsp; stayInformed:{" "}
+          {formData.stayInformed ? "checked" : "unchecked"} &nbsp;|&nbsp; locale:{" "}
+          {formData.locale} &nbsp;|&nbsp; hasPaid:
+          {formData.hasPaid ? "true" : "false"} &nbsp;|&nbsp; paymentToken:{" "}
+          {formData.paymentToken}
+        </div>
+      )}
+
     </>
   );
 }

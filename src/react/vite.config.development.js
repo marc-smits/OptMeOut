@@ -5,16 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: './',
   plugins: [react()],
-  server: {
-    // Translate all local /api calls to http://phpApi only locally in dev mode
-    proxy: {
-      '/api': {
-        target: 'http://phpApi',
-        changeOrigin: true,
-        secure: false,
-      }
-    },
-  },
   build: {
     minify: false,
     sourcemap: true,

@@ -208,7 +208,12 @@ function Step1(props) {
           </div>
         </div>
       )}
-      setOptOut :{setOptOut}
+
+      {/* DEBUG */}
+      {__DEBUG__ && (
+        <span>setOptOut: {setOptOut}</span>
+      )}
+
     </div>
   );
 }
