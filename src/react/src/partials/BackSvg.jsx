@@ -1,0 +1,19 @@
+/*-------------------------------------------------------------------
+|  Function BackSvg
+|
+|  Purpose: Put an SVG image inline in the HTML, so we can style it in CSS
+|
+|  Returns:  OBJECT
+*-------------------------------------------------------------------*/
+
+function BackSvg() {
+    return (
+        <>
+         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.875 13.6969L7.875 -4.86836e-07L10.125 -3.7865e-07L10.125 13.6969L16.425 7.39688L18 9L9 18L-3.57639e-07 9L1.575 7.39688L7.875 13.6969Z" fill="currentcolor"></path>
+        </svg>
+        </>
+
+    )
+}
+export default BackSvg

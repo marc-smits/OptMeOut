@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>OptMeOut - Redirecting...</title>
+		<script type="text/javascript">
+
+			// Available locales
+			let locales = [ [[LANGUAGE_CODES]] ];
+			let locale = navigator.language;
+			locale = locale.replace("-", "_")
+
+			// US/international English uses UK English
+			if (locale === 'en_US') locale = 'en_GB';
+
+			// load UK English splash page if locale not found
+			if (!locales.includes(locale)) locale = '/en_GB/';
+
+			// Redirect to the localized page
+			window.location.href = locale;
+
+		</script>
+	</head>
+<body>
+	Redirecting to your local language... When not redirected, please visit the <a href="/en_GB/">English language website</a> to select your country / language.
+</body>
+</html>

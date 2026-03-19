@@ -1,0 +1,54 @@
+/* Common color codes */
+
+$red: #e71e24;
+$darkRed: #ce191f;
+$black: #222222;
+$grey: #555555;
+// $mediumGrey: #CCCCCC;
+$lightGrey: #ccc;
+$veryLightGrey: #f7f7f7;
+$darkGreen: #65673c;
+$green: #b3b681;
+$lightGreen: #d3d5b7;
+$veryLightGreen: #ecede0;
+$darkYellow: #c09600;
+$yellow: #d1aa0a;
+$lightYellow: #f9e380;
+$veryLightYellow: #fdf7dc;
+
+/* Break points */
+$bpSmall: 640px;
+$bpMedium: 768px;
+$bpLarge: 980px;
+
+/* Transition times */
+$durationDef: 0.3s;
+$durationLong: 2s;
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// @keyframes expand {
+//   0%   {display: initial; max-height: 0; opacity: 1; color: green;}
+//   80%  {opacity: 1;}
+//   100%  {max-height: 500px; opacity: 1; color: blue;}
+// }
+
+/* Mixins */
+@mixin collapse {
+  max-height: 0;
+  opacity: 0;
+}
+
+@mixin expand {
+  max-height: max-content;
+  opacity: 1;
+  transition: opacity 0.8s;
+}

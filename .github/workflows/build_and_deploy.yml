@@ -1,0 +1,70 @@
+# .github/workflows/build-and-deploy.yml
+name: Build with Docker Compose & Deploy via SFTP
+
+on:
+  push:
+    branches: [development, staging, live]
+
+concurrency:
+  group: build-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/live' && 'live' || github.ref == 'refs/heads/staging' && 'staging' || 'development' }}
+    env:
+      ENVIRONMENT: ${{ github.ref == 'refs/heads/live' && 'live' || github.ref == 'refs/heads/staging' && 'staging' || 'development' }}
+    steps:
+      - name: Determine environment
+        run: echo "Deploying to ${{ env.ENVIRONMENT }}"
+
+      - name: Dump Github context
+        run: |
+          echo "=== SECRETS CONTEXT (names only) ==="
+          echo '${{ toJSON(secrets) }}'
+          echo "=== VARS CONTEXT ==="
+          echo '${{ toJSON(vars) }}'
+          echo "=== ENV VARS ==="
+          env | sort
+
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Build with Docker Compose
+        run: cd docker && chmod +x build.sh node-build-all-locales.sh && ./build.sh && cd ..
+
+      - name: Combine FE with BE API (just copy for now)
+        run: cp -rf phpApi/api dist_html/api
+
+      - name: Disable man_db updates (slows apt-get install)
+        run: echo "set man-db/auto-update false" | sudo debconf-communicate && sudo dpkg-reconfigure man-db
+
+      - name: Install LFTP client
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via SFTP
+        env:
+          HOST: ${{ secrets.SITE_SERVER }}
+          USER: ${{ secrets.SITE_USERNAME }}
+          PASS: ${{ secrets.SITE_PASSWORD }}
+          SOURCE: dist_html
+          TARGET: optmeout.me/${{ vars.SITE_FOLDER }}
+        run: |
+          lftp -u ${USER},${PASS} sftp://${HOST} <<EOF
+          set sftp:connect-program "ssh -C -a -x -p 22"
+          set sftp:auto-confirm yes
+          set net:timeout 30
+          set net:max-retries 3
+          set net:reconnect-interval-base 3
+          set net:socket-buffer 1048576
+          set mirror:use-pget-n 16
+          mirror -R ${SOURCE} ${TARGET} \
+            --reverse \
+            --parallel=16 \
+            --use-pget-n=16 \
+            --only-newer \
+            --continue \
+            --delete \
+          bye
+          EOF

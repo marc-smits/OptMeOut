@@ -1,0 +1,152 @@
+@use "/src/style/_theme.scss" as *;
+
+/*
+*   Forms
+*/
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.fieldset {
+  margin-bottom: 1.5em;
+}
+
+label {
+  display: block;
+  margin: 0 0.5em 0.3em 0;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 0 0 auto;
+}
+
+input,
+select,
+textarea,
+button {
+  background: $veryLightGrey;
+  color: $grey;
+  font-style: italic;
+  font-weight: 400;
+  max-width: 460px;
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1.5em;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.125rem;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  margin: 0;
+}
+
+input:disabled {
+  color: green;
+}
+
+input[name="senderId"] {
+  width: 5em;
+  text-align: center;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: $black;
+}
+
+input[type="checkbox"] {
+  transform: translateY(4px);
+  margin: 0px 10px 0 0;
+}
+
+input[type="checkbox"]:checked {
+  &::after {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 20px;
+    height: 20px;
+    font-size: 1.2em;
+    color: #fff;
+  }
+}
+
+/* Hide the spin buttons in WebKit browsers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide spin buttons in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  color: $grey;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+  color: $grey;
+}
+
+input:focus::placeholder {
+  opacity: 0;
+}
+
+input::placeholder {
+  color: #888;
+}
+
+input[type="text"]:first-child {
+  margin-top: -1.5em;
+  transform: translateY(-5px);
+}
+
+button {
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Errors */
+.label {
+  /* contains inputError */
+  display: flex;
+  justify-content: flex-start;
+  max-width: 460px;
+  flex-wrap: wrap;
+}
+
+label.isInvalid {
+  color: $red;
+}
+
+.inputError {
+  // margin: 0 0 6px 0;
+  flex: 0 0 auto;
+  color: $red;
+  font-size: 0.8em;
+  padding: 5px 0;
+}
+
+input.isInvalid {
+  // background-color: #fde8e9;
+  border: 1px solid $red;
+}

@@ -1,0 +1,79 @@
+@use "/src/style/_theme.scss" as *;
+
+/*
+*   Typography
+*/
+
+p {
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.5em;
+  color: $black;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+a {
+  color: $red;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  margin: 0 0 0.3em 0;
+}
+
+h1 {
+  font-size: 1.875rem;
+  line-height: 1.2em;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 30px;
+
+  @media only screen and (min-width: $bpSmall) {
+    font-size: 2.25rem;
+  }
+}
+
+h2 {
+  font-size: 1.125rem;
+
+  @media only screen and (min-width: $bpSmall) {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+em {
+  font-weight: 600;
+  color: $red;
+  font-style: normal;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  &:before {
+    content: "-";
+    margin-right: 10px;
+  }
+}
+
+strong {
+  font-weight: 600;
+}

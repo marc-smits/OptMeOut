@@ -1,0 +1,247 @@
+@use "/src/style/_theme.scss" as *;
+@use "/src/style/_fonts.scss";
+@use "/src/style/_interactive.scss";
+@use "/src/style/_sections.scss";
+@use "/src/style/_forms.scss";
+@use "/src/style/_typography.scss";
+
+/*
+*   body & Layout
+*/
+
+body {
+  background-color: $lightGrey;
+  margin: 0;
+  place-items: center;
+  background-image: url("/src/assets/img/bgr.svg");
+  background-color: $veryLightGreen;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: "Poppins", serif;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 50%;
+  min-height: 500px;
+  margin: 25px auto;
+  padding: 0 0 30px 0;
+  width: 100%;
+  background: #fff;
+
+  @media only screen and (min-width: $bpSmall) {
+    max-width: calc(100% - 40px);
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    max-width: calc(100% - 68px);
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    max-width: 940px;
+  }
+}
+
+header {
+  margin: 0 0 50px 0;
+  padding: 25px 30px;
+  background-image: url("/src/assets/img/logoWide.svg");
+  background-repeat: no-repeat;
+  background-size: 300px;
+  height: 140px;
+  background-position: center bottom;
+
+  @media only screen and (min-width: $bpMedium) {
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    background-size: 400px;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+.row {
+  margin: 0 0 50px 0;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 2.125% 50px 2.125%;
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 4.25% 50px 4.25%;
+  }
+}
+
+.col-10 {
+  /* 10 Columns */
+  margin: 0 10px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 2.125%;
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 4.25%;
+  }
+}
+
+.col-8 {
+  /* 10 Columns */
+  margin: 0 10px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 4.25%;
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 2.125%;
+  }
+
+  @media only screen and (min-width: $bpLarge) {
+    margin: 0 14%;
+  }
+}
+
+/*
+*   Helper classes
+*/
+.flex {
+  &-start {
+    display: flex;
+    clear: both;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  &-end {
+    display: flex;
+    clear: both;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+
+  &-center {
+    display: flex;
+    clear: both;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+/*
+*   Special elements
+*/
+h1.headline {
+  margin-left: 0 10px;
+
+  @media only screen and (min-width: $bpSmall) {
+    margin: 0 4.25%;
+  }
+
+  @media only screen and (min-width: $bpMedium) {
+    margin: 0 2.125%;
+  }
+}
+
+.intro {
+  font-size: 1.125rem;
+  line-height: 1.5em;
+  color: $grey;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 50px;
+
+  @media only screen and (min-width: $bpSmall) {
+    font-size: 1.5rem;
+  }
+}
+
+.readMore {
+  overflow: hidden;
+  @include collapse;
+
+  &.show {
+    @include expand;
+  }
+
+  /* temporary until content is placed correctly */
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: $black;
+}
+
+.progress {
+  text-align: center;
+  background-repeat: no-repeat;
+  width: 229px;
+  margin: 30px auto;
+
+  &.bar1 {
+    background-image: url("/src/assets/img/step1.svg");
+  }
+  &.bar2 {
+    background-image: url("/src/assets/img/step2.svg");
+  }
+  &.bar3 {
+    background-image: url("/src/assets/img/step3.svg");
+  }
+}
+
+.notification {
+  background-color: $yellow;
+  background-image: url("/src/assets/img/icon_lightbulb.svg");
+  background-size: 35px 35px;
+  background-position: right 20px top 25px;
+  background-repeat: no-repeat;
+  padding: 20px calc(35px + 3.22%) 1px 3.22%;
+  margin-bottom: 30px;
+
+  p,
+  h2 {
+    color: #fff;
+  }
+}
+
+.listCountries .active {
+  color: black !important;
+}
+
+pre {
+  overflow-x: scroll;
+}

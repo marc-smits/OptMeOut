@@ -1,0 +1,7 @@
+/.idea
+/.idea/*
+/.idea/phpunit.xml
+.env
+.env.testing
+.phpunit.result.cache
+paymentTokens.json

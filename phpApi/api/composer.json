@@ -1,0 +1,21 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "App/",
+      "Tests\\": "Tests/"
+    }
+  },
+  "require": {
+    "fpdf/fpdf": "^1.86",
+    "respect/relational": "^0.8.1",
+    "php": ">=8.2.10",
+    "phpmailer/phpmailer": "^6.11",
+    "laposta/laposta-api-php": "^2.0",
+    "mollie/mollie-api-php": "^3.4"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "phpunit/phpunit": "^8",
+    "phpstan/phpstan": "^1.10"
+  }
+}

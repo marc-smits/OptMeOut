@@ -1,0 +1,16 @@
+# to ruiild, stop and delte this container and run
+# > docker-compose build --no-cache
+# > docker-compose up -d
+FROM php:8.2-fpm
+
+COPY ./.docker/php/php.ini /usr/local/etc/php/
+COPY ./.docker/php/docker.conf /usr/local/etc/php-fpm.d/docker.conf
+COPY ./.docker/php/.bashrc /root/
+
+
+
+EXPOSE 5173
+WORKDIR /var/www
+CMD [ "php", "./laposta.php"]   
+
+ 

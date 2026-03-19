@@ -1,0 +1,7 @@
+/api/pdf
+/api/pdf/*
+/api/.env
+
+# Exclude the vendor packages, it is installed with Composer during Docker build
+/api/vendor
+/api/vendor/*

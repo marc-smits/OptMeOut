@@ -1,0 +1,170 @@
+@use "/src/style/_theme.scss" as *;
+
+/*
+*   Interactive elements
+*/
+
+.buttonsRow {
+  /* might be converted to generic row & column later */
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: pink;
+}
+
+.button {
+  font-weight: 400;
+  padding: 12px 25px;
+  background-color: #f0f0f0;
+  color: $black;
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    color $durationDef,
+    background-color $durationDef;
+  font-size: 1.125rem;
+
+  &:hover {
+    color: $darkRed;
+  }
+}
+
+.buttonDefault {
+  border: 1px solid $black;
+
+  &:hover {
+    color: $darkRed;
+  }
+}
+
+.buttonTellMeMore,
+.buttonBack {
+  &:hover {
+    color: $darkRed;
+  }
+}
+
+.buttonTellMeMore {
+  svg {
+    margin-left: 10px;
+    transform: translateY(3px);
+  }
+}
+
+.buttonBack {
+  svg {
+    margin-right: 10px;
+    transform: translateY(3px) rotate(90deg);
+  }
+}
+
+.buttonOptMeOut {
+  color: #fff;
+  background-color: $red;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 7px 22px;
+
+  &:hover {
+    background-color: $darkRed;
+    color: #fff;
+  }
+}
+
+.buttonOptMeOut:disabled,
+.buttonOptMeOut[disabled] {
+  background-color: $lightGrey;
+  cursor: default;
+}
+
+.buttonMore {
+  text-align: right;
+
+  &::before {
+    content: attr(data-more);
+    margin-right: 0.5em;
+    transform: translateY(-2px);
+    display: inline-block;
+  }
+
+  &.less::before {
+    content: attr(data-less);
+  }
+  &.less svg {
+    transform: rotate(-180deg);
+  }
+}
+
+.buttonClose {
+  background-color: yellow;
+  background-image: url("/src/assets/img/close.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right 0px;
+  padding-right: 20px;
+  padding-top: 0px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+/* In the menu */
+#headerLanguageSelect,
+#headerAbout {
+  padding: 12px 14px;
+  border: none;
+  font-weight: 600;
+}
+
+#headerAbout {
+  color: $green;
+
+  &:hover {
+    color: $darkGreen;
+  }
+}
+
+#headerLanguageSelect {
+  background-color: $green;
+  color: #fff;
+
+  &:hover {
+    background-color: $darkGreen;
+  }
+}
+
+/* Checkbox */
+.checkBox {
+  height: 34px;
+  width: 80px;
+  background-repeat: no-repeat;
+  background-image: url("/src/assets/img/toggleNo.svg");
+  position: relative;
+  cursor: pointer;
+  transition: background-image 0.2s;
+  transition-delay: 0.1s;
+
+  &.checked {
+    background-image: url("/src/assets/img/toggleYes.svg");
+    transition: background-image 0.2s;
+    transition-delay: 0.1s;
+
+    .checkBoxSlider {
+      transform: translateX(46px);
+      transition: transform 0.15s;
+    }
+  }
+}
+
+.checkBoxSlider {
+  height: 30px;
+  width: 30px;
+  background: #fff;
+  position: absolute;
+  border-radius: 15px;
+  top: 2px;
+  left: 2px;
+  transform: translateX(0);
+  transition: transform $durationDef;
+}

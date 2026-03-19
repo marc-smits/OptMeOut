@@ -1,0 +1,232 @@
+@use "/src/style/_theme.scss" as *;
+
+/*
+*   Section specific
+*/
+
+/* Step 1 */
+#step1 {
+  .optOutToggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+
+    h2 {
+      margin: 0;
+      flex: 0 20 auto;
+    }
+  }
+
+  .pleaseNote * {
+    color: $darkGreen !important;
+  }
+
+  .pleaseNote p {
+    font-size: 1em;
+  }
+}
+
+/* Splash screens & other pages */
+#about {
+}
+
+/* Country Select */
+#countrySelect {
+  .listCountries {
+    flex: 1 1 auto;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    color: #a6a6a6;
+
+    .active {
+      cursor: pointer;
+      color: $black;
+
+      &:hover {
+        color: $darkRed;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Step 4 */
+#step4 {
+  .letter {
+    background-color: $veryLightGreen;
+
+    padding: 30px 10px 0 10px;
+    border: 1px solid $lightGreen;
+
+    @media only screen and (min-width: $bpSmall) {
+      padding: 30px 2.15% 0 2.15%;
+    }
+
+    @media only screen and (min-width: $bpMedium) {
+      padding: 30px 4.3% 0 4.3%;
+    }
+
+    p {
+      font-size: 1em;
+    }
+
+    position: relative;
+    .buttonMore {
+      background: #fff;
+      border: 1px solid $lightGreen;
+      position: absolute;
+      right: 5px;
+      bottom: -42px;
+      z-index: 0;
+      height: 40px;
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: 40px;
+    }
+  }
+
+  .letterAddress {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 11em;
+    margin-bottom: 3em;
+
+    .sender,
+    .recipient {
+      align-self: flex-end;
+    }
+  }
+
+  .letterMeta {
+    margin-bottom: 2em;
+  }
+
+  .letterBody {
+    margin-bottom: 50px;
+    max-height: auto;
+
+    &.readLess {
+      max-height: 100px;
+      margin-bottom: 0;
+      overflow-y: hidden;
+    }
+  }
+
+  .donateOption {
+    flex: 0 0 auto;
+    width: 140px;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: $bpSmall) {
+      flex-wrap: nowrap;
+    }
+
+    &[data-selected="true"] {
+      .buttonDonate {
+        background: $yellow;
+      }
+      color: $yellow;
+    }
+
+    &:hover {
+      .buttonDonate {
+        background: $darkYellow;
+      }
+      color: $darkYellow;
+    }
+  }
+
+  .buttonDonate {
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    background: $black;
+  }
+
+  .donateLabel {
+    margin: 10px 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5em;
+  }
+}
+
+/* Step 6 */
+.social {
+  .social-inner {
+    margin: 0 auto;
+  }
+
+  ul {
+    margin: 20px 0;
+    display: flex;
+    clear: both;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: $bpSmall) {
+      justify-content: center;
+    }
+  }
+
+  a {
+    display: inline-block;
+
+    &:hover {
+      text-decoration: none;
+
+      .socialIcon svg {
+        transition: background-color $durationDef;
+        background: $red;
+        color: #fff;
+      }
+
+      .socialName {
+        color: $red;
+      }
+    }
+  }
+
+  li:before {
+    content: none;
+  }
+
+  .socialIcon svg {
+    display: block;
+    margin: 0 auto 10px auto;
+    background: $veryLightGrey;
+    padding: 6px 30px;
+    border-radius: 30px;
+    width: auto;
+    height: 24px;
+    color: $black;
+  }
+
+  .socialName {
+    display: block;
+    font-size: 0.9rem;
+    max-width: 100px;
+    text-align: center;
+    color: $black;
+  }
+
+  .socialName[data-copied="true"] {
+    animation-name: fadeIn;
+    animation-duration: 0.8s;
+  }
+}
